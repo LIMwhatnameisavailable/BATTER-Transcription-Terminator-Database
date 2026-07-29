@@ -1,0 +1,49 @@
+PMID,Species,Journal_Year,Database,Accession_Number,Data_Type,Notes
+29606352,"Escherichia coli MG1655, Bacillus subtilis 168, Vibrio natriegens, Caulobacter vibrioides NA1000",Cell 2018,GEO,GSE95211,"Rend-seq, ribosome profiling (21 samples)",GEO SuperSeries covering all 4 species; 18 Rend-seq + 3 ribosome profiling
+29606352,"Escherichia coli MG1655, Bacillus subtilis 168, Vibrio natriegens, Caulobacter vibrioides NA1000",Cell 2018,GitHub,https://github.com/jblalanne/Rend_seq_core_scripts,Core analysis scripts,
+29606352,"Escherichia coli MG1655, Bacillus subtilis 168, Vibrio natriegens, Caulobacter vibrioides NA1000",Cell 2018,Mendeley,10.17632/ncm3s3pk2t.1,Supplementary validation data,
+30517198,Streptococcus pneumoniae TIGR4,PLoS Pathog 2018,SRA,SRP136114,"RNA-seq, term-seq, 5' end-seq",
+31555254,Streptomyces lividans TK24,Front Microbiol 2019,ENA,PRJEB31507,"dRNA-seq, Term-seq, RNA-seq, Ribo-Seq",原文存在重复笔误; 推测第一个应为dRNA-seq
+31594819,Pseudomonas aeruginosa PAO1,mBio 2019,ENA,PRJEB31965,"RNA-seq, term-seq",与PMID 37402717复用的数据一致
+32694125,Zymomonas mobilis ZM4,mSystems 2020,GEO,GSE139939,"RNA-seq, TSS-seq, term-seq, ribo-seq","GEO SuperSeries: RNA-seq, TSS-seq, term-seq, ribo-seq 多组学数据"
+32694125,Zymomonas mobilis ZM4,mSystems 2020,PRIDE,PXD016962,Proteomics,
+32694125,Zymomonas mobilis ZM4,mSystems 2020,GitHub,https://github.com/jmvera255/Vera_2020_mSystems,Analysis code,
+33319794,Streptomyces avermitilis,Sci Data 2020,SRA,SRP158023,"dRNA-seq, Term-seq, RNA-seq",Three data types share one accession
+33319794,Streptomyces clavuligerus,Sci Data 2020,SRA,SRP188290,"dRNA-seq, RNA-seq",
+33319794,Streptomyces clavuligerus,Sci Data 2020,SRA,SRX6937123,Term-seq,Independent accession for term-seq
+33319794,Streptomyces clavuligerus,Sci Data 2020,SRA,SRX6937124,Term-seq,Independent accession for term-seq
+33319794,Streptomyces tsukubaensis,Sci Data 2020,SRA,SRP103795,"dRNA-seq, RNA-seq",
+33319794,Streptomyces tsukubaensis,Sci Data 2020,ENA,PRJEB36379,Term-seq,Shared with S. venezuelae
+33319794,Streptomyces coelicolor,Sci Data 2020,ENA,PRJEB40918,Term-seq,Shared with S. griseus
+33319794,Streptomyces coelicolor,Sci Data 2020,SRA,SRP058830,RNA-seq,
+33319794,Streptomyces griseus,Sci Data 2020,ENA,PRJEB40918,"dRNA-seq, Term-seq, RNA-seq",All data types share one accession
+33319794,Streptomyces lividans,Sci Data 2020,ENA,PRJEB31507,"dRNA-seq, Term-seq, RNA-seq",All data types share one accession
+33319794,Streptomyces venezuelae,Sci Data 2020,ENA,PRJEB36379,"dRNA-seq, Term-seq",
+33319794,Streptomyces venezuelae,Sci Data 2020,ENA,PRJEB34219,RNA-seq,
+33319794,Streptomyces spp. (7 species),Sci Data 2020,Figshare,10.6084/m9.figshare.13259393,Processed TSS/TTS coordinates,已确认为期刊标准化元数据摘要（human-readable CSV + machine-readable JSON），非真实TSS/TTS坐标数据。真实坐标应以对应物种的SRA/ENA原始测序登录号为准。
+33947798,Streptomyces clavuligerus,mSystems 2021,GenBank,CP027858,Genome sequence,
+33947798,Streptomyces clavuligerus,mSystems 2021,GenBank,CP027859,Genome sequence,
+33947798,Streptomyces clavuligerus,mSystems 2021,GEO,GSE128216,"RNA-seq, dRNA-seq, ribo-seq","RNA-seq, dRNA-seq, ribo-seq 三组数据共用此登录号"
+33947798,Streptomyces clavuligerus,mSystems 2021,GEO,GSE138325,Term-seq,独立登录号，仅含 term-seq 数据
+34054774,Synechocystis sp. PCC 7338,Front Microbiol 2021,BioProject,PRJNA629670,"genome-seq, RNA-seq, dRNA-seq, Term-seq",
+34874777,Synechocystis sp. PCC 6803,mSystems 2021,BioProject,PRJNA666973,"RNA-seq, Ribo-seq, Term-seq",
+35491820,Dickeya dadantii 3937,mBio 2022,GenBank,NC_014500.1,Reference genome,
+35491820,Dickeya dadantii 3937,mBio 2022,ArrayExpress,E-MTAB-7650,RNA-seq,
+35491820,Dickeya dadantii 3937,mBio 2022,ArrayExpress,E-MTAB-541,In vitro microarray,In vitro microarray 数据，补充了转录组层面的体外验证
+35491820,Dickeya dadantii 3937,mBio 2022,ArrayExpress,E-MTAB-10482,Nanopore sequencing,
+35491820,Dickeya dadantii 3937,mBio 2022,ArrayExpress,E-MTAB-9075,dRNA-seq,
+35491820,Dickeya dadantii 3937,mBio 2022,GEO,GSE94713,In planta microarray,
+37402717,Borreliella burgdorferi B31,Nat Commun 2023,GEO,GSE222088,GEO SuperSeries,Contains 4 SubSeries: GSE222084-87
+37402717,Borreliella burgdorferi B31,Nat Commun 2023,GEO,GSE222084,Bulk RNA-seq,
+37402717,Borreliella burgdorferi B31,Nat Commun 2023,GEO,GSE222085,BCM RNA-seq,对应Table S3的Rho抑制数据
+37402717,Borreliella burgdorferi B31,Nat Commun 2023,GEO,GSE222086,SPD RNA-seq,
+37402717,Borreliella burgdorferi B31,Nat Commun 2023,GEO,GSE222087,3'RNA-seq / Term-seq,对应Table S1的常规3'端数据
+37402717,Borreliella burgdorferi B31,Nat Commun 2023,Figshare,10.6084/m9.figshare.22569205,Original figures,"NICHD自建基因组浏览器另有4个轨道数据URL, 见原文"
+37402717,Escherichia coli (reused data),Nat Commun 2023,BioProject,PRJNA640168,Reused external data,PMID 37402717复用的外部数据
+37402717,Pseudomonas aeruginosa (reused data),Nat Commun 2023,ENA,PRJEB31965,Reused external data,PMID 37402717复用的外部数据（ERR3258013-15）
+37402717,Bacillus subtilis (reused data),Nat Commun 2023,ENA,PRJEB12568,Reused external data,PMID 37402717复用的外部数据（4个ERS登录号）
+37096044,Mycobacterium tuberculosis H37Rv,iScience 2023,ArrayExpress,E-MTAB-11753,RNA-seq,
+37096044,Mycobacterium tuberculosis H37Rv,iScience 2023,GitHub,https://github.com/ppolg/Mtb_termseq,Analysis code,
+38030608,Escherichia coli str. K-12 MG1655,Nat Commun 2023,ArrayExpress,E-MTAB-12429,"RNAtag-seq, term-seq","本研究自产数据。作者已在Supplementary Data 2（1,486个3'端终止子，含Chromosome/Strand/Start/End/Signal等字段）和Supplementary Data 3（LB/EG条件下RNAtag-seq/Term-seq四组数据集，含二级结构自由能预测）中提供处理好的终止子坐标，可直接用于数据库构建，无需重新下载FASTQ分析。"
+38030608,Escherichia coli str. K-12 MG1655,Nat Commun 2023,GitHub,https://github.com/amirbarHUJI/TRS,Algorithm implementation,TRS算法实现代码。Supplementary Data 1（MOESM4）中另有复用文献登录号索引（19条），涵盖Listeria/Klebsiella/Salmonella/Shigella/ETEC/EPEC等方法学验证数据，与本项目Table S1的13篇文献无重叠。
+38030608,Escherichia coli str. K-12 MG1655 (and other species),Nat Commun 2023,Nature Communications Supplementary Data,MOESM4 (Supplementary Data 1),外部复用文献登录号索引（19条）,涵盖Listeria/Klebsiella/Salmonella/Shigella/ETEC/EPEC等方法学验证数据，均为Bar et al.复用的外部文献数据，与本项目Table S1的13篇文献无重叠，无需新增独立条目。
