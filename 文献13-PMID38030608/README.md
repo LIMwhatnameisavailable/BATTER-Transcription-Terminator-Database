@@ -5,7 +5,7 @@ Bar et al. (2023), *Nat Commun*, 14(1):7843. DOI: 10.1038/s41467-023-43534-2
 自产 RNAtag-seq/term-seq 数据：ArrayExpress E-MTAB-12429；算法实现：GitHub amirbarHUJI/TRS；Supplementary Data 1–5 见本文件夹。
 
 文献核查报告
-PMID: 38030638（Nature Communications 2023, 14:7843）
+PMID: 38030608（Nature Communications 2023, 14:7843）
 物种: 主要为 Escherichia coli K-12 MG1655（另涉及EPEC、ETEC、Salmonella enterica、Klebsiella pneumoniae、Shigella flexneri、Listeria monocytogenes等多种细菌的公开数据再分析）
 期刊/年份: Nature Communications, 2023
 
