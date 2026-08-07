@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>方法与局限 —— BTED 演示站点</title>
+  <meta name="description" content="BTED 演示站点的方法说明：数据来源、当前标准化阶段、证据分层待定状态、外部 BTED 状态待核实、排除项与可复现性。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="site-title"><a href="index.html">BTED 演示站点</a> <span class="tag">骨架阶段 · 无科学结论</span></p>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="catalog.html">数据目录</a>
+        <a href="methodology.html" aria-current="page">方法与局限</a>
+        <a href="about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>方法与局限</h1>
+    <p class="lede">本页说明本站数据的来源方式、项目当前所处阶段，以及在本阶段刻意排除的内容。</p>
+
+    <section id="data-source">
+      <h2>数据来源</h2>
+      <p>本站展示的全部元数据来自<strong>已公开发表文献的补充材料及其公开数据仓库记录</strong>。13 篇来源文献的数据库登录号已逐篇对照 PubMed Data Availability 声明人工核查，汇总于仓库根目录的 <code>accession_list_verified.csv</code>；<a href="catalog.html">数据目录</a>页即由该文件派生。</p>
+      <p>原始测序数据保留在 GEO、SRA、ENA、ArrayExpress、PRIDE、Figshare 等公开仓库。本站仅提供指向这些仓库的链接，不复制、不再分发任何原始测序文件或出版商工作簿。</p>
+    </section>
+
+    <section id="stage">
+      <h2>当前阶段：标准化进行中</h2>
+      <p>项目已完成信息核查，目前处于<strong>数据格式标准化与数据库构建阶段</strong>。以下事项尚未定稿，因此本站不展示相应内容：</p>
+      <ul>
+        <li><strong>坐标体系约定：</strong>0-base 还是 1-base、单点还是区间，尚未确定。</li>
+        <li><strong>参考基因组版本对齐：</strong>逐来源的参考基因组版本尚未完成核对，因此目录页暂不展示基因组序列登录号。</li>
+        <li><strong>记录级证据分层：</strong>证据类别定义（SOP）尚未完成评审。在此之前，本站不展示任何证据类别标签，也不会把仅预测或混合来源的记录标注为实验终点。</li>
+        <li><strong>统一元数据 schema：</strong>记录级元数据字段规范待评审，获批后才会生成完整的记录级目录。</li>
+      </ul>
+    </section>
+
+    <section id="external-bted">
+      <h2>外部 BTED 状态：待核实</h2>
+      <p>据报告，本仓库之外存在一个新版 BTED 工作树，据称包含 22 来源注册表、逐来源清单、证据分层 SOP、标准化坐标输出、JBrowse 资源、逐来源处理记录与回归测试套件。<strong>该工作树当前无法访问，上述内容全部未经一手核实（待核实）。</strong></p>
+      <p>在该工作树（或其导出）可供检查、且相应资产通过评审之前，本站不包含来自该工作树的任何内容，也不为其放置占位链接。</p>
+    </section>
+
+    <section id="exclusions">
+      <h2>本站刻意排除的内容</h2>
+      <ul>
+        <li>原始测序文件（FASTQ 等）及任何大型原始数据 —— 只链接，不复制。</li>
+        <li>出版商补充材料工作簿（xlsx 等）—— 按来源以文献引用，不复制进站点。</li>
+        <li>标准化坐标数据集与 JBrowse 配置/轨道 —— 在验收门槛通过并核实资产之前一律缓建。</li>
+        <li>任何服务端代码、服务端数据库、登录机制或私有数据访问。</li>
+        <li>凭据、令牌、本地绝对路径与未发表数据。</li>
+      </ul>
+    </section>
+
+    <section id="reproducibility">
+      <h2>可复现性与站点验证</h2>
+      <p>站点为纯 HTML + CSS 静态页面，无需构建工具链；全部内部链接使用相对路径，可在 GitHub Pages 项目子路径（<code>/&lt;仓库名&gt;/</code>）下正常解析。</p>
+      <p>仓库提供站点验证脚本 <code>scripts/validate-site.py</code>，对站点产物执行以下检查：无原始数据文件与大文件、无绝对路径、无凭据或口令占位、无未经批准的证据标签、内部相对链接可解析。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>BTED 静态演示骨架 v0.1 · 2026-08-07 · 本站点不包含科学结论 · 仅链接公开数据仓库，不复制原始数据</p>
+    </div>
+  </footer>
+</body>
+</html>
