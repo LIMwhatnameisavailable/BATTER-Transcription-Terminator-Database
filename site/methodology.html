@@ -30,6 +30,13 @@
       <p>原始测序数据保留在 GEO、SRA、ENA、ArrayExpress、PRIDE、Figshare 等公开仓库。本站仅提供指向这些仓库的链接，不复制、不再分发任何原始测序文件或出版商工作簿。</p>
     </section>
 
+    <section id="standards">
+      <h2>入库标准与证据边界</h2>
+      <p>项目的协作入库标准 v0.1 已发布在代码仓库中：数据入库标准流程、新文献收集与入库指南、数据字段字典、证据分层与发布边界、项目目录与协作规范，位于仓库 <code>docs/standards/</code> 目录，配套登记模板位于 <code>data/registry/templates/</code>。</p>
+      <p>核心边界：数据库只发布公开、可追溯、实验支持的 3′ end 数据；纯计算预测与作者整合的混合证据不进入公开层。来源数量按“13 篇原始研究文献 / 22 条 BATTER Table S1 来源记录”的口径表述，两者不混用。</p>
+      <p>文档入口：<a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database">GitHub 仓库</a> 的 <code>docs/standards/</code> 目录。</p>
+    </section>
+
     <section id="stage">
       <h2>当前阶段：标准化进行中</h2>
       <p>项目已完成信息核查，目前处于<strong>数据格式标准化与数据库构建阶段</strong>。以下事项尚未定稿，因此本站不展示相应内容：</p>
@@ -42,9 +49,9 @@
     </section>
 
     <section id="external-bted">
-      <h2>外部 BTED 状态：待核实</h2>
-      <p>据报告，本仓库之外存在一个新版 BTED 工作树，据称包含 22 来源注册表、逐来源清单、证据分层 SOP、标准化坐标输出、JBrowse 资源、逐来源处理记录与回归测试套件。<strong>该工作树当前无法访问，上述内容全部未经一手核实（待核实）。</strong></p>
-      <p>在该工作树（或其导出）可供检查、且相应资产通过评审之前，本站不包含来自该工作树的任何内容，也不为其放置占位链接。</p>
+      <h2>外部 BTED 工作状态</h2>
+      <p>本仓库之外存在一个更大规模的 BTED 本地工作树（22 来源注册表、标准化坐标输出、JBrowse 资源、逐来源处理记录）。其<strong>数据与资产尚未迁移到本仓库</strong>，须按 <code>docs/current-bted-status.md</code> 的验收门槛逐来源审计后方可公开；在此之前本站不包含来自该工作树的任何数据内容。</p>
+      <p>以该工作树数据规范为科学基础整理而成的协作入库标准 v0.1 已进入本仓库（<code>docs/standards/</code> 与 <code>data/registry/templates/</code>），作为后续接入新文献与逐来源迁移的统一依据。</p>
     </section>
 
     <section id="exclusions">
