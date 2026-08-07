@@ -4,6 +4,16 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 
 本仓库是 BTED 的**协作与可复现性主仓库**：入库标准、来源登记模板、协作流程、站点演示与逐来源处理记录都通过本仓库评审和合并。原始测序数据与出版商补充工作簿不进入本仓库，仅以登录号 / DOI 链接到 GEO、SRA、ENA、ArrayExpress、Figshare、Zenodo 等公共仓库。
 
+## 当前正式入口
+
+- 协作流程与分支/PR 规范：[`CONTRIBUTING.md`](CONTRIBUTING.md)；
+- 新增文献收集与入库教程：[`docs/standards/协作者_新增文献收集与入库指南.md`](docs/standards/协作者_新增文献收集与入库指南.md)；
+- 入库标准与证据分层：[`docs/standards/BTED_数据入库标准流程_v0.1.md`](docs/standards/BTED_数据入库标准流程_v0.1.md)、[`docs/standards/证据分层与发布边界.md`](docs/standards/证据分层与发布边界.md)；
+- 数据字段字典：[`docs/standards/数据字段字典_v0.1.md`](docs/standards/数据字段字典_v0.1.md)；
+- 13 篇论文总索引：[`docs/literature/README.md`](docs/literature/README.md)；
+- 22 个来源注册表：[`data/registry/batter_s1_source_registry.tsv`](data/registry/batter_s1_source_registry.tsv) 及其数据字典 [`data/registry/batter_s1_source_registry_dictionary.md`](data/registry/batter_s1_source_registry_dictionary.md)；
+- 来源级处理记录目录：[`docs/sources/README.md`](docs/sources/README.md)。
+
 ## 收什么、不收什么
 
 | 收录 | 不收录 |
@@ -26,11 +36,12 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 
 第一次参与请按顺序阅读：
 
-1. [协作者：新增文献收集与入库指南](docs/standards/协作者_新增文献收集与入库指南.md) —— 照着做即可的教程，含一页式检查清单；
-2. [数据入库标准流程（SOP v0.1）](docs/standards/BTED_数据入库标准流程_v0.1.md) —— 证据分层、坐标规则、状态定义；
-3. [数据字段字典 v0.1](docs/standards/数据字段字典_v0.1.md) —— 两个模板全部 50 列的含义与合法值；
-4. [项目目录与协作规范](docs/standards/项目目录与协作规范.md) —— 目录用途、命名、统计口径、PR 流程；
-5. 登记模板：[`data/registry/templates/`](data/registry/templates/)（来源登记表 26 列、端点表 24 列）。
+1. [`CONTRIBUTING.md`](CONTRIBUTING.md) —— 分支命名、PR 流程、来源接入流程与验证要求；
+2. [协作者：新增文献收集与入库指南](docs/standards/协作者_新增文献收集与入库指南.md) —— 照着做即可的教程，含一页式检查清单；
+3. [数据入库标准流程（SOP v0.1）](docs/standards/BTED_数据入库标准流程_v0.1.md) —— 证据分层、坐标规则、状态定义；
+4. [数据字段字典 v0.1](docs/standards/数据字段字典_v0.1.md) —— 两个模板全部 50 列的含义与合法值；
+5. [项目目录与协作规范](docs/standards/项目目录与协作规范.md) —— 目录用途、命名、统计口径、PR 流程；
+6. 登记模板：[`data/registry/templates/`](data/registry/templates/)（来源登记表 26 列、端点表 24 列）。
 
 提交前校验：
 
@@ -50,6 +61,9 @@ git diff --check
 README.md                  本文件
 docs/
   standards/               入库标准与协作规范（v0.1）
+  literature/              13 篇论文正式调研 README 与总索引
+  sources/                 来源级处理记录（按 source_id 组织）
+  legacy/                  历史探索性笔记（只读，不作为标准结论）
   tasks/                   分支任务计划
   HANDOFF.md               协作交接记录
   WORKLOG.md               工作日志
@@ -58,11 +72,19 @@ docs/
 data/
   registry/                来源级注册表与模板
   public/                  可公开标准化数据（预留，当前为空）
-  audit/                   证据审计与排除记录（内部）
+  audit/                   证据审计与排除记录（公开审计摘要）
 scripts/                   校验脚本
 site/                      GitHub Pages 静态演示骨架
+CONTRIBUTING.md            贡献指南与 PR 流程
+.github/                   PR 模板
 文献N-PMIDxxxxxxxx/        13 篇来源文献的逐篇核查记录（保持现状）
 ```
+
+## 来源注册表与数据字典
+
+- 来源级注册表：`data/registry/batter_s1_source_registry.tsv`（22 行，一行一个来源记录）。
+- 注册表数据字典：`data/registry/batter_s1_source_registry_dictionary.md`，解释 16 个历史字段含义、已知 `published_year` 冲突与 schema 改进方案。
+- 新外部来源请使用 `data/registry/templates/external_literature_source_intake.tsv`（26 列）与 `external_literature_endpoint_schema.tsv`（24 列）。
 
 ## 历史资料
 
