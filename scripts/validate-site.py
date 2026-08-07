@@ -81,7 +81,7 @@ FORBIDDEN_LABEL_PATTERNS = [
     (re.compile(r"经实验确认"), "未批准证据标签"),
 ]
 
-REQUIRED_FILES = ["index.html", "catalog.html", "methodology.html", "about.html", "css/style.css"]
+REQUIRED_FILES = ["index.html", "sources.html", "catalog.html", "methodology.html", "about.html", "css/style.css"]
 
 
 class LinkCollector(HTMLParser):
