@@ -13,12 +13,12 @@
 以下每条声明都有已追踪的仓库文档或对 git 树的直接检查作为依据。
 
 1. **来源语料：** 13 篇原始文献（BATTER Table S1，PMID：29606352、30517198、31555254、31594819、32694125、33319794、33947798、34054774、34874777、35491820、37402717、37096044、38030608），按 BATTER Table S1 覆盖 20 个物种/菌株、22 条数据记录（`report_BATTER_supplementary.md`）。
-2. **分类：** 全部 13 篇文献经人工判定为 A 类 —— 出版商补充材料中含有可直接复用的终止子/TTS/TEP 坐标表（`PROGRESS.md`）。
-3. **验证：** 全部 13 个来源的坐标字段（Position/Strand/Start-End）与行数已与论文声明交叉核对，13/13 通过（`data_verification_report.md`）。已验证的工作簿本身仅在本地（`.gitignore` 排除 `*.xlsx`）。
+2. **分类：** 全部 13 篇文献经人工判定为 A 类 —— 出版商补充材料中含终止子/TTS/TEP 坐标表（`PROGRESS.md`）。按评审意见收敛表述：A 类补充表**可作为后续标准化和逐记录证据审核的候选输入**；这并不意味着坐标体系已标准化、参考基因组版本已确认、表内所有记录均属于实验验证，也不意味着相关内容可以不经证据分层直接公开。
+3. **坐标核查：** 13/13 来源均确认存在包含坐标字段（Position/Strand/Start-End 等）的核心补充表；行数核对总体相符，但部分来源存在筛选口径、混合表内容或小幅行数差异，尚不能据此将表内每条记录统一视为实验验证终点（`data_verification_report.md`，其原文表述为"13/13 通过"）。三点已知限制：部分补充表包含 TransTermHP、ARNold、RhoTermPredict 等预测记录；"文件存在并有坐标字段"不等于"每条记录均为实验验证"；行数不完全一致的情况保留为已知限制。已核查的工作簿本身仅在本地（`.gitignore` 排除 `*.xlsx`）。
 4. **登录号：** 经核实的 GEO/SRA/ENA/ArrayExpress/Figshare/PRIDE/GenBank 登录号汇总于 `accession_list_verified.csv` 与 `report_zenodo_and_documents.md`。
 5. **外部模型数据：** BATTER 的 Zenodo 仓库（DOI: 10.5281/zenodo.16761763）包含模型代码、增强训练 FASTA，以及对 42,905 个 GEMs 基因组的全基因组**预测**结果 —— **不含** 13 篇文献的实验坐标（`report_zenodo_and_documents.md`）。
 6. **项目阶段：** 按 `README.md` 与 `PROGRESS.md`，项目已完成信息核查，**正在进入** 标准化/数据库构建阶段。本仓库中尚不存在标准化坐标数据集、数据库 schema 或网站。
-7. **仓库卫生问题（已核实）：** `文献13-PMID38030608/` 下追踪了约 168 MB 的 read-starts 文本文件和 `__MACOSX/` 垃圾文件；`README.md` 引用的 `archive/` 目录在仓库中不存在。
+7. **仓库卫生问题（已核实）：** `文献13-PMID38030608/` 下追踪了 6 个 read-starts 文本文件（合计约 167.97 MiB）和 6 个 `__MACOSX/` AppleDouble 垃圾文件；当前 git pack 约 30.72 MiB，read-starts 文件对压缩后 pack 大小的具体贡献未单独核实；`README.md` 引用的 `archive/` 目录在仓库中不存在。
 
 ---
 
@@ -40,7 +40,7 @@
 
 ## 3. 待决事项
 
-1. **来源数量口径。** 本仓库核实了 13 篇文献；BATTER Table S1 在 13 篇 PMID 下列出 22 条记录；外部注册表据报有 22 个来源。迁移前必须确定注册表的单位是"文献"、"记录"还是"物种 × 条件数据集"，并完成口径对齐。
+1. **来源数量口径。** 需要区分三个数字：本仓库核实的 13 篇 PMID；BATTER Table S1 在这 13 篇 PMID 下列出的 22 条记录；外部工作树据报的 22 来源注册表。外部注册表是否与 Table S1 的 22 条记录一一对应尚未核实，不得默认二者相同。迁移前必须确定注册表的单位是"文献"、"记录"还是"物种 × 条件数据集"，并完成口径对齐。
 2. **坐标体系约定。** 0-base 还是 1-base、单点还是区间、逐来源的参考基因组版本对齐，均未解决（`README.md` 将其列为下一步；逐来源 README 将其标为"待人工确认事项"）。
 3. **证据分层定义。** 外部 SOP 的证据类别尚不明确。从 Term-seq/Rend-seq/dRNA-seq 衍生表、实验论文中内嵌的计算预测（如 `data_verification_report.md` 提到的 TransTermHP/ARNold/RhoTermPredict 子表）、以及 BATTER 全基因组预测到证据标签的映射，必须在发布前定义并通过评审。
 4. **大型加工资产的托管方式。** 标准化输出与 JBrowse track 是放进 GitHub/Pages 限制内，还是需要外部托管（Zenodo 或类似平台）。

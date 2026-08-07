@@ -12,7 +12,12 @@ Create a small, static, reviewable demonstration of the BTED database. It must e
 
 ## First decide, then build
 
-Before writing site code, record the approved source of truth for:
+Task 02 proceeds in two stages:
+
+1. **Static skeleton first.** Build only the page structure, navigation, and layout with neutral, non-scientific copy. The skeleton must not contain a populated catalog or any scientific conclusion.
+2. **Content only after approval.** Do not generate the full catalog or record content carrying scientific conclusions until the metadata schema and the evidence-label criteria have been reviewed and approved.
+
+Before adding any site content beyond the skeleton, record the approved source of truth for:
 
 - source metadata and processing status;
 - evidence-layer labels;
@@ -20,7 +25,7 @@ Before writing site code, record the approved source of truth for:
 - any JBrowse assets;
 - version/date shown on the site.
 
-If these are not yet approved, stop and return to Task 01; do not create placeholder scientific claims.
+If these are not yet approved, keep the site at the skeleton stage; do not create placeholder scientific claims.
 
 ## Minimum static-site scope
 
@@ -35,6 +40,7 @@ If these are not yet approved, stop and return to Task 01; do not create placeho
 - Use relative paths compatible with project Pages (`/<repository-name>/`), never assume a site served from `/`.
 - Include `.nojekyll` if static assets or directory names need Jekyll bypass.
 - Keep raw large inputs outside the Pages artifact; link to GEO/SRA/ENA/DOI or other approved public repositories.
+- Hard exclusions for Task 02: no raw sequencing files (FASTQ), no publisher workbooks, no private or unpublished data, no standardized coordinate datasets, no JBrowse configuration or tracks, and no server-side code or database.
 - Do not include credentials, tokens, unpublished data, local absolute paths, caches, or API calls requiring a secret.
 - Prefer a deployment workflow that builds into a dedicated static artifact; do not deploy directly from an experimental development directory.
 
