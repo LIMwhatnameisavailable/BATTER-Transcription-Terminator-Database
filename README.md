@@ -77,7 +77,7 @@ scripts/                   校验脚本
 site/                      GitHub Pages 静态演示骨架
 CONTRIBUTING.md            贡献指南与 PR 流程
 .github/                   PR 模板
-文献N-PMIDxxxxxxxx/        13 篇来源文献的逐篇核查记录（保持现状）
+docs/legacy/original-directories/  13 篇来源文献的原始目录（已迁入 legacy）
 ```
 
 ## 来源注册表与数据字典

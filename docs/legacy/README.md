@@ -15,4 +15,4 @@
 
 ## 后续清理
 
-仓库中已追踪的 `文献13-PMID38030608/` 下约 168 MB read-starts 文本文件与 `__MACOSX/` AppleDouble 垃圾文件的清理方案，见根目录 `docs/cleanup-proposal.md`。本目录不处理这些大文件。
+仓库中已追踪的 `docs/legacy/original-directories/文献13-PMID38030608/` 下约 168 MB read-starts 文本文件与 `__MACOSX/` AppleDouble 垃圾文件的清理方案，见根目录 `docs/cleanup-proposal.md`。本目录不处理这些大文件。

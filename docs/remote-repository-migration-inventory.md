@@ -27,7 +27,7 @@
 ### 1.2 逐来源目录（`文献N-PMIDxxxxxxxx/`，N = 1–13）
 
 - 每个目录含一份 `README.md`，即该来源的核查报告：文献引用、A/B/C 分类（全部 A 类）、已确认登录号、坐标数据线索、第三方平台判断、待人工确认事项。
-- `文献13-PMID38030608/` 另含：
+- `docs/legacy/original-directories/文献13-PMID38030608/` 另含：
   - `supplementary_data_1to5_findings.md`（MOESM4–8 结构核查）；
   - 6 个 `*_read_starts.txt` 文件，**合计约 168 MB、约 631 万行，已被 git 追踪**（来自 MOESM10 Source Data 的原始 read starts 计数）；
   - `__MACOSX/` AppleDouble 文件（`._*`），**已被 git 追踪** —— 不应进入仓库的 macOS 归档垃圾文件（标记为后续清理决策，本任务不处理）。
@@ -89,7 +89,7 @@
 | 候选材料 | 权威来源 | 预期大小 | 公开适用性 | 迁移风险 |
 |----------|----------|----------|------------|----------|
 | 缓存、中间转换输出、日志 | 外部 BTED 工作树 / 本地（`to verify`） | 不定 | 不适用 | 可再生成；无归档价值 |
-| `__MACOSX/` AppleDouble 文件 | 本仓库（`文献13-PMID38030608/__MACOSX/`，已追踪） | KB | 不适用 | 已被提交；是否删除是独立决策，不在 Task 01 范围内 |
+| `__MACOSX/` AppleDouble 文件 | 本仓库（`docs/legacy/original-directories/文献13-PMID38030608/__MACOSX/`，已追踪） | KB | 不适用 | 已被提交；是否删除是独立决策，不在 Task 01 范围内 |
 
 ---
 

@@ -19,14 +19,14 @@
 
 ### 记录备查、本任务未处理的发现
 
-- `文献13-PMID38030608/` 下追踪了约 168 MB 的 read-starts 文本文件与 `__MACOSX/` AppleDouble 垃圾文件。
+- `docs/legacy/original-directories/文献13-PMID38030608/` 下追踪了约 168 MB 的 read-starts 文本文件与 `__MACOSX/` AppleDouble 垃圾文件。
 - `README.md` 引用的 `archive/` 目录在仓库中不存在。
 - 来源数量口径：13 篇 PMID（本仓库核实）vs BATTER Table S1 在这 13 篇 PMID 下列出的 22 条记录 vs 外部工作树据报的 22 来源注册表；外部注册表与 Table S1 的 22 条记录是否一一对应尚未核实。
 
 ### 收尾提交与范围修正
 
 - 新增 `docs/WORKLOG.md`（本文件）与 `docs/HANDOFF.md`（提交 `ee039bb`）。
-- `文献13-PMID38030608/README.md` 的 PMID 笔误修复（"PMID: 38030638" → "PMID: 38030608"）曾包含在提交 `ee039bb` 中，已经 revert 提交 `43fcc5f` **移出 Task 01 范围**，留待后续单独处理；Task 01 不再包含、也不再声称该修复。
+- `docs/legacy/original-directories/文献13-PMID38030608/README.md` 的 PMID 笔误修复（"PMID: 38030638" → "PMID: 38030608"）曾包含在提交 `ee039bb` 中，已经 revert 提交 `43fcc5f` **移出 Task 01 范围**，留待后续单独处理；Task 01 不再包含、也不再声称该修复。
 
 ## 2026-08-07 —— OpenAI 审核修订（10 项）
 
@@ -89,8 +89,8 @@
 ### 完成内容
 
 1. 只读事实核查（全部命令与结果记录在 `docs/cleanup-proposal.md` 附录 A）：
-   - `文献13-PMID38030608/` 下 6 个 `*_read_starts.txt` 已追踪，工作区合计 168.0 MB（33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB），自初始提交 `b59e72a` 起入库；当前 git pack 30.72 MiB。
-   - `文献13-PMID38030608/__MACOSX/` 下 6 个 `._*` AppleDouble 文件已追踪（每个约 178 B）。
+   - `docs/legacy/original-directories/文献13-PMID38030608/` 下 6 个 `*_read_starts.txt` 已追踪，工作区合计 168.0 MB（33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB），自初始提交 `b59e72a` 起入库；当前 git pack 30.72 MiB。
+   - `docs/legacy/original-directories/文献13-PMID38030608/__MACOSX/` 下 6 个 `._*` AppleDouble 文件已追踪（每个约 178 B）。
    - `README.md:59` 引用的 `archive/` 目录在磁盘与全部可达历史中均不存在（`git log --all -- archive/` 无输出）。
 2. 新增 `docs/cleanup-proposal.md`，包含：当前问题清单；四个清理选项（`git rm --cached` 停止追踪 / `git filter-repo` 清除历史 / BFG Repo-Cleaner / Git LFS）的逐项利弊；风险分析（历史重写对协作者、draft PR #1、文档 SHA 引用的影响）；分阶段推荐方案；精确执行命令；回滚方案。
 3. 推荐结论（详见方案文档第 4 节）：**阶段 A** 立即以 `git rm --cached` + `.gitignore` + 删除 README 悬空行解决卫生问题（普通提交、零协作冲击、完全可逆）；**阶段 B** 的 filter-repo 历史重写设四道门槛暂缓（PR #1 合并、托管策略定案、镜像备份与协作冻结、SHA 引用加注）。

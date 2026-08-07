@@ -18,7 +18,7 @@
 4. **登录号：** 经核实的 GEO/SRA/ENA/ArrayExpress/Figshare/PRIDE/GenBank 登录号汇总于 `accession_list_verified.csv` 与 `report_zenodo_and_documents.md`。
 5. **外部模型数据：** BATTER 的 Zenodo 仓库（DOI: 10.5281/zenodo.16761763）包含模型代码、增强训练 FASTA，以及对 42,905 个 GEMs 基因组的全基因组**预测**结果 —— **不含** 13 篇文献的实验坐标（`report_zenodo_and_documents.md`）。
 6. **项目阶段：** 按 `README.md` 与 `PROGRESS.md`，项目已完成信息核查，**正在进入** 标准化/数据库构建阶段。本仓库中尚不存在标准化坐标数据集、数据库 schema 或网站。
-7. **仓库卫生问题（已核实）：** `文献13-PMID38030608/` 下追踪了 6 个 read-starts 文本文件（合计约 167.97 MiB）和 6 个 `__MACOSX/` AppleDouble 垃圾文件；当前 git pack 约 30.72 MiB，read-starts 文件对压缩后 pack 大小的具体贡献未单独核实；`README.md` 引用的 `archive/` 目录在仓库中不存在。
+7. **仓库卫生问题（已核实）：** `docs/legacy/original-directories/文献13-PMID38030608/` 下追踪了 6 个 read-starts 文本文件（合计约 167.97 MiB）和 6 个 `__MACOSX/` AppleDouble 垃圾文件；当前 git pack 约 30.72 MiB，read-starts 文件对压缩后 pack 大小的具体贡献未单独核实；`README.md` 引用的 `archive/` 目录在仓库中不存在。
 
 ---
 

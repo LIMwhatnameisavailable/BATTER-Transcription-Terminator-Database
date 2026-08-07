@@ -11,8 +11,8 @@
 
 | # | 问题 | 位置 | 规模 | 事实依据（只读命令复核） |
 |---|------|------|------|--------------------------|
-| P1 | 大型 read-starts 数据文件被 git 追踪 | `文献13-PMID38030608/` 下 6 个 `*_read_starts.txt` | 工作区合计 **168.0 MB**（33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB），约 631 万行 | `ls -l` 实测；`git ls-files` 确认已追踪；自初始提交 `b59e72a` 起入库 |
-| P2 | macOS 归档垃圾文件被 git 追踪 | `文献13-PMID38030608/__MACOSX/` 下 6 个 `._*` AppleDouble 文件 | 每个约 178 B | `git ls-files` 确认已追踪 |
+| P1 | 大型 read-starts 数据文件被 git 追踪 | `docs/legacy/original-directories/文献13-PMID38030608/` 下 6 个 `*_read_starts.txt` | 工作区合计 **168.0 MB**（33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB），约 631 万行 | `ls -l` 实测；`git ls-files` 确认已追踪；自初始提交 `b59e72a` 起入库 |
+| P2 | macOS 归档垃圾文件被 git 追踪 | `docs/legacy/original-directories/文献13-PMID38030608/__MACOSX/` 下 6 个 `._*` AppleDouble 文件 | 每个约 178 B | `git ls-files` 确认已追踪 |
 | P3 | README 中悬空的 `archive/` 引用 | `README.md:59`：`├── archive/   # 历史过程记录（已整合的旧报告）` | 1 行文档错误 | 磁盘无 `archive/` 目录；`git log --all -- archive/` 无输出，即该目录在全部可达历史中从未被追踪 |
 
 补充事实：
@@ -78,7 +78,7 @@
 
 ### 选项 4：Git LFS
 
-**做法：** `git lfs track "文献13-PMID38030608/*_read_starts.txt"`，并用 `git lfs migrate import --everything` 将历史中的文件改写为 LFS 指针，大对象存入 LFS 存储。
+**做法：** `git lfs track "docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt"`，并用 `git lfs migrate import --everything` 将历史中的文件改写为 LFS 指针，大对象存入 LFS 存储。
 
 **利：**
 
@@ -105,7 +105,7 @@
 ### 3.2 本仓库的特有加剧因素
 
 - 目标文件自**初始提交**即入库，改写意味着仓库历史上的**每一个**提交哈希都会变化，无任何"部分保留"的折中。
-- 路径含非 ASCII 字符（`文献13-PMID38030608/`），命令行与工具链中需注意引号与 `core.quotepath` 转义，误写路径会导致清错或清不掉。
+- 路径含非 ASCII 字符（`docs/legacy/original-directories/文献13-PMID38030608/`），命令行与工具链中需注意引号与 `core.quotepath` 转义，误写路径会导致清错或清不掉。
 - 当前分支结构简单（main + 1 个在途分支），是重写代价相对最低的窗口之一；但该窗口随 PR #1 评审推进与 Task 02 提交而随时变化。
 
 ### 3.3 选项 1 的特有风险
@@ -153,19 +153,19 @@ __MACOSX/
 
 # 大型 read-starts 数据（PMID 38030608 公开补充材料，可从来源重新获取）：
 # 停止追踪，本地文件保留
-文献13-PMID38030608/*_read_starts.txt
+docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt
 EOF
 
 # 2. 停止追踪（--cached：文件保留在磁盘）
-git rm -r --cached --quiet "文献13-PMID38030608/__MACOSX"
-git rm --cached --quiet 文献13-PMID38030608/*_read_starts.txt
+git rm -r --cached --quiet "docs/legacy/original-directories/文献13-PMID38030608/__MACOSX"
+git rm --cached --quiet docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt
 
 # 3. 手工编辑 README.md：删除第 59 行
 #    "├── archive/                   # 历史过程记录（已整合的旧报告）"
 
 # 4. 验证
 git ls-files | grep -E "__MACOSX|read_starts" && echo "FAIL: 仍在追踪" || echo "OK: 已全部停止追踪"
-ls -lh 文献13-PMID38030608/*_read_starts.txt   # 确认 6 个文件仍在磁盘（合计约 168 MB）
+ls -lh docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt   # 确认 6 个文件仍在磁盘（合计约 168 MB）
 git status -sb                                  # 确认仅有预期改动
 git diff --check
 
@@ -190,8 +190,8 @@ pip install git-filter-repo    # 或 brew install git-filter-repo
 git clone --mirror https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database.git bted-clean.git
 cd bted-clean.git
 git filter-repo --invert-paths \
-  --path "文献13-PMID38030608/__MACOSX" \
-  --path-glob "文献13-PMID38030608/*_read_starts.txt"
+  --path "docs/legacy/original-directories/文献13-PMID38030608/__MACOSX" \
+  --path-glob "docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt"
 
 # 3. 验证
 git log --all --oneline -- "*read_starts.txt" "__MACOSX"   # 应无输出
@@ -214,7 +214,7 @@ git push --force --tags origin
 
 - 提交未推送：`git reset --hard HEAD~1`（在执行分支上）。
 - 提交已推送/已合并：`git revert <阶段A提交>`。
-- 恢复追踪（如需）：`git add -f 文献13-PMID38030608/*_read_starts.txt`（`-f` 因为已被 `.gitignore` 忽略），并移除 `.gitignore` 追加行。
+- 恢复追踪（如需）：`git add -f docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt`（`-f` 因为已被 `.gitignore` 忽略），并移除 `.gitignore` 追加行。
 - 数据安全性：阶段 A 全程不删除磁盘文件，回滚零数据丢失风险。
 
 ### 阶段 B 回滚（force-push 之后）
@@ -237,11 +237,11 @@ git push --force --tags origin
 
 | 命令 | 结果 |
 |------|------|
-| `ls -l 文献13-PMID38030608/*_read_starts.txt` | 6 个文件：33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB，合计 168.0 MB |
-| `git ls-files 文献13-PMID38030608/` | 6 个 read-starts 文件与 6 个 `__MACOSX/._*` 文件均已追踪 |
+| `ls -l docs/legacy/original-directories/文献13-PMID38030608/*_read_starts.txt` | 6 个文件：33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB，合计 168.0 MB |
+| `git ls-files docs/legacy/original-directories/文献13-PMID38030608/` | 6 个 read-starts 文件与 6 个 `__MACOSX/._*` 文件均已追踪 |
 | `git log --all --oneline --diff-filter=A -- "*read_starts.txt"` | 初始提交 `b59e72a` 引入 |
 | `git count-objects -vH` / `du -sh .git` | size-pack 30.72 MiB；`.git` 合计 31 MB |
 | `ls -d archive` | No such file or directory |
 | `git log --all --oneline -- archive/` | 无输出（该路径在全部可达历史中从未被追踪） |
 | `grep -n archive README.md` | 第 59 行：`├── archive/   # 历史过程记录（已整合的旧报告）` |
-| `ls -la 文献13-PMID38030608/__MACOSX/` | 6 个 `._*` 文件，每个约 178 B |
+| `ls -la docs/legacy/original-directories/文献13-PMID38030608/__MACOSX/` | 6 个 `._*` 文件，每个约 178 B |
