@@ -1,5 +1,42 @@
 # 工作日志
 
+## 2026-08-10 —— v0.1 local snapshot：本地 BTED 结果首次进入 Git
+
+**分支：** `refactor/project-structure-and-literature-notes-v0.1`
+**状态：** 已完成构建、校验与文档更新；待提交并推送。
+
+### 完成内容
+
+1. 审计本地 BGIRNA 工作树的 22 个 `BATTER_S1` 来源、处理记录与证据边界；将 13 篇论文与 22 个来源的统计口径明确分开。
+2. 新增 `scripts/build_local_snapshot_release.py`：将本地已整理的小型结果迁入正式目录，统一为 24 列 TSV；实验端点另生成 BED6；不复制原始测序、出版商工作簿、FASTA/GFF、BigWig 或 JBrowse 包。
+3. 新增 `scripts/validate_bted_release.py`：检查 22 来源齐全、来源 README/manifest、公开 evidence class、1-based→BED、链、ID、文件行数及 SHA-256。
+4. 生成 `data/public/records/`：21 个 `published_standardized` 来源、28,399 条记录；17 个作者发表端点来源有 TSV+BED，4 个 Lalanne 2018 来源以 `curated_record` TSV 发布。
+5. `BATTER_S1_002` 标为 `audit_only`。其作者整合 TRS 表与数据集级观察表不复制到公开端点层；`BATTER_S1_020` 的混合表和 `BATTER_S1_022` 的纯预测表也只保留公开的 checksum 审计摘要。
+6. 新增 22 个 `data/registry/manifests/BATTER_S1_*.json`、22 个 `docs/sources/<source_id>/README.md`、可用的详细处理记录副本，以及发布状态表 `data/registry/batter_s1_publication_status.tsv`。
+7. 更新 `README.md`、贡献指南、`data/public`/`data/audit`/`data/registry` 说明、来源索引、GitHub Pages 来源目录和方法页面；新增发布说明 `docs/releases/v0.1-local-snapshot.md`。
+
+### 关键判断
+
+- 本地工作不是“没做”，而是此前没有被 Git 追踪、没有统一公共 schema，也没有跨来源自动校验。
+- 本版没有把 BATTER、RhoTermPredict、TransTermHP 等预测结果伪装为实验端点。
+- `curated_record` 与 `author_called_endpoint` 同样可追溯，但不可使用同一种“终止子功能”措辞；浏览器发布留待下一版本。
+
+### 验证
+
+- `python3 scripts/build_local_snapshot_release.py --input-root /path/to/BGIRNA`：PASS（21 来源 / 28,399 条记录；实际本地快照路径未写入 Git）。
+- `python3 scripts/validate_bted_release.py`：PASS（22 来源、24 列 schema、证据边界、坐标、BED、SHA-256）。
+- `python3 scripts/validate_bted_templates.py`：PASS。
+- `python3 scripts/build_sources_page.py`：PASS（22 来源、21 个已发布来源、28,399 条记录）。
+- `python3 scripts/validate-site.py`：PASS。
+- `git diff --check`：PASS。
+
+### 后续优先级
+
+1. 提交并推送本次 v0.1 local snapshot；开 Draft PR 前由项目成员复核许可/再分发条件。
+2. 为 `BATTER_S1_002` 建立逐观测 provenance 表，判断能否拆成纯实验端点。
+3. 补写 `BATTER_S1_005`、`BATTER_S1_022` 的独立详细处理记录。
+4. 将本地 JBrowse 以独立、版本化、可校验的浏览器发布物部署；不能把未审计的大轨道直接塞入 Git。
+
 ## 2026-08-09 —— 外部来源正式整合入库要求 v0.1
 
 **分支：** `refactor/project-structure-and-literature-notes-v0.1` | **状态：** 已完成文档与目录入口建设，未接收任何外部端点数据

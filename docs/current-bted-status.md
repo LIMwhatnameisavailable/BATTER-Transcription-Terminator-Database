@@ -1,70 +1,46 @@
-# 当前 BTED 状态 —— 已核实 vs 据报告
+# 当前 BTED 状态
 
-**任务：** 01 — 对照远程仓库与当前 BTED 工作状态
-**分支：** `agent/reconcile-current-bted-state`
-**日期：** 2026-08-07
+**更新时间：** 2026-08-10
+**当前发布：** v0.1 local snapshot
+**详细发布说明：** [`docs/releases/v0.1-local-snapshot.md`](releases/v0.1-local-snapshot.md)
 
-本文档区分两件容易混淆的事情：本仓库今天能够证明的内容，以及关于仓库之外新版 BTED 工作状态的据报内容。
+## 已完成
 
----
+| 项目 | 当前状态 | 证据/入口 |
+|---|---|---|
+| 来源范围 | 13 篇原始研究文献、22 条 BATTER Table S1 来源记录 | `data/registry/batter_s1_source_registry.tsv` |
+| 来源 manifest | 22/22 | `data/registry/manifests/` |
+| 来源处理说明 | 22/22 有 README；S1_005、S1_022 待补独立详细记录 | `docs/sources/` |
+| 标准化公开数据 | 21 个来源、28,399 条记录 | `data/public/records/` |
+| 仅审计来源 | S1_002 | `data/audit/excluded_assets/BATTER_S1_002/` |
+| 统一字段与坐标 | 24 列 schema；1-based biological coordinate + BED6 | `data/registry/templates/`、`scripts/validate_bted_release.py` |
+| 站点 | 静态发布索引已更新 | `site/` |
+| JBrowse/BigWig | 未随 Git release 发布 | 后续独立版本化浏览器包 |
 
-## 1. 本仓库已核实的现状
+## 已固定的发布边界
 
-以下每条声明都有已追踪的仓库文档或对 git 树的直接检查作为依据。
+1. 预测位点和无法拆分的混合实验/预测表不进入 `data/public/` 或站点下载；只保留公开 checksum 审计摘要。
+2. 作者发表端点、信号调用候选端点和文献整理记录分别保留 evidence class，不以“功能终止子”混称。
+3. 坐标、contig、链或参考版本无法核实的来源，不以猜测方式升级为公开数据。
+4. 原始 FASTQ/BAM、出版商工作簿、FASTA/GFF、BigWig 和本地浏览器资产不进 Git；只提供公共入口、版本说明和 checksum。
 
-1. **来源语料：** 13 篇原始文献（BATTER Table S1，PMID：29606352、30517198、31555254、31594819、32694125、33319794、33947798、34054774、34874777、35491820、37402717、37096044、38030608），按 BATTER Table S1 覆盖 20 个物种/菌株、22 条数据记录（`report_BATTER_supplementary.md`）。
-2. **分类：** 全部 13 篇文献经人工判定为 A 类 —— 出版商补充材料中含终止子/TTS/TEP 坐标表（`PROGRESS.md`）。按评审意见收敛表述：A 类补充表**可作为后续标准化和逐记录证据审核的候选输入**；这并不意味着坐标体系已标准化、参考基因组版本已确认、表内所有记录均属于实验验证，也不意味着相关内容可以不经证据分层直接公开。
-3. **坐标核查：** 13/13 来源均确认存在包含坐标字段（Position/Strand/Start-End 等）的核心补充表；行数核对总体相符，但部分来源存在筛选口径、混合表内容或小幅行数差异，尚不能据此将表内每条记录统一视为实验验证终点（`data_verification_report.md`，其原文表述为"13/13 通过"）。三点已知限制：部分补充表包含 TransTermHP、ARNold、RhoTermPredict 等预测记录；"文件存在并有坐标字段"不等于"每条记录均为实验验证"；行数不完全一致的情况保留为已知限制。已核查的工作簿本身仅在本地（`.gitignore` 排除 `*.xlsx`）。
-4. **登录号：** 经核实的 GEO/SRA/ENA/ArrayExpress/Figshare/PRIDE/GenBank 登录号汇总于 `accession_list_verified.csv` 与 `report_zenodo_and_documents.md`。
-5. **外部模型数据：** BATTER 的 Zenodo 仓库（DOI: 10.5281/zenodo.16761763）包含模型代码、增强训练 FASTA，以及对 42,905 个 GEMs 基因组的全基因组**预测**结果 —— **不含** 13 篇文献的实验坐标（`report_zenodo_and_documents.md`）。
-6. **项目阶段：** 按 `README.md` 与 `PROGRESS.md`，项目已完成信息核查，**正在进入** 标准化/数据库构建阶段。本仓库中尚不存在标准化坐标数据集、数据库 schema 或网站。
-7. **仓库卫生问题（已核实）：** `docs/legacy/original-directories/文献13-PMID38030608/` 下追踪了 6 个 read-starts 文本文件（合计约 167.97 MiB）和 6 个 `__MACOSX/` AppleDouble 垃圾文件；当前 git pack 约 30.72 MiB，read-starts 文件对压缩后 pack 大小的具体贡献未单独核实；`README.md` 引用的 `archive/` 目录在仓库中不存在。
+## 当前风险与下一步
 
----
+1. **S1_002：** 为逐数据集观察补齐作者表行、样本、实验类型和坐标 provenance；只有拆出纯实验端点后才可公开。
+2. **来源文档：** 补写 S1_005、S1_022 的独立详细处理记录。
+3. **浏览器：** 从本地已核查 JBrowse 建立独立发布包，清单中必须有版本、checksum、参考序列与资产托管位置。
+4. **再分发条件：** 正式外部发布到 Zenodo/生产网站前，逐来源复核派生 TSV/BED 的许可与引用要求。
+5. **仓库卫生：** 历史追踪的大型 read-start 文本和 `__MACOSX` 仍需按 `docs/cleanup-proposal.md` 的单独决策处理；本版未删除任何历史文件。
 
-## 2. 据报告的外部 BTED 状态 —— 全部 `to verify`
+## 必跑验证
 
-任务说明报告了一个位于本仓库之外的新版 BTED 工作状态。本任务期间**无法访问**该状态，因此以下内容均未与一手来源核对：
+```bash
+python3 scripts/validate_bted_templates.py
+python3 scripts/validate_bted_release.py
+python3 scripts/build_sources_page.py
+python3 scripts/validate-site.py
+python -m unittest -v tests/test_bted_ingestion.py
+git diff --check
+```
 
-- 22 来源注册表（`to verify`）；
-- 逐来源清单（manifest）（`to verify`）；
-- 证据分层 SOP（`to verify`）；
-- 标准化坐标输出（`to verify`）；
-- JBrowse 资源（`to verify`）；
-- 逐来源处理记录（`to verify`）；
-- 回归测试套件（`to verify`）。
-
-本节任何内容都不应作为既定事实引用。在该工作树（或其导出）可供检查之前，这些条目仅为候选材料 —— 见 `docs/remote-repository-migration-inventory.md`。
-
----
-
-## 3. 待决事项
-
-1. **来源数量口径。** 需要区分三个数字：本仓库核实的 13 篇 PMID；BATTER Table S1 在这 13 篇 PMID 下列出的 22 条记录；外部工作树据报的 22 来源注册表。外部注册表是否与 Table S1 的 22 条记录一一对应尚未核实，不得默认二者相同。迁移前必须确定注册表的单位是"文献"、"记录"还是"物种 × 条件数据集"，并完成口径对齐。
-2. **坐标体系约定。** 0-base 还是 1-base、单点还是区间、逐来源的参考基因组版本对齐，均未解决（`README.md` 将其列为下一步；逐来源 README 将其标为"待人工确认事项"）。
-3. **证据分层定义。** 外部 SOP 的证据类别尚不明确。从 Term-seq/Rend-seq/dRNA-seq 衍生表、实验论文中内嵌的计算预测（如 `data_verification_report.md` 提到的 TransTermHP/ARNold/RhoTermPredict 子表）、以及 BATTER 全基因组预测到证据标签的映射，必须在发布前定义并通过评审。
-4. **大型加工资产的托管方式。** 标准化输出与 JBrowse track 是放进 GitHub/Pages 限制内，还是需要外部托管（Zenodo 或类似平台）。
-5. **仓库清理。** 是否从 git 历史中清除已追踪的约 168 MB read-starts 文件与 `__MACOSX/`，以及恢复还是移除 `README.md` 中的 `archive/` 引用。不在 Task 01 范围内。
-6. **公开文档语言。** 现有文档为中文；对外 Pages 内容可能需要英文版本或双语方案。
-7. **外部 BTED 工作树的访问途径。** 这是核实或迁移第 2 节任何声明的前提。
-
----
-
-## 4. 后续数据迁移的验收门槛
-
-只有**同时满足**以下全部条件，数据迁移任务才可启动：
-
-1. **权威来源明确：** 每个待迁移文件都有命名的出处（外部工作树路径或公开登录号）和一名已检查过它的评审人。
-2. **证据标签经过评审：** 每条迁移记录都带有来自书面且经评审的 SOP 的证据类别；仅预测或混合证据的记录绝不标记为实验验证过的 endpoint。
-3. **坐标已固定：** 坐标体系、参考基因组版本、链编码逐来源记录在案，逐来源 README 中的"待人工确认事项"已解决。
-4. **公开资格确认：** 已检查许可证/再分发条款；原始测序数据与出版商工作簿只链接、不复制。
-5. **无密钥与私有数据：** 自动扫描加人工复查凭据、API key、本地绝对路径和私人备注。
-6. **大小与格式适配：** 遵守 git/GitHub Pages 限制；大型资产已有托管决策（待决事项 4）。
-7. **回归检查通过：** 迁移来的测试套件（如有）运行全绿，且 `git diff --check` 干净。
-8. **范围可评审：** 迁移拆分为小 PR（文档、元数据、代码、资产分开），每个 PR 说明刻意排除的内容。
-
----
-
-## 5. 本任务未改动的内容
-
-未修改任何数据、坐标、证据类别、来源数量或验证声明。本文档仅记录状态与待决事项。
+2026-08-07 的初始远程仓库盘点和“外部工作树待核实”记录已保留在 `docs/WORKLOG.md` 与 `docs/remote-repository-migration-inventory.md` 作为历史背景；本文件以 v0.1 已实际迁入的资产为当前事实来源。

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_016",
+  "published_year": "2020",
+  "species": "Streptomyces venezuelae",
+  "phylum": "Actinobacteria",
+  "reference_genome": "GCF_015710995.1",
+  "pmid": "33319794",
+  "paper_title": "Genome-scale determination of 5′ and 3′ boundaries in Streptomyces genomes",
+  "doi": "10.1038/s41597-020-00775-w",
+  "pmc": "PMC7738537",
+  "raw_data_accessions": "PRJEB36379",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified_with_taxonomy_conflict",
+  "processing_status": "curated",
+  "blocker_or_note": "Coordinates verified on author-specified CP059991.1. Paper, ENA and ATCC label ATCC 15439 S. venezuelae; current NCBI GCF_015710995.1 / CP059991.1 labels it S. gardneri. Published with both labels and an explicit warning.",
+  "dataset_id": "satcc15439-termseq-lee-2020",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33319794/",
+  "doi_url": "https://doi.org/10.1038/s41597-020-00775-w",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7738537/",
+  "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB36379",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_016/endpoints.tsv",
+    "record_count": 870,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-published Term-seq endpoint; taxonomy label conflict is retained in the source record.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_016/published_termseq_endpoints.tsv",
+    "source_processed_table_sha256": "d8ecb59893dd1bef48dfdf879a1c2a9d8e5f71f91363645dec1f0ca32db88bb0",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_016/endpoints.tsv",
+        "sha256": "fe57efa0086739156a6ee8b0716c58ab288519174dd5b4049965fdb078d7f003"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_016/endpoints.bed",
+        "sha256": "67eb9f6952da97acb7ccd76c8bfa110d442331968fa8b26e3839276ee9d742cf"
+      }
+    ]
+  }
+}

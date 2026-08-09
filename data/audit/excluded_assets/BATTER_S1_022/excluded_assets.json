@@ -1,0 +1,15 @@
+{
+  "source_id": "BATTER_S1_022",
+  "migration_date": "2026-08-10",
+  "purpose": "Evidence-boundary audit manifest. The listed local files are intentionally not copied to data/public or the static website.",
+  "excluded_assets": [
+    {
+      "local_path": "data/mtuberculosis/processed/BATTER_S1_022/rhotermpredict_rut_sites.prediction_only.tsv",
+      "evidence_class": "prediction_only",
+      "reason": "Pure RhoTermPredict RUT sites; not experimental endpoint data and not mirrored in this public repository.",
+      "row_count": 29096,
+      "sha256": "c004b77db684531f3a07756d3cc741ff4109ce8e568a9a8283320b29d7d3e7ba",
+      "public_repository_copy": false
+    }
+  ]
+}

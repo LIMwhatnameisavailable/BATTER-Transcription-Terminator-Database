@@ -46,7 +46,7 @@ RNAtag-seq / TRS（Transcriptome-wide RNA termini by sequencing）。
 
 ## 入库决定
 
-本地工作树已将 S1_002 标记为 `curated`；坐标数据尚未迁移到本仓库。
+S1_002 在 v0.1 local snapshot 中为 `audit_only`：作者整合的 TRS 多技术表尚未能逐行拆分为满足公开 schema 的纯实验端点。仓库保留来源 manifest、处理记录和 checksum 审计摘要，但不发布端点 TSV/BED。
 
 ## 问题与待核查
 

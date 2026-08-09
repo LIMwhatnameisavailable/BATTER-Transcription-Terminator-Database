@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_001",
+  "published_year": "2018",
+  "species": "Escherichia coli str. K-12 substr. MG1655",
+  "phylum": "Proteobacteria",
+  "reference_genome": "GCF_000005845.1",
+  "pmid": "29606352",
+  "paper_title": "Evolutionary Convergence of Pathway-Specific Enzyme Expression Stoichiometry",
+  "doi": "10.1016/j.cell.2018.03.007",
+  "pmc": "PMC5978003",
+  "raw_data_accessions": "GSE95211",
+  "assay_family": "Rend-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "E. coli pilot: published in local browser.",
+  "dataset_id": "ecoli-rendseq-lalanne-2018",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29606352/",
+  "doi_url": "https://doi.org/10.1016/j.cell.2018.03.007",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5978003/",
+  "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE95211",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_001/curated_records.tsv",
+    "record_count": 607,
+    "evidence_class": "curated_record",
+    "decision_note": "Literature-curated experimental/sequence-supported intrinsic-terminator record; not a new local terminator call.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/batter_ecoli_pilot/processed/literature_curated_terminator_records.ecoli.tsv",
+    "source_processed_table_sha256": "afa76bd0410ea8a606454143b94b254393a1e76461df53f5a2a91783ea8a3a0f",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_001/curated_records.tsv",
+        "sha256": "e24a34394e94ac5f1466d978e010c12a5e8d4bfc41983beb0231558c1de6b56c"
+      }
+    ]
+  }
+}

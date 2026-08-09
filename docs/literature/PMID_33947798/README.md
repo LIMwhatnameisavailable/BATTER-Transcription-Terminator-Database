@@ -45,7 +45,7 @@ Data Set S1 Sheet 1 属于 `author_called_endpoint`。机器学习脚本与 KNN 
 
 ## 入库决定
 
-本地工作树已将 S1_017 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_017 的 1,427 条作者发表 Term-seq TEP 标准化发布为 TSV 与 BED，并保持与 S1_015 独立的来源身份。
 
 ## 问题与待核查
 

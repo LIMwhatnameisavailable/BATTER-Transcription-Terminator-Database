@@ -61,7 +61,7 @@ Rend-seq。正文 STAR Methods 描述了基于 peak z-score 的终止子鉴定�
 
 ## 入库决定
 
-本地工作树已将四物种来源标记为 `curated`。坐标数据、端点表与 JBrowse 资源**尚未迁移**到本仓库；迁移前须按验收门槛逐来源审计。
+v0.1 local snapshot 已迁入四个来源的 `curated_record` TSV 与来源级 manifest。它们是文献整理记录，不等同于本库从原始 Rend-seq 信号重新调用的端点；原始信号、候选峰与 JBrowse 资源仍作为后续独立发布物处理。
 
 ## 问题与待核查
 

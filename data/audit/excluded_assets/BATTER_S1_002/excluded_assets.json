@@ -1,0 +1,23 @@
+{
+  "source_id": "BATTER_S1_002",
+  "migration_date": "2026-08-10",
+  "purpose": "Evidence-boundary audit manifest. The listed local files are intentionally not copied to data/public or the static website.",
+  "excluded_assets": [
+    {
+      "local_path": "data/trs_ecoli_2023/processed/BATTER_S1_002/author_integrated_trs_3prime_termini.tsv",
+      "evidence_class": "author_integrated_mixed_evidence",
+      "reason": "Author Supplementary Data 3 combines RNAtag-seq and Term-seq/TRS summary evidence. It is retained as a checksum-addressable local audit asset, not a public endpoint table.",
+      "row_count": 3125,
+      "sha256": "839a8bfd5ef0a5602c6a3c397e7d84bb65e783771cc410bd377aae4431ee2b18",
+      "public_repository_copy": false
+    },
+    {
+      "local_path": "data/trs_ecoli_2023/processed/BATTER_S1_002/dataset_level_trs_3prime_observations.tsv",
+      "evidence_class": "observed_signal",
+      "reason": "Dataset-level observations need their original per-dataset provenance fields reconciled to the public endpoint schema before release; no endpoint table is emitted in this migration.",
+      "row_count": 7493,
+      "sha256": "182a8246faf246c8f246d469db1a78500d46d28bb4262492fb255c421968c1a3",
+      "public_repository_copy": false
+    }
+  ]
+}

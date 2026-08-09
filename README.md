@@ -13,6 +13,7 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 - 数据字段字典：[`docs/standards/数据字段字典_v0.1.md`](docs/standards/数据字段字典_v0.1.md)；
 - 13 篇论文总索引：[`docs/literature/README.md`](docs/literature/README.md)；
 - 22 个来源注册表：[`data/registry/batter_s1_source_registry.tsv`](data/registry/batter_s1_source_registry.tsv) 及其数据字典 [`data/registry/batter_s1_source_registry_dictionary.md`](data/registry/batter_s1_source_registry_dictionary.md)；
+- 首个可审计数据发布说明：[`docs/releases/v0.1-local-snapshot.md`](docs/releases/v0.1-local-snapshot.md)，以及逐来源发布判定 [`data/registry/batter_s1_publication_status.tsv`](data/registry/batter_s1_publication_status.tsv)；
 - 来源级处理记录目录：[`docs/sources/README.md`](docs/sources/README.md)。
 
 ## 收什么、不收什么
@@ -31,7 +32,7 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 - **“13 篇原始研究文献”是论文数**（BATTER Table S1 来源文献，PMID 清单见 `report_BATTER_supplementary.md`）；
 - **“22 个来源记录”是来源/物种数据记录数**（Table S1 中这些论文下的记录）；
 - 两者单位不同，**不能混写为同一个“数据集数量”**；
-- 在完成逐来源重新审计之前，任何公开页面不得声称“所有 22 个来源均已公开发布”，也不得声称“所有端点均为功能验证终止子”。
+- v0.1 local snapshot 已标准化发布 21 个来源、28,399 条记录；`BATTER_S1_002` 仍为仅审计状态。任何页面不得声称“所有 22 个来源均已公开发布”，也不得声称“所有端点均为功能验证终止子”。
 
 ## 协作者入口
 
@@ -49,13 +50,15 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 
 ```bash
 python3 scripts/validate_bted_templates.py   # 模板结构（无第三方依赖）
+python3 scripts/validate_bted_release.py     # v0.1 标准化发布资产、坐标、BED 与 checksum
 python3 scripts/validate-site.py             # 站点产物
+python -m unittest -v tests/test_bted_ingestion.py  # 发布回归测试
 git diff --check
 ```
 
 ## 网站 demo
 
-`site/` 是一个纯静态演示骨架（面向 GitHub Pages），用于演示目录与页面结构；**它不是完整的生产数据库**：不含坐标数据、不含 JBrowse、不含记录级条目。部署与边界见 [docs/github-pages-demo-plan.md](docs/github-pages-demo-plan.md)。
+`site/` 是一个纯静态 GitHub Pages 索引，用于展示来源元数据与 v0.1 发布状态；**它不是完整的生产数据库**：端点 TSV/BED 由仓库数据目录提供，站点本身不含 JBrowse、BigWig 或原始数据。部署与边界见 [docs/github-pages-demo-plan.md](docs/github-pages-demo-plan.md)。
 
 ## 目录结构
 
@@ -75,8 +78,8 @@ docs/
 data/
   registry/                来源级注册表与模板
     submissions/           协作者交接的来源登记快照（待审计）
-  public/                  可公开标准化数据（预留，当前为空）
-  audit/                   证据审计与排除记录（公开审计摘要）
+  public/                  可公开标准化数据（v0.1: 21 个来源）
+  audit/                   证据审计与排除记录（只含公开摘要与 checksum）
 scripts/                   校验脚本
 site/                      GitHub Pages 静态演示骨架
 CONTRIBUTING.md            贡献指南与 PR 流程

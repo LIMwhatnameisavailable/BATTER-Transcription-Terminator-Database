@@ -41,7 +41,7 @@ Table S5 属于 `author_called_endpoint`。
 
 ## 入库决定
 
-本地工作树已将 S1_019 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_019 的 784 条作者发表、人工整理的 Term-seq TEP 标准化发布为 TSV 与 BED。
 
 ## 问题与待核查
 

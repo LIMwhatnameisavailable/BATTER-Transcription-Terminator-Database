@@ -20,15 +20,23 @@
 ```
 docs/sources/BATTER_S1_001/
   README.md                # 处理记录（含 evidence class、reference、coordinate、checksum、QC）
-  manifest.json            # 文件清单与校验和（迁移时创建）
+  processing_record.md     # 可选：详细处理记录
 docs/sources/BTED_EXT_2026_001/
   README.md
-  manifest.json
+  processing_record.md     # 可选
 ```
 
-## 本轮范围
+机器可读 manifest 固定存放在 `data/registry/manifests/<source_id>.json`，避免同一来源的 JSON 在文档和数据目录各维护一份。
 
-本分支只建立本目录说明与命名模板，不批量复制或伪造 22 份处理记录。未来每接入一个新来源，由协作者按 `docs/standards/协作者_新增文献收集与入库指南.md` 与 `CONTRIBUTING.md` 创建对应目录。
+## 当前范围
+
+v0.1 local snapshot 已为 `BATTER_S1_001` 至 `BATTER_S1_022` 建立来源目录。每个目录均含：
+
+- `README.md`：仓库发布判定、证据边界、公开数据入口和下一步；
+- `data/registry/manifests/<source_id>.json` 对应的机器可读来源 manifest；
+- 有本地详细处理记录的来源另含 `processing_record.md`。部分来源共享一篇批量处理记录；`BATTER_S1_005` 和 `BATTER_S1_022` 仍需补写独立的详细处理 Markdown，当前不把这一缺口伪装成已完成。
+
+新来源仍按 `docs/standards/协作者_新增文献收集与入库指南.md` 与 `CONTRIBUTING.md` 创建独立目录。不要用新的来源覆盖已有 `source_id`。
 
 ## 与 data/registry 的关系
 

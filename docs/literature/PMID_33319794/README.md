@@ -58,7 +58,7 @@ Figshare 中 TTS 坐标表为作者发布的实验端点结果，属于 `author_
 
 ## 入库决定
 
-本地工作树已将 7 个来源标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将本论文的 7 个来源标准化发布为作者发表 Term-seq endpoint TSV 与 BED；每个来源保持独立 source ID、参考与 checksum。
 
 ## 问题与待核查
 

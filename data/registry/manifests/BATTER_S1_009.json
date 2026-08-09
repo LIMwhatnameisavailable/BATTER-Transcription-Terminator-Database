@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_009",
+  "published_year": "2020",
+  "species": "Zymomonas mobilis subsp. mobilis ZM4",
+  "phylum": "Proteobacteria",
+  "reference_genome": "GCF_003054575.1",
+  "pmid": "32694125",
+  "paper_title": "Genome-Scale Transcription-Translation Mapping of Zymomonas mobilis",
+  "doi": "10.1128/mSystems.00250-20",
+  "pmc": "PMC7566282",
+  "raw_data_accessions": "GSE139939",
+  "assay_family": "Term-seq / SMRT-Cappable-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified_with_count_conflict",
+  "processing_status": "curated",
+  "blocker_or_note": "Data Set S3 imported as 2,091 processing-filtered Term-seq TTSs across chromosome and four plasmids. Pure TransTermHP predictions remain excluded; article reports 617 predicted matches whereas TTS_list marks 616.",
+  "dataset_id": "zm4-termseq-vera-2020",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32694125/",
+  "doi_url": "https://doi.org/10.1128/mSystems.00250-20",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7566282/",
+  "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE139939",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_009/endpoints.tsv",
+    "record_count": 2091,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-published Term-seq TTS after processing-site filtering; pure TransTermHP predictions are excluded.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/zmobilis/processed/BATTER_S1_009/processing_filtered_termseq_tts.tsv",
+    "source_processed_table_sha256": "770fba004a8f0fff8dc22afe0966d03a0ea2ca90bb31826f8df60152ce456148",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_009/endpoints.tsv",
+        "sha256": "4e7bac10bb9ae77c8961a9c7d0e8822d0a96ea4b6607388d62910243fd3ccfae"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_009/endpoints.bed",
+        "sha256": "744e353231be5e657212ec6f701a737a6d7d6254f2ba6ac20088f2d8ca2224db"
+      }
+    ]
+  }
+}

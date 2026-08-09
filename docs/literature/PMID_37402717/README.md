@@ -49,7 +49,7 @@ Supplementary Data 1 与 Data 4 属于 `author_called_endpoint`。GitHub 仓库�
 
 ## 入库决定
 
-本地工作树已将 S1_021 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_021 的 1,905 条唯一 3′ RNA-seq site 标准化发布为 TSV 与 BED；条件级观察保留在本地审计流程中，不重复进主端点表。
 
 ## 问题与待核查
 

@@ -49,7 +49,7 @@ RNA-seq / dRNA-seq / Nanopore native RNA-seq。
 
 ## 入库决定
 
-本地工作树已将 S1_020 标记为 `curated`，仅将 S2D 作为公开实验层；S2B/S2C 预测保留为内部审计。坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_020 的 S2D（1,165 条 Nanopore native RNA 3′ end）标准化发布为 TSV 与 BED。作者整合的混合证据表和预测表仅以公开审计摘要保留，不进入端点层。
 
 ## 问题与待核查
 

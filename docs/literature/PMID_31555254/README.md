@@ -41,7 +41,7 @@ Supplementary Dataset 3 属于 `author_called_endpoint`。终止与 RNA processi
 
 ## 入库决定
 
-本地工作树已将 S1_007 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_007 的 1,640 条作者发表 TEP 标准化发布为 TSV 与 BED；端点仍按 transcript 3′ end position 表述，不改称逐位点终止子。
 
 ## 问题与待核查
 

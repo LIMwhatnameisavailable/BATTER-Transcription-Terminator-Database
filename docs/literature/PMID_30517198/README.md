@@ -41,7 +41,7 @@ S2 Table 属于 `author_called_endpoint`。GitHub 仓库 [nikhilram/T4pipeline](
 
 ## 入库决定
 
-本地工作树已将 S1_006 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_006 的 1,864 条作者发表 Term-seq TTS 标准化发布为 TSV 与 BED；逐来源处理记录和 SHA-256 已随仓库迁入。
 
 ## 问题与待核查
 

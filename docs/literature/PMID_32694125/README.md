@@ -47,7 +47,7 @@ RNA-seq / TSS-seq / term-seq / ribo-seq。
 
 ## 入库决定
 
-本地工作树已将 S1_009 标记为 `curated`，并已将纯预测排除在公开层之外；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_009 的 2,091 条作者发表、经 processing-site 过滤的 Term-seq TTS 标准化发布为 TSV 与 BED；纯预测继续排除在公开端点层之外。
 
 ## 问题与待核查
 

@@ -60,6 +60,7 @@ BTED 收集**公开、可追溯、实验支持**的细菌转录 3′ end 数据�
 
 ```bash
 python3 scripts/validate_bted_templates.py   # 模板结构
+python3 scripts/validate_bted_release.py     # 已发布标准化 TSV/BED、证据边界与 checksum
 python3 scripts/validate-site.py             # 站点产物（如改 site/）
 git diff --check                             # 无空白错误
 ```

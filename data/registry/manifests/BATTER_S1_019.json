@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_019",
+  "published_year": "2022",
+  "species": "Synechocystis sp. PCC 6803",
+  "phylum": "Cyanobacteria",
+  "reference_genome": "GCF_000009725.1",
+  "pmid": "34874777",
+  "paper_title": "Regulatory Modes of Synechocystis sp. PCC 6803",
+  "doi": "10.1128/mSystems.00943-21",
+  "pmc": "PMC8651088",
+  "raw_data_accessions": "PRJNA666973",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Table S5 imported: 784 manually curated Term-seq TEPs on NC_000911.1.",
+  "dataset_id": "pcc6803-termseq-2021",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34874777/",
+  "doi_url": "https://doi.org/10.1128/mSystems.00943-21",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8651088/",
+  "raw_data_url": "https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA666973",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_019/endpoints.tsv",
+    "record_count": 784,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-called manually curated Term-seq TEP.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/synechocystis/processed/BATTER_S1_019/published_termseq_teps.tsv",
+    "source_processed_table_sha256": "047c2b8cfaa3cadadc5f353bb9b8c1732695439f940f2e8af008ade47439f530",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_019/endpoints.tsv",
+        "sha256": "590c8d5c6b61f7a4842a010cbf41fd1d8a4865fd73c83a8904a7b1a04a4555e2"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_019/endpoints.bed",
+        "sha256": "de667c0026625e35cf7e3f3e80ca492deced14701b43559118459b7e34188345"
+      }
+    ]
+  }
+}

@@ -43,7 +43,7 @@ Tab A 属于 `author_called_endpoint`。Tab B 为差异表达统计，Tab C 为�
 
 ## 入库决定
 
-本地工作树已将 S1_008 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_008 的 1,965 条作者发表可重复 Term-seq 3′ site 标准化发布为 TSV 与 BED；基因关联表的计数差异仍保留在来源处理记录中。
 
 ## 问题与待核查
 

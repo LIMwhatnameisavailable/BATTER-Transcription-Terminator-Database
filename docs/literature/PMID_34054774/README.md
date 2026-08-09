@@ -43,7 +43,7 @@ Supplementary Data 2 属于 `author_called_endpoint`。L-shaped/I-shaped 终止�
 
 ## 入库决定
 
-本地工作树已将 S1_018 标记为 `curated`；坐标数据尚未迁移到本仓库。
+v0.1 local snapshot 已将 S1_018 的 487 条作者发表 Term-seq TEP 标准化发布为 TSV 与 BED；四个 replicon 均保留。
 
 ## 问题与待核查
 

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_006",
+  "published_year": "2018",
+  "species": "Streptococcus pneumoniae TIGR4",
+  "phylum": "Firmicutes",
+  "reference_genome": "GCF_000006885.1",
+  "pmid": "30517198",
+  "paper_title": "The Transcriptional landscape of Streptococcus pneumoniae TIGR4",
+  "doi": "10.1371/journal.ppat.1007461",
+  "pmc": "PMC6296669",
+  "raw_data_accessions": "SRP136114",
+  "assay_family": "RNA-seq / 3′ end mapping",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Warrier 2018 Supplementary Table S2 imported: 1,864 author-called Term-seq TTSs on NC_003028.3, called at coverage >=10 and >=2-fold enrichment over background.",
+  "dataset_id": "spne-termseq-warrier-2018",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/30517198/",
+  "doi_url": "https://doi.org/10.1371/journal.ppat.1007461",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6296669/",
+  "raw_data_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP136114",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_006/endpoints.tsv",
+    "record_count": 1864,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-called Term-seq TTS; author threshold and locus relationships are retained in the processing record.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/spneumoniae/processed/BATTER_S1_006/published_termseq_tts.tsv",
+    "source_processed_table_sha256": "ebbafa242570e36447a655d6d22cdf3e2d6d2a1ecbb22b49c8fdf5be59d940ba",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_006/endpoints.tsv",
+        "sha256": "de9b14176e8d0036ff1467e6d6a29a5ec94505124eb7a4f3e6dcaf42ed6f6e52"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_006/endpoints.bed",
+        "sha256": "93675483da561c27aa7b9699ff13bc2e6a4643f41d59754276d3512076c68159"
+      }
+    ]
+  }
+}
