@@ -1,5 +1,27 @@
 # 工作日志
 
+## 2026-08-09 —— 外部来源正式整合入库要求 v0.1
+
+**分支：** `refactor/project-structure-and-literature-notes-v0.1` | **状态：** 已完成文档与目录入口建设，未接收任何外部端点数据
+
+### 完成内容
+
+1. 新增 `docs/standards/外部来源正式整合入库要求_v0.1.md`，明确“来源搜集 ≠ 已入库”、四类来源的处置边界、批次交接包、逐来源标准化门槛、选择性合并原则和 PR 检查清单。
+2. 新增 `docs/integration/README.md` 与 `data/registry/submissions/README.md`，分别作为批次整合决定与协作者来源登记快照的固定入口。
+3. 在根目录 `README.md` 和 `CONTRIBUTING.md` 加入正式入口；更新目录规范中已过时的历史目录说明和 `data/audit` 的公开审计摘要定位。
+4. 本轮只建立协作规范：未复制任何原始文件、未接收或发布 Fuchs / Cascino / TERMITe 的端点记录、未改动证据字段字典的正式枚举。
+
+### 验证
+
+- `python3 scripts/validate_bted_templates.py`：PASS。
+- `python3 scripts/validate-site.py`：PASS。
+- `git diff --check`：PASS。
+
+### 待后续团队确认
+
+- 是否正式采用 `algorithm_called_endpoint` 与 `excluded_duplicate` 两个枚举值；确认前，相关外部来源保持 `to_review` / `NA`，不得作为已标准化数据发布。
+- 选择性接收协作者外部来源登记快照和核验材料时，须另开整合分支和 Draft PR，不直接合并资料搜集分支。
+
 ## 2026-08-07 —— Task 01：对照远程仓库与当前 BTED 工作状态
 
 **分支：** `agent/reconcile-current-bted-state` | **Draft PR：** [#1](https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/1) | **状态：** 已完成第一轮并按 OpenAI 审核意见完成文档修订；修订尚未提交，待用户提交推送后最终评审

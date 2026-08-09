@@ -9,6 +9,7 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 - 协作流程与分支/PR 规范：[`CONTRIBUTING.md`](CONTRIBUTING.md)；
 - 新增文献收集与入库教程：[`docs/standards/协作者_新增文献收集与入库指南.md`](docs/standards/协作者_新增文献收集与入库指南.md)；
 - 入库标准与证据分层：[`docs/standards/BTED_数据入库标准流程_v0.1.md`](docs/standards/BTED_数据入库标准流程_v0.1.md)、[`docs/standards/证据分层与发布边界.md`](docs/standards/证据分层与发布边界.md)；
+- 外部来源正式交接与选择性整合要求：[`docs/standards/外部来源正式整合入库要求_v0.1.md`](docs/standards/外部来源正式整合入库要求_v0.1.md)；
 - 数据字段字典：[`docs/standards/数据字段字典_v0.1.md`](docs/standards/数据字段字典_v0.1.md)；
 - 13 篇论文总索引：[`docs/literature/README.md`](docs/literature/README.md)；
 - 22 个来源注册表：[`data/registry/batter_s1_source_registry.tsv`](data/registry/batter_s1_source_registry.tsv) 及其数据字典 [`data/registry/batter_s1_source_registry_dictionary.md`](data/registry/batter_s1_source_registry_dictionary.md)；
@@ -38,10 +39,11 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 
 1. [`CONTRIBUTING.md`](CONTRIBUTING.md) —— 分支命名、PR 流程、来源接入流程与验证要求；
 2. [协作者：新增文献收集与入库指南](docs/standards/协作者_新增文献收集与入库指南.md) —— 照着做即可的教程，含一页式检查清单；
-3. [数据入库标准流程（SOP v0.1）](docs/standards/BTED_数据入库标准流程_v0.1.md) —— 证据分层、坐标规则、状态定义；
-4. [数据字段字典 v0.1](docs/standards/数据字段字典_v0.1.md) —— 两个模板全部 50 列的含义与合法值；
-5. [项目目录与协作规范](docs/standards/项目目录与协作规范.md) —— 目录用途、命名、统计口径、PR 流程；
-6. 登记模板：[`data/registry/templates/`](data/registry/templates/)（来源登记表 26 列、端点表 24 列）。
+3. [外部来源正式整合入库要求 v0.1](docs/standards/外部来源正式整合入库要求_v0.1.md) —— 已搜集文献如何交接、审计和选择性合并；
+4. [数据入库标准流程（SOP v0.1）](docs/standards/BTED_数据入库标准流程_v0.1.md) —— 证据分层、坐标规则、状态定义；
+5. [数据字段字典 v0.1](docs/standards/数据字段字典_v0.1.md) —— 两个模板全部 50 列的含义与合法值；
+6. [项目目录与协作规范](docs/standards/项目目录与协作规范.md) —— 目录用途、命名、统计口径、PR 流程；
+7. 登记模板：[`data/registry/templates/`](data/registry/templates/)（来源登记表 26 列、端点表 24 列）。
 
 提交前校验：
 
@@ -61,6 +63,7 @@ git diff --check
 README.md                  本文件
 docs/
   standards/               入库标准与协作规范（v0.1）
+  integration/             外部来源批次交接与整合决定
   literature/              13 篇论文正式调研 README 与总索引
   sources/                 来源级处理记录（按 source_id 组织）
   legacy/                  历史探索性笔记（只读，不作为标准结论）
@@ -71,6 +74,7 @@ docs/
   cleanup-proposal.md      仓库卫生清理方案
 data/
   registry/                来源级注册表与模板
+    submissions/           协作者交接的来源登记快照（待审计）
   public/                  可公开标准化数据（预留，当前为空）
   audit/                   证据审计与排除记录（公开审计摘要）
 scripts/                   校验脚本
