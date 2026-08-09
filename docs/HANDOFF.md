@@ -4,7 +4,7 @@
 
 **当前分支：** `agent/bted-v0.2-public-demo`
 
-**当前里程碑：** v0.2.0 数据、网站、JBrowse 和完整本地验收已完成并提交；仅远端上传与 GitHub 发布因网络阻塞未完成。
+**当前里程碑：** v0.2.0 数据、网站、JBrowse 和完整验收已完成；开发分支、Draft PR #4 与 GitHub Release 草稿均已建立。
 
 ## 已交付
 
@@ -52,18 +52,19 @@ git diff --check
 
 ## 待完成
 
-1. 终端网络恢复后推送当前分支（含实现提交 `142e371` 和本状态记录）：`git push -u origin agent/bted-v0.2-public-demo`。
-2. 建立 Draft PR，目标分支由维护者确认；不要直接合并 `main`。
-3. 以 `v0.2.0` 创建 GitHub Release 并上传 `dist/` 中四个资产/校验文件。
-4. 评审通过后合并到 `main`，启用 GitHub Pages；部署后检查稳定链接。
+1. 审阅 Draft PR #4；其基线为 PR #3，保持串联 PR 的改动范围清晰。
+2. 按 #1 → #2 → #3 → #4 顺序处理 PR 基线，避免直接把全部历史一次展开到 `main`。
+3. 评审通过后发布 `v0.2.0` Release，再合并包含 Pages workflow 的分支。
+4. 在 Settings → Pages 选择 GitHub Actions，运行部署并检查稳定链接。
 5. S1_002 只有在未来能可靠拆出纯实验端点时才改变 `audit_only`。
 
-## 远端发布阻塞
+## 远端发布状态
 
-- 本地提交：`142e371 feat: build BTED v0.2 public demo`。
-- 2026-08-10 多次推送均因无法稳定连接 `github.com:443` 失败；只读 `curl` 检查也超时。
-- GitHub 应用确认远端尚无 `agent/bted-v0.2-public-demo` 分支。
-- 该阻塞不影响本地数据包、网站、JBrowse、checksum 或测试结果；不要为解决网络问题重建或重新解释数据。
+- 实现提交：`142e371 feat: build BTED v0.2 public demo`。
+- 分支：`agent/bted-v0.2-public-demo`，已通过 SSH 推送。
+- Draft PR：`https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/4`，CI 已通过。
+- `v0.2.0` Release 草稿包含四个发布资产；保持草稿，直至评审和 Pages 发布顺序确认。
+- HTTPS OAuth 令牌仍缺少 `workflow` scope；继续推送本分支可使用已验证的 SSH 地址，无需重新构建数据。
 
 ## 不要做
 

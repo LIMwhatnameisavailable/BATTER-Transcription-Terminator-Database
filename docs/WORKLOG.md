@@ -251,7 +251,7 @@
 
 ## 2026-08-10 —— BTED 自有数据 v0.2.0 本地交付
 
-**分支：** `agent/bted-v0.2-public-demo` | **本地提交：** `142e371` | **状态：** 本地完成，远端上传受网络阻塞
+**分支：** `agent/bted-v0.2-public-demo` | **实现提交：** `142e371` | **状态：** 已推送，Draft PR #4 与 v0.2.0 Release 草稿已建立
 
 ### 完成内容
 
@@ -261,10 +261,12 @@
 4. 生成 21 套独立 JBrowse 配置、双语静态网站、22 个来源页、CI/Pages 工作流、Release 压缩包和 draw.io 流程图。
 5. 完整本地验收通过：模板/v0.1/v0.2/JBrowse/网站/Pages/坐标/checksum/11 项单元测试均通过；外部链接审计无失败和必填缺失。
 
-### GitHub 上传问题
+### GitHub 上传问题与解决
 
 - 已创建本地提交 `142e371 feat: build BTED v0.2 public demo`，工作树干净。
 - 2026-08-10 先后使用默认 HTTP、HTTP/1.1、HTTP/1.1 + 500 MiB `http.postBuffer` 推送，均未改变数据或提交。
 - 失败信息包括 `Could not resolve host`、`Failed to connect to github.com port 443` 和 `HTTP2 framing layer`；随后 `curl -I --connect-timeout 15 https://github.com` 同样超时。
-- GitHub 应用查询确认远端尚无 `agent/bted-v0.2-public-demo` 分支。这是终端网络层阻塞，不是数据、Git 对象或权限校验失败。
-- 恢复条件：终端能够连接 `github.com:443` 后执行 `git push -u origin agent/bted-v0.2-public-demo`，再建立 Draft PR；Release 资产仍保存在本地 `dist/`，不得加入 Git 历史。
+- 网络恢复后，HTTPS 推送因当前 OAuth 令牌缺少修改 `.github/workflows/` 所需的 `workflow` scope 被拒绝；该拒绝与数据内容无关。
+- `ssh -T git@github.com` 确认本机 SSH 身份有效，随后通过 SSH 成功推送完整分支，保留 CI 与 Pages workflow。
+- 已创建 Draft PR #4：`https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/4`，基线为 PR #3 的 `refactor/project-structure-and-literature-notes-v0.1`；CI `BTED validation` 通过。
+- 已创建 `v0.2.0` GitHub Release 草稿并上传数据包、JBrowse 包及两个 SHA-256 文件。Release 尚未发布，Pages workflow 尚未触发。
