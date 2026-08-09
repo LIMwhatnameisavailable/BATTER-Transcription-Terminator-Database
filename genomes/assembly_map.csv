@@ -1,0 +1,14 @@
+dataset_id,species,strain,assembly_accession,chromosome_accessions,notes
+Bacillus_subtilis,Bacillus subtilis,subsp. subtilis str. 168,GCA_000009045,NC_000964.3,ASM904v1; 共用 (a)(b)(c)(d)
+Escherichia_coli,Escherichia coli,K-12 substr. MG1655,GCA_000005845,NC_000913.3,ASM584v2; 共用 (a)(b)
+Listeria_monocytogenes,Listeria monocytogenes,EGD-e,GCA_000196035,NC_003210.1,ASM19603v1
+Enterococcus_faecalis,Enterococcus faecalis,ATCC 29212,GCF_000742975.1,"NZ_CP008814.1,NZ_CP008815.1,NZ_CP008816.1",ASM74297v1
+Streptomyces_avermitilis,Streptomyces avermitilis,MA-4680 = NBRC 14893,GCF_000009765.2,"NC_003155.5,NC_004719.1",ASM976v2
+Streptomyces_clavuligerus,Streptomyces clavuligerus,,GCF_005519465.1,"NZ_CP027858.1,NZ_CP027859.1",ASM551946v1
+Streptomyces_coelicolor,Streptomyces coelicolor,A3(2),GCA_000203835.1,AL645882.2,ASM20383v1
+Streptomyces_griseus,Streptomyces griseus,subsp. griseus NBRC 13350,GCF_000010605.1,NC_010572.1,ASM1060v1
+Streptomyces_lividans,Streptomyces lividans,TK24,GCF_000739105.1,NZ_CP009124.1,ASM73910v1
+Streptomyces_tsukubensis,Streptomyces tsukubensis,NBRC 108819,GCF_003932715.1,"NZ_CP020700.1,NZ_CP020701.1,NZ_CP020702.1",ASM393271v1
+Streptomyces_venezuelae,Streptomyces venezuelae,ATCC 15439,GCF_015710995.1,NZ_CP059991.1,ASM1571099v1
+Synechocystis_sp,Synechocystis sp.,PCC 6803,GCF_000009725.1,NC_000911.1,ASM972v1
+Zymomonas_mobilis,Zymomonas mobilis,subsp. mobilis ZM4 = ATCC 31821,GCF_003054575.1,NZ_CP023715.1,ASM305457v1

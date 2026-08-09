@@ -1,0 +1,196 @@
+Species,chromosome,POT,strand,n_candidates,kept_row_index,kept_termite_id,kept_termite_score,kept_transtermhp_conf,kept_rnafold,kept_rnafold_energy,discarded_termite_id,discarded_termite_score,discarded_transtermhp_conf,discarded_rnafold,discarded_rnafold_energy
+Streptomyces avermitilis,NC_003155.5,1218515,+,2,21,WT_3prime_signal_forward_156,1000,,+,-9.699999809265137,WT_3prime_signal_forward_156,1000,,+,-9.699999809265137
+Streptomyces avermitilis,NC_003155.5,1630695,-,2,36,WT_3prime_signal_reverse_286,1000,100.0,+,-29.100000381469727,WT_3prime_signal_reverse_286,1000,100.0,+,-29.100000381469727
+Streptomyces avermitilis,NC_003155.5,2753235,-,2,79,WT_3prime_signal_reverse_784,1000,,+,-32.400001525878906,WT_3prime_signal_reverse_784,1000,,+,-32.400001525878906
+Streptomyces avermitilis,NC_003155.5,3208032,-,2,117,WT_3prime_signal_reverse_1219,1000,,+,-40.900001525878906,WT_3prime_signal_reverse_1219,1000,100.0,+,-40.900001525878906
+Streptomyces avermitilis,NC_003155.5,3305792,+,2,138,WT_3prime_signal_forward_869,1000,,+,-36.0,WT_3prime_signal_forward_869,1000,,+,-36.0
+Streptomyces avermitilis,NC_003155.5,3656033,+,2,177,WT_3prime_signal_forward_1032,1000,100.0,-,,WT_3prime_signal_forward_1032,1000,100.0,-,
+Streptomyces avermitilis,NC_003155.5,3744592,+,2,189,WT_3prime_signal_forward_1105,1000,,+,-9.100000381469728,WT_3prime_signal_forward_1105,1000,,+,-9.100000381469728
+Streptomyces avermitilis,NC_003155.5,3824917,+,2,203,WT_3prime_signal_forward_1244,1000,,+,-35.29999923706055,WT_3prime_signal_forward_1244,1000,100.0,+,-35.29999923706055
+Streptomyces avermitilis,NC_003155.5,3926657,+,2,216,WT_3prime_signal_forward_1312,1000,,+,-32.400001525878906,WT_3prime_signal_forward_1312,1000,,+,-32.400001525878906
+Streptomyces avermitilis,NC_003155.5,4020587,+,2,225,WT_3prime_signal_forward_1404,1000,,+,-34.79999923706055,WT_3prime_signal_forward_1404,1000,,+,-34.79999923706055
+Streptomyces avermitilis,NC_003155.5,5103031,+,2,322,WT_3prime_signal_forward_2047,1000,,+,-36.29999923706055,WT_3prime_signal_forward_2047,1000,,+,-36.29999923706055
+Streptomyces avermitilis,NC_003155.5,5483320,+,2,379,WT_3prime_signal_forward_2578,1000,,+,-29.0,WT_3prime_signal_forward_2578,1000,,+,-29.0
+Streptomyces avermitilis,NC_003155.5,5512954,+,2,381,WT_3prime_signal_forward_2583,1000,100.0,+,-33.099998474121094,WT_3prime_signal_forward_2583,1000,100.0,+,-33.099998474121094
+Streptomyces avermitilis,NC_003155.5,5528951,+,2,387,WT_3prime_signal_forward_2605,1000,82.0,+,-26.299999237060547,WT_3prime_signal_forward_2605,1000,79.0,+,-26.299999237060547
+Streptomyces avermitilis,NC_003155.5,5693008,+,2,407,WT_3prime_signal_forward_2799,1000,,+,-41.0,WT_3prime_signal_forward_2799,1000,100.0,+,-41.0
+Streptomyces avermitilis,NC_003155.5,5772608,+,2,419,WT_3prime_signal_forward_2879,1000,,+,-36.59999847412109,WT_3prime_signal_forward_2879,1000,,+,-36.59999847412109
+Streptomyces avermitilis,NC_003155.5,6040887,+,2,452,WT_3prime_signal_forward_3249,1000,86.0,+,-10.699999809265137,WT_3prime_signal_forward_3249,1000,79.0,+,-10.699999809265137
+Streptomyces avermitilis,NC_003155.5,6476056,+,2,498,WT_3prime_signal_forward_3715,1000,100.0,+,-26.700000762939453,WT_3prime_signal_forward_3715,1000,100.0,+,-26.700000762939453
+Streptomyces avermitilis,NC_003155.5,6573351,+,2,511,WT_3prime_signal_forward_3795,1000,,+,-23.200000762939453,WT_3prime_signal_forward_3795,1000,,+,-23.200000762939453
+Streptomyces avermitilis,NC_003155.5,7797207,+,2,622,WT_3prime_signal_forward_5017,1000,95.0,+,-32.29999923706055,WT_3prime_signal_forward_5017,1000,100.0,+,-32.29999923706055
+Streptomyces avermitilis,NC_003155.5,7802337,+,2,624,WT_3prime_signal_forward_5039,1000,100.0,+,-36.79999923706055,WT_3prime_signal_forward_5039,1000,100.0,+,-36.79999923706055
+Streptomyces clavuligerus,NZ_CP027858.1,2944933,+,2,874,WT_3prime_signal_forward_1234,1000,,+,-9.699999809265137,WT_3prime_signal_forward_1234,1000,,+,-9.699999809265137
+Streptomyces clavuligerus,NZ_CP027858.1,5316518,+,2,1037,WT_3prime_signal_forward_3252,1000,100.0,+,-39.0,WT_3prime_signal_forward_3252,1000,100.0,+,-39.0
+Streptomyces clavuligerus,NZ_CP027858.1,5949336,+,2,1078,WT_3prime_signal_forward_3931,1000,79.0,+,-19.899999618530277,WT_3prime_signal_forward_3931,1000,81.0,+,-19.899999618530277
+Streptomyces clavuligerus,NZ_CP027859.1,939433,-,2,1123,WT_3prime_signal_reverse_4273,1000,100.0,-,,WT_3prime_signal_reverse_4273,1000,100.0,-,
+Streptomyces lividans,NZ_CP009124.1,1518131,-,2,1166,WT_3prime_signal_reverse_540,1000,,+,-33.20000076293945,WT_3prime_signal_reverse_540,1000,,+,-33.20000076293945
+Streptomyces lividans,NZ_CP009124.1,2151977,+,2,1188,WT_3prime_signal_forward_752,1000,87.0,+,-30.5,WT_3prime_signal_forward_752,1000,78.0,+,-30.5
+Streptomyces lividans,NZ_CP009124.1,2654374,+,2,1243,WT_3prime_signal_forward_1124,1000,,+,-22.399999618530277,WT_3prime_signal_forward_1124,1000,83.0,+,-22.399999618530277
+Streptomyces lividans,NZ_CP009124.1,2782035,+,2,1256,WT_3prime_signal_forward_1198,1000,,+,-25.0,WT_3prime_signal_forward_1198,1000,,+,-25.0
+Streptomyces lividans,NZ_CP009124.1,3122079,-,2,1289,WT_3prime_signal_reverse_2685,1000,,+,-15.399999618530272,WT_3prime_signal_reverse_2685,1000,,+,-15.399999618530272
+Streptomyces lividans,NZ_CP009124.1,3315871,-,2,1308,WT_3prime_signal_reverse_2957,1000,100.0,+,-40.5,WT_3prime_signal_reverse_2957,1000,100.0,+,-40.5
+Streptomyces lividans,NZ_CP009124.1,4347092,+,2,1418,WT_3prime_signal_forward_2585,1000,,+,-25.899999618530277,WT_3prime_signal_forward_2585,1000,,+,-25.899999618530277
+Streptomyces lividans,NZ_CP009124.1,4580324,-,2,1433,WT_3prime_signal_reverse_4275,1000,,+,-29.399999618530277,WT_3prime_signal_reverse_4275,1000,91.0,+,-29.399999618530277
+Streptomyces lividans,NZ_CP009124.1,4937269,+,2,1456,WT_3prime_signal_forward_3166,1000,,+,-23.700000762939453,WT_3prime_signal_forward_3166,1000,,+,-23.700000762939453
+Streptomyces lividans,NZ_CP009124.1,4949969,+,2,1459,WT_3prime_signal_forward_3184,1000,100.0,+,-35.900001525878906,WT_3prime_signal_forward_3184,1000,,+,-35.900001525878906
+Streptomyces lividans,NZ_CP009124.1,6714242,+,2,1594,WT_3prime_signal_forward_5466,1000,,+,-28.200000762939453,WT_3prime_signal_forward_5466,1000,,+,-28.200000762939453
+Streptomyces lividans,NZ_CP009124.1,6723670,+,2,1596,WT_3prime_signal_forward_5499,1000,100.0,-,,WT_3prime_signal_forward_5499,1000,100.0,-,
+Streptomyces lividans,NZ_CP009124.1,7395134,+,2,1619,WT_3prime_signal_forward_5921,1000,84.0,+,-36.79999923706055,WT_3prime_signal_forward_5921,1000,86.0,+,-36.79999923706055
+Streptomyces lividans,NZ_CP009124.1,7404802,+,2,1621,WT_3prime_signal_forward_5937,1000,,+,-31.899999618530277,WT_3prime_signal_forward_5937,1000,82.0,+,-31.899999618530277
+Streptomyces griseus,NC_010572.1,2023282,-,2,1731,WT_3prime_signal_reverse_1242,1000,,+,-34.20000076293945,WT_3prime_signal_reverse_1242,1000,,+,-34.20000076293945
+Streptomyces griseus,NC_010572.1,2104414,-,2,1740,WT_3prime_signal_reverse_1429,1000,,+,-32.099998474121094,WT_3prime_signal_reverse_1429,1000,,+,-32.099998474121094
+Streptomyces griseus,NC_010572.1,2277296,-,2,1768,WT_3prime_signal_reverse_1896,1000,,+,-33.29999923706055,WT_3prime_signal_reverse_1896,1000,100.0,+,-33.29999923706055
+Streptomyces griseus,NC_010572.1,2699961,+,2,1816,WT_3prime_signal_forward_1357,1000,,+,-43.400001525878906,WT_3prime_signal_forward_1357,1000,100.0,+,-43.400001525878906
+Streptomyces griseus,NC_010572.1,3908814,+,2,1949,WT_3prime_signal_forward_2060,1000,,+,-36.0,WT_3prime_signal_forward_2060,1000,93.0,+,-36.0
+Streptomyces griseus,NC_010572.1,3928412,+,3,1958,WT_3prime_signal_forward_2126,1000,,+,-34.79999923706055,WT_3prime_signal_forward_2126,1000,,+,-34.79999923706055
+Streptomyces griseus,NC_010572.1,3928412,+,3,1958,WT_3prime_signal_forward_2126,1000,,+,-34.79999923706055,WT_3prime_signal_forward_2126,1000,93.0,+,-34.79999923706055
+Streptomyces griseus,NC_010572.1,4302332,+,2,2002,WT_3prime_signal_forward_2597,1000,,+,-37.5,WT_3prime_signal_forward_2597,1000,100.0,+,-37.5
+Streptomyces griseus,NC_010572.1,4358221,+,2,2020,WT_3prime_signal_forward_2726,1000,100.0,+,-38.59999847412109,WT_3prime_signal_forward_2726,1000,100.0,+,-38.59999847412109
+Streptomyces griseus,NC_010572.1,4852147,+,2,2073,WT_3prime_signal_forward_3407,1000,,+,-40.5,WT_3prime_signal_forward_3407,1000,,+,-40.5
+Streptomyces griseus,NC_010572.1,4855904,-,2,2076,WT_3prime_signal_reverse_5434,1000,,+,-20.799999237060547,WT_3prime_signal_reverse_5434,1000,77.0,+,-20.799999237060547
+Streptomyces griseus,NC_010572.1,4900249,+,2,2083,WT_3prime_signal_forward_3451,1000,,+,-34.599998474121094,WT_3prime_signal_forward_3451,1000,,+,-34.599998474121094
+Streptomyces griseus,NC_010572.1,5759773,-,2,2165,WT_3prime_signal_reverse_6042,1000,,+,-35.20000076293945,WT_3prime_signal_reverse_6042,1000,,+,-35.20000076293945
+Streptomyces griseus,NC_010572.1,5923932,+,2,2188,WT_3prime_signal_forward_4725,1000,100.0,+,-39.29999923706055,WT_3prime_signal_forward_4725,1000,,+,-39.29999923706055
+Streptomyces griseus,NC_010572.1,6259007,+,2,2212,WT_3prime_signal_forward_4980,1000,,+,-39.79999923706055,WT_3prime_signal_forward_4980,1000,100.0,+,-39.79999923706055
+Streptomyces griseus,NC_010572.1,6272780,-,2,2215,WT_3prime_signal_reverse_6463,1000,,+,-42.900001525878906,WT_3prime_signal_reverse_6463,1000,100.0,+,-42.900001525878906
+Streptomyces griseus,NC_010572.1,6337829,+,2,2230,WT_3prime_signal_forward_5219,1000,,+,-29.700000762939453,WT_3prime_signal_forward_5219,1000,,+,-29.700000762939453
+Streptomyces griseus,NC_010572.1,6551775,+,2,2251,WT_3prime_signal_forward_5664,1000,,+,-32.900001525878906,WT_3prime_signal_forward_5664,1000,,+,-32.900001525878906
+Streptomyces griseus,NC_010572.1,6563984,-,2,2254,WT_3prime_signal_reverse_6641,1000,,+,-10.300000190734863,WT_3prime_signal_reverse_6641,1000,93.0,+,-10.300000190734863
+Streptomyces griseus,NC_010572.1,7032209,+,2,2313,WT_3prime_signal_forward_6451,1000,,+,-36.900001525878906,WT_3prime_signal_forward_6451,1000,,+,-36.900001525878906
+Streptomyces griseus,NC_010572.1,7713476,-,2,2355,WT_3prime_signal_reverse_7316,1000,,+,-38.0,WT_3prime_signal_reverse_7316,1000,100.0,+,-38.0
+Streptomyces tsukubensis,NZ_CP020700.1,2105745,+,2,2472,WT_3prime_signal_forward_870,1000,100.0,+,-35.5,WT_3prime_signal_forward_870,1000,100.0,+,-35.5
+Streptomyces tsukubensis,NZ_CP020700.1,2342912,-,2,2489,WT_3prime_signal_reverse_1663,1000,,+,-30.899999618530277,WT_3prime_signal_reverse_1663,1000,,+,-30.899999618530277
+Streptomyces tsukubensis,NZ_CP020700.1,3545051,-,2,2591,WT_3prime_signal_reverse_2746,1000,,+,-31.700000762939453,WT_3prime_signal_reverse_2746,1000,,+,-31.700000762939453
+Streptomyces tsukubensis,NZ_CP020700.1,3753596,+,2,2617,WT_3prime_signal_forward_1937,1000,,+,-23.600000381469727,WT_3prime_signal_forward_1937,1000,,+,-23.600000381469727
+Streptomyces tsukubensis,NZ_CP020700.1,4053461,+,2,2658,WT_3prime_signal_forward_2339,1000,,+,-38.0,WT_3prime_signal_forward_2339,1000,,+,-38.0
+Streptomyces tsukubensis,NZ_CP020700.1,4214322,-,2,2661,WT_3prime_signal_reverse_3370,1000,,+,-34.29999923706055,WT_3prime_signal_reverse_3370,1000,,+,-34.29999923706055
+Streptomyces tsukubensis,NZ_CP020700.1,4550007,-,2,2694,WT_3prime_signal_reverse_3540,1000,,+,-13.300000190734863,WT_3prime_signal_reverse_3540,1000,,+,-13.300000190734863
+Streptomyces tsukubensis,NZ_CP020700.1,4841034,+,2,2724,WT_3prime_signal_forward_3051,1000,,+,-32.29999923706055,WT_3prime_signal_forward_3051,1000,93.0,+,-32.29999923706055
+Streptomyces tsukubensis,NZ_CP020700.1,4947391,+,2,2740,WT_3prime_signal_forward_3353,1000,,+,-15.800000190734863,WT_3prime_signal_forward_3353,1000,,+,-15.800000190734863
+Streptomyces tsukubensis,NZ_CP020700.1,5046188,-,2,2745,WT_3prime_signal_reverse_3821,1000,,+,-34.70000076293945,WT_3prime_signal_reverse_3821,1000,,+,-34.70000076293945
+Streptomyces tsukubensis,NZ_CP020700.1,5304053,-,2,2761,WT_3prime_signal_reverse_3979,1000,100.0,+,-7.800000190734863,WT_3prime_signal_reverse_3979,1000,100.0,+,-7.800000190734863
+Streptomyces tsukubensis,NZ_CP020700.1,5448528,+,3,2779,WT_3prime_signal_forward_3847,1000,,+,-37.5,WT_3prime_signal_forward_3847,1000,,+,-37.5
+Streptomyces tsukubensis,NZ_CP020700.1,5448528,+,3,2779,WT_3prime_signal_forward_3847,1000,,+,-37.5,WT_3prime_signal_forward_3847,1000,,+,-37.5
+Streptomyces tsukubensis,NZ_CP020700.1,5472734,-,3,2783,WT_3prime_signal_reverse_4063,1000,100.0,+,-30.100000381469727,WT_3prime_signal_reverse_4063,1000,93.0,+,-30.100000381469727
+Streptomyces tsukubensis,NZ_CP020700.1,5472734,-,3,2783,WT_3prime_signal_reverse_4063,1000,100.0,+,-30.100000381469727,WT_3prime_signal_reverse_4063,1000,85.0,+,-30.100000381469727
+Streptomyces tsukubensis,NZ_CP020700.1,5659162,+,2,2796,WT_3prime_signal_forward_4059,1000,,+,-36.400001525878906,WT_3prime_signal_forward_4059,1000,,+,-36.400001525878906
+Streptomyces tsukubensis,NZ_CP020700.1,6064463,+,2,2827,WT_3prime_signal_forward_4521,1000,,+,-28.700000762939453,WT_3prime_signal_forward_4521,1000,,+,-28.700000762939453
+Streptomyces venezuelae,NZ_CP059991.1,366730,+,2,2893,WT_3prime_signal_forward_27,1000,,+,-25.799999237060547,WT_3prime_signal_forward_27,1000,,+,-25.799999237060547
+Streptomyces venezuelae,NZ_CP059991.1,1624798,-,3,2934,WT_3prime_signal_reverse_383,1000,,+,-20.399999618530277,WT_3prime_signal_reverse_383,1000,,+,-20.399999618530277
+Streptomyces venezuelae,NZ_CP059991.1,1624798,-,3,2934,WT_3prime_signal_reverse_383,1000,,+,-20.399999618530277,WT_3prime_signal_reverse_383,1000,93.0,+,-20.399999618530277
+Streptomyces venezuelae,NZ_CP059991.1,1691103,+,2,2945,WT_3prime_signal_forward_273,1000,,+,-31.200000762939453,WT_3prime_signal_forward_273,1000,100.0,+,-31.200000762939453
+Streptomyces venezuelae,NZ_CP059991.1,2350873,-,2,3009,WT_3prime_signal_reverse_1246,1000,,+,-36.400001525878906,WT_3prime_signal_reverse_1246,1000,100.0,+,-36.400001525878906
+Streptomyces venezuelae,NZ_CP059991.1,2751684,+,2,3036,WT_3prime_signal_forward_703,1000,,+,-40.900001525878906,WT_3prime_signal_forward_703,1000,,+,-40.900001525878906
+Streptomyces venezuelae,NZ_CP059991.1,3320632,+,2,3079,WT_3prime_signal_forward_903,1000,,+,-29.600000381469727,WT_3prime_signal_forward_903,1000,95.0,+,-29.600000381469727
+Streptomyces venezuelae,NZ_CP059991.1,3426365,+,2,3090,WT_3prime_signal_forward_942,1000,100.0,+,-28.799999237060547,WT_3prime_signal_forward_942,1000,100.0,+,-28.799999237060547
+Streptomyces venezuelae,NZ_CP059991.1,3431738,+,2,3093,WT_3prime_signal_forward_946,1000,,+,-30.399999618530277,WT_3prime_signal_forward_946,1000,,+,-30.399999618530277
+Streptomyces venezuelae,NZ_CP059991.1,3628499,+,2,3110,WT_3prime_signal_forward_998,1000,,+,-9.699999809265137,WT_3prime_signal_forward_998,1000,,+,-9.699999809265137
+Streptomyces venezuelae,NZ_CP059991.1,3665190,-,2,3116,WT_3prime_signal_reverse_2223,1000,,+,-25.200000762939453,WT_3prime_signal_reverse_2223,1000,93.0,+,-25.200000762939453
+Streptomyces venezuelae,NZ_CP059991.1,3731611,-,2,3127,WT_3prime_signal_reverse_2279,1000,,+,-28.5,WT_3prime_signal_reverse_2279,1000,100.0,+,-28.5
+Streptomyces venezuelae,NZ_CP059991.1,4269326,-,2,3174,WT_3prime_signal_reverse_2684,1000,,+,-31.5,WT_3prime_signal_reverse_2684,1000,87.0,+,-31.5
+Streptomyces venezuelae,NZ_CP059991.1,5259979,+,2,3256,WT_3prime_signal_forward_1913,1000,,+,-33.400001525878906,WT_3prime_signal_forward_1913,1000,100.0,+,-33.400001525878906
+Streptomyces venezuelae,NZ_CP059991.1,5322767,+,3,3270,WT_3prime_signal_forward_2273,1000,,+,-41.09999847412109,WT_3prime_signal_forward_2273,1000,,+,-41.09999847412109
+Streptomyces venezuelae,NZ_CP059991.1,5322767,+,3,3270,WT_3prime_signal_forward_2273,1000,,+,-41.09999847412109,WT_3prime_signal_forward_2273,1000,,+,-41.09999847412109
+Streptomyces venezuelae,NZ_CP059991.1,5354557,+,2,3275,WT_3prime_signal_forward_2295,1000,,+,-31.5,WT_3prime_signal_forward_2295,1000,,+,-31.5
+Streptomyces venezuelae,NZ_CP059991.1,6261848,+,2,3371,WT_3prime_signal_forward_3157,1000,,+,-39.400001525878906,WT_3prime_signal_forward_3157,1000,100.0,+,-39.400001525878906
+Streptomyces venezuelae,NZ_CP059991.1,6282874,+,2,3380,WT_3prime_signal_forward_3211,1000,80.0,+,-11.800000190734863,WT_3prime_signal_forward_3211,1000,85.0,+,-11.800000190734863
+Streptomyces venezuelae,NZ_CP059991.1,6387323,+,2,3396,WT_3prime_signal_forward_3395,1000,,+,-30.399999618530277,WT_3prime_signal_forward_3395,1000,100.0,+,-30.399999618530277
+Streptomyces venezuelae,NZ_CP059991.1,6422010,+,2,3399,WT_3prime_signal_forward_3450,1000,,+,-31.600000381469727,WT_3prime_signal_forward_3450,1000,91.0,+,-31.600000381469727
+Streptomyces venezuelae,NZ_CP059991.1,6702833,+,2,3415,WT_3prime_signal_forward_3799,1000,,+,-29.899999618530277,WT_3prime_signal_forward_3799,1000,,+,-29.899999618530277
+Streptomyces venezuelae,NZ_CP059991.1,7164900,+,2,3430,WT_3prime_signal_forward_3901,1000,100.0,-,,WT_3prime_signal_forward_3901,1000,95.0,-,
+Streptomyces venezuelae,NZ_CP059991.1,7272792,+,2,3437,WT_3prime_signal_forward_3948,1000,,+,-36.400001525878906,WT_3prime_signal_forward_3948,1000,100.0,+,-36.400001525878906
+Streptomyces venezuelae,NZ_CP059991.1,7327243,+,2,3440,WT_3prime_signal_forward_3951,1000,,+,-34.29999923706055,WT_3prime_signal_forward_3951,1000,100.0,+,-34.29999923706055
+Streptomyces venezuelae,NZ_CP059991.1,8277337,+,2,3456,WT_3prime_signal_forward_4048,1000,,+,-25.5,WT_3prime_signal_forward_4048,1000,79.0,+,-25.5
+Streptomyces venezuelae,NZ_CP059991.1,8527589,-,2,3462,WT_3prime_signal_reverse_4476,1000,,+,-42.79999923706055,WT_3prime_signal_reverse_4476,1000,,+,-42.79999923706055
+Streptomyces coelicolor,AL645882.2,1577652,-,2,3511,WT_3prime_signal_reverse_671,1000,,+,-40.29999923706055,WT_3prime_signal_reverse_671,1000,100.0,+,-40.29999923706055
+Streptomyces coelicolor,AL645882.2,1625985,-,2,3524,WT_3prime_signal_reverse_819,1000,,+,-28.200000762939453,WT_3prime_signal_reverse_819,1000,,+,-28.200000762939453
+Streptomyces coelicolor,AL645882.2,1892403,-,2,3552,WT_3prime_signal_reverse_1259,1000,,+,-37.400001525878906,WT_3prime_signal_reverse_1259,1000,,+,-37.400001525878906
+Streptomyces coelicolor,AL645882.2,2842780,+,2,3639,WT_3prime_signal_forward_1404,1000,,+,-43.0,WT_3prime_signal_forward_1404,1000,100.0,+,-43.0
+Streptomyces coelicolor,AL645882.2,3404668,-,2,3698,WT_3prime_signal_reverse_3153,1000,,+,-23.700000762939453,WT_3prime_signal_reverse_3153,1000,,+,-23.700000762939453
+Streptomyces coelicolor,AL645882.2,4118883,-,2,3749,WT_3prime_signal_reverse_4027,1000,,+,-25.899999618530277,WT_3prime_signal_reverse_4027,1000,,+,-25.899999618530277
+Streptomyces coelicolor,AL645882.2,4171284,+,2,3755,WT_3prime_signal_forward_2257,1000,100.0,+,-40.70000076293945,WT_3prime_signal_forward_2257,1000,100.0,+,-40.70000076293945
+Streptomyces coelicolor,AL645882.2,4242492,+,2,3767,WT_3prime_signal_forward_2377,1000,,+,-34.900001525878906,WT_3prime_signal_forward_2377,1000,100.0,+,-34.900001525878906
+Streptomyces coelicolor,AL645882.2,4298699,+,2,3783,WT_3prime_signal_forward_2461,1000,,+,-37.09999847412109,WT_3prime_signal_forward_2461,1000,,+,-37.09999847412109
+Streptomyces coelicolor,AL645882.2,4505579,+,2,3812,WT_3prime_signal_forward_2700,1000,,+,-35.400001525878906,WT_3prime_signal_forward_2700,1000,,+,-35.400001525878906
+Streptomyces coelicolor,AL645882.2,5061816,+,2,3857,WT_3prime_signal_forward_3343,1000,,+,-34.29999923706055,WT_3prime_signal_forward_3343,1000,100.0,+,-34.29999923706055
+Streptomyces coelicolor,AL645882.2,5714163,-,2,3941,WT_3prime_signal_reverse_5608,1000,91.0,+,-25.0,WT_3prime_signal_reverse_5608,1000,84.0,+,-25.0
+Streptomyces coelicolor,AL645882.2,5988436,+,2,3964,WT_3prime_signal_forward_5010,1000,,+,-13.100000381469728,WT_3prime_signal_forward_5010,1000,100.0,+,-13.100000381469728
+Streptomyces coelicolor,AL645882.2,6937868,+,2,4046,WT_3prime_signal_forward_6210,1000,,+,-33.20000076293945,WT_3prime_signal_forward_6210,1000,,+,-33.20000076293945
+Zymomonas mobilis,NZ_CP023715.1,520086,+,2,4301,WT_3prime_signal_forward_327,1000,,+,-18.5,WT_3prime_signal_forward_327,1000,,+,-18.5
+Zymomonas mobilis,NZ_CP023715.1,741444,-,2,4326,WT_3prime_signal_reverse_217,400,100.0,+,-17.799999237060547,WT_3prime_signal_reverse_217,400,95.0,+,-17.799999237060547
+Listeria monocytogenes,Chromosome,2402844,-,2,5164,WT_3prime_signal_reverse_701,1000,,+,-15.899999618530272,WT_3prime_signal_reverse_701,1000,,+,-15.899999618530272
+Listeria monocytogenes,Chromosome,2637921,-,2,5246,WT_3prime_signal_reverse_891,1000,,+,-18.100000381469727,WT_3prime_signal_reverse_891,1000,,+,-18.100000381469727
+Enterococcus faecalis,NZ_CP008816.1,245004,+,3,5407,WT_3prime_signal_forward_164,1000,,+,-12.800000190734863,WT_3prime_signal_forward_164,1000,,+,-12.800000190734863
+Enterococcus faecalis,NZ_CP008816.1,245004,+,3,5407,WT_3prime_signal_forward_164,1000,,+,-12.800000190734863,WT_3prime_signal_forward_164,1000,,+,-12.800000190734863
+Enterococcus faecalis,NZ_CP008816.1,364200,+,2,5438,WT_3prime_signal_forward_197,1000,,+,-18.399999618530277,WT_3prime_signal_forward_197,1000,100.0,+,-18.399999618530277
+Enterococcus faecalis,NZ_CP008816.1,495583,+,2,5474,WT_3prime_signal_forward_263,1000,,+,-25.100000381469727,WT_3prime_signal_forward_263,1000,,+,-25.100000381469727
+Enterococcus faecalis,NZ_CP008816.1,580773,+,2,5502,WT_3prime_signal_forward_310,1000,,+,-15.5,WT_3prime_signal_forward_310,1000,,+,-15.5
+Enterococcus faecalis,NZ_CP008816.1,769002,-,2,5561,WT_3prime_signal_reverse_170,1000,,+,-11.899999618530272,WT_3prime_signal_reverse_170,1000,,+,-11.899999618530272
+Enterococcus faecalis,NZ_CP008816.1,996557,+,2,5615,WT_3prime_signal_forward_371,1000,,+,-15.699999809265137,WT_3prime_signal_forward_371,1000,,+,-15.699999809265137
+Enterococcus faecalis,NZ_CP008816.1,1408323,-,3,5715,WT_3prime_signal_reverse_425,1000,,+,-27.399999618530277,WT_3prime_signal_reverse_425,1000,,+,-27.399999618530277
+Enterococcus faecalis,NZ_CP008816.1,1408323,-,3,5715,WT_3prime_signal_reverse_425,1000,,+,-27.399999618530277,WT_3prime_signal_reverse_425,1000,,+,-27.399999618530277
+Enterococcus faecalis,NZ_CP008816.1,1781624,-,2,5810,WT_3prime_signal_reverse_623,0,,+,-24.799999237060547,WT_3prime_signal_reverse_623,0,100.0,+,-24.799999237060547
+Enterococcus faecalis,NZ_CP008816.1,1796883,+,2,5818,WT_3prime_signal_forward_462,0,,+,-22.899999618530277,WT_3prime_signal_forward_462,0,,+,-22.899999618530277
+Enterococcus faecalis,NZ_CP008816.1,1935001,+,3,5864,WT_3prime_signal_forward_522,1000,,+,-16.299999237060547,WT_3prime_signal_forward_522,1000,,+,-16.299999237060547
+Enterococcus faecalis,NZ_CP008816.1,1935001,+,3,5864,WT_3prime_signal_forward_522,1000,,+,-16.299999237060547,WT_3prime_signal_forward_522,1000,100.0,+,-16.299999237060547
+Enterococcus faecalis,NZ_CP008816.1,2157049,-,2,5917,WT_3prime_signal_reverse_786,1000,,+,-10.699999809265137,WT_3prime_signal_reverse_786,1000,,+,-10.699999809265137
+Enterococcus faecalis,NZ_CP008816.1,2215110,+,2,5927,WT_3prime_signal_forward_591,1000,,+,-30.0,WT_3prime_signal_forward_591,1000,,+,-30.0
+Enterococcus faecalis,NZ_CP008816.1,2728246,-,2,6057,WT_3prime_signal_reverse_863,0,,+,-21.0,WT_3prime_signal_reverse_863,0,,+,-21.0
+Enterococcus faecalis,NZ_CP008816.1,2769483,+,2,6069,WT_3prime_signal_forward_1057,0,,+,-16.5,WT_3prime_signal_forward_1057,0,86.0,+,-16.5
+Bacillus subtilis (d),Chromosome,737420,+,2,6320,WT_3prime_signal_forward_468,1000,,+,-20.0,WT_3prime_signal_forward_468,1000,100.0,+,-20.0
+Bacillus subtilis (d),Chromosome,809455,+,2,6336,WT_3prime_signal_forward_482,1000,,+,-17.299999237060547,WT_3prime_signal_forward_482,1000,100.0,+,-17.299999237060547
+Bacillus subtilis (d),Chromosome,1260813,+,2,6478,WT_3prime_signal_forward_658,214,,+,-14.699999809265137,WT_3prime_signal_forward_658,214,91.0,+,-14.699999809265137
+Bacillus subtilis (d),Chromosome,1318490,-,2,6499,WT_3prime_signal_reverse_201,928,,+,-22.899999618530277,WT_3prime_signal_reverse_201,928,100.0,+,-22.899999618530277
+Bacillus subtilis (d),Chromosome,2269481,-,3,6738,WT_3prime_signal_reverse_368,1000,77.0,+,-12.899999618530272,WT_3prime_signal_reverse_368,1000,80.0,+,-12.899999618530272
+Bacillus subtilis (d),Chromosome,2269481,-,3,6738,WT_3prime_signal_reverse_368,1000,77.0,+,-12.899999618530272,WT_3prime_signal_reverse_368,1000,87.0,+,-12.899999618530272
+Bacillus subtilis (d),Chromosome,3183180,-,2,7015,WT_3prime_signal_reverse_876,642,,+,-18.700000762939453,WT_3prime_signal_reverse_876,642,,+,-18.700000762939453
+Bacillus subtilis (d),Chromosome,3183216,+,5,7017,WT_3prime_signal_forward_1109,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1109,1000,,+,-16.799999237060547
+Bacillus subtilis (d),Chromosome,3183216,+,5,7017,WT_3prime_signal_forward_1109,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1109,1000,95.0,+,-16.799999237060547
+Bacillus subtilis (d),Chromosome,3183216,+,5,7017,WT_3prime_signal_forward_1109,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1109,1000,100.0,+,-16.799999237060547
+Bacillus subtilis (d),Chromosome,3183216,+,5,7017,WT_3prime_signal_forward_1109,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1109,1000,95.0,+,-16.799999237060547
+Bacillus subtilis (d),Chromosome,3259364,-,2,7047,WT_3prime_signal_reverse_905,1000,,+,-16.299999237060547,WT_3prime_signal_reverse_905,1000,,+,-16.299999237060547
+Bacillus subtilis (d),Chromosome,3322435,-,2,7076,WT_3prime_signal_reverse_977,1000,,+,-13.399999618530272,WT_3prime_signal_reverse_977,1000,93.0,+,-13.399999618530272
+Bacillus subtilis (d),Chromosome,3388985,-,2,7092,WT_3prime_signal_reverse_1000,1000,,+,-24.700000762939453,WT_3prime_signal_reverse_1000,1000,,+,-24.700000762939453
+Bacillus subtilis (d),Chromosome,3389022,+,2,7094,WT_3prime_signal_forward_1140,142,,+,-25.700000762939453,WT_3prime_signal_forward_1140,142,100.0,+,-25.700000762939453
+Bacillus subtilis (d),Chromosome,4169168,+,2,7323,WT_3prime_signal_forward_1265,1000,,+,-12.600000381469728,WT_3prime_signal_forward_1265,1000,,+,-12.600000381469728
+Bacillus subtilis (c),Chromosome,737420,+,2,7503,WT_3prime_signal_forward_389,1000,,+,-20.0,WT_3prime_signal_forward_389,1000,100.0,+,-20.0
+Bacillus subtilis (c),Chromosome,2269481,-,2,7827,WT_3prime_signal_reverse_214,1000,77.0,+,-12.899999618530272,WT_3prime_signal_reverse_214,1000,80.0,+,-12.899999618530272
+Bacillus subtilis (c),Chromosome,3183217,+,5,8052,WT_3prime_signal_forward_823,1000,,+,-16.799999237060547,WT_3prime_signal_forward_823,1000,,+,-16.799999237060547
+Bacillus subtilis (c),Chromosome,3183217,+,5,8052,WT_3prime_signal_forward_823,1000,,+,-16.799999237060547,WT_3prime_signal_forward_823,1000,95.0,+,-16.799999237060547
+Bacillus subtilis (c),Chromosome,3183217,+,5,8052,WT_3prime_signal_forward_823,1000,,+,-16.799999237060547,WT_3prime_signal_forward_823,1000,100.0,+,-16.799999237060547
+Bacillus subtilis (c),Chromosome,3183217,+,5,8052,WT_3prime_signal_forward_823,1000,,+,-16.799999237060547,WT_3prime_signal_forward_823,1000,95.0,+,-16.799999237060547
+Bacillus subtilis (c),Chromosome,3259364,-,2,8076,WT_3prime_signal_reverse_544,1000,,+,-16.299999237060547,WT_3prime_signal_reverse_544,1000,,+,-16.299999237060547
+Bacillus subtilis (c),Chromosome,3322434,-,2,8100,WT_3prime_signal_reverse_562,1000,,+,-13.399999618530272,WT_3prime_signal_reverse_562,1000,93.0,+,-13.399999618530272
+Bacillus subtilis (c),Chromosome,3388985,-,2,8115,WT_3prime_signal_reverse_583,1000,,+,-24.700000762939453,WT_3prime_signal_reverse_583,1000,,+,-24.700000762939453
+Bacillus subtilis (c),Chromosome,4169168,+,2,8311,WT_3prime_signal_forward_933,1000,,+,-12.600000381469728,WT_3prime_signal_forward_933,1000,,+,-12.600000381469728
+Bacillus subtilis (b),Chromosome,288615,-,2,8387,WT_3prime_signal_reverse_16,1000,,+,-14.800000190734863,WT_3prime_signal_reverse_16,1000,,+,-14.800000190734863
+Bacillus subtilis (b),Chromosome,737420,+,2,8512,WT_3prime_signal_forward_699,1000,,+,-20.0,WT_3prime_signal_forward_699,1000,100.0,+,-20.0
+Bacillus subtilis (b),Chromosome,809455,+,2,8528,WT_3prime_signal_forward_723,1000,,+,-17.299999237060547,WT_3prime_signal_forward_723,1000,100.0,+,-17.299999237060547
+Bacillus subtilis (b),Chromosome,2086033,+,2,8870,WT_3prime_signal_forward_1317,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1317,1000,100.0,+,-16.799999237060547
+Bacillus subtilis (b),Chromosome,3183180,-,2,9172,WT_3prime_signal_reverse_805,1000,,+,-18.700000762939453,WT_3prime_signal_reverse_805,1000,,+,-18.700000762939453
+Bacillus subtilis (b),Chromosome,3183217,+,5,9174,WT_3prime_signal_forward_1456,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1456,1000,,+,-16.799999237060547
+Bacillus subtilis (b),Chromosome,3183217,+,5,9174,WT_3prime_signal_forward_1456,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1456,1000,95.0,+,-16.799999237060547
+Bacillus subtilis (b),Chromosome,3183217,+,5,9174,WT_3prime_signal_forward_1456,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1456,1000,100.0,+,-16.799999237060547
+Bacillus subtilis (b),Chromosome,3183217,+,5,9174,WT_3prime_signal_forward_1456,1000,,+,-16.799999237060547,WT_3prime_signal_forward_1456,1000,95.0,+,-16.799999237060547
+Bacillus subtilis (b),Chromosome,3259364,-,2,9204,WT_3prime_signal_reverse_834,1000,,+,-16.299999237060547,WT_3prime_signal_reverse_834,1000,,+,-16.299999237060547
+Bacillus subtilis (b),Chromosome,3389023,+,2,9249,WT_3prime_signal_forward_1491,1000,,+,-25.700000762939453,WT_3prime_signal_forward_1491,1000,100.0,+,-25.700000762939453
+Bacillus subtilis (b),Chromosome,4169168,+,2,9472,WT_3prime_signal_forward_1637,1000,,+,-12.600000381469728,WT_3prime_signal_forward_1637,1000,,+,-12.600000381469728
+Bacillus subtilis (a),Chromosome,737420,+,2,9583,WT_3prime_signal_forward_250,1000,,+,-20.0,WT_3prime_signal_forward_250,1000,100.0,+,-20.0
+Bacillus subtilis (a),Chromosome,1318490,-,2,9667,WT_3prime_signal_reverse_76,500,,+,-22.899999618530277,WT_3prime_signal_reverse_76,500,100.0,+,-22.899999618530277
+Bacillus subtilis (a),Chromosome,3259364,-,2,9966,WT_3prime_signal_reverse_394,1000,,+,-16.299999237060547,WT_3prime_signal_reverse_394,1000,,+,-16.299999237060547
+Bacillus subtilis (a),Chromosome,3388985,-,2,9991,WT_3prime_signal_reverse_415,1000,,+,-24.700000762939453,WT_3prime_signal_reverse_415,1000,,+,-24.700000762939453
+Bacillus subtilis (a),Chromosome,4169168,+,2,10112,WT_3prime_signal_forward_576,1000,,+,-12.600000381469728,WT_3prime_signal_forward_576,1000,,+,-12.600000381469728
+Escherichia coli (b),Chromosome,671542,-,2,10256,WT_3prime_signal_reverse_392,1000,,+,-28.5,WT_3prime_signal_reverse_392,1000,100.0,+,-28.5
+Escherichia coli (b),Chromosome,837626,+,2,10292,WT_3prime_signal_forward_920,0,,+,-21.899999618530277,WT_3prime_signal_forward_920,0,,+,-21.899999618530277
+Escherichia coli (b),Chromosome,1302852,+,3,10402,WT_3prime_signal_forward_1368,1000,,+,-22.600000381469727,WT_3prime_signal_forward_1368,1000,,+,-22.600000381469727
+Escherichia coli (b),Chromosome,1302852,+,3,10402,WT_3prime_signal_forward_1368,1000,,+,-22.600000381469727,WT_3prime_signal_forward_1368,1000,79.0,+,-22.600000381469727
+Escherichia coli (b),Chromosome,3222496,+,2,10766,WT_3prime_signal_forward_2223,0,,+,-25.399999618530277,WT_3prime_signal_forward_2223,0,,+,-25.399999618530277
+Escherichia coli (b),Chromosome,3959499,-,2,10944,WT_3prime_signal_reverse_3497,1000,,+,-20.899999618530277,WT_3prime_signal_reverse_3497,1000,87.0,+,-20.899999618530277
+Escherichia coli (b),Chromosome,4053570,-,2,10969,WT_3prime_signal_reverse_3534,1000,,+,-16.700000762939453,WT_3prime_signal_reverse_3534,1000,,+,-16.700000762939453
+Escherichia coli (b),Chromosome,4227571,+,2,11009,WT_3prime_signal_forward_3232,1000,89.0,+,-17.200000762939453,WT_3prime_signal_forward_3232,1000,85.0,+,-17.200000762939453
+Escherichia coli (a),Chromosome,671542,-,2,11173,WT_3prime_signal_reverse_89,1000,,+,-28.5,WT_3prime_signal_reverse_89,1000,100.0,+,-28.5
+Escherichia coli (a),Chromosome,964167,+,2,11228,WT_3prime_signal_forward_207,1000,80.0,+,-7.199999809265137,WT_3prime_signal_forward_207,1000,81.0,+,-7.199999809265137
+Escherichia coli (a),Chromosome,1302852,+,2,11283,WT_3prime_signal_forward_267,1000,,+,-22.600000381469727,WT_3prime_signal_forward_267,1000,,+,-22.600000381469727
+Escherichia coli (a),Chromosome,2316987,+,2,11436,WT_3prime_signal_forward_415,1000,,+,-20.5,WT_3prime_signal_forward_415,1000,,+,-20.5
+Escherichia coli (a),Chromosome,4053572,-,2,11690,WT_3prime_signal_reverse_885,1000,,+,-16.700000762939453,WT_3prime_signal_reverse_885,1000,,+,-16.700000762939453

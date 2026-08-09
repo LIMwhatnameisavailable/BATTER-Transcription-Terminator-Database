@@ -1,0 +1,35 @@
+============================================================
+TERMITe 数据标准化 Phase A 完成报告
+============================================================
+
+输入文件: D:\SEU\实习\BATTER数据整理\TERMITe\gkaf553_supplemental_files\Supplementary Table 2.xlsx
+清洗后数据: D:\SEU\实习\BATTER数据整理\TERMITe\data\termite_parsed.csv
+去重日志: D:\SEU\实习\BATTER数据整理\TERMITe\data\dedup_log.csv
+去重统计: D:\SEU\实习\BATTER数据整理\TERMITe\data\dedup_summary.txt
+
+原始记录数: 11769
+去重后记录数: 11574
+丢弃记录数: 195
+重复组数: 176
+
+数据集输出:
+  Bacillus_subtilis_a                         630 条终止子
+  Bacillus_subtilis_b                        1153 条终止子
+  Bacillus_subtilis_c                         974 条终止子
+  Bacillus_subtilis_d                        1198 条终止子
+  Enterococcus_faecalis                       779 条终止子
+  Escherichia_coli_a                          686 条终止子
+  Escherichia_coli_b                          949 条终止子
+  Listeria_monocytogenes                      860 条终止子
+  Streptomyces_avermitilis                    684 条终止子
+  Streptomyces_clavuligerus                   431 条终止子
+  Streptomyces_coelicolor                     615 条终止子
+  Streptomyces_griseus                        716 条终止子
+  Streptomyces_lividans                       481 条终止子
+  Streptomyces_tsukubensis                    503 条终止子
+  Streptomyces_venezuelae                     546 条终止子
+  Synechocystis_sp                            165 条终止子
+  Zymomonas_mobilis                           204 条终止子
+
+输出目录: D:\SEU\实习\BATTER数据整理\TERMITe\tracks
+============================================================

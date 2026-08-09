@@ -1,0 +1,1168 @@
+{
+  "configuration": {
+    "theme": {
+      "palette": {
+        "primary": {
+          "main": "#311b92"
+        }
+      }
+    }
+  },
+  "assemblies": [
+    {
+      "name": "GCA_000009045",
+      "displayName": "Bacillus subtilis 168",
+      "aliases": [
+        "NC_000964.3"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCA_000009045-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCA_000009045/GCA_000009045.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCA_000009045/GCA_000009045.fna.fai"
+          }
+        }
+      },
+      "refNameAliases": {
+        "adapter": {
+          "type": "RefNameAliasAdapter",
+          "location": {
+            "uri": "data/GCA_000009045/GCA_000009045.aliases.tsv"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCA_000005845",
+      "displayName": "Escherichia coli K-12 MG1655",
+      "aliases": [
+        "NC_000913.3"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCA_000005845-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCA_000005845/GCA_000005845.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCA_000005845/GCA_000005845.fna.fai"
+          }
+        }
+      },
+      "refNameAliases": {
+        "adapter": {
+          "type": "RefNameAliasAdapter",
+          "location": {
+            "uri": "data/GCA_000005845/GCA_000005845.aliases.tsv"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCA_000196035",
+      "displayName": "Listeria monocytogenes EGD-e",
+      "aliases": [
+        "NC_003210.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCA_000196035-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCA_000196035/GCA_000196035.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCA_000196035/GCA_000196035.fna.fai"
+          }
+        }
+      },
+      "refNameAliases": {
+        "adapter": {
+          "type": "RefNameAliasAdapter",
+          "location": {
+            "uri": "data/GCA_000196035/GCA_000196035.aliases.tsv"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000742975.1",
+      "displayName": "Enterococcus faecalis ATCC 29212",
+      "aliases": [
+        "NZ_CP008814.1",
+        "NZ_CP008815.1",
+        "NZ_CP008816.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000742975.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_000742975.1/GCF_000742975.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_000742975.1/GCF_000742975.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000009765.2",
+      "displayName": "Streptomyces avermitilis MA-4680",
+      "aliases": [
+        "NC_003155.5",
+        "NC_004719.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000009765.2-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_000009765.2/GCF_000009765.2.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_000009765.2/GCF_000009765.2.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_005519465.1",
+      "displayName": "Streptomyces clavuligerus",
+      "aliases": [
+        "NZ_CP027858.1",
+        "NZ_CP027859.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_005519465.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_005519465.1/GCF_005519465.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_005519465.1/GCF_005519465.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCA_000203835.1",
+      "displayName": "Streptomyces coelicolor A3(2)",
+      "aliases": [
+        "AL645882.2",
+        "AL589148.1",
+        "AL645771.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCA_000203835.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCA_000203835.1/GCA_000203835.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCA_000203835.1/GCA_000203835.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000010605.1",
+      "displayName": "Streptomyces griseus NBRC 13350",
+      "aliases": [
+        "NC_010572.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000010605.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_000010605.1/GCF_000010605.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_000010605.1/GCF_000010605.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000739105.1",
+      "displayName": "Streptomyces lividans TK24",
+      "aliases": [
+        "NZ_CP009124.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000739105.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_000739105.1/GCF_000739105.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_000739105.1/GCF_000739105.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_003932715.1",
+      "displayName": "Streptomyces tsukubensis NBRC 108819",
+      "aliases": [
+        "NZ_CP020700.1",
+        "NZ_CP020701.1",
+        "NZ_CP020702.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_003932715.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_003932715.1/GCF_003932715.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_003932715.1/GCF_003932715.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_015710995.1",
+      "displayName": "Streptomyces venezuelae ATCC 15439",
+      "aliases": [
+        "NZ_CP059991.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_015710995.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_015710995.1/GCF_015710995.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_015710995.1/GCF_015710995.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000009725.1",
+      "displayName": "Synechocystis sp. PCC 6803",
+      "aliases": [
+        "NC_000911.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000009725.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_000009725.1/GCF_000009725.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_000009725.1/GCF_000009725.1.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_003054575.1",
+      "displayName": "Zymomonas mobilis ZM4",
+      "aliases": [
+        "NZ_CP023715.1"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_003054575.1-refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "data/GCF_003054575.1/GCF_003054575.1.fna"
+          },
+          "faiLocation": {
+            "uri": "data/GCF_003054575.1/GCF_003054575.1.fna.fai"
+          }
+        }
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCA_000009045-ncbi-genes",
+      "name": "Bacillus_subtilis NCBI genes",
+      "assemblyNames": [
+        "GCA_000009045"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCA_000009045/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Bacillus_subtilis_a-terminators",
+      "name": "Bacillus_subtilis_a terminators",
+      "assemblyNames": [
+        "GCA_000009045"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Bacillus_subtilis_a (630 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000009045/Bacillus_subtilis_a_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Bacillus_subtilis_b-terminators",
+      "name": "Bacillus_subtilis_b terminators",
+      "assemblyNames": [
+        "GCA_000009045"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Bacillus_subtilis_b (1153 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000009045/Bacillus_subtilis_b_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Bacillus_subtilis_c-terminators",
+      "name": "Bacillus_subtilis_c terminators",
+      "assemblyNames": [
+        "GCA_000009045"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Bacillus_subtilis_c (974 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000009045/Bacillus_subtilis_c_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Bacillus_subtilis_d-terminators",
+      "name": "Bacillus_subtilis_d terminators",
+      "assemblyNames": [
+        "GCA_000009045"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Bacillus_subtilis_d (1198 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000009045/Bacillus_subtilis_d_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCA_000005845-ncbi-genes",
+      "name": "Escherichia_coli NCBI genes",
+      "assemblyNames": [
+        "GCA_000005845"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCA_000005845/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Escherichia_coli_a-terminators",
+      "name": "Escherichia_coli_a terminators",
+      "assemblyNames": [
+        "GCA_000005845"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Escherichia_coli_a (686 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000005845/Escherichia_coli_a_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Escherichia_coli_b-terminators",
+      "name": "Escherichia_coli_b terminators",
+      "assemblyNames": [
+        "GCA_000005845"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Escherichia_coli_b (949 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000005845/Escherichia_coli_b_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCA_000196035-ncbi-genes",
+      "name": "Listeria_monocytogenes NCBI genes",
+      "assemblyNames": [
+        "GCA_000196035"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCA_000196035/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Listeria_monocytogenes-terminators",
+      "name": "Listeria_monocytogenes terminators",
+      "assemblyNames": [
+        "GCA_000196035"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Listeria_monocytogenes (860 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000196035/Listeria_monocytogenes_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_000742975.1-ncbi-genes",
+      "name": "Enterococcus_faecalis NCBI genes",
+      "assemblyNames": [
+        "GCF_000742975.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_000742975.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Enterococcus_faecalis-terminators",
+      "name": "Enterococcus_faecalis terminators",
+      "assemblyNames": [
+        "GCF_000742975.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Enterococcus_faecalis (779 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_000742975.1/Enterococcus_faecalis_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_000009765.2-ncbi-genes",
+      "name": "Streptomyces_avermitilis NCBI genes",
+      "assemblyNames": [
+        "GCF_000009765.2"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_000009765.2/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_avermitilis-terminators",
+      "name": "Streptomyces_avermitilis terminators",
+      "assemblyNames": [
+        "GCF_000009765.2"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_avermitilis (684 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_000009765.2/Streptomyces_avermitilis_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_005519465.1-ncbi-genes",
+      "name": "Streptomyces_clavuligerus NCBI genes",
+      "assemblyNames": [
+        "GCF_005519465.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_005519465.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_clavuligerus-terminators",
+      "name": "Streptomyces_clavuligerus terminators",
+      "assemblyNames": [
+        "GCF_005519465.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_clavuligerus (431 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_005519465.1/Streptomyces_clavuligerus_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCA_000203835.1-ncbi-genes",
+      "name": "Streptomyces_coelicolor NCBI genes",
+      "assemblyNames": [
+        "GCA_000203835.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCA_000203835.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_coelicolor-terminators",
+      "name": "Streptomyces_coelicolor terminators",
+      "assemblyNames": [
+        "GCA_000203835.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_coelicolor (615 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCA_000203835.1/Streptomyces_coelicolor_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_000010605.1-ncbi-genes",
+      "name": "Streptomyces_griseus NCBI genes",
+      "assemblyNames": [
+        "GCF_000010605.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_000010605.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_griseus-terminators",
+      "name": "Streptomyces_griseus terminators",
+      "assemblyNames": [
+        "GCF_000010605.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_griseus (716 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_000010605.1/Streptomyces_griseus_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_000739105.1-ncbi-genes",
+      "name": "Streptomyces_lividans NCBI genes",
+      "assemblyNames": [
+        "GCF_000739105.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_000739105.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_lividans-terminators",
+      "name": "Streptomyces_lividans terminators",
+      "assemblyNames": [
+        "GCF_000739105.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_lividans (481 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_000739105.1/Streptomyces_lividans_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_003932715.1-ncbi-genes",
+      "name": "Streptomyces_tsukubensis NCBI genes",
+      "assemblyNames": [
+        "GCF_003932715.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_003932715.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_tsukubensis-terminators",
+      "name": "Streptomyces_tsukubensis terminators",
+      "assemblyNames": [
+        "GCF_003932715.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_tsukubensis (503 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_003932715.1/Streptomyces_tsukubensis_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_015710995.1-ncbi-genes",
+      "name": "Streptomyces_venezuelae NCBI genes",
+      "assemblyNames": [
+        "GCF_015710995.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_015710995.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Streptomyces_venezuelae-terminators",
+      "name": "Streptomyces_venezuelae terminators",
+      "assemblyNames": [
+        "GCF_015710995.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Streptomyces_venezuelae (546 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_015710995.1/Streptomyces_venezuelae_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_000009725.1-ncbi-genes",
+      "name": "Synechocystis_sp NCBI genes",
+      "assemblyNames": [
+        "GCF_000009725.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_000009725.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Synechocystis_sp-terminators",
+      "name": "Synechocystis_sp terminators",
+      "assemblyNames": [
+        "GCF_000009725.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Synechocystis_sp (165 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_000009725.1/Synechocystis_sp_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "GCF_003054575.1-ncbi-genes",
+      "name": "Zymomonas_mobilis NCBI genes",
+      "assemblyNames": [
+        "GCF_003054575.1"
+      ],
+      "category": [
+        "NCBI Genes"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/GCF_003054575.1/genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Zymomonas_mobilis-terminators",
+      "name": "Zymomonas_mobilis terminators",
+      "assemblyNames": [
+        "GCF_003054575.1"
+      ],
+      "category": [
+        "TERMITe Terminators"
+      ],
+      "description": "TERMITe intrinsic terminators - Zymomonas_mobilis (204 records)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/GCF_003054575.1/Zymomonas_mobilis_terminators.bed"
+        },
+        "columnNames": [
+          "chrom",
+          "chromStart",
+          "chromEnd",
+          "name",
+          "score",
+          "strand",
+          "termite_score",
+          "IDR",
+          "rnafold_energy",
+          "transtermhp_confidence"
+        ]
+      },
+      "renderers": {
+        "FeatureRenderer": {
+          "type": "SvgFeatureRenderer",
+          "color1": "#1f77b4",
+          "color2": "#d62728"
+        }
+      }
+    }
+  ],
+  "defaultSession": {
+    "name": "TERMITe Browser",
+    "view": {
+      "id": "linearGenomeView",
+      "type": "LinearGenomeView"
+    }
+  },
+  "plugins": [],
+  "internetAccount": {
+    "type": "InternetAccount"
+  }
+}

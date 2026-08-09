@@ -1,0 +1,27 @@
+TERMITe 数据去重统计摘要
+============================================================
+
+去重前总记录数: 11769
+去重后总记录数: 11574
+丢弃记录数: 195
+重复组数: 176
+
+按 dataset 去重统计:
+------------------------------------------------------------
+  Bacillus_subtilis_a                         635 →   630  (丢弃 5)
+  Bacillus_subtilis_b                        1165 →  1153  (丢弃 12)
+  Bacillus_subtilis_c                         984 →   974  (丢弃 10)
+  Bacillus_subtilis_d                        1214 →  1198  (丢弃 16)
+  Enterococcus_faecalis                       796 →   779  (丢弃 17)
+  Escherichia_coli_a                          691 →   686  (丢弃 5)
+  Escherichia_coli_b                          957 →   949  (丢弃 8)
+  Listeria_monocytogenes                      862 →   860  (丢弃 2)
+  Streptomyces_avermitilis                    705 →   684  (丢弃 21)
+  Streptomyces_clavuligerus                   435 →   431  (丢弃 4)
+  Streptomyces_coelicolor                     629 →   615  (丢弃 14)
+  Streptomyces_griseus                        737 →   716  (丢弃 21)
+  Streptomyces_lividans                       495 →   481  (丢弃 14)
+  Streptomyces_tsukubensis                    520 →   503  (丢弃 17)
+  Streptomyces_venezuelae                     573 →   546  (丢弃 27)
+  Synechocystis_sp                            165 →   165  (丢弃 0)
+  Zymomonas_mobilis                           206 →   204  (丢弃 2)
