@@ -2,7 +2,7 @@
 
 **更新：** 2026-08-10
 **当前分支：** `refactor/project-structure-and-literature-notes-v0.1`
-**当前里程碑：** v0.1 local snapshot 已构建并通过校验，待提交/推送。
+**当前里程碑：** v0.1 local snapshot 已构建并通过校验；PR #3 根目录和 legacy 当前树清理已完成，待推送并同步到 PR #4。
 
 ## 已交付
 
@@ -12,6 +12,8 @@
 - `BATTER_S1_002` 维持 `audit_only`；混合证据和预测资产只保存公开 checksum 审计摘要。
 - 构建器：`scripts/build_local_snapshot_release.py`；发布校验器：`scripts/validate_bted_release.py`。
 - 页面 `site/sources.html` 已改为 v0.1 发布索引；站点不提供 JBrowse/BigWig。
+- 根目录只保留正式项目入口；早期报告归入 `docs/legacy/project-reports/`，登录号快照归入 `data/audit/legacy/`。
+- 重复 `docs/legacy/original-directories/`、read-starts 和 `__MACOSX` 已从当前 Git 树移除；未改写历史。
 
 ## 接手前先读
 
@@ -26,17 +28,18 @@
 python3 scripts/validate_bted_templates.py
 python3 scripts/validate_bted_release.py
 python3 scripts/build_sources_page.py
+python3 scripts/validate_repo_layout.py
 python3 scripts/validate-site.py
 git diff --check
 ```
 
 ## 下一步（按优先级）
 
-1. 提交、推送并开 Draft PR；许可/再分发条件由项目维护者复核。
-2. 为 `BATTER_S1_002` 补逐观测的作者表行、样本、实验类型与坐标 provenance；能够拆出纯实验端点后才允许发布。
-3. 补写 `BATTER_S1_005` 和 `BATTER_S1_022` 的详细处理记录。
-4. 制定独立 JBrowse 发布包（资产清单、版本、checksum、外部托管位置）；不要直接把原始/大轨道提交到 Git。
-5. 后续接入新来源继续使用 26 列 source intake 与 24 列 endpoint schema，并保留一个来源一个 PR 的审计粒度。
+1. 将本次结构清理推送到 PR #3 的远端分支并确认 diff。
+2. 将 PR #3 更新合并到 PR #4，保留 v0.2 WORKLOG/HANDOFF 与网站内容。
+3. 按 #1 → #2 → #3 → #4 的顺序处理串联 PR；不要在下游 PR 改 base 前删除上游分支。
+4. 许可/再分发条件仍由项目维护者复核；S1_002 只有拆出纯实验端点后才允许发布。
+5. 历史重写不是本次任务；若未来执行，必须先完成镜像备份与协作冻结。
 
 ## 不要做
 

@@ -1,5 +1,23 @@
 # 工作日志
 
+## 2026-08-10 —— PR #3 仓库根目录与 legacy 向前清理
+
+**分支：** `refactor/project-structure-and-literature-notes-v0.1`（通过独立清理工作树更新） | **状态：** 结构清理完成，未改写历史
+
+### 完成内容
+
+1. 将根目录 `PROGRESS.md`、`data_verification_report.md`、`report_BATTER_supplementary.md`、`report_zenodo_and_documents.md` 归入 `docs/legacy/project-reports/`。
+2. 将根目录 `accession_list_verified.csv` 归入 `data/audit/legacy/`，明确其为 2026-08-07 的历史元数据快照，不替代正式 registry/manifest。
+3. 从当前 Git 树移除重复的 `docs/legacy/original-directories/`，包括 6 个约 168 MB 的 read-starts 文本和 `__MACOSX`；正式文献说明与早期笔记分别保留在 `docs/literature/` 和 `docs/legacy/literature-initial-review/`。其中独立的 `supplementary_data_1to5_findings.md` 没有丢弃，改存为 `docs/legacy/project-reports/PMID_38030608_supplementary_data_1to5_findings.md`。
+4. `.gitignore` 增加 `docs/legacy/original-directories/`，防止旧目录和原始计数重新进入当前版本。
+5. 更新 README、目录规范、历史索引、网站静态说明、迁移盘点和清理方案，记录“当前树已清理、历史未重写”的边界。
+
+### 恢复与剩余风险
+
+- 本次是普通可逆提交，旧文件仍存在于 Git 历史和原主工作树，可通过旧提交恢复；没有删除公共标准化数据。
+- 仓库历史体积不会因此缩小；若未来决定执行 `git filter-repo`，仍须镜像备份、冻结协作并单独评审。
+- PR #4 需合并更新后的 PR #3 基线，避免最终分支重新带回旧根目录状态。
+
 ## 2026-08-10 —— v0.1 local snapshot：本地 BTED 结果首次进入 Git
 
 **分支：** `refactor/project-structure-and-literature-notes-v0.1`

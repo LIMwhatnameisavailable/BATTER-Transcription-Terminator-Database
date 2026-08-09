@@ -24,7 +24,7 @@ GitHub Pages 用于展示 BTED 的项目说明、来源目录、发布状态和�
 |---|---|---|
 | `index.html` | 项目目的、v0.1 摘要、边界和下一步 | 手工维护，链接发布说明 |
 | `sources.html` | 22 来源与 release 状态表 | `data/registry/batter_s1_source_registry.tsv` + `batter_s1_publication_status.tsv` |
-| `catalog.html` | 外部公开数据登录号索引 | `accession_list_verified.csv` 的既有静态目录 |
+| `catalog.html` | 外部公开数据登录号索引 | `data/audit/legacy/accession_list_verified.csv` 的既有静态目录 |
 | `methodology.html` | 坐标、证据边界、局限 | 正式标准文档 |
 | `about.html` | 项目与贡献入口 | 手工维护 |
 

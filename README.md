@@ -29,7 +29,7 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 
 ## 统计口径（统一表述）
 
-- **“13 篇原始研究文献”是论文数**（BATTER Table S1 来源文献，PMID 清单见 `report_BATTER_supplementary.md`）；
+- **“13 篇原始研究文献”是论文数**（BATTER Table S1 来源文献，PMID 清单见 [`docs/legacy/project-reports/report_BATTER_supplementary.md`](docs/legacy/project-reports/report_BATTER_supplementary.md)）；
 - **“22 个来源记录”是来源/物种数据记录数**（Table S1 中这些论文下的记录）；
 - 两者单位不同，**不能混写为同一个“数据集数量”**；
 - v0.1 local snapshot 已标准化发布 21 个来源、28,399 条记录；`BATTER_S1_002` 仍为仅审计状态。任何页面不得声称“所有 22 个来源均已公开发布”，也不得声称“所有端点均为功能验证终止子”。
@@ -51,6 +51,7 @@ BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库�
 ```bash
 python3 scripts/validate_bted_templates.py   # 模板结构（无第三方依赖）
 python3 scripts/validate_bted_release.py     # v0.1 标准化发布资产、坐标、BED 与 checksum
+python3 scripts/validate_repo_layout.py      # 根目录与 legacy 追踪边界
 python3 scripts/validate-site.py             # 站点产物
 python -m unittest -v tests/test_bted_ingestion.py  # 发布回归测试
 git diff --check
@@ -69,7 +70,7 @@ docs/
   integration/             外部来源批次交接与整合决定
   literature/              13 篇论文正式调研 README 与总索引
   sources/                 来源级处理记录（按 source_id 组织）
-  legacy/                  历史探索性笔记（只读，不作为标准结论）
+  legacy/                  历史探索笔记与项目报告（只读，不作为标准结论）
   tasks/                   分支任务计划
   HANDOFF.md               协作交接记录
   WORKLOG.md               工作日志
@@ -79,12 +80,11 @@ data/
   registry/                来源级注册表与模板
     submissions/           协作者交接的来源登记快照（待审计）
   public/                  可公开标准化数据（v0.1: 21 个来源）
-  audit/                   证据审计与排除记录（只含公开摘要与 checksum）
+  audit/                   证据审计、排除记录与历史登录号快照
 scripts/                   校验脚本
 site/                      GitHub Pages 静态演示骨架
 CONTRIBUTING.md            贡献指南与 PR 流程
 .github/                   PR 模板
-docs/legacy/original-directories/  13 篇来源文献的原始目录（已迁入 legacy）
 ```
 
 ## 来源注册表与数据字典
@@ -95,10 +95,10 @@ docs/legacy/original-directories/  13 篇来源文献的原始目录（已迁入
 
 ## 历史资料
 
-- `accession_list_verified.csv` —— 13 篇文献经核实的公开数据登录号；
-- `data_verification_report.md` —— 逐篇补充材料核查报告（结论以其中校准表述为准）；
-- `report_BATTER_supplementary.md` / `report_zenodo_and_documents.md` —— BATTER 补充材料与 Zenodo 仓库审查；
-- `PROGRESS.md` —— 早期工作日志。
+- [`data/audit/legacy/accession_list_verified.csv`](data/audit/legacy/accession_list_verified.csv) —— 13 篇文献经核实的公开数据登录号历史快照；
+- [`docs/legacy/project-reports/`](docs/legacy/project-reports/) —— 逐篇补充材料核查、BATTER/Zenodo 审查和早期工作日志；
+- [`docs/legacy/literature-initial-review/`](docs/legacy/literature-initial-review/) —— 13 篇论文的早期探索笔记；
+- [`docs/literature/`](docs/literature/) —— 当前正式文献说明。
 
 ## 许可与反馈
 
