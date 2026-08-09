@@ -248,3 +248,23 @@
 - 22 个 BATTER_S1 来源的数据迁移尚未开始，须按 `docs/current-bted-status.md` 验收门槛逐来源审计。
 - `文献13` 已追踪大文件与 `__MACOSX/` 的清理仍待维护者按 `docs/cleanup-proposal.md` 决策。
 - `docs/standards/` 五份文档为 v0.1，接入首批真实外部文献后应回顾修订。
+
+## 2026-08-10 —— BTED 自有数据 v0.2.0 本地交付
+
+**分支：** `agent/bted-v0.2-public-demo` | **本地提交：** `142e371` | **状态：** 本地完成，远端上传受网络阻塞
+
+### 完成内容
+
+1. 22 个 BATTER S1 来源均生成 v0.2 manifest 和网站详情页；21 个来源发布 28,399 条统一端点记录，S1_002 保持 `audit_only`。
+2. 建立核心端点表、来源特异附表、字段清单、BED6、manifest 和 SHA-256 的两层发布接口；混合证据与预测注释不进入实验端点层。
+3. 完成 S1_005 双 contig、S1_020 分层和 S1_022 参考版本的重点工程审计。
+4. 生成 21 套独立 JBrowse 配置、双语静态网站、22 个来源页、CI/Pages 工作流、Release 压缩包和 draw.io 流程图。
+5. 完整本地验收通过：模板/v0.1/v0.2/JBrowse/网站/Pages/坐标/checksum/11 项单元测试均通过；外部链接审计无失败和必填缺失。
+
+### GitHub 上传问题
+
+- 已创建本地提交 `142e371 feat: build BTED v0.2 public demo`，工作树干净。
+- 2026-08-10 先后使用默认 HTTP、HTTP/1.1、HTTP/1.1 + 500 MiB `http.postBuffer` 推送，均未改变数据或提交。
+- 失败信息包括 `Could not resolve host`、`Failed to connect to github.com port 443` 和 `HTTP2 framing layer`；随后 `curl -I --connect-timeout 15 https://github.com` 同样超时。
+- GitHub 应用查询确认远端尚无 `agent/bted-v0.2-public-demo` 分支。这是终端网络层阻塞，不是数据、Git 对象或权限校验失败。
+- 恢复条件：终端能够连接 `github.com:443` 后执行 `git push -u origin agent/bted-v0.2-public-demo`，再建立 Draft PR；Release 资产仍保存在本地 `dist/`，不得加入 Git 历史。

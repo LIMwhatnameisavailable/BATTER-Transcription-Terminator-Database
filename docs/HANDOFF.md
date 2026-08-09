@@ -4,7 +4,7 @@
 
 **当前分支：** `agent/bted-v0.2-public-demo`
 
-**当前里程碑：** v0.2.0 本地发布数据、网站和 JBrowse 包已构建；待最终全量验收、提交、推送与 GitHub 发布。
+**当前里程碑：** v0.2.0 数据、网站、JBrowse 和完整本地验收已完成并提交；仅远端上传与 GitHub 发布因网络阻塞未完成。
 
 ## 已交付
 
@@ -52,11 +52,18 @@ git diff --check
 
 ## 待完成
 
-1. 浏览器中人工检查首页、筛选、S1_002、S1_005 双 contig 和两个代表来源。
-2. 全量验证后提交并推送分支，建立 Draft PR。
-3. 以 `v0.2.0` 创建 GitHub Release 并上传四个资产/校验文件。
+1. 终端网络恢复后推送当前分支（含实现提交 `142e371` 和本状态记录）：`git push -u origin agent/bted-v0.2-public-demo`。
+2. 建立 Draft PR，目标分支由维护者确认；不要直接合并 `main`。
+3. 以 `v0.2.0` 创建 GitHub Release 并上传 `dist/` 中四个资产/校验文件。
 4. 评审通过后合并到 `main`，启用 GitHub Pages；部署后检查稳定链接。
 5. S1_002 只有在未来能可靠拆出纯实验端点时才改变 `audit_only`。
+
+## 远端发布阻塞
+
+- 本地提交：`142e371 feat: build BTED v0.2 public demo`。
+- 2026-08-10 多次推送均因无法稳定连接 `github.com:443` 失败；只读 `curl` 检查也超时。
+- GitHub 应用确认远端尚无 `agent/bted-v0.2-public-demo` 分支。
+- 该阻塞不影响本地数据包、网站、JBrowse、checksum 或测试结果；不要为解决网络问题重建或重新解释数据。
 
 ## 不要做
 
