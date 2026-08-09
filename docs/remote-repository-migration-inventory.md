@@ -5,6 +5,8 @@
 **日期：** 2026-08-07
 **范围：** 仅做盘点与差距映射。本任务未迁移、删除、重命名或重排任何数据。
 
+> **路径更新（2026-08-10）：** 本文主体保留 2026-08-07 盘点时的原路径和状态。随后根目录项目报告移至 `docs/legacy/project-reports/`，登录号清单移至 `data/audit/legacy/`；重复的 `docs/legacy/original-directories/`、read-starts 和 `__MACOSX` 已从当前 Git 树移除，但未改写历史。
+
 ---
 
 ## 1. 当前远程仓库清单（已核实）
@@ -100,7 +102,7 @@
 - 原始测序文件（FASTQ/FASTQ.gz）及任何数 GB 级的原始压缩包。
 - 已有公开 DOI/登录号托管的重复原始数据（Zenodo、GEO、SRA、ENA、ArrayExpress、Figshare、PRIDE）—— 只链接，不复制。
 - 缓存、临时输出、编辑器/操作系统产物（`.DS_Store`、`__MACOSX/`、`._*`）。
-- `文献13` 的大型 read-starts 文本文件**已被追踪**（约 168 MB）；不得再添加同类文件。是否从 git 历史中清除是记录在 `docs/current-bted-status.md` 中的待决事项。
+- `文献13` 的大型 read-starts 文本文件在盘点时**已被追踪**（约 168 MB），现已从当前 Git 树移除；不得再添加同类文件。是否从 git 历史中清除仍是记录在 `docs/cleanup-proposal.md` 中的独立维护决策。
 
 ---
 

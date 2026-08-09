@@ -16,6 +16,7 @@
 - 数据/JBrowse Release 资产、CI、Pages workflow 和本地 Pages staging 已具备。
 - S1_005、S1_020、S1_022 的工程审计和处理记录已补齐。
 - 外部链接审计已保存为 `data/audit/v0.2.0/external_link_audit.tsv`，无失败或缺失必填入口。
+- PR #3 的根目录清理已同步：旧报告和登录号快照归档，重复的 `docs/legacy/original-directories/`、read-starts 与 `__MACOSX` 已退出当前 Git 树；历史未改写。
 
 ## 接手前阅读
 
@@ -41,6 +42,7 @@ python3 scripts/stage_pages.py --jbrowse-dir dist/BTED-v0.2.0-jbrowse --output-d
 ```bash
 python3 scripts/validate_bted_templates.py
 python3 scripts/validate_bted_release.py
+python3 scripts/validate_repo_layout.py
 python3 scripts/validate_bted_v0_2.py
 python3 scripts/audit_v0_2_priority_sources.py
 python3 scripts/validate_jbrowse_release.py dist/BTED-v0.2.0-jbrowse
@@ -52,7 +54,7 @@ git diff --check
 
 ## 待完成
 
-1. 审阅 Draft PR #4；其基线为 PR #3，保持串联 PR 的改动范围清晰。
+1. 审阅已同步 PR #3 结构清理的 Draft PR #4，保持串联 PR 的改动范围清晰。
 2. 按 #1 → #2 → #3 → #4 顺序处理 PR 基线，避免直接把全部历史一次展开到 `main`。
 3. 评审通过后发布 `v0.2.0` Release，再合并包含 Pages workflow 的分支。
 4. 在 Settings → Pages 选择 GitHub Actions，运行部署并检查稳定链接。
@@ -63,6 +65,7 @@ git diff --check
 - 实现提交：`142e371 feat: build BTED v0.2 public demo`。
 - 分支：`agent/bted-v0.2-public-demo`，已通过 SSH 推送。
 - Draft PR：`https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/4`，CI 已通过。
+- PR #3 结构清理提交：`61318db refactor: clean repository root and legacy assets`。
 - `v0.2.0` Release 草稿包含四个发布资产；保持草稿，直至评审和 Pages 发布顺序确认。
 - HTTPS OAuth 令牌仍缺少 `workflow` scope；继续推送本分支可使用已验证的 SSH 地址，无需重新构建数据。
 

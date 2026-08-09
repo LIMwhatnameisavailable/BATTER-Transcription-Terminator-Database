@@ -38,6 +38,8 @@ v0.2.0 保留固定的 24 列核心端点表，并增加通过 `end_id` 关联�
 
 数据库中的“实验支持 3′ end”不等于每个位点均完成独立终止功能试验。
 
+这里的 13 是原始研究论文数，22 是论文下拆分出的来源记录数，两者不是同一统计单位。v0.2.0 公开 21 个来源，`BATTER_S1_002` 仅保留来源审计，不能表述为“22 个来源均已公开发布”。
+
 ## 发布目录
 
 ```text
@@ -83,6 +85,7 @@ python3 -m http.server 8000 --directory .pages-preview
 ```bash
 python3 scripts/validate_bted_templates.py
 python3 scripts/validate_bted_release.py
+python3 scripts/validate_repo_layout.py
 python3 scripts/validate_bted_v0_2.py
 python3 scripts/audit_v0_2_priority_sources.py
 python3 scripts/validate_jbrowse_release.py dist/BTED-v0.2.0-jbrowse
@@ -109,10 +112,13 @@ Release 资产：
 data/registry/           22 来源注册表、manifest、许可与发布状态
 data/public/v0.2.0/      可公开的小型标准数据
 data/audit/v0.2.0/       工程审计结果
+data/audit/legacy/       早期资料搜集阶段的小型元数据快照
 docs/releases/           版本说明
 docs/sources/            逐来源处理记录
 docs/standards/          SOP、字段与发布接口
 docs/diagrams/           可编辑流程图
+docs/literature/         当前正式文献说明
+docs/legacy/             早期探索笔记和项目报告（只读）
 scripts/                 构建、校验和打包脚本
 site/                    自动生成的静态网站
 tests/                   v0.1/v0.2 回归测试
@@ -121,3 +127,12 @@ tests/                   v0.1/v0.2 回归测试
 ## 协作
 
 新增来源或修改共享规则前，请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)、[SOP v0.2](docs/standards/BTED_数据入库标准流程_v0.2.md) 和 [证据分层与发布边界](docs/standards/证据分层与发布边界.md)。一个来源的处理记录、manifest、输入指纹、输出和验证结果应在同一个 PR 中评审。
+
+## 历史资料
+
+- [`data/audit/legacy/accession_list_verified.csv`](data/audit/legacy/accession_list_verified.csv)：早期资料搜集阶段形成的公开登录号快照，不替代正式 registry/manifest；
+- [`docs/legacy/project-reports/`](docs/legacy/project-reports/)：早期项目报告和补充材料核查记录；
+- [`docs/legacy/literature-initial-review/`](docs/legacy/literature-initial-review/)：13 篇论文的早期探索笔记；
+- [`docs/literature/`](docs/literature/)：当前正式文献说明。
+
+重复的旧整目录副本和 read-starts 原始计数已从当前 Git 树移除，未改写历史。原始实验文件继续通过公共 accession 获取，不在仓库中重复保存。

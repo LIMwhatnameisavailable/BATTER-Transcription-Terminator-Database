@@ -44,6 +44,22 @@
 
 本地数据、站点、JBrowse 和 Release 资产已构建。GitHub 推送、Release 和 Pages 激活需要有效的 GitHub CLI 登录及维护者评审；不在本地构建阶段猜测或绕过认证。
 
+## 2026-08-10 —— PR #3 仓库根目录与 legacy 向前清理
+
+**来源提交：** `61318db` | **状态：** 已同步进 v0.2 分支，未改写历史
+
+### 完成内容
+
+1. 将根目录旧报告归入 `docs/legacy/project-reports/`，将登录号快照归入 `data/audit/legacy/`。
+2. 从当前 Git 树移除重复的 `docs/legacy/original-directories/`、约 168 MB read-starts 文本和 `__MACOSX`；独立调研记录已保留到项目报告目录。
+3. 新增 `scripts/validate_repo_layout.py`，并更新 README、目录规范、历史索引、迁移记录和 `.gitignore`。
+4. 清理是普通可逆提交，没有删除标准化公开数据，也没有执行 `git filter-repo` 或 force push。
+
+### 验证
+
+- 仓库布局、模板、v0.1 发布、站点和 4 项 v0.1 unittest 全部通过；
+- 同步至 v0.2 后重新执行 v0.1/v0.2/JBrowse/站点完整回归。
+
 ## 2026-08-10 —— v0.1 local snapshot：本地 BTED 结果首次进入 Git
 
 **分支：** `refactor/project-structure-and-literature-notes-v0.1`

@@ -15,9 +15,9 @@ The purpose of this task is to map the two states before any large-scale import 
 ## Read first
 
 1. `README.md`
-2. `PROGRESS.md`
-3. `data_verification_report.md`
-4. `report_BATTER_supplementary.md`
+2. `docs/legacy/project-reports/PROGRESS.md`
+3. `docs/legacy/project-reports/data_verification_report.md`
+4. `docs/legacy/project-reports/report_BATTER_supplementary.md`
 5. Every source-directory README relevant to a proposed migration
 
 If access to the current BTED working tree is available, also read its SOP, source registry, processing records, and test suite before making claims about its contents.
