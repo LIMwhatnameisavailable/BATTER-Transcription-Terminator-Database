@@ -1,0 +1,266 @@
+{
+  "release_version": "v0.2.0",
+  "audit_date": "2026-08-10",
+  "scope": "Database engineering invariants; no new biological interpretation.",
+  "sources": {
+    "BATTER_S1_005": {
+      "record_count": 1154,
+      "reference_counts": {
+        "CP009977.1": 898,
+        "CP009978.1": 256
+      },
+      "strand_counts": {
+        "+": 576,
+        "-": 578
+      },
+      "evidence_classes": [
+        "curated_record"
+      ],
+      "source_tables": [
+        "Supplementary Table S3, 3_terminators_Vnat"
+      ],
+      "unique_reference_coordinate_strand": true,
+      "bed_conversion_valid": true,
+      "deterministic_spot_check": [
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009977-1_plus_12895_r000002",
+          "reference_name": "CP009977.1",
+          "coordinate_1based": 12895,
+          "bed_start_0based": 12894,
+          "bed_end_0based": 12895,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009977-1_plus_1678202_r000231",
+          "reference_name": "CP009977.1",
+          "coordinate_1based": 1678202,
+          "bed_start_0based": 1678201,
+          "bed_end_0based": 1678202,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009977-1_plus_3247519_r000460",
+          "reference_name": "CP009977.1",
+          "coordinate_1based": 3247519,
+          "bed_start_0based": 3247518,
+          "bed_end_0based": 3247519,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009977-1_minus_5959_r000461",
+          "reference_name": "CP009977.1",
+          "coordinate_1based": 5959,
+          "bed_start_0based": 5958,
+          "bed_end_0based": 5959,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009977-1_minus_1967163_r000680",
+          "reference_name": "CP009977.1",
+          "coordinate_1based": 1967163,
+          "bed_start_0based": 1967162,
+          "bed_end_0based": 1967163,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009977-1_minus_3239092_r000899",
+          "reference_name": "CP009977.1",
+          "coordinate_1based": 3239092,
+          "bed_start_0based": 3239091,
+          "bed_end_0based": 3239092,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009978-1_plus_13669_r000900",
+          "reference_name": "CP009978.1",
+          "coordinate_1based": 13669,
+          "bed_start_0based": 13668,
+          "bed_end_0based": 13669,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009978-1_plus_683330_r000958",
+          "reference_name": "CP009978.1",
+          "coordinate_1based": 683330,
+          "bed_start_0based": 683329,
+          "bed_end_0based": 683330,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009978-1_plus_1896398_r001016",
+          "reference_name": "CP009978.1",
+          "coordinate_1based": 1896398,
+          "bed_start_0based": 1896397,
+          "bed_end_0based": 1896398,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009978-1_minus_15692_r001017",
+          "reference_name": "CP009978.1",
+          "coordinate_1based": 15692,
+          "bed_start_0based": 15691,
+          "bed_end_0based": 15692,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009978-1_minus_739494_r001086",
+          "reference_name": "CP009978.1",
+          "coordinate_1based": 739494,
+          "bed_start_0based": 739493,
+          "bed_end_0based": 739494,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_005_CURATED_LALANNE_TABLE_S3_CP009978-1_minus_1924163_r001155",
+          "reference_name": "CP009978.1",
+          "coordinate_1based": 1924163,
+          "bed_start_0based": 1924162,
+          "bed_end_0based": 1924163,
+          "strand": "-"
+        }
+      ],
+      "multi_contig_expected": true,
+      "ids_retain_contig": true
+    },
+    "BATTER_S1_020": {
+      "record_count": 1165,
+      "reference_counts": {
+        "NC_014500.1": 1165
+      },
+      "strand_counts": {
+        "+": 531,
+        "-": 634
+      },
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
+      "source_tables": [
+        "Supplementary Table S2D"
+      ],
+      "unique_reference_coordinate_strand": true,
+      "bed_conversion_valid": true,
+      "deterministic_spot_check": [
+        {
+          "end_id": "BTED_BATTER_S1_020_E-MTAB-10482_PUBLISHED_TTS_NC_014500-1_plus_10579_r000002",
+          "reference_name": "NC_014500.1",
+          "coordinate_1based": 10579,
+          "bed_start_0based": 10578,
+          "bed_end_0based": 10579,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_020_E-MTAB-10482_PUBLISHED_TTS_NC_014500-1_plus_2374124_r000516",
+          "reference_name": "NC_014500.1",
+          "coordinate_1based": 2374124,
+          "bed_start_0based": 2374123,
+          "bed_end_0based": 2374124,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_020_E-MTAB-10482_PUBLISHED_TTS_NC_014500-1_plus_4892003_r001156",
+          "reference_name": "NC_014500.1",
+          "coordinate_1based": 4892003,
+          "bed_start_0based": 4892002,
+          "bed_end_0based": 4892003,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_020_E-MTAB-10482_PUBLISHED_TTS_NC_014500-1_minus_25014_r000006",
+          "reference_name": "NC_014500.1",
+          "coordinate_1based": 25014,
+          "bed_start_0based": 25013,
+          "bed_end_0based": 25014,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_020_E-MTAB-10482_PUBLISHED_TTS_NC_014500-1_minus_2928908_r000651",
+          "reference_name": "NC_014500.1",
+          "coordinate_1based": 2928908,
+          "bed_start_0based": 2928907,
+          "bed_end_0based": 2928908,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_020_E-MTAB-10482_PUBLISHED_TTS_NC_014500-1_minus_4920515_r001166",
+          "reference_name": "NC_014500.1",
+          "coordinate_1based": 4920515,
+          "bed_start_0based": 4920514,
+          "bed_end_0based": 4920515,
+          "strand": "-"
+        }
+      ],
+      "experimental_layer_only": true,
+      "mixed_layer_excluded": true
+    },
+    "BATTER_S1_022": {
+      "record_count": 2567,
+      "reference_counts": {
+        "NC_000962.3": 2567
+      },
+      "strand_counts": {
+        "+": 1269,
+        "-": 1298
+      },
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
+      "source_tables": [
+        "Table S3 / mmc4.xlsx, Classification of TTS"
+      ],
+      "unique_reference_coordinate_strand": true,
+      "bed_conversion_valid": true,
+      "deterministic_spot_check": [
+        {
+          "end_id": "BTED_BATTER_S1_022_Mtb_Term_seq_author_classification_NC_000962-3_plus_121_r000002",
+          "reference_name": "NC_000962.3",
+          "coordinate_1based": 121,
+          "bed_start_0based": 120,
+          "bed_end_0based": 121,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_022_Mtb_Term_seq_author_classification_NC_000962-3_plus_1736074_r001064",
+          "reference_name": "NC_000962.3",
+          "coordinate_1based": 1736074,
+          "bed_start_0based": 1736073,
+          "bed_end_0based": 1736074,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_022_Mtb_Term_seq_author_classification_NC_000962-3_plus_4411417_r002568",
+          "reference_name": "NC_000962.3",
+          "coordinate_1based": 4411417,
+          "bed_start_0based": 4411416,
+          "bed_end_0based": 4411417,
+          "strand": "+"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_022_Mtb_Term_seq_author_classification_NC_000962-3_minus_140_r000003",
+          "reference_name": "NC_000962.3",
+          "coordinate_1based": 140,
+          "bed_start_0based": 139,
+          "bed_end_0based": 140,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_022_Mtb_Term_seq_author_classification_NC_000962-3_minus_2530383_r001513",
+          "reference_name": "NC_000962.3",
+          "coordinate_1based": 2530383,
+          "bed_start_0based": 2530382,
+          "bed_end_0based": 2530383,
+          "strand": "-"
+        },
+        {
+          "end_id": "BTED_BATTER_S1_022_Mtb_Term_seq_author_classification_NC_000962-3_minus_4410954_r002567",
+          "reference_name": "NC_000962.3",
+          "coordinate_1based": 4410954,
+          "bed_start_0based": 4410953,
+          "bed_end_0based": 4410954,
+          "strand": "-"
+        }
+      ],
+      "reference_mapping_consistent": true,
+      "prediction_only_rows_excluded": true
+    }
+  }
+}

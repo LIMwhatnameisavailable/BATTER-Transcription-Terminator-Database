@@ -36,3 +36,6 @@ temp/
 .env
 .venv/
 node_modules/
+dist/
+.pages-preview/
+.playwright-cli/

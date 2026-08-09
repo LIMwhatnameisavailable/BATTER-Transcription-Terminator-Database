@@ -1,57 +1,27 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>方法与局限 —— BTED</title>
-  <meta name="description" content="BTED v0.1 local snapshot 的数据来源、标准化规则、证据边界和局限性。">
+  <meta name="description" content="BTED v0.2.0">
+  <title>Methods · BTED</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap">
-      <p class="site-title"><a href="index.html">BTED</a> <span class="tag">v0.1 local snapshot</span></p>
-      <nav class="site-nav" aria-label="主导航">
-        <a href="index.html">首页</a>
-        <a href="sources.html">来源目录</a>
-        <a href="catalog.html">数据目录</a>
-        <a href="methodology.html" aria-current="page">方法与局限</a>
-        <a href="about.html">关于</a>
-      </nav>
-    </div>
-  </header>
+<body data-lang="en">
 
-  <main class="wrap">
-    <h1>方法与局限</h1>
-    <p class="lede">v0.1 local snapshot 是一个可审计的 Git 数据发布，而不是以网页替代原始数据仓库或浏览器的生产系统。</p>
-
-    <section>
-      <h2>数据来源与标准化</h2>
-      <p>来源来自 BATTER Table S1 覆盖的公开论文、补充材料和数据仓库。作者发表的端点表优先保留原始定义；原始信号派生的候选峰与文献整理记录被单独标识，不将它们重新表述为同一类证据。</p>
-      <p>BTED 以 1-based 生物学坐标保存单碱基端点，并同时提供规范 BED：<code>start = position - 1</code>，<code>end = position</code>。每个标准表使用相同 24 列 schema；每个 ID 保留来源、样本/记录层、contig、链与行序列身份。发布脚本检查坐标、链、BED、表头、行数和 SHA-256。</p>
-    </section>
-
-    <section>
-      <h2>证据与发布规则</h2>
-      <p>公开 release 仅使用 <code>observed_signal</code>、<code>called_endpoint</code>、<code>author_called_endpoint</code> 和 <code>curated_record</code>。作者整合的混合证据与纯预测不随公开端点下载发布；其可公开审计摘要仅记录文件指纹和排除理由。</p>
-      <p>源表、发布判定、处理记录和 checksum 由相同 <code>source_id</code> 关联。完整标准和字段定义在 <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/tree/refactor/project-structure-and-literature-notes-v0.1/docs/standards">docs/standards/</a>。</p>
-    </section>
-
-    <section>
-      <h2>局限性</h2>
-      <ul>
-        <li>本版不复制原始测序、出版商 xlsx/PDF、参考序列、BigWig 或 JBrowse；原始数据链接和参考依据记录于逐来源 manifest。</li>
-        <li>4 个 Lalanne 2018 来源是带坐标的文献整理记录，不能与作者直接发表端点或本库从信号调用的候选端点混为同层。</li>
-        <li><code>BATTER_S1_002</code> 尚未公开端点表；其首要待办是对齐每个数据集级观察的样本、作者表行与坐标 provenance。</li>
-        <li>个别来源仍保留物种命名、元数据或计数冲突；这些问题写入来源 README 和 manifest，不会被静默抹平。</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>BTED v0.1 local snapshot · 2026-08-10 · 静态发布索引 · 原始数据通过公共数据库获取</p>
-    </div>
-  </footer>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"><span class="brand-mark">BTED</span><span class="brand-name">Bacterial Transcript 3′ End Database</span></a>
+        <nav class="site-nav" aria-label="Primary navigation"><a href="index.html"><span class="i18n i18n-en">Home</span><span class="i18n i18n-zh">首页</span></a><a href="sources.html"><span class="i18n i18n-en">Sources</span><span class="i18n i18n-zh">来源</span></a><a href="catalog.html"><span class="i18n i18n-en">Downloads</span><span class="i18n i18n-zh">下载</span></a><a href="methodology.html" aria-current="page"><span class="i18n i18n-en">Methods</span><span class="i18n i18n-zh">方法</span></a><a href="about.html"><span class="i18n i18n-en">About</span><span class="i18n i18n-zh">关于</span></a></nav>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-lang-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-choice="zh" aria-pressed="false">中文</button>
+        </div>
+      </div>
+    </header>
+<main class="page-shell prose"><div class="page-heading"><div><p class="eyebrow">Data standard</p><h1><span class="i18n i18n-en">Methods and evidence boundaries</span><span class="i18n i18n-zh">方法与证据边界</span></h1></div></div><section><h2><span class="i18n i18n-en">Two-layer data model</span><span class="i18n i18n-zh">双层数据模型</span></h2><p><span class="i18n i18n-en">The core endpoint table provides 24 stable columns for cross-source queries. A source-annotation table retains author-specific measurements and labels, linked by end_id.</span><span class="i18n i18n-zh">核心端点表以 24 个稳定字段支持跨来源查询；来源注释表通过 end_id 保留作者特异测量值和标签。</span></p></section><section><h2><span class="i18n i18n-en">Coordinates</span><span class="i18n i18n-zh">坐标</span></h2><p><span class="i18n i18n-en">BTED stores 1-based biological positions. Single-base BED uses start = position − 1 and end = position. Matching never crosses contigs.</span><span class="i18n i18n-zh">BTED 保存 1-based 生物学坐标；单碱基 BED 使用 start = position − 1、end = position，匹配不得跨 contig。</span></p></section><section><h2><span class="i18n i18n-en">Evidence</span><span class="i18n i18n-zh">证据</span></h2><p><span class="i18n i18n-en">Observed signal, locally called candidates, author-called endpoints, curated records, mixed evidence, and predictions are stored as distinct classes. Mixed or prediction-only records are not published as endpoints.</span><span class="i18n i18n-zh">实验信号、本站候选、作者端点、整理记录、混合证据和预测分别保存；混合证据与纯预测不得作为端点发布。</span></p></section><section><h2><span class="i18n i18n-en">Licensing</span><span class="i18n i18n-zh">许可</span></h2><p><span class="i18n i18n-en">Author-specific supplementary fields are redistributed only when reuse terms are verified. Otherwise the database supplies factual core records and links to the original source.</span><span class="i18n i18n-zh">只有核实再利用条款后才复制作者特异补充字段；否则仅提供事实型核心记录和原始入口。</span></p></section></main>
+<footer class="site-footer"><div class="footer-inner"><span>BTED v0.2.0</span><span><span class="i18n i18n-en">22 source records · 21 browser-ready datasets</span><span class="i18n i18n-zh">22 条来源记录 · 21 个可浏览数据集</span></span><a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database">GitHub</a></div></footer>
+<script src="assets/site.js"></script>
 </body>
 </html>

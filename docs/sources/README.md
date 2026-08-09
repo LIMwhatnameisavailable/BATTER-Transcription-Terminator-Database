@@ -30,11 +30,11 @@ docs/sources/BTED_EXT_2026_001/
 
 ## 当前范围
 
-v0.1 local snapshot 已为 `BATTER_S1_001` 至 `BATTER_S1_022` 建立来源目录。每个目录均含：
+v0.2.0 已为 `BATTER_S1_001` 至 `BATTER_S1_022` 建立来源目录。每个目录均含：
 
 - `README.md`：仓库发布判定、证据边界、公开数据入口和下一步；
 - `data/registry/manifests/<source_id>.json` 对应的机器可读来源 manifest；
-- 有本地详细处理记录的来源另含 `processing_record.md`。部分来源共享一篇批量处理记录；`BATTER_S1_005` 和 `BATTER_S1_022` 仍需补写独立的详细处理 Markdown，当前不把这一缺口伪装成已完成。
+- 独立或批次 `processing_record.md`；S1_005、S1_020 和 S1_022 的 v0.2 重点工程复核已经补齐。
 
 新来源仍按 `docs/standards/协作者_新增文献收集与入库指南.md` 与 `CONTRIBUTING.md` 创建独立目录。不要用新的来源覆盖已有 `source_id`。
 

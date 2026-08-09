@@ -1,0 +1,769 @@
+{
+  "release_version": "v0.2.0",
+  "release_date": "2026-08-10",
+  "schema": {
+    "core": "24-column BTED endpoint schema",
+    "source_annotations": "lossless source-specific fields keyed by end_id"
+  },
+  "summary": {
+    "source_count": 22,
+    "published_standardized_sources": 21,
+    "audit_only_sources": 1,
+    "published_record_count": 28399,
+    "jbrowse_sources": 21,
+    "source_annotation_tables": 17,
+    "external_link_only_annotation_sources": 4
+  },
+  "evidence_policy": "Prediction-only and inseparable mixed-evidence records are excluded. Prediction fields retained in source annotations do not change endpoint evidence.",
+  "sources": {
+    "BATTER_S1_001": {
+      "release_status": "published_standardized",
+      "record_count": 607,
+      "evidence_class": "curated_record",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_001",
+      "has_jbrowse": true,
+      "redistribution_status": "external_link_only",
+      "source_annotations_status": "withheld_external_link_only",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "64ec5dd670e34e086473fb3ca413d189032fe98d699737c7f983fa8e95c017e1"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "e24a34394e94ac5f1466d978e010c12a5e8d4bfc41983beb0231558c1de6b56c"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "decdfad5a3ad22ef7ea9d1fdd7dc8750436743f6e1f07657ef603264765abeea"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "f920286ca49fcc79b8a2682dfea173dc6f44e975f860ca43bb95b7cf1d9e82bd"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "f25687f082a65b6f0db7ccbe00011e07eb1d7449c8f178edb9d23eba54bb8892"
+        }
+      ]
+    },
+    "BATTER_S1_002": {
+      "release_status": "audit_only",
+      "record_count": 0,
+      "evidence_class": "NA",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_002",
+      "has_jbrowse": false,
+      "redistribution_status": "audit_only",
+      "files": [
+        {
+          "path": "fields.json",
+          "sha256": "df9bf450ddb5b4401c97c89b7721d1c1db2fe90ca20193074c44ba0cddaa1166"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "dc2f52eb32832a88cde5fad63ac847dfac94ef616770ed98f255176166e30545"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "7a8d68cefa4d6ce19aa54731d29428fb8cb0a9ed4b1617e1ed2feb8ae6134fc8"
+        }
+      ]
+    },
+    "BATTER_S1_003": {
+      "release_status": "published_standardized",
+      "record_count": 1414,
+      "evidence_class": "curated_record",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_003",
+      "has_jbrowse": true,
+      "redistribution_status": "external_link_only",
+      "source_annotations_status": "withheld_external_link_only",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "277952036e7d2587d2cc0a1f19fe5ab2bcd91c9e5d387dc946eadcef2202a299"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "28f1b7d90de461e8d0ca69b549ceb520814d72ec425aaf6741d7deb87a924fe9"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "e9a059b7921a1bc307bf7d264cf622e52d994296b8bea6e2493adfaf6800342d"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "0feec53e260856707bf558beb64948e9f7bce73eff0705a51f8012c298770260"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "7024d7596995ef2753b952fb310c312a88ae652536459e9a1a27950134252329"
+        }
+      ]
+    },
+    "BATTER_S1_004": {
+      "release_status": "published_standardized",
+      "record_count": 337,
+      "evidence_class": "curated_record",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_004",
+      "has_jbrowse": true,
+      "redistribution_status": "external_link_only",
+      "source_annotations_status": "withheld_external_link_only",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "378c47e31896efc8d5cf93c06b67368f0ead0d9b377a0872a0a9d2bd7b418343"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "e8c512e414858ba56b0406819375fd3ecc1f8e738920e435ca4a83e962ee6c6a"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "5be7f4c0f0fcbfa91e4cd4a82d23a40a386da39fb2af3229bfc0fb2e37ec99db"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "d21a8886a8f39bc5c40431effc49ba6b240ba3a4f2a5d88d199cf750da45b0cf"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "681c91294f1579f60a886cfb0cd2bb7a7f04b67c9f2fc26fb8a2291b4aeff2ce"
+        }
+      ]
+    },
+    "BATTER_S1_005": {
+      "release_status": "published_standardized",
+      "record_count": 1154,
+      "evidence_class": "curated_record",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_005",
+      "has_jbrowse": true,
+      "redistribution_status": "external_link_only",
+      "source_annotations_status": "withheld_external_link_only",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "a1ed6f63987386172954410c06614c8833c5287d97f13bc8a86c14a065414513"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "1538f608f8ea9dee1c1e561b500da50a11804c81e1ccf76027851ed74812f2f4"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "2a95dfafbe3e376ff37762445da18c20abc844b3d8f660c701a115343eee850d"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "21ab5c0bc0dfa5607945d0bdacc7187a007d266ebeb6c7510be61ebc67b096ed"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "62694dac5e27cd35aad91a3f0f5ebba58e6b65f595a8ec574fc514948c6889fa"
+        }
+      ]
+    },
+    "BATTER_S1_006": {
+      "release_status": "published_standardized",
+      "record_count": 1864,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_006",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "93675483da561c27aa7b9699ff13bc2e6a4643f41d59754276d3512076c68159"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "de9b14176e8d0036ff1467e6d6a29a5ec94505124eb7a4f3e6dcaf42ed6f6e52"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "da5ae09de4a7ae27842df9eb960dda8e5d8ccb6bdf1bec7afe31e373edb2a696"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "6c70b2ed7b1fe8276351ce9a6fa6e9b665d11d5e91b5d873d53433d2e394ca4c"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "f699c38c88a9e64ad267034f49411afd18da1b55068f341f6d7ef0dd8653f386"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "89f0f8bf90aecbf925afa53aa3971f780ad6427a7589373c2ab6edaf0298a50a"
+        }
+      ]
+    },
+    "BATTER_S1_007": {
+      "release_status": "published_standardized",
+      "record_count": 1640,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_007",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "42a63b14d3f482e473ca991e3256fe34ae1617107db040ecd83c87f079df7d72"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "f221f4956a146e029f50a13619e041afb63e2951532430d1079d1e0f6c589a49"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "26a15573df4d68e7a3ed9dd63ed492b10154cddbdbe54ea005e7169a3fe6b40b"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "05a16bcddf4e1a113c87e85cd11cd6dde4886b062a5cde1ca99e6a5af6b694b6"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "54c24fc6858ef71ced8e1c02d709b74d66f715732ffed5173666fdcc7abc23de"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "12b74d13c5020034f00a7d832e67e433c14e6e240c256a390e2077e5dc090090"
+        }
+      ]
+    },
+    "BATTER_S1_008": {
+      "release_status": "published_standardized",
+      "record_count": 1965,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_008",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "df7e40cc709f511d9d41504520d099a71a744d2bd23118f251c0ec9fcb8f5f5a"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "fba79f3e3636a76a2c7817e8b16dcf49167ad16e1e935c03121cc933119ceac4"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "7e9338d5d889c0b7dc213c6ceb4b99768f51f7cf79915f38c1958a4b92abf515"
+        },
+        {
+          "path": "gene_associations.tsv",
+          "sha256": "ccb6f8b0270faea46ceb4450bfb6afa4c5fd8652ecf2b3a91ea406004b772ad4"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "9d5586e4c54b0d81aef530768fac118af09d4acc66df6406c3e3d541a2a2f6d4"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "a9e82626bf11b5c3eacb477a6099606bda2fe04985a54282f7e3c70579c0cc06"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "998f1dbe638aff103261f103d00cb5239780e44b564b474e040839dbaf5bfcc3"
+        }
+      ]
+    },
+    "BATTER_S1_009": {
+      "release_status": "published_standardized",
+      "record_count": 2091,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_009",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "744e353231be5e657212ec6f701a737a6d7d6254f2ba6ac20088f2d8ca2224db"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "4e7bac10bb9ae77c8961a9c7d0e8822d0a96ea4b6607388d62910243fd3ccfae"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "f0b1a193e07492ca2adc865372d5a3f616624b8463232df4a09709151b465681"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "5d77a863964e4e466c9f7cc7a5da76a261c3992f8bbb2a4277573b695c86623e"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "75a3592552f10e14e4ff8480b83e117ba663b058d18134533e4f765e04563c62"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "f3293ca5708c27168e8b7021112f740d5f8260d5464ae8628291979cb639f7a0"
+        }
+      ]
+    },
+    "BATTER_S1_010": {
+      "release_status": "published_standardized",
+      "record_count": 1159,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_010",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "932e94e33cd015705eaaf8d86c14eb73b970d40b7ba8285f8b343829505b6f0d"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "be3b0b6f3742b656e07772aefc7ccd3cb0d2cd54163d17f1efbcdc5d18f81796"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "c890dc33e8eb7b83ece7dcf16b52ceec0716172d2d091da3df4c0235e03a0079"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "69f6f4ab5c9da2e59b1d3c81362b69e38ef8678468630ecc515e16119cf82c5c"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "d44271c5a88edf4cbacc7a31984d49ef1c5c3032f9acef1b376461a837030aa6"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "e0dded487bfa3476bace209f4e073c4d0eaa438626b0a8395338b9225d50a1cc"
+        }
+      ]
+    },
+    "BATTER_S1_011": {
+      "release_status": "published_standardized",
+      "record_count": 2024,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_011",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "03985bb90b017f0d9150ed336bdee39e518d394e6bbaddb648cc28c1a015607f"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "74e723df5943a3db32dfca34c54dd8dd80935c2af162810437e15980f65590c5"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "b7f180ae23bf638eba541e6a45cae8aa6f93120cd02e3130f4711529b628fb7d"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "070795b04cbaa66ade503a0dd8f10369f79cb1dd0d5b88aa1e5210ebcb97c15f"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "a3348d14355b38d08147844b6dd9d0cff3455ae54b0ad594b9deb84a96f7daeb"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "3ee4c4ff89d39bc48c22bdc4ff4617dd46e59e7d85ca730409d357efe49bcf9c"
+        }
+      ]
+    },
+    "BATTER_S1_012": {
+      "release_status": "published_standardized",
+      "record_count": 1308,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_012",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "8fea521ea8316479d7e36c76d9ad5c1e63193c423b965b314e6449fe75be119a"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "75d839dcb7a820b1d8bd5e7594c63214f07e4eb8a3e0e5216ec4260fdfb76185"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "36e72df18bf1179ff0dc98cff04aa078bb78ae98985f0e93d90d17f0552251f2"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "a6502fb79cc9c16cbbefb1caeb055326f48f590f552e8e1379e32e0159bd585a"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "4022b6dde9c028e9c34ccefa744c7d9c516259f564a29accb8ea6b336c762449"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "d09dd404a95402186e9ef7bb742aa091466f83af38fa97fecb6dfb4bf7e18097"
+        }
+      ]
+    },
+    "BATTER_S1_013": {
+      "release_status": "published_standardized",
+      "record_count": 1208,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_013",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "c56e59e8571bf7efea8a7882e31a3de63e8b6cf476f1e09c15327946f18765ad"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "8be55b0669e99f38282ca6f1bb0e36ec2bac4b53ee709f71f87ca484cf5f4b72"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "620b6c3801e03b671219f70908ef742ba6d4e0285c3620626279bf45ffa95e91"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "1e4057eb84a482c0e53cfa71304e7d0b67e7fd80690f8b2328e392d658b6c95b"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "07a57991f78c33c20981e5e8c86ea125cb730fe687a356e25eba792e20e2f09c"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "6e735887017221b00612a2e58908b15b133296229fe0b36610958bd4b6614b72"
+        }
+      ]
+    },
+    "BATTER_S1_014": {
+      "release_status": "published_standardized",
+      "record_count": 1283,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_014",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "0cc0e84747874a915b0aa28a28fcaf8f202b6723d518b8070e72bad0bba243e0"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "93ce9d910fac142c4164d8926ebdd8f324d3ef8c98ff65a2735a9936563f93bb"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "ddd294deae723a54c5ea468a265892824b475e0f1f3e2cf5027e9325dff6aefe"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "72795a1b752b77b30b9b8c64891be63cd22ae86a2dfa07d749c6665ee7a09bd9"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "3b8e8f37bda890cb3d00f75be5a2d839950e38119c19f27f8a37df1ebd7913b2"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "ce51487c201655b136f08e23c8a746c32a93b7304c8930ebd319ec719c87d954"
+        }
+      ]
+    },
+    "BATTER_S1_015": {
+      "release_status": "published_standardized",
+      "record_count": 1140,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_015",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "b64096e9b6cd788e08cddf27eca84097576ddaf9dfddb371707784e239d44fa8"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "ac27d248049582442b8697c8555cfff22b88ec7b322369e67ed896507a576e3a"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "2ff8bd3ea776e45884b3c9d7b2458e7fde309a9946e7cfd126829ede76a6afee"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "ff4fbb3d90abe8ec745b7bedeeca40b9b5a5503f720c2f1b3adb123f78fb27d7"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "c4ebbe6ea0613f133ef99c4931eb16d8561eda1391ec1312f0191518b09a0c4c"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "ec3844ccfa821e8a73019945bde459538e058a3225e3644940b5d94b78b562bf"
+        }
+      ]
+    },
+    "BATTER_S1_016": {
+      "release_status": "published_standardized",
+      "record_count": 870,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_016",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "67eb9f6952da97acb7ccd76c8bfa110d442331968fa8b26e3839276ee9d742cf"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "fe57efa0086739156a6ee8b0716c58ab288519174dd5b4049965fdb078d7f003"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "bc5af06a3a446ec2b5dafd85f7cf3cec6915b1ef4141f9ebebc6e7f7f6d2a710"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "95619bc5b6089f51d2f300d7c38df4c44657900616c419b789efa4d466bee342"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "fe715dabd3f7b28f697f8540f1f86025c7c85cd68f3f1fb19cfacb6220e36980"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "dcd6e5364e207b60ab86e35c3f59d2e5c07a1ff3d4c68a13033e4e0c6149194d"
+        }
+      ]
+    },
+    "BATTER_S1_017": {
+      "release_status": "published_standardized",
+      "record_count": 1427,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_017",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "d166be0a49070dea0b51de5147d54af06bc4aa7d73222f34ddbe393775fa1282"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "2f0ee3d6032cbdb491111d66ceacacb1ef7b8440238a7a383f1451ca364c0d4f"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "878e1cf1a0774443c43645628e15624d4a9c7c0e603fbc7d2dcc2f4dd5a0a334"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "07b375c5d8cf6f7d44cafda2dccfe03d07b79b957706612cb898743e4142e355"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "6a179aa1d11e0e88ae69d6f9c031df5c1b8ef5e51e4bad63860e7c4630e56b7b"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "68769e22d3a56d42a637627a03d045c955dfc3e79cc15dd31ffe16f93c646969"
+        }
+      ]
+    },
+    "BATTER_S1_018": {
+      "release_status": "published_standardized",
+      "record_count": 487,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_018",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "867bd1cff21752c41114037f410243799fb241ad1dbdf7d9ac4d7cb661194663"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "f58ccec9ed747b6b470fb560ce4a42c0466006c30f1fa0bc4459f22166da1b47"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "b972b83b34187be29c8e81076f6e2fea933b40871ced702373952b17dee42370"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "65ce6a13a20ae77bb2cdd3f343688b31666baece3d6f63c716297bd791037084"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "144083de43a4698da0a072d8f4382dde16db74bf4e7e20c4dfc886d77e7239e3"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "6981a19b63037712c1567675fecf05c407ded68be3a94fa6f2b108c6997e5d32"
+        }
+      ]
+    },
+    "BATTER_S1_019": {
+      "release_status": "published_standardized",
+      "record_count": 784,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_019",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "de667c0026625e35cf7e3f3e80ca492deced14701b43559118459b7e34188345"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "590c8d5c6b61f7a4842a010cbf41fd1d8a4865fd73c83a8904a7b1a04a4555e2"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "da76ca64917a80c4391a0c4513f8320502a4f6db90a9757e931e7bae3e8dc303"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "23dff22e0334fbdd3c94990e244168ce8b90927ef3944ebba29cb6658a106567"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "558d021212323844a71fa613bcda776441877556445ae0888dd94337aa990a86"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "d498a59f41d229a2fc37acab133d817bae98f09a043b256ef502eeacdd6bc8af"
+        }
+      ]
+    },
+    "BATTER_S1_020": {
+      "release_status": "published_standardized",
+      "record_count": 1165,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_020",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "72eaeadf6859ac6ec0cab0de92ea9667693a118f1e2cda7ac41d62e77e344c58"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "6a0910676c7326a930da804fb5171dc525e55db3873f65e478baa373c27d73f6"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "6ce3e81b3b7ba40803f96af78b251b302e60bb5b1bec2f2ea5d6038f43f89a2d"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "5bafb45dcbc6823dc1f8089031c238abd2be3f089cac544be91c559d21826407"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "61b3c56ed40193bf09ad121fe06c08483eab98434caaf488e62e21cf28d2facf"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "eaaea1a9d112659ddf90760ffa6103d85d549698d5a9370bc1dc56818151853c"
+        }
+      ]
+    },
+    "BATTER_S1_021": {
+      "release_status": "published_standardized",
+      "record_count": 1905,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_021",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "condition_observations.tsv",
+          "sha256": "d6ed6af503b099381529ef4af0ec3670638714f926b163c99c3d3661d159b542"
+        },
+        {
+          "path": "endpoints.bed",
+          "sha256": "80106c2ab4f89be4cae9b898f87318d4ba8a85498725356cd47f3ee2f1bbc028"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "fe44cb3998c168c4d2aab888415965d63970956370f3c69923e5a5c176faa46d"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "5ff40efb8ad396fee510ecbb73fc1cb49f996f0ae7e21c854ff24c9279aee445"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "82a212ba778eec545cef0bd64bc6b89c636c1c1c1f0f70a728d343668867c923"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "75fb1aa5bad2b198a8268ea32137270effa9b580f87780ac711019ff87bbdac7"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "0f23e56d752ce92bb2097c58c65733340bbb87f93f032243d26dfb67cf24a8dc"
+        }
+      ]
+    },
+    "BATTER_S1_022": {
+      "release_status": "published_standardized",
+      "record_count": 2567,
+      "evidence_class": "author_called_endpoint",
+      "record_root": "data/public/v0.2.0/records/BATTER_S1_022",
+      "has_jbrowse": true,
+      "redistribution_status": "verified_redistributable",
+      "source_annotations_status": "published",
+      "files": [
+        {
+          "path": "endpoints.bed",
+          "sha256": "4a0b56fe0c848055146b8a77f36599351af3c0287da29a665d9bb30833de377a"
+        },
+        {
+          "path": "endpoints.tsv",
+          "sha256": "bad322f849b3537978b084164bf477fed899abe969967b31e96c5d28e046b5bf"
+        },
+        {
+          "path": "fields.json",
+          "sha256": "8d3fd73fb16442bb2d35ee6656470b14bb5eae74f5779da767ea1bc1eb1c988a"
+        },
+        {
+          "path": "manifest.json",
+          "sha256": "747cec5d2e0dab60b66fe8a380da7659f3eb113949f6d451d5dd91549917afa1"
+        },
+        {
+          "path": "source_annotations.tsv",
+          "sha256": "3db65c20a4c8cd613856d600a8f3bbb7136b8742b076b545eaff0d674a784044"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "sha256": "8cf5f9f82da727ef7b7cfdc72fec420e34bfeaceb65f691664261ae94a1a9439"
+        }
+      ]
+    }
+  }
+}

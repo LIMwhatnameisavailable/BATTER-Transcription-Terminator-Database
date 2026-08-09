@@ -1,0 +1,501 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_021",
+  "release_version": "v0.2.0",
+  "core_table": {
+    "table": "endpoints.tsv",
+    "row_count": 1905,
+    "columns": [
+      "end_id",
+      "source_id",
+      "sample_id",
+      "assay",
+      "evidence_class",
+      "author_endpoint_id",
+      "published_reference_accession",
+      "reference_assembly",
+      "reference_name",
+      "replicon_label",
+      "biological_coordinate_1based",
+      "bed_start_0based",
+      "bed_end_0based",
+      "strand",
+      "signal_or_score",
+      "author_category",
+      "associated_gene_or_locus",
+      "pmid",
+      "doi",
+      "source_table_or_file",
+      "coordinate_interpretation",
+      "original_row_reference",
+      "qc_status",
+      "note"
+    ],
+    "coordinate_convention": "1-based biological coordinate; BED is 0-based half-open"
+  },
+  "source_annotations": {
+    "table": "source_annotations.tsv",
+    "publication_status": "published",
+    "source_input": "data/bburgdorferi/processed/BATTER_S1_021/unique_3prime_end_sites.tsv",
+    "source_input_sha256": "d6a3660834354ab2f8c12287a9278af408cf4c724f9ea1ebd24ec420540580c2",
+    "source_input_columns": [
+      "site_id",
+      "source_id",
+      "species",
+      "assay",
+      "evidence_class",
+      "published_replicon",
+      "reference_name",
+      "biological_coordinate_1based",
+      "bed_start_0based",
+      "bed_end_0based",
+      "strand",
+      "observed_log",
+      "log_average_read_count",
+      "observed_transition_stationary",
+      "transition_stationary_average_read_count",
+      "log_classification",
+      "transition_stationary_classification",
+      "terminator_score_log",
+      "terminator_score_transition_stationary",
+      "metadata_conflict_between_conditions",
+      "pmid",
+      "doi",
+      "source_table",
+      "coordinate_interpretation"
+    ],
+    "field_count": 24,
+    "fields": [
+      {
+        "name": "site_id",
+        "original_name": "site_id",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'site_id'."
+      },
+      {
+        "name": "source_id",
+        "original_name": "source_id",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'source_id'."
+      },
+      {
+        "name": "species",
+        "original_name": "species",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'species'."
+      },
+      {
+        "name": "assay",
+        "original_name": "assay",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'assay'."
+      },
+      {
+        "name": "evidence_class",
+        "original_name": "evidence_class",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'evidence_class'."
+      },
+      {
+        "name": "published_replicon",
+        "original_name": "published_replicon",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'published_replicon'."
+      },
+      {
+        "name": "reference_name",
+        "original_name": "reference_name",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'reference_name'."
+      },
+      {
+        "name": "biological_coordinate_1based",
+        "original_name": "biological_coordinate_1based",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "nt",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'biological_coordinate_1based'."
+      },
+      {
+        "name": "bed_start_0based",
+        "original_name": "bed_start_0based",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "nt",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'bed_start_0based'."
+      },
+      {
+        "name": "bed_end_0based",
+        "original_name": "bed_end_0based",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "nt",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'bed_end_0based'."
+      },
+      {
+        "name": "strand",
+        "original_name": "strand",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "author_called_endpoint",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'strand'."
+      },
+      {
+        "name": "observed_log",
+        "original_name": "observed_log",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "experimental_measurement",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'observed_log'."
+      },
+      {
+        "name": "log_average_read_count",
+        "original_name": "log_average_read_count",
+        "data_type": "number",
+        "required": false,
+        "evidence_role": "experimental_measurement",
+        "units": "source-defined count or score",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'log_average_read_count'."
+      },
+      {
+        "name": "observed_transition_stationary",
+        "original_name": "observed_transition_stationary",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "experimental_measurement",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'observed_transition_stationary'."
+      },
+      {
+        "name": "transition_stationary_average_read_count",
+        "original_name": "transition_stationary_average_read_count",
+        "data_type": "number",
+        "required": false,
+        "evidence_role": "experimental_measurement",
+        "units": "source-defined count or score",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'transition_stationary_average_read_count'."
+      },
+      {
+        "name": "log_classification",
+        "original_name": "log_classification",
+        "data_type": "string",
+        "required": false,
+        "evidence_role": "author_annotation",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'log_classification'."
+      },
+      {
+        "name": "transition_stationary_classification",
+        "original_name": "transition_stationary_classification",
+        "data_type": "string",
+        "required": false,
+        "evidence_role": "author_annotation",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'transition_stationary_classification'."
+      },
+      {
+        "name": "terminator_score_log",
+        "original_name": "terminator_score_log",
+        "data_type": "string",
+        "required": false,
+        "evidence_role": "prediction_annotation",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'terminator_score_log'."
+      },
+      {
+        "name": "terminator_score_transition_stationary",
+        "original_name": "terminator_score_transition_stationary",
+        "data_type": "string",
+        "required": false,
+        "evidence_role": "prediction_annotation",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'terminator_score_transition_stationary'."
+      },
+      {
+        "name": "metadata_conflict_between_conditions",
+        "original_name": "metadata_conflict_between_conditions",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "author_annotation",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'metadata_conflict_between_conditions'."
+      },
+      {
+        "name": "pmid",
+        "original_name": "pmid",
+        "data_type": "integer",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'pmid'."
+      },
+      {
+        "name": "doi",
+        "original_name": "doi",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'doi'."
+      },
+      {
+        "name": "source_table",
+        "original_name": "source_table",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "NA",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'source_table'."
+      },
+      {
+        "name": "coordinate_interpretation",
+        "original_name": "coordinate_interpretation",
+        "data_type": "string",
+        "required": true,
+        "evidence_role": "curation_metadata",
+        "units": "nt",
+        "publication_status": "published",
+        "description": "Source-specific field retained from the standardized local input column 'coordinate_interpretation'."
+      }
+    ],
+    "withheld_reason": "NA"
+  },
+  "companion_tables": [
+    {
+      "input": "data/bburgdorferi/processed/BATTER_S1_021/published_3prime_end_observations.tsv",
+      "asset": "condition_observations.tsv",
+      "evidence_role": "experimental_measurement",
+      "link_method": "author_id",
+      "note": "Condition-level observations linked to the unique endpoint table.",
+      "row_count": 2277,
+      "linked_rows": 2277,
+      "source_input_sha256": "b6bace8cb96ed108d7f8801aefd3259a5ebf14fcb89a18099e3cec4532d1c213",
+      "fields": [
+        {
+          "name": "observation_id",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "site_id",
+          "data_type": "string",
+          "evidence_role": "author_called_endpoint",
+          "units": "NA"
+        },
+        {
+          "name": "source_id",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "species",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "sample_id",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "assay",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "evidence_class",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "published_replicon",
+          "data_type": "string",
+          "evidence_role": "author_called_endpoint",
+          "units": "NA"
+        },
+        {
+          "name": "reference_name",
+          "data_type": "string",
+          "evidence_role": "author_called_endpoint",
+          "units": "NA"
+        },
+        {
+          "name": "biological_coordinate_1based",
+          "data_type": "integer",
+          "evidence_role": "author_called_endpoint",
+          "units": "nt"
+        },
+        {
+          "name": "bed_start_0based",
+          "data_type": "integer",
+          "evidence_role": "author_called_endpoint",
+          "units": "nt"
+        },
+        {
+          "name": "bed_end_0based",
+          "data_type": "integer",
+          "evidence_role": "author_called_endpoint",
+          "units": "nt"
+        },
+        {
+          "name": "strand",
+          "data_type": "string",
+          "evidence_role": "author_called_endpoint",
+          "units": "NA"
+        },
+        {
+          "name": "average_read_count",
+          "data_type": "number",
+          "evidence_role": "experimental_measurement",
+          "units": "source-defined count or score"
+        },
+        {
+          "name": "classification",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "gene_details",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "locus_details",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "ncbi_description",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "uniprot_description",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "three_prime_end_region",
+          "data_type": "string",
+          "evidence_role": "author_annotation",
+          "units": "nt"
+        },
+        {
+          "name": "terminator_score",
+          "data_type": "string",
+          "evidence_role": "prediction_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "predicted_utr_length",
+          "data_type": "integer",
+          "evidence_role": "prediction_annotation",
+          "units": "nt"
+        },
+        {
+          "name": "kinefold_structure",
+          "data_type": "string",
+          "evidence_role": "prediction_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "a_tract",
+          "data_type": "string",
+          "evidence_role": "prediction_annotation",
+          "units": "NA"
+        },
+        {
+          "name": "pmid",
+          "data_type": "integer",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "doi",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "source_table",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "NA"
+        },
+        {
+          "name": "coordinate_interpretation",
+          "data_type": "string",
+          "evidence_role": "curation_metadata",
+          "units": "nt"
+        }
+      ]
+    }
+  ],
+  "allowed_evidence_roles": [
+    "experimental_measurement",
+    "author_called_endpoint",
+    "author_annotation",
+    "prediction_annotation",
+    "curation_metadata"
+  ]
+}

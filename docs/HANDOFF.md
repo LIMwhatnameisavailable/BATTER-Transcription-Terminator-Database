@@ -1,46 +1,67 @@
 # BTED 当前交接
 
 **更新：** 2026-08-10
-**当前分支：** `refactor/project-structure-and-literature-notes-v0.1`
-**当前里程碑：** v0.1 local snapshot 已构建并通过校验，待提交/推送。
+
+**当前分支：** `agent/bted-v0.2-public-demo`
+
+**当前里程碑：** v0.2.0 本地发布数据、网站和 JBrowse 包已构建；待最终全量验收、提交、推送与 GitHub 发布。
 
 ## 已交付
 
-- 22 个 BATTER S1 来源均有 `data/registry/manifests/BATTER_S1_*.json` 和 `docs/sources/<source_id>/README.md`。
-- 21 个来源、28,399 条记录已发布为 Git 可追踪的标准化 TSV；17 个作者发表端点来源有 BED6。
-- 4 个 Lalanne 2018 来源按 `curated_record` 发布，不与从本地信号调用的候选峰混写。
-- `BATTER_S1_002` 维持 `audit_only`；混合证据和预测资产只保存公开 checksum 审计摘要。
-- 构建器：`scripts/build_local_snapshot_release.py`；发布校验器：`scripts/validate_bted_release.py`。
-- 页面 `site/sources.html` 已改为 v0.1 发布索引；站点不提供 JBrowse/BigWig。
+- 22 个来源均有 manifest 和详情页；21 个来源公开标准数据，S1_002 为 `audit_only`。
+- 21 个来源共 28,399 条 24 列核心记录；17 个许可允许的来源另有来源特异表。
+- 每个公开来源有 BED6、字段清单、manifest 和 checksum。
+- 21 套独立 JBrowse 配置；S1_005 的 CP009977.1/CP009978.1 位于同一 assembly。
+- 双语静态网站包含首页、筛选目录、下载页、方法页、关于页和 22 个来源页。
+- 数据/JBrowse Release 资产、CI、Pages workflow 和本地 Pages staging 已具备。
+- S1_005、S1_020、S1_022 的工程审计和处理记录已补齐。
+- 外部链接审计已保存为 `data/audit/v0.2.0/external_link_audit.tsv`，无失败或缺失必填入口。
 
-## 接手前先读
+## 接手前阅读
 
-1. [`docs/releases/v0.1-local-snapshot.md`](releases/v0.1-local-snapshot.md)
-2. [`docs/standards/证据分层与发布边界.md`](standards/证据分层与发布边界.md)
-3. [`data/registry/batter_s1_publication_status.tsv`](../data/registry/batter_s1_publication_status.tsv)
-4. 要处理的 `data/registry/manifests/BATTER_S1_NNN.json` 与 `docs/sources/BATTER_S1_NNN/README.md`
+1. [`docs/releases/v0.2.0.md`](releases/v0.2.0.md)
+2. [`docs/standards/BTED_数据入库标准流程_v0.2.md`](standards/BTED_数据入库标准流程_v0.2.md)
+3. [`docs/standards/BTED_数据发布接口_v0.2.md`](standards/BTED_数据发布接口_v0.2.md)
+4. [`data/public/v0.2.0/release_manifest.json`](../data/public/v0.2.0/release_manifest.json)
+5. [`data/registry/batter_s1_publication_status.v0.2.0.tsv`](../data/registry/batter_s1_publication_status.v0.2.0.tsv)
 
-## 验证命令
+## 重新构建
+
+```bash
+python3 scripts/build_v0_2_release.py --input-root /path/to/BGIRNA
+python3 scripts/audit_v0_2_priority_sources.py
+python3 scripts/build_release_archives.py
+python3 scripts/build_jbrowse_release.py --input-root /path/to/BGIRNA
+python3 scripts/build_v0_2_site.py
+python3 scripts/stage_pages.py --jbrowse-dir dist/BTED-v0.2.0-jbrowse --output-dir .pages-preview
+```
+
+## 完整验证
 
 ```bash
 python3 scripts/validate_bted_templates.py
 python3 scripts/validate_bted_release.py
-python3 scripts/build_sources_page.py
-python3 scripts/validate-site.py
+python3 scripts/validate_bted_v0_2.py
+python3 scripts/audit_v0_2_priority_sources.py
+python3 scripts/validate_jbrowse_release.py dist/BTED-v0.2.0-jbrowse
+python3 scripts/validate-site.py site
+python3 scripts/validate-site.py .pages-preview
+python3 -m unittest -v tests/test_bted_ingestion.py tests/test_bted_v0_2.py
 git diff --check
 ```
 
-## 下一步（按优先级）
+## 待完成
 
-1. 提交、推送并开 Draft PR；许可/再分发条件由项目维护者复核。
-2. 为 `BATTER_S1_002` 补逐观测的作者表行、样本、实验类型与坐标 provenance；能够拆出纯实验端点后才允许发布。
-3. 补写 `BATTER_S1_005` 和 `BATTER_S1_022` 的详细处理记录。
-4. 制定独立 JBrowse 发布包（资产清单、版本、checksum、外部托管位置）；不要直接把原始/大轨道提交到 Git。
-5. 后续接入新来源继续使用 26 列 source intake 与 24 列 endpoint schema，并保留一个来源一个 PR 的审计粒度。
+1. 浏览器中人工检查首页、筛选、S1_002、S1_005 双 contig 和两个代表来源。
+2. 全量验证后提交并推送分支，建立 Draft PR。
+3. 以 `v0.2.0` 创建 GitHub Release 并上传四个资产/校验文件。
+4. 评审通过后合并到 `main`，启用 GitHub Pages；部署后检查稳定链接。
+5. S1_002 只有在未来能可靠拆出纯实验端点时才改变 `audit_only`。
 
 ## 不要做
 
-- 不把 `author_integrated_mixed_evidence` 或 `prediction_only` 放进 `data/public/`；
-- 不把 1-based 坐标直接当 BED start；
-- 不让同物种、不同论文或不同参考版本的条目共用 source ID；
-- 不复制 FASTQ/BAM/BigWig、出版商工作簿或本机绝对路径到仓库。
+- 不把协作者外部文献合入本分支；
+- 不把混合证据或纯预测放进公开端点表/JBrowse；
+- 不把作者预测注释解释为新的实验结果；
+- 不把原始测序、出版商工作簿、大型 JBrowse 文件或凭据提交到 Git；
+- 不在未确认参考、坐标、contig、strand 或许可时猜测补齐。

@@ -1,5 +1,49 @@
 # 工作日志
 
+## 2026-08-10 —— BTED v0.2.0 自有数据公开演示构建
+
+**分支：** `agent/bted-v0.2-public-demo`
+
+**范围：** 只处理 BATTER S1 自有数据与共享基础设施，不合并协作者外部来源。
+
+### 完成内容
+
+1. 保持 v0.1 的 24 列核心接口，新增来源特异 `source_annotations.tsv`、逐字段 `fields.json`、逐来源 manifest/BED/checksum 和少数一对多附表。
+2. 冻结 22 个来源：21 个公开标准化来源、1 个 `audit_only`（S1_002），共 28,399 条核心记录。
+3. 建立许可登记。17 个来源发布来源特异表；4 个 Lalanne 来源标为 `external_link_only`，逐字段登记但不复制完整补充字段。
+4. 生成 21 套来源独立 JBrowse 配置、123 个带来源前缀的引用资产；S1_002 无配置。Lalanne 公开配置移除受限制的文献整理 overlay。
+5. 完成 S1_005、S1_020、S1_022 的确定性数据库工程审计：双 contig、BED 转换、唯一键、证据层和参考映射检查结果写入 `data/audit/v0.2.0/priority_source_audit.json`。
+6. 重构双语静态网站：英文默认/中文切换、22 个来源详情页、筛选目录、下载、原始数据入口和 21 个 JBrowse 链接。
+7. 生成数据与 JBrowse Release 压缩包；增加 GitHub Actions CI 与 Pages 工作流，Pages 在部署时下载固定版本 JBrowse 资产。
+8. 新增 v0.2 SOP、发布接口、版本说明、来源处理记录和可编辑 draw.io 流程图。
+9. 联网审计 88 条逐来源链接（61 个唯一 URL）：83 条正常可达，5 条返回访问限制状态；无 404/410、网络失败或缺失必填入口。S1_015 的 SRA 入口已补齐。
+
+### 遇到的问题与解决
+
+- **作者原字段在 v0.1 核心表中会丢失。** v0.2 增加来源特异表和逐列字段清单，要求每个原列被发布、映射或明确说明未发布原因。
+- **JBrowse 官方压缩代码触发站点凭据/路径扫描误报。** 供应商 runtime 改为由 JBrowse package checksum 验证；BTED 自有 HTML、JS、配置和目录数据继续严格扫描。
+- **S1_008 基因关联表不是全部可一对一连接。** 805 条记录全部保留，460 条连接到稳定 `end_id`，345 条明确标记 `unlinked_author_annotation`，不强配、不丢弃。
+- **S1_020 混合层容易被误用。** v0.2 公开数据和 JBrowse 只保留 S2D 的 1,165 条端点，S1C 仅在内部审计和处理记录中出现。
+
+### 已完成验证
+
+- `validate_bted_templates.py`、v0.1 compatibility validator、v0.2 validator；
+- S1_005/020/022 priority audit；
+- 21 配置 JBrowse package validator；
+- source-only 和完整 Pages artifact validator；
+- v0.1 + v0.2 共 11 项 unittest；
+- `validate_bted_templates.py`：PASS；
+- `validate_bted_release.py`：PASS（v0.1 回归不变）；
+- `audit_v0_2_priority_sources.py` / `validate_bted_v0_2.py`：PASS；
+- `validate_jbrowse_release.py`：PASS（21 配置、123 个来源前缀资产）；
+- `validate-site.py site` 与完整 `.pages-preview`：PASS（完整产物 1,150 个文件）；
+- `tests/test_bted_ingestion.py` + `tests/test_bted_v0_2.py`：11/11 PASS；
+- draw.io XML、GitHub Actions YAML、Python syntax 和 `git diff --check`：PASS。
+
+### 发布状态
+
+本地数据、站点、JBrowse 和 Release 资产已构建。GitHub 推送、Release 和 Pages 激活需要有效的 GitHub CLI 登录及维护者评审；不在本地构建阶段猜测或绕过认证。
+
 ## 2026-08-10 —— v0.1 local snapshot：本地 BTED 结果首次进入 Git
 
 **分支：** `refactor/project-structure-and-literature-notes-v0.1`

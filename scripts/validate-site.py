@@ -22,6 +22,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 MAX_FILE_BYTES = 1024 * 1024  # 1 MiB；站点页面与样式均为 KB 级
+MAX_JBROWSE_FILE_BYTES = 64 * 1024 * 1024
+MAX_DOWNLOAD_FILE_BYTES = 4 * 1024 * 1024
 
 # 原始测序数据、出版商工作簿、压缩包、坐标/比对文件一律不得进入站点产物
 FORBIDDEN_EXTENSIONS = {
@@ -33,6 +35,15 @@ FORBIDDEN_EXTENSIONS = {
     ".wig", ".bw", ".bigwig",
     ".fa", ".fasta", ".fna",
 }
+
+# The staged Pages artifact may contain the separately released JBrowse bundle.
+# These file types remain forbidden in the checked-in ``site/`` source, but are
+# expected under ``jbrowse/`` after the versioned asset is unpacked.
+ALLOWED_JBROWSE_SUFFIXES = {
+    ".html", ".css", ".js", ".json", ".txt", ".ico",
+    ".fna", ".fai", ".bed", ".bw", ".gff3.gz", ".tbi", ".ix", ".ixx",
+}
+ALLOWED_DOWNLOAD_SUFFIXES = {".tsv", ".bed", ".json", ".txt"}
 
 TEXT_EXTENSIONS = {".html", ".htm", ".css", ".js", ".json", ".xml", ".txt", ".md", ".svg"}
 
@@ -117,6 +128,18 @@ def scan_text(path: Path, rel: str, problems: list[str]) -> None:
             problems.append(f"{rel}:{line_of(text, m.start())} {desc}: {m.group(0)}")
 
 
+def is_pinned_jbrowse_vendor_asset(rel: str) -> bool:
+    """Return whether a file belongs to the pinned upstream JBrowse runtime.
+
+    Minified upstream bundles legitimately contain terms such as ``password``
+    (UI labels) and source-map build paths.  They are not project-authored
+    content and are integrity-checked by ``validate_jbrowse_release.py``.
+    BTED configs, catalogs and data assets remain subject to the strict scan.
+    """
+
+    return rel.startswith("jbrowse/static/")
+
+
 def check_links(path: Path, site_root: Path, rel: str, problems: list[str]) -> None:
     text = path.read_text(encoding="utf-8")
     parser = LinkCollector()
@@ -135,6 +158,24 @@ def check_links(path: Path, site_root: Path, rel: str, problems: list[str]) -> N
             problems.append(f"{rel}:{lineno} 内部链接越出站点目录: {target}")
             continue
         if not resolved.exists():
+            # JBrowse is intentionally delivered as a versioned GitHub Release
+            # asset and unpacked beside the site during Pages deployment.  The
+            # source-only site may therefore contain valid future links before
+            # the bundle is staged.  Once a ``jbrowse`` directory exists in the
+            # validation root, missing files inside it are treated as errors.
+            for staged_name in ("jbrowse", "downloads"):
+                staged_root = site_root / staged_name
+                try:
+                    resolved.relative_to(staged_root)
+                    if not staged_root.exists():
+                        break
+                except ValueError:
+                    continue
+            else:
+                problems.append(f"{rel}:{lineno} 内部链接无法解析: {target}")
+                continue
+            if not staged_root.exists():
+                continue
             problems.append(f"{rel}:{lineno} 内部链接无法解析: {target}")
 
 
@@ -164,13 +205,22 @@ def main() -> int:
 
             # 1. 文件类型与体积
             suffixes = [s.lower() for s in fpath.suffixes]
-            if any(s in FORBIDDEN_EXTENSIONS for s in suffixes):
+            in_jbrowse = rel == "jbrowse" or rel.startswith("jbrowse/")
+            in_downloads = rel == "downloads" or rel.startswith("downloads/")
+            compound_suffix = "".join(suffixes[-2:]) if len(suffixes) >= 2 else (suffixes[-1] if suffixes else "")
+            jbrowse_allowed = in_jbrowse and (
+                fpath.suffix.lower() in ALLOWED_JBROWSE_SUFFIXES
+                or compound_suffix in ALLOWED_JBROWSE_SUFFIXES
+            )
+            download_allowed = in_downloads and fpath.suffix.lower() in ALLOWED_DOWNLOAD_SUFFIXES
+            if any(s in FORBIDDEN_EXTENSIONS for s in suffixes) and not (jbrowse_allowed or download_allowed):
                 problems.append(f"{rel} 禁止的文件类型（原始数据/工作簿/压缩包/坐标文件）")
-            if size > MAX_FILE_BYTES:
-                problems.append(f"{rel} 文件过大（{size} 字节 > {MAX_FILE_BYTES} 字节上限）")
+            size_limit = MAX_JBROWSE_FILE_BYTES if in_jbrowse else (MAX_DOWNLOAD_FILE_BYTES if in_downloads else MAX_FILE_BYTES)
+            if size > size_limit:
+                problems.append(f"{rel} 文件过大（{size} 字节 > {size_limit} 字节上限）")
 
             # 2-4. 文本内容扫描
-            if fpath.suffix.lower() in TEXT_EXTENSIONS:
+            if fpath.suffix.lower() in TEXT_EXTENSIONS and not is_pinned_jbrowse_vendor_asset(rel):
                 scan_text(fpath, rel, problems)
 
             # 5. HTML 内部链接完整性

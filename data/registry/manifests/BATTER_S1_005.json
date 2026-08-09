@@ -15,7 +15,7 @@
   "accessibility_status": "accessible",
   "coordinate_status": "verified",
   "processing_status": "curated",
-  "blocker_or_note": "V. natriegens two-contig Rend-seq processed with CP009977.1 and CP009978.1; manual review pending.",
+  "blocker_or_note": "V. natriegens two-contig Rend-seq retains CP009977.1 and CP009978.1. Deterministic database-engineering checks for contig identity, strand, BED conversion, stable IDs and JBrowse resources passed in v0.2.0; no new biological reinterpretation was performed.",
   "dataset_id": "vnat-rendseq-lalanne-2018",
   "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29606352/",
   "doi_url": "https://doi.org/10.1016/j.cell.2018.03.007",
