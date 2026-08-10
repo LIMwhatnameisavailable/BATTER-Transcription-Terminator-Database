@@ -1,0 +1,31 @@
+{
+  "source_id": "BTED_EXT_2026_102",
+  "migration_date": "2026-08-10",
+  "purpose": "Evidence-boundary audit manifest. Raw source files (xlsx/docx/pdf/csv) are intentionally not copied into the repository; only standardized endpoints.tsv/bed are published. Curation exclusion artifacts (e.g. unresolved-strand rows) ARE copied for audit traceability.",
+  "excluded_assets": [
+    {
+      "local_path": "new/PMID 42148773/msystems.01581-25-s0002.docx",
+      "evidence_class": "curation_metadata",
+      "reason": "原始补充表 (Table S1/S2 xlsx, Methods docx) 与论文 PDF 不随 Git 复制；标准化端点表已生成",
+      "row_count": null,
+      "sha256": "a3de32efa9d3c13053d279b7833c9dde9dd5eba4956b0cae813f34fa3df158b8",
+      "public_repository_copy": false
+    },
+    {
+      "local_path": "new/PMID 42148773/msystems.01581-25-s0003.xlsx",
+      "evidence_class": "curation_metadata",
+      "reason": "原始补充表 (Table S1/S2 xlsx, Methods docx) 与论文 PDF 不随 Git 复制；标准化端点表已生成",
+      "row_count": null,
+      "sha256": "2fd20543f7b68c791b194628f5801133a6ff185e397bc7909952a76315ee5be7",
+      "public_repository_copy": false
+    },
+    {
+      "local_path": "new/PMID 42148773/msystems.01581-25-s0004.xlsx",
+      "evidence_class": "curation_metadata",
+      "reason": "原始补充表 (Table S1/S2 xlsx, Methods docx) 与论文 PDF 不随 Git 复制；标准化端点表已生成",
+      "row_count": null,
+      "sha256": "673777f6723531d1b378388f012dd927f2143f5f19051fa686a0742c0edcbaf2",
+      "public_repository_copy": false
+    }
+  ]
+}

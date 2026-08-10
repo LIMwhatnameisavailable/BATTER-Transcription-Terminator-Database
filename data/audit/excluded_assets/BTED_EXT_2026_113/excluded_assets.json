@@ -1,0 +1,15 @@
+{
+  "source_id": "BTED_EXT_2026_113",
+  "migration_date": "2026-08-10",
+  "purpose": "Evidence-boundary audit manifest. Raw source files (xlsx/docx/pdf/csv) are intentionally not copied into the repository; only standardized endpoints.tsv/bed are published. Curation exclusion artifacts (e.g. unresolved-strand rows) ARE copied for audit traceability.",
+  "excluded_assets": [
+    {
+      "local_path": "TERMITe/data/termite_parsed.csv",
+      "evidence_class": "curation_metadata",
+      "reason": "TERMITe parsed.csv 为流水线中间产物，标准化端点表已生成；原始 csv 不随 Git 复制",
+      "row_count": null,
+      "sha256": "eacea79167be6acd02b576a497ce40494a5c19b6f52eedd5a30e934e1639714d",
+      "public_repository_copy": false
+    }
+  ]
+}

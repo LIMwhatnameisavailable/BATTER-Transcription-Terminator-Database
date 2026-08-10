@@ -1,0 +1,31 @@
+{
+  "source_id": "BTED_EXT_2026_101",
+  "migration_date": "2026-08-10",
+  "purpose": "Evidence-boundary audit manifest. Raw source files (xlsx/docx/pdf/csv) are intentionally not copied into the repository; only standardized endpoints.tsv/bed are published. Curation exclusion artifacts (e.g. unresolved-strand rows) ARE copied for audit traceability.",
+  "excluded_assets": [
+    {
+      "local_path": "new/PMID 34131082/fuchs-et-al-2021-an-rna-centric-global-view-of-clostridioides-difficile-reveals-broad-activity-of-hfq-in-a-clinically.pdf",
+      "evidence_class": "curation_metadata",
+      "reason": "原始补充表 (Dataset S4 xlsx) 与论文 PDF 不随 Git 复制；标准化端点表已生成",
+      "row_count": null,
+      "sha256": "17fe0892f3c2e53238a1c6346ecf49408e37bfff3d137997d1b568bc38b0e8e7",
+      "public_repository_copy": false
+    },
+    {
+      "local_path": "new/PMID 34131082/pnas.2103579118.sd04.xlsx",
+      "evidence_class": "curation_metadata",
+      "reason": "原始补充表 (Dataset S4 xlsx) 与论文 PDF 不随 Git 复制；标准化端点表已生成",
+      "row_count": null,
+      "sha256": "fcc83d87452eb73a886a48deec7fb15420591bdced7327f94063480b50ca0431",
+      "public_repository_copy": false
+    },
+    {
+      "local_path": "draft/endpoints_output/fuchs_2021_unresolved_strand_75rows.tsv",
+      "evidence_class": "curation_exclusion",
+      "reason": "strand 无法确定 (confidence=无法确定) 的 75 条 TTS, 未入主端点表 BTED_EXT_2026_101 (1967 行); 本文件已随批次复制至 data/audit/excluded_assets/BTED_EXT_2026_101/ 供审计追溯",
+      "row_count": 75,
+      "sha256": "814dc45b15f9f7550acc2cfb5ce17d72a199af4929dddfe9873613b90e725fef",
+      "public_repository_copy": true
+    }
+  ]
+}
