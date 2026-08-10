@@ -1,71 +1,76 @@
-# BATTER 原始文献数据溯源与整理
+# BTED —— Bacterial Transcript 3′ End Database
 
-## 任务背景
+BTED（Bacterial Transcript 3′ End Database，细菌转录 3′ end 数据库）是一个面向**公开、可追溯、实验支持**的细菌转录 3′ end 数据的标准化数据库项目。
 
-Jin, Cui, Liu et al. (Microbiome, 2026) 发表的 BATTER 工具用于预测细菌转录终止位点，其
-Table S1 列出了 13 篇提供真实实验（Term-seq/Rend-seq/dRNA-seq等）验证数据的原始文献。
-论文配套的 Zenodo 仓库（DOI: 10.5281/zenodo.16761763）仅包含模型代码、训练数据和预测
-结果，不含这 13 篇文献的原始实验坐标数据。
+本仓库是 BTED 的**协作与可复现性主仓库**：入库标准、来源登记模板、协作流程、站点演示与逐来源处理记录都通过本仓库评审和合并。原始测序数据与出版商补充工作簿不进入本仓库，仅以登录号 / DOI 链接到 GEO、SRA、ENA、ArrayExpress、Figshare、Zenodo 等公共仓库。
 
-## 任务目标
+## 收什么、不收什么
 
-构建一个基于真实实验验证的细菌转录终止子数据库及配套可视化网站。
+| 收录 | 不收录 |
+|------|--------|
+| 公开文献中实验支持的细菌转录 3′ end / TTS 坐标与元数据 | 纯计算预测位点（BATTER、RhoTermPredict、TransTermHP、ARNold 等） |
+| 作者补充表中可追溯的实验端点（`author_called_endpoint`） | 无法核实参考版本、坐标体系或链方向的记录 |
+| 按公开规则从实验信号调用的候选端点（`called_endpoint`，标注为候选） | 原始测序文件（FASTQ/BAM/BigWig）与出版商 xlsx/PDF —— 只链接 |
+| 经审计的实验信号派生展示轨道（`observed_signal`） | 作者整合实验与预测的混合结果（`author_integrated_mixed_evidence`，仅内部审计） |
 
-## 已完成工作
+用词边界：“实验支持的 3′ end”不等于每个位点都独立完成了终止功能验证；候选端点不是终止子结论。详见 [证据分层与发布边界](docs/standards/证据分层与发布边界.md)。
 
-### Phase 1: 信息核查与数据获取（已完成 ✅）
+## 统计口径（统一表述）
 
-- 排查 Zenodo 仓库内容，确认其数据类型（训练数据/预测结果），不可直接作为实验数据库来源
-- 逐篇人工核查 13 篇原始文献的 PubMed Data Availability 声明，整理出经核实的数据库登录号清单（GEO/SRA/ENA/ArrayExpress等），产出 `accession_list_verified.csv`
-- 核查 PMID 38030608 (Bar et al. 2023) 的 5 个 Supplementary Data 文件（MOESM4–8），确认结构
-- 对 13 篇文献逐一做 A/B/C 分类判断（基于论文正文+补充材料文本），**全部 13/13 确认为 A 类**
-- 批量下载核心数据文件，建立"文献N-PMIDxxxxxxxx"格式的 13 个子目录
-- 完成 README 声明与实际文件的交叉核查，逐文件验证坐标字段与数据量，**13/13 验证通过**
-- 产出文件：`data_verification_report.md`（完整核查报告）
+- **“13 篇原始研究文献”是论文数**（BATTER Table S1 来源文献，PMID 清单见 `report_BATTER_supplementary.md`）；
+- **“22 个来源记录”是来源/物种数据记录数**（Table S1 中这些论文下的记录）；
+- 两者单位不同，**不能混写为同一个“数据集数量”**；
+- 在完成逐来源重新审计之前，任何公开页面不得声称“所有 22 个来源均已公开发布”，也不得声称“所有端点均为功能验证终止子”。
 
-## 当前状态
+## 协作者入口
 
-**项目已从信息核查阶段进入数据格式标准化与数据库构建阶段。**
+第一次参与请按顺序阅读：
 
-所有 13 篇原始文献的终止子/TTS/TEP 坐标数据均已下载并完成内容验证，确认包含完整的基因组坐标字段（Position/Strand/Start-End等），可直接用于数据库构建，无需重新下载 FASTQ 或重跑分析 pipeline。
+1. [协作者：新增文献收集与入库指南](docs/standards/协作者_新增文献收集与入库指南.md) —— 照着做即可的教程，含一页式检查清单；
+2. [数据入库标准流程（SOP v0.1）](docs/standards/BTED_数据入库标准流程_v0.1.md) —— 证据分层、坐标规则、状态定义；
+3. [数据字段字典 v0.1](docs/standards/数据字段字典_v0.1.md) —— 两个模板全部 50 列的含义与合法值；
+4. [项目目录与协作规范](docs/standards/项目目录与协作规范.md) —— 目录用途、命名、统计口径、PR 流程；
+5. 登记模板：[`data/registry/templates/`](data/registry/templates/)（来源登记表 26 列、端点表 24 列）。
 
-## 已验证的核心数据源
+提交前校验：
 
-| PMID | 物种 | 核心坐标文件 | 数据规模 |
-|------|------|-------------|----------|
-| 29606352 | 4种细菌(Bsub/Ecol/Vnat/Ccre) | mmc3.xlsx | ~3500个终止子(4物种合计) |
-| 30517198 | S. pneumoniae | ppat.1007461.s006.xlsx | ~1864个TTS |
-| 31555254 | S. lividans | Table 6.XLSX | ~1640个TEP |
-| 31594819 | P. aeruginosa | mbio.02253-19-st001.xlsx | ~804个关联TTS |
-| 32694125 | Z. mobilis | msystems.00250-20-sd003.xlsx | ~2091个TTS |
-| 33319794 | 7种Streptomyces | Dataset_figshare_2.xlsx | ~2027个TTS |
-| 33947798 | S. clavuligerus | msystems.01013-20-sd001.xlsx | ~1427个TEP |
-| 34054774 | Synechocystis PCC 7338 | Data Sheet 2.XLSX | ~487个TEP |
-| 34874777 | Synechocystis PCC 6803 | msystems.00943-21-st005.xlsx | ~784个TEP |
-| 35491820 | D. dadantii | mbio.00524-22-st002.xlsx | 3564+5851+1165个TTS(三套体系) |
-| 37402717 | B. burgdorferi | MOESM4_ESM.xlsx | 1333+944个3'末端 |
-| 37096044 | M. tuberculosis | mmc4.xlsx | ~2567个TTS |
-| 38030608 | E. coli+6种病原菌 | MOESM5+MOESM6 | 多物种合计数千个终止子 |
+```bash
+python3 scripts/validate_bted_templates.py   # 模板结构（无第三方依赖）
+python3 scripts/validate-site.py             # 站点产物
+git diff --check
+```
+
+## 网站 demo
+
+`site/` 是一个纯静态演示骨架（面向 GitHub Pages），用于演示目录与页面结构；**它不是完整的生产数据库**：不含坐标数据、不含 JBrowse、不含记录级条目。部署与边界见 [docs/github-pages-demo-plan.md](docs/github-pages-demo-plan.md)。
 
 ## 目录结构
 
 ```
-BATTER数据整理/
-├── 文献1-PMID29606352/        # 数据目录（含 README.md + 核心xlsx文件）
-├── 文献2-PMID30517198/
-├── 文献3-PMID31555254/
-│   ...                        # 其他文献目录结构相同
-├── 文献13-PMID38030608/
-├── archive/                   # 历史过程记录（已整合的旧报告）
-├── accession_list_verified.csv # 经核实的登录号总表
-├── data_verification_report.md # 13篇文献交叉核查报告
-├── PROGRESS.md                # 工作日志
-└── README.md                  # 本文件
+README.md                  本文件
+docs/
+  standards/               入库标准与协作规范（v0.1）
+  tasks/                   分支任务计划
+  HANDOFF.md               协作交接记录
+  WORKLOG.md               工作日志
+  current-bted-status.md   已核实现状 vs 待核实事项、迁移验收门槛
+  cleanup-proposal.md      仓库卫生清理方案
+data/
+  registry/                来源级注册表与模板
+  public/                  可公开标准化数据（预留，当前为空）
+  audit/                   证据审计与排除记录（内部）
+scripts/                   校验脚本
+site/                      GitHub Pages 静态演示骨架
+文献N-PMIDxxxxxxxx/        13 篇来源文献的逐篇核查记录（保持现状）
 ```
 
-## 下一步计划
+## 历史资料
 
-1. **制定统一数据标准**: 确定坐标体系（0-base/1-base）、参考基因组版本对齐策略、字段命名规范
-2. **逐篇格式转换**: 将 13 篇文献的原始 xlsx 数据逐篇转换为统一格式（BED/GFF），保留并标准化元数据（物种、实验条件、置信度、终止子类型等）
-3. **构建结构化数据库**: 整合全部转换后的数据，建立索引（按物种、PMID、终止子类型等）
-4. **搭建可视化/检索网站**: 基于数据库开发可检索的 Web 界面
+- `accession_list_verified.csv` —— 13 篇文献经核实的公开数据登录号；
+- `data_verification_report.md` —— 逐篇补充材料核查报告（结论以其中校准表述为准）；
+- `report_BATTER_supplementary.md` / `report_zenodo_and_documents.md` —— BATTER 补充材料与 Zenodo 仓库审查；
+- `PROGRESS.md` —— 早期工作日志。
+
+## 许可与反馈
+
+项目自产内容（文档、站点代码、派生元数据）的许可证将在正式发布前评审确定；原始数据遵循各公共仓库与出版方条款，本项目只链接、不复制。问题与建议请通过 GitHub Issues 提交。

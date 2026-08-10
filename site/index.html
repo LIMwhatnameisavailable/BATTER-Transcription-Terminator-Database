@@ -13,6 +13,7 @@
       <p class="site-title"><a href="index.html">BTED 演示站点</a> <span class="tag">骨架阶段 · 无科学结论</span></p>
       <nav class="site-nav" aria-label="主导航">
         <a href="index.html" aria-current="page">首页</a>
+        <a href="sources.html">来源目录</a>
         <a href="catalog.html">数据目录</a>
         <a href="methodology.html">方法与局限</a>
         <a href="about.html">关于</a>
@@ -44,7 +45,7 @@
       <h2>范围说明</h2>
       <ul>
         <li>当前已核实范围：<strong>13 篇来源文献</strong>（PMID 清单见<a href="catalog.html">数据目录</a>），按 BATTER Table S1 口径覆盖约 20 个物种/菌株、22 条数据记录。</li>
-        <li>口径提醒：本仓库核实的 13 篇 PMID、Table S1 所列的 22 条记录、以及据报告存在于外部工作树的"22 来源注册表"是三个不同口径的数字。外部注册表与 Table S1 是否一一对应<strong>尚未核实</strong>，本站不采用外部口径。</li>
+        <li>口径提醒：<strong>13 篇</strong>是论文数，<strong>22 条</strong>是 Table S1 中这些论文下的来源/物种数据记录数，两者单位不同、不混写。本地工作树的 22 条来源注册表已作为元数据迁移到本仓库，展示于<a href="sources.html">来源目录</a>。</li>
         <li>站点版本：静态骨架 v0.1（2026-08-07）。在元数据 schema 与证据口径通过评审之前，站点内容将保持在骨架阶段。</li>
       </ul>
     </section>
@@ -55,7 +56,7 @@
         <li><a href="catalog.html">数据目录</a>仅由仓库内已核实的 <code>accession_list_verified.csv</code> 派生，展示书目级元数据（PMID、物种/菌株、期刊年份、数据库名称、登录号/DOI、数据类型）。</li>
         <li>原始测序数据保存在 GEO、SRA、ENA、ArrayExpress、PRIDE、Figshare 等公开数据仓库中，本站<strong>只链接、不复制</strong>。</li>
         <li>出版商补充材料工作簿按其来源以文献 DOI 引用，不复制进本站。</li>
-        <li>据报告存在的外部 BTED 工作树（含来源注册表、证据分层 SOP、标准化输出、JBrowse 资源等）当前无法访问，其全部内容标记为"待核实"；本站不包含来自该工作树的任何内容。详见<a href="methodology.html">方法与局限</a>。</li>
+        <li>本地 BTED 工作树的来源注册表（22 条来源记录的元数据）已迁移至 <code>data/registry/</code> 并展示于<a href="sources.html">来源目录</a>；其标准化坐标输出与 JBrowse 资源<strong>尚未迁移</strong>，须按验收门槛逐来源审计后方可公开。详见<a href="methodology.html">方法与局限</a>。</li>
       </ul>
     </section>
 

@@ -85,3 +85,21 @@
 2. 阶段 A 执行前确认工作区无未提交工作（当前含 Task 02 产出与本方案文档，需先由维护者决定提交归属）。
 3. 阶段 B 不得单独启动；四道门槛全部满足前保持暂缓。
 4. 阶段 A 合并后，提醒所有本地克隆者：6 个 read-starts 文件已转为未追踪文件，`git clean -fdx` 会将其删除（内容可从 PMID 38030608 公开补充材料重新获取）。
+
+---
+
+# 协作入库标准 v0.1 交接补充（2026-08-07）
+
+## 11. 本轮交付（feature/bted-v0.1-standards-and-structure）
+
+- **分支基线：** 基于 `origin/agent/reconcile-current-bted-state`（未合并入 main），Draft PR 基线同此。若 PR #1 先合并，本分支需 rebase 到 main 或改 PR 基线。
+- **交付物：** `docs/standards/` 五份标准文档（SOP v0.1、协作者指南、字段字典、证据分层与发布边界、目录与协作规范）；`data/registry/templates/` 两个模板（26/24 列）；`data/registry|public|audit/README.md`；`scripts/validate_bted_templates.py`；重写的 README；扩充的 `.gitignore`；`site/` 两处最小更新。
+- **模板修正：** 本地模板表头 `axonomy_id` 系拼写错误，入库版本已更正为 `taxonomy_id`；本地工作树若继续使用旧模板，建议同步修正。
+- **刻意未做：** 未迁移任何 BATTER_S1 数据 / JBrowse 资产 / 原始文件；未重排 `文献N-PMID*` 目录；未清理历史大文件；未虚构任何已发布数据。
+
+## 12. 给下一位协作者
+
+1. 接入新文献：按 `docs/standards/协作者_新增文献收集与入库指南.md` 执行，先填来源登记表，核验通过才建端点表；新 `source_id` 序号先查 `data/registry/` 与本 WORKLOG 避免冲突。
+2. 提交前运行 `python3 scripts/validate_bted_templates.py`（和改动 site/ 时的 `python3 scripts/validate-site.py`）。
+3. PR 保持 Draft，描述写清"做了什么 / 没做什么 / 待确认 / 验证结果"。
+4. 任何无法核实的信息标记 `to_review` 或 `blocked`，不要猜测。

@@ -117,3 +117,31 @@
 - 本提交 —— WORKLOG/HANDOFF 收尾记录。
 
 上述提交连同此前未推送的 revert `43fcc5f` 一并推送至 origin；draft PR #1 现涵盖 Task 01–03，标题与描述已同步更新，仍待最终评审。
+
+## 2026-08-07 —— 协作入库标准 v0.1（feature/bted-v0.1-standards-and-structure）
+
+**分支：** `feature/bted-v0.1-standards-and-structure`（基于 `origin/agent/reconcile-current-bted-state`，因后者尚未合并入 main） | **PR 基线：** `agent/reconcile-current-bted-state` | **状态：** 完成并推送，Draft PR 待评审
+
+### 完成内容
+
+1. 只读核查：确认 `agent/reconcile-current-bted-state` 未合并入 main、工作区干净、存在未合并 Draft PR #1；完整阅读本地 BTED 工作树的 AGENTS.md、SOP v0.2、WORKLOG、HANDOFF 与两个外部文献模板，以及本仓库 README、Pages 计划、迁移盘点、状态文档。
+2. 新增 `docs/standards/` 五份标准文档：SOP v0.1（以本地 SOP v0.2 为科学基础，剔除本地路径与单机脚本）、协作者新增文献收集与入库指南、数据字段字典 v0.1（覆盖两个模板全部 50 列）、证据分层与发布边界、项目目录与协作规范。
+3. 迁移两个模板至 `data/registry/templates/`（来源表 26 列 / 端点表 24 列；修正本地模板表头拼写 `axonomy_id` → `taxonomy_id`）；新增 `data/registry`、`data/public`、`data/audit` 三个 README 说明用途与边界。
+4. 新增 `scripts/validate_bted_templates.py`（无第三方依赖）：检查表头存在、列数 26/24、重复列名、必备核心列、规范列名与顺序，输出 PASS/FAIL。
+5. 重写 README：确立正式名称 BTED（Bacterial Transcript 3′ End Database）、协作与可复现性主仓库定位、收/不收边界、统计口径（13 篇论文 vs 22 条来源记录不混写）、协作者入口与校验命令；移除"补充表坐标可直接用于数据库构建"的旧表述。
+6. 更新 `.gitignore`：追加 .DS_Store、`__MACOSX/`、`._*`、`data/local/`、`raw/`、FASTQ/BAM/CRAM/BigWig 等原始数据类型、缓存/临时/本地环境文件；未删除任何已追踪文件、未改写历史（清理建议见 `docs/cleanup-proposal.md` 与 `docs/standards/项目目录与协作规范.md`）。
+7. `site/` 最小改动：methodology.html 增加"入库标准与证据边界"一节（链接 GitHub 文档）、更新外部工作树状态描述；about.html 更正项目英文名；保持 demo/骨架性质，未加 JBrowse、未加坐标数据、未加记录级条目。
+8. 本轮未做：完整数据迁移、JBrowse 发布、原始数据上传、`文献N-PMID*` 目录重排、历史大文件清理。
+
+### 验证
+
+- `git diff --check`：干净。
+- `python3 scripts/validate_bted_templates.py`：PASS（来源表 26 列、端点表 24 列）。
+- `python3 scripts/validate-site.py`：PASS。
+- 全仓库新增/修改文档无 `/Users/` 本地绝对路径；无新增 xlsx/pdf/zip/FASTQ/BAM/BigWig 文件。
+
+### 遗留
+
+- 22 个 BATTER_S1 来源的数据迁移尚未开始，须按 `docs/current-bted-status.md` 验收门槛逐来源审计。
+- `文献13` 已追踪大文件与 `__MACOSX/` 的清理仍待维护者按 `docs/cleanup-proposal.md` 决策。
+- `docs/standards/` 五份文档为 v0.1，接入首批真实外部文献后应回顾修订。
