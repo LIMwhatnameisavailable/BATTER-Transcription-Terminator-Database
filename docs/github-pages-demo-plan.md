@@ -32,6 +32,8 @@ GitHub Pages 用于展示 BTED 的项目说明、来源目录、逐来源记录�
 
 ## 部署建议
 
+当前工作流仅允许 `workflow_dispatch` 手动触发。这样在 `v0.2.0` Release 仍为草稿、Pages 尚未由管理员启用时，合并到 `main` 不会产生必然失败的部署记录。完成下列发布条件后再手动运行。
+
 1. 从经过评审的分支构建 `site/`，不要直接部署个人本地工作目录。
 2. 发布 `BTED-v0.2.0-jbrowse-assets.tar.gz` 及其 SHA-256 到同名 GitHub Release。
 3. 在 GitHub Pages 设置中选择 GitHub Actions；工作流下载固定 Release 资产后组合 `_site/`。

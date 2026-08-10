@@ -24,6 +24,7 @@
 - **JBrowse 官方压缩代码触发站点凭据/路径扫描误报。** 供应商 runtime 改为由 JBrowse package checksum 验证；BTED 自有 HTML、JS、配置和目录数据继续严格扫描。
 - **S1_008 基因关联表不是全部可一对一连接。** 805 条记录全部保留，460 条连接到稳定 `end_id`，345 条明确标记 `unlinked_author_annotation`，不强配、不丢弃。
 - **S1_020 混合层容易被误用。** v0.2 公开数据和 JBrowse 只保留 S2D 的 1,165 条端点，S1C 仅在内部审计和处理记录中出现。
+- **合并时 Pages 会在尚未启用且 Release 仍为草稿的状态下自动失败。** 最终审阅将 Pages workflow 收窄为 `workflow_dispatch` 手动触发；正式发布 Release、管理员启用 Pages 后再部署。
 
 ### 已完成验证
 

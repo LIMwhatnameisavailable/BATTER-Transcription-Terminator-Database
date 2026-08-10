@@ -67,6 +67,7 @@ git diff --check
 - Draft PR：`https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/4`，CI 已通过。
 - PR #3 结构清理提交：`61318db refactor: clean repository root and legacy assets`。
 - `v0.2.0` Release 草稿包含四个发布资产；保持草稿，直至评审和 Pages 发布顺序确认。
+- Pages workflow 仅允许手动触发；正式发布 Release 且管理员启用 Pages 后再运行，避免合并时产生预期失败。
 - HTTPS OAuth 令牌仍缺少 `workflow` scope；继续推送本分支可使用已验证的 SSH 地址，无需重新构建数据。
 
 ## 不要做
