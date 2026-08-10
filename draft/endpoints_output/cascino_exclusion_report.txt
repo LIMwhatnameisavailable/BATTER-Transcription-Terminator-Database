@@ -1,0 +1,51 @@
+Cascino 2026 (PMID 42148773) Table S1 端点表分级报告
+生成: 2026-08-10
+分级依据: s0002.docx P32/P34/P77 作者原文 (详见 cascino_reclassification_changelog.md)
+  - 最高置信度纳入: gene_term=='defined end' (evidence_class=author_called_endpoint)
+  - 次级置信度纳入: 'diffuse end (diffuse peak)' 与 'unclear'(gene_peak_posn有值)
+                 (evidence_class=called_endpoint; 坐标=gene_peak_posn)
+  - 完全排除: 'TU' / 'diffuse end (no peak found)' / 'unclear'(gene_peak_posn为空)
+
+==================================================================
+sheet: Syn_WT  source_id: BTED_EXT_2026_002
+  总行数(不含表头): 1295
+  最高置信度纳入 (defined end): 388
+  次级置信度纳入: 86 行
+      diffuse end (diffuse peak): 75
+      unclear: 11
+  完全排除: 821 行
+      TU: 544
+      diffuse end (no peak found): 274
+      unclear: 3
+  端点表行数: 474
+  校验: 最高+次级+排除 = 1295 (应为 1295)
+==================================================================
+sheet: Syn_∆mfd_rep1  source_id: BTED_EXT_2026_003
+  总行数(不含表头): 1238
+  最高置信度纳入 (defined end): 331
+  次级置信度纳入: 53 行
+      diffuse end (diffuse peak): 41
+      unclear: 12
+  完全排除: 854 行
+      TU: 582
+      diffuse end (no peak found): 266
+      unclear: 6
+  端点表行数: 384
+  校验: 最高+次级+排除 = 1238 (应为 1238)
+==================================================================
+sheet: Syn_∆mfd_rep2  source_id: BTED_EXT_2026_004
+  总行数(不含表头): 1264
+  最高置信度纳入 (defined end): 342
+  次级置信度纳入: 57 行
+      diffuse end (diffuse peak): 48
+      unclear: 9
+  完全排除: 865 行
+      TU: 572
+      diffuse end (no peak found): 288
+      unclear: 5
+  端点表行数: 399
+  校验: 最高+次级+排除 = 1264 (应为 1264)
+
+==================================================================
+总计: 总行数 3797 | 最高置信度 1061 | 次级置信度 196 | 完全排除 2540
+三档相加 = 总行数 校验: 3797

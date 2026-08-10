@@ -1,0 +1,52 @@
+TERMITe 8 来源端点表构建摘要
+生成日期: 2026-08-10
+termite_parsed.csv 总行数: 11574
+
+== Bacillus_subtilis_a (BTED_EXT_2026_006) ==
+  原始行数: 630
+  coord_valid=True: 630
+  最终端点行数: 630
+  POT!=summit 行数: 0
+
+== Bacillus_subtilis_b (BTED_EXT_2026_007) ==
+  原始行数: 1153
+  coord_valid=True: 1153
+  最终端点行数: 1153
+  POT!=summit 行数: 1
+
+== Bacillus_subtilis_c (BTED_EXT_2026_008) ==
+  原始行数: 974
+  coord_valid=True: 974
+  最终端点行数: 974
+  POT!=summit 行数: 0
+
+== Enterococcus_faecalis (BTED_EXT_2026_009) ==
+  原始行数: 779
+  coord_valid=True: 779
+  最终端点行数: 779
+  POT!=summit 行数: 1
+
+== Listeria_monocytogenes (BTED_EXT_2026_010) ==
+  原始行数: 860
+  coord_valid=True: 860
+  最终端点行数: 860
+  POT!=summit 行数: 1
+
+== Bacillus_subtilis_d (BTED_EXT_2026_011) ==
+  原始行数: 1198
+  coord_valid=True: 1198
+  最终端点行数: 1198
+  POT!=summit 行数: 0
+
+== Escherichia_coli_b (BTED_EXT_2026_012) ==
+  原始行数: 949
+  coord_valid=True: 949
+  最终端点行数: 949
+  POT!=summit 行数: 1
+
+== Escherichia_coli_a (BTED_EXT_2026_013) ==
+  原始行数: 686
+  coord_valid=True: 686
+  最终端点行数: 686
+  POT!=summit 行数: 0
+
