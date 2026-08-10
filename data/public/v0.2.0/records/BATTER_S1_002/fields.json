@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_002",
+  "release_version": "v0.2.0",
+  "core_table": {
+    "publication_status": "not_emitted_audit_only"
+  },
+  "source_annotations": {
+    "publication_status": "not_emitted_audit_only"
+  }
+}

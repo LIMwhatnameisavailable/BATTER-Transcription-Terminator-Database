@@ -1,22 +1,65 @@
 # 工作日志
 
-## 2026-08-10 —— PR #3 仓库根目录与 legacy 向前清理
+## 2026-08-10 —— BTED v0.2.0 自有数据公开演示构建
 
-**分支：** `refactor/project-structure-and-literature-notes-v0.1`（通过独立清理工作树更新） | **状态：** 结构清理完成，未改写历史
+**分支：** `agent/bted-v0.2-public-demo`
+
+**范围：** 只处理 BATTER S1 自有数据与共享基础设施，不合并协作者外部来源。
 
 ### 完成内容
 
-1. 将根目录 `PROGRESS.md`、`data_verification_report.md`、`report_BATTER_supplementary.md`、`report_zenodo_and_documents.md` 归入 `docs/legacy/project-reports/`。
-2. 将根目录 `accession_list_verified.csv` 归入 `data/audit/legacy/`，明确其为 2026-08-07 的历史元数据快照，不替代正式 registry/manifest。
-3. 从当前 Git 树移除重复的 `docs/legacy/original-directories/`，包括 6 个约 168 MB 的 read-starts 文本和 `__MACOSX`；正式文献说明与早期笔记分别保留在 `docs/literature/` 和 `docs/legacy/literature-initial-review/`。其中独立的 `supplementary_data_1to5_findings.md` 没有丢弃，改存为 `docs/legacy/project-reports/PMID_38030608_supplementary_data_1to5_findings.md`。
-4. `.gitignore` 增加 `docs/legacy/original-directories/`，防止旧目录和原始计数重新进入当前版本。
-5. 更新 README、目录规范、历史索引、网站静态说明、迁移盘点和清理方案，记录“当前树已清理、历史未重写”的边界。
+1. 保持 v0.1 的 24 列核心接口，新增来源特异 `source_annotations.tsv`、逐字段 `fields.json`、逐来源 manifest/BED/checksum 和少数一对多附表。
+2. 冻结 22 个来源：21 个公开标准化来源、1 个 `audit_only`（S1_002），共 28,399 条核心记录。
+3. 建立许可登记。17 个来源发布来源特异表；4 个 Lalanne 来源标为 `external_link_only`，逐字段登记但不复制完整补充字段。
+4. 生成 21 套来源独立 JBrowse 配置、123 个带来源前缀的引用资产；S1_002 无配置。Lalanne 公开配置移除受限制的文献整理 overlay。
+5. 完成 S1_005、S1_020、S1_022 的确定性数据库工程审计：双 contig、BED 转换、唯一键、证据层和参考映射检查结果写入 `data/audit/v0.2.0/priority_source_audit.json`。
+6. 重构双语静态网站：英文默认/中文切换、22 个来源详情页、筛选目录、下载、原始数据入口和 21 个 JBrowse 链接。
+7. 生成数据与 JBrowse Release 压缩包；增加 GitHub Actions CI 与 Pages 工作流，Pages 在部署时下载固定版本 JBrowse 资产。
+8. 新增 v0.2 SOP、发布接口、版本说明、来源处理记录和可编辑 draw.io 流程图。
+9. 联网审计 88 条逐来源链接（61 个唯一 URL）：83 条正常可达，5 条返回访问限制状态；无 404/410、网络失败或缺失必填入口。S1_015 的 SRA 入口已补齐。
 
-### 恢复与剩余风险
+### 遇到的问题与解决
 
-- 本次是普通可逆提交，旧文件仍存在于 Git 历史和原主工作树，可通过旧提交恢复；没有删除公共标准化数据。
-- 仓库历史体积不会因此缩小；若未来决定执行 `git filter-repo`，仍须镜像备份、冻结协作并单独评审。
-- PR #4 需合并更新后的 PR #3 基线，避免最终分支重新带回旧根目录状态。
+- **作者原字段在 v0.1 核心表中会丢失。** v0.2 增加来源特异表和逐列字段清单，要求每个原列被发布、映射或明确说明未发布原因。
+- **JBrowse 官方压缩代码触发站点凭据/路径扫描误报。** 供应商 runtime 改为由 JBrowse package checksum 验证；BTED 自有 HTML、JS、配置和目录数据继续严格扫描。
+- **S1_008 基因关联表不是全部可一对一连接。** 805 条记录全部保留，460 条连接到稳定 `end_id`，345 条明确标记 `unlinked_author_annotation`，不强配、不丢弃。
+- **S1_020 混合层容易被误用。** v0.2 公开数据和 JBrowse 只保留 S2D 的 1,165 条端点，S1C 仅在内部审计和处理记录中出现。
+- **合并时 Pages 会在尚未启用且 Release 仍为草稿的状态下自动失败。** 最终审阅将 Pages workflow 收窄为 `workflow_dispatch` 手动触发；正式发布 Release、管理员启用 Pages 后再部署。
+
+### 已完成验证
+
+- `validate_bted_templates.py`、v0.1 compatibility validator、v0.2 validator；
+- S1_005/020/022 priority audit；
+- 21 配置 JBrowse package validator；
+- source-only 和完整 Pages artifact validator；
+- v0.1 + v0.2 共 11 项 unittest；
+- `validate_bted_templates.py`：PASS；
+- `validate_bted_release.py`：PASS（v0.1 回归不变）；
+- `audit_v0_2_priority_sources.py` / `validate_bted_v0_2.py`：PASS；
+- `validate_jbrowse_release.py`：PASS（21 配置、123 个来源前缀资产）；
+- `validate-site.py site` 与完整 `.pages-preview`：PASS（完整产物 1,150 个文件）；
+- `tests/test_bted_ingestion.py` + `tests/test_bted_v0_2.py`：11/11 PASS；
+- draw.io XML、GitHub Actions YAML、Python syntax 和 `git diff --check`：PASS。
+
+### 发布状态
+
+本地数据、站点、JBrowse 和 Release 资产已构建。GitHub 推送、Release 和 Pages 激活需要有效的 GitHub CLI 登录及维护者评审；不在本地构建阶段猜测或绕过认证。
+
+## 2026-08-10 —— PR #3 仓库根目录与 legacy 向前清理
+
+**来源提交：** `61318db` | **状态：** 已同步进 v0.2 分支，未改写历史
+
+### 完成内容
+
+1. 将根目录旧报告归入 `docs/legacy/project-reports/`，将登录号快照归入 `data/audit/legacy/`。
+2. 从当前 Git 树移除重复的 `docs/legacy/original-directories/`、约 168 MB read-starts 文本和 `__MACOSX`；独立调研记录已保留到项目报告目录。
+3. 新增 `scripts/validate_repo_layout.py`，并更新 README、目录规范、历史索引、迁移记录和 `.gitignore`。
+4. 清理是普通可逆提交，没有删除标准化公开数据，也没有执行 `git filter-repo` 或 force push。
+
+### 验证
+
+- 仓库布局、模板、v0.1 发布、站点和 4 项 v0.1 unittest 全部通过；
+- 同步至 v0.2 后重新执行 v0.1/v0.2/JBrowse/站点完整回归。
 
 ## 2026-08-10 —— v0.1 local snapshot：本地 BTED 结果首次进入 Git
 
@@ -222,3 +265,25 @@
 - 22 个 BATTER_S1 来源的数据迁移尚未开始，须按 `docs/current-bted-status.md` 验收门槛逐来源审计。
 - `文献13` 已追踪大文件与 `__MACOSX/` 的清理仍待维护者按 `docs/cleanup-proposal.md` 决策。
 - `docs/standards/` 五份文档为 v0.1，接入首批真实外部文献后应回顾修订。
+
+## 2026-08-10 —— BTED 自有数据 v0.2.0 本地交付
+
+**分支：** `agent/bted-v0.2-public-demo` | **实现提交：** `142e371` | **状态：** 已推送，Draft PR #4 与 v0.2.0 Release 草稿已建立
+
+### 完成内容
+
+1. 22 个 BATTER S1 来源均生成 v0.2 manifest 和网站详情页；21 个来源发布 28,399 条统一端点记录，S1_002 保持 `audit_only`。
+2. 建立核心端点表、来源特异附表、字段清单、BED6、manifest 和 SHA-256 的两层发布接口；混合证据与预测注释不进入实验端点层。
+3. 完成 S1_005 双 contig、S1_020 分层和 S1_022 参考版本的重点工程审计。
+4. 生成 21 套独立 JBrowse 配置、双语静态网站、22 个来源页、CI/Pages 工作流、Release 压缩包和 draw.io 流程图。
+5. 完整本地验收通过：模板/v0.1/v0.2/JBrowse/网站/Pages/坐标/checksum/11 项单元测试均通过；外部链接审计无失败和必填缺失。
+
+### GitHub 上传问题与解决
+
+- 已创建本地提交 `142e371 feat: build BTED v0.2 public demo`，工作树干净。
+- 2026-08-10 先后使用默认 HTTP、HTTP/1.1、HTTP/1.1 + 500 MiB `http.postBuffer` 推送，均未改变数据或提交。
+- 失败信息包括 `Could not resolve host`、`Failed to connect to github.com port 443` 和 `HTTP2 framing layer`；随后 `curl -I --connect-timeout 15 https://github.com` 同样超时。
+- 网络恢复后，HTTPS 推送因当前 OAuth 令牌缺少修改 `.github/workflows/` 所需的 `workflow` scope 被拒绝；该拒绝与数据内容无关。
+- `ssh -T git@github.com` 确认本机 SSH 身份有效，随后通过 SSH 成功推送完整分支，保留 CI 与 Pages workflow。
+- 已创建 Draft PR #4：`https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/4`，基线为 PR #3 的 `refactor/project-structure-and-literature-notes-v0.1`；CI `BTED validation` 通过。
+- 已创建 `v0.2.0` GitHub Release 草稿并上传数据包、JBrowse 包及两个 SHA-256 文件。Release 尚未发布，Pages workflow 尚未触发。

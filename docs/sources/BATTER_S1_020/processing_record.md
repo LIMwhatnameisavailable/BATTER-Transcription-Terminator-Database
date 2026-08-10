@@ -2,10 +2,10 @@
 
 ## 处理结论
 
-本来源已经入库，但必须保持两个证据层，不能合并成“全部经过实验验证的 terminator”。
+本来源已经入库，但两个证据层不能合并。
 
 1. **实验端点主层**：Supplementary Table S2D，共 1,165 条。作者从 Nanopore native RNA-seq 的 read-end stop density 调用 putative TTS，因此本站标记为 `author_called_nanopore_native_rna_3prime_end`。
-2. **作者整合注释层**：Supplementary Table S1C，共 2,021 条。该表综合 RNA-seq、Nanopore 端点以及 intrinsic/Rho-dependent terminator predictions，本站标记为 `author_integrated_mixed_evidence_tts`，并在每行保留警告。
+2. **作者整合注释层**：Supplementary Table S1C，共 2,021 条。该表综合 RNA-seq、Nanopore 端点以及 intrinsic/Rho-dependent terminator predictions。它保留在内部来源快照中，不进入 v0.2.0 的公开端点表、下载包或 JBrowse。
 
 ## 来源与参考
 
@@ -49,24 +49,26 @@ python3 build_bted_catalog.py
 
 S1C 中 terminator type 为 Intrinsic 555、Rho-dependent 244、Not found 1,222；`+pred` confidence 类别明确提示部分记录包含预测支持。
 
-## 输出
+## v0.2.0 输出
 
-目录：`data/dickeya/processed/BATTER_S1_020/`
+公开目录：`data/public/v0.2.0/records/BATTER_S1_020/`
 
-- `nanopore_native_rna_3prime_ends.tsv/.bed`：主实验端点层；
-- `author_integrated_tts.tsv/.bed`：混合证据注释层；
-- `reference.fna/.fai`、`genes.gff3.gz/.tbi`：浏览器参考资产；
-- `processing_summary.json`：统计和证据层说明；
-- `SHA256SUMS.txt`：派生文件校验值。
+- `endpoints.tsv` / `endpoints.bed`：仅 S2D 的 1,165 条作者调用端点；
+- `source_annotations.tsv`：S2D 的来源特异字段；
+- `fields.json` / `manifest.json` / `SHA256SUMS.txt`：字段、来源和完整性信息；
+- JBrowse 包：仅展示 S2D，不含 S1C mixed-evidence track。
+
+内部 `data/dickeya/processed/BATTER_S1_020/author_integrated_tts.tsv` 仍作为来源审计材料保留，未被删除或改写。
 
 ## 遇到的问题与解决
 
 - **问题：S1C 数量更多，看起来像更完整的终止位点表。** 但它不是纯实验端点集合。解决：S2D 作为实验主层，S1C 作为独立的 mixed-evidence annotation track。
 - **问题：不能把 Nanopore 端点直接称为逐位点功能验证的 terminator。** 解决：使用“作者调用的 Nanopore native RNA 3′ end / putative TTS”，不升级证据措辞。
-- **问题：网站原来只能下载一个 TSV。** 解决：详情页新增可选 `extraDownloads`，主下载仍为 S2D，S1C 以明确标签单独下载。
+- **问题：S1C 即使带标签，仍可能被用户误当成统一实验端点。** 解决：v0.2.0 不公开 S1C 下载和浏览器轨道，只在处理记录中说明其存在。
 
-## 待人工复核
+## v0.2.0 工程复核
 
-- 在 JBrowse 抽查正负链各至少 10 条，确认 strand、上游基因和坐标附近关系；
-- 如后续下载 E-MTAB-10482 原始 FASTQ/比对文件重算 stop density，应建立新的“本站重分析”证据层，不覆盖作者 S2D；
-- 对 S1C 中 `strong+pred`、`medium+pred` 和无预测三类分别抽样，检查页面标签是否足够清晰。
+- 核心表固定为 1,165 行（+ 531，− 634），来源列全部为 Supplementary Table S2D；
+- `(contig, coordinate, strand)` 唯一，所有 BED 坐标转换通过；
+- 确定性抽查记录见 `data/audit/v0.2.0/priority_source_audit.json`；
+- 若未来从 E-MTAB-10482 重算 stop density，应建立新的“本站重分析”层，不覆盖作者 S2D。

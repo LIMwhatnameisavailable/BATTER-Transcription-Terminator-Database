@@ -5,10 +5,10 @@
 | 项目 | 值 |
 |---|---|
 | 发布判定 | `published_standardized` |
-| 公开资产 | `data/public/records/BATTER_S1_022/endpoints.tsv` |
+| 公开资产 | `data/public/v0.2.0/records/BATTER_S1_022/endpoints.tsv` |
 | 记录数 | 2567 |
 | 主要证据层 | `author_called_endpoint` |
-| 迁移日期 | 2026-08-10 |
+| 版本 / 日期 | `v0.2.0` / 2026-08-10 |
 | 参考组装 | `GCF_000195955.2` |
 | 原始数据入口 | https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-11753 |
 | 论文 | PMID [37096044](https://pubmed.ncbi.nlm.nih.gov/37096044/) · DOI [10.1016/j.isci.2023.106465](https://doi.org/10.1016/j.isci.2023.106465) |
@@ -23,5 +23,5 @@ BTED 的公开术语为“实验支持的 3′ end / 端点”；这并不表示
 
 - 本来源原始测序与出版商工作簿不随 Git 复制；请通过上表的公共入口获取。
 - 标准化输入/输出 SHA-256、行数和坐标检查结果写入本目录的 `manifest.json`。
-- 本次快照中没有独立的来源处理 Markdown；已保留来源 manifest 与发布判定，后续接入者必须补写详细处理记录。
-- 本次不发布 BigWig、FASTA/GFF 或 JBrowse 资产；它们属于大型衍生文件，后续应以有版本的外部发布物/浏览器包提供。
+- 详细坐标映射、预测层隔离和工程核查见 [`processing_record.md`](processing_record.md)。
+- JBrowse 资产进入 `BTED-v0.2.0-jbrowse-assets.tar.gz`，不直接提交 Git。

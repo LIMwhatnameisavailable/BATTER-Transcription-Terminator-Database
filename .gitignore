@@ -36,7 +36,10 @@ temp/
 .env
 .venv/
 node_modules/
+dist/
+.pages-preview/
+.playwright-cli/
 
-# 已退出当前仓库版本的早期整目录副本和 read-starts 原始计数
+# 已退出当前版本的早期整目录副本和 read-starts 原始计数
 # 正式文献记录见 docs/literature/，原始数据只保留公共 accession。
 docs/legacy/original-directories/

@@ -1,65 +1,32 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BTED —— 细菌转录 3′ End 数据库</title>
-  <meta name="description" content="BTED v0.1 local snapshot：可追溯、实验支持的细菌转录 3′ end 标准化数据发布索引。">
+  <meta name="description" content="BTED v0.2.0">
+  <title>Home · BTED</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap">
-      <p class="site-title"><a href="index.html">BTED</a> <span class="tag">v0.1 local snapshot</span></p>
-      <nav class="site-nav" aria-label="主导航">
-        <a href="index.html" aria-current="page">首页</a>
-        <a href="sources.html">来源目录</a>
-        <a href="catalog.html">数据目录</a>
-        <a href="methodology.html">方法与局限</a>
-        <a href="about.html">关于</a>
-      </nav>
-    </div>
-  </header>
+<body data-lang="en">
 
-  <main class="wrap">
-    <h1>细菌转录 3′ End 数据库</h1>
-    <p class="lede">BTED 将公开细菌转录 3′ 端实验整理为可追溯、可下载、可核验的标准化记录。本页是 GitHub Pages 发布索引；数据表和完整可复现性材料位于项目仓库。</p>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html"><span class="brand-mark">BTED</span><span class="brand-name">Bacterial Transcript 3′ End Database</span></a>
+        <nav class="site-nav" aria-label="Primary navigation"><a href="index.html" aria-current="page"><span class="i18n i18n-en">Home</span><span class="i18n i18n-zh">首页</span></a><a href="sources.html"><span class="i18n i18n-en">Sources</span><span class="i18n i18n-zh">来源</span></a><a href="catalog.html"><span class="i18n i18n-en">Downloads</span><span class="i18n i18n-zh">下载</span></a><a href="methodology.html"><span class="i18n i18n-en">Methods</span><span class="i18n i18n-zh">方法</span></a><a href="about.html"><span class="i18n i18n-en">About</span><span class="i18n i18n-zh">关于</span></a></nav>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-lang-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-choice="zh" aria-pressed="false">中文</button>
+        </div>
+      </div>
+    </header>
 
-    <section>
-      <h2>v0.1 local snapshot</h2>
-      <ul>
-        <li><strong>22 个来源记录</strong>均已建立来源 manifest 与处理说明；它们对应 <strong>13 篇原始研究文献</strong>，两个数字代表不同统计单位。</li>
-        <li><strong>21 个来源、28,399 条记录</strong>已按统一 24 列 schema 发布到仓库 <code>data/public/</code>。</li>
-        <li>17 个来源是作者发表的实验 3′ end 表，并附规范 BED；4 个来源是文献整理记录，仅发布 TSV。</li>
-        <li><code>BATTER_S1_002</code> 维持仅审计状态，直至多技术汇总结果能按每条记录的实验 provenance 拆分。</li>
-      </ul>
-      <p>逐来源发布状态见<a href="sources.html">来源目录</a>；本版完整边界、目录与下一步见仓库中的 <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/blob/refactor/project-structure-and-literature-notes-v0.1/docs/releases/v0.1-local-snapshot.md">发布说明</a>。</p>
-    </section>
-
-    <section>
-      <h2>证据边界</h2>
-      <ul>
-        <li>公开端点层只接收实验信号、按公开规则调用的候选端点、作者发表端点和有明确范围的文献整理记录。</li>
-        <li>纯计算预测，以及作者把预测和实验合并后不能拆分的表，不进入公开端点层或浏览器轨道。</li>
-        <li>“实验支持的 3′ end”不等于每一个位置都完成独立的终止功能实验；本站不把端点一律称为终止子。</li>
-      </ul>
-      <p>完整定义见 <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/blob/refactor/project-structure-and-literature-notes-v0.1/docs/standards/%E8%AF%81%E6%8D%AE%E5%88%86%E5%B1%82%E4%B8%8E%E5%8F%91%E5%B8%83%E8%BE%B9%E7%95%8C.md">证据分层与发布边界</a>。</p>
-    </section>
-
-    <section>
-      <h2>本版未包含的内容</h2>
-      <ul>
-        <li>原始 FASTQ/BAM、出版商工作簿、参考 FASTA/GFF 与大轨道文件。请通过 GEO、SRA、ENA、ArrayExpress、Figshare 等原始入口获取。</li>
-        <li>JBrowse 和 BigWig。本地浏览器已用于处理核查，但应在后续作为独立的、版本化浏览器包发布，而不是随 Git 页面复制。</li>
-        <li>服务端数据库、登录系统或私有数据访问。</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>BTED v0.1 local snapshot · 2026-08-10 · 静态发布索引 · 原始数据通过公共数据库获取</p>
-    </div>
-  </footer>
+<main>
+  <section class="hero"><div class="page-shell hero-inner"><p class="eyebrow">BTED v0.2.0</p><h1><span class="i18n i18n-en">Bacterial transcript 3′ ends, organized for reuse.</span><span class="i18n i18n-zh">可追溯、可下载的细菌转录 3′ 端数据。</span></h1><p><span class="i18n i18n-en">A curated catalog of public bacterial transcript-end experiments with stable coordinates, source-level fields, and genome-browser views.</span><span class="i18n i18n-zh">将公开的细菌转录端点实验整理为稳定坐标、来源字段和基因组浏览器视图。</span></p><div class="hero-actions"><a class="button primary" href="sources.html"><span class="i18n i18n-en">Browse sources</span><span class="i18n i18n-zh">浏览来源</span></a><a class="button" href="methodology.html"><span class="i18n i18n-en">Read data standard</span><span class="i18n i18n-zh">查看数据标准</span></a></div></div></section>
+  <section class="page-shell stat-strip"><div><strong>22</strong><span><span class="i18n i18n-en">source records</span><span class="i18n i18n-zh">来源记录</span></span></div><div><strong>13</strong><span><span class="i18n i18n-en">research papers</span><span class="i18n i18n-zh">研究论文</span></span></div><div><strong>28,399</strong><span><span class="i18n i18n-en">standardized records</span><span class="i18n i18n-zh">标准化记录</span></span></div><div><strong>21</strong><span><span class="i18n i18n-en">JBrowse datasets</span><span class="i18n i18n-zh">JBrowse 数据集</span></span></div></section>
+  <section class="page-shell feature-grid"><article><h2><span class="i18n i18n-en">Traceable</span><span class="i18n i18n-zh">可追溯</span></h2><p><span class="i18n i18n-en">Every record links to its paper, public accession, reference assembly, source row, and checksums.</span><span class="i18n i18n-zh">每条记录均关联论文、公共登录号、参考组装、原始行和校验值。</span></p></article><article><h2><span class="i18n i18n-en">Evidence-aware</span><span class="i18n i18n-zh">证据分层</span></h2><p><span class="i18n i18n-en">Observed signals, called endpoints, author endpoints, annotations, and predictions remain separate.</span><span class="i18n i18n-zh">实验信号、候选端点、作者端点、注释和预测保持分层。</span></p></article><article><h2><span class="i18n i18n-en">Browser-ready</span><span class="i18n i18n-zh">可浏览</span></h2><p><span class="i18n i18n-en">Twenty-one source-specific JBrowse configurations retain contig and strand identity.</span><span class="i18n i18n-zh">21 套独立 JBrowse 配置保留 contig 与链方向。</span></p></article></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><span>BTED v0.2.0</span><span><span class="i18n i18n-en">22 source records · 21 browser-ready datasets</span><span class="i18n i18n-zh">22 条来源记录 · 21 个可浏览数据集</span></span><a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database">GitHub</a></div></footer>
+<script src="assets/site.js"></script>
 </body>
 </html>
