@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_017",
+  "published_year": "2021",
+  "species": "Streptomyces clavuligerus",
+  "phylum": "Actinobacteria",
+  "reference_genome": "GCF_005519465.1",
+  "pmid": "33947798",
+  "paper_title": "Regulatory Elements for Transcription Termination in Streptomyces clavuligerus",
+  "doi": "10.1128/mSystems.01013-20",
+  "pmc": "PMC8269248",
+  "raw_data_accessions": "GSE128216;GSE138325",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Hwang 2021 Data Set S1 imported independently: 1,427 author-called TEPs across CP027858.1 chromosome and CP027859.1 plasmid.",
+  "dataset_id": "scla-termseq-hwang-2021",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33947798/",
+  "doi_url": "https://doi.org/10.1128/mSystems.01013-20",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8269248/",
+  "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128216",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_017/endpoints.tsv",
+    "record_count": 1427,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-called Term-seq TEP; independent from BATTER_S1_015 despite shared strain/reference.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/scla2021_hwang/processed/BATTER_S1_017/published_termseq_teps.tsv",
+    "source_processed_table_sha256": "b155479784e94faa93796437f35ff2d0e14acea52bec19a4b97e2cc9c31d6025",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_017/endpoints.tsv",
+        "sha256": "2f0ee3d6032cbdb491111d66ceacacb1ef7b8440238a7a383f1451ca364c0d4f"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_017/endpoints.bed",
+        "sha256": "d166be0a49070dea0b51de5147d54af06bc4aa7d73222f34ddbe393775fa1282"
+      }
+    ]
+  }
+}

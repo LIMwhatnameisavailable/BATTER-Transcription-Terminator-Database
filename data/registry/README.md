@@ -4,6 +4,9 @@
 
 ## 内容
 
+- `batter_s1_source_registry.tsv` —— BATTER Table S1 的 22 个来源登记；
+- `batter_s1_publication_status.tsv` —— v0.1 release 对每个来源的公开发布判定、主资产、记录数与证据层；
+- `manifests/BATTER_S1_*.json` —— 22 个来源的机器可读 manifest，包含可复现性链接与仓库发布信息；
 - `templates/external_literature_source_intake.tsv` —— 外部文献来源登记模板（26 列）。一行代表一个可独立处理的来源；同一论文中的不同物种、菌株、实验体系或参考版本应拆成多行。
 - `templates/external_literature_endpoint_schema.tsv` —— 端点标准表头（24 列）。一行代表一个端点或作者表中一个可追溯的观测；只有通过坐标核验的来源才建立端点表。
 

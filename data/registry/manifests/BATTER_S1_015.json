@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_015",
+  "published_year": "2020",
+  "species": "Streptomyces clavuligerus",
+  "phylum": "Actinobacteria",
+  "reference_genome": "GCF_005519465.1",
+  "pmid": "33319794",
+  "paper_title": "Genome-scale determination of 5′ and 3′ boundaries in Streptomyces genomes",
+  "doi": "10.1038/s41597-020-00775-w",
+  "pmc": "PMC7738537",
+  "raw_data_accessions": "SRX6937123;SRX6937124",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Lee 2020 two-replicon endpoint table imported on CP027858.1 and CP027859.1.",
+  "dataset_id": "scla-termseq-lee-2020",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33319794/",
+  "doi_url": "https://doi.org/10.1038/s41597-020-00775-w",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7738537/",
+  "raw_data_url": "",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_015/endpoints.tsv",
+    "record_count": 1140,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-published Term-seq endpoint; chromosome and plasmid are retained as separate contigs.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_015/published_termseq_endpoints.tsv",
+    "source_processed_table_sha256": "467d1b13ad4cf242e153dfa945c4304f527afcc568aa9756213dc063e3940b7e",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_015/endpoints.tsv",
+        "sha256": "ac27d248049582442b8697c8555cfff22b88ec7b322369e67ed896507a576e3a"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_015/endpoints.bed",
+        "sha256": "b64096e9b6cd788e08cddf27eca84097576ddaf9dfddb371707784e239d44fa8"
+      }
+    ]
+  }
+}

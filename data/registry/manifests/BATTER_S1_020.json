@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_020",
+  "published_year": "2022",
+  "species": "Dickeya dadantii 3937",
+  "phylum": "Proteobacteria",
+  "reference_genome": "GCF_000147055.1",
+  "pmid": "35491820",
+  "paper_title": "Transcriptional Landscape of Dickeya dadantii",
+  "doi": "10.1128/mbio.00524-22",
+  "pmc": "PMC9239193",
+  "raw_data_accessions": "E-MTAB-10482;E-MTAB-541;E-MTAB-7650;E-MTAB-9075;GSE94713",
+  "assay_family": "RNA-seq / transcript boundary mapping",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Table S2D imported as 1,165 Nanopore native RNA 3-prime ends on NC_014500.1. The mixed-evidence S1C table is retained internally but excluded from public downloads and JBrowse.",
+  "dataset_id": "ddad-nanopore-forquet-2022",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35491820/",
+  "doi_url": "https://doi.org/10.1128/mbio.00524-22",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9239193/",
+  "raw_data_url": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-10482",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_020/endpoints.tsv",
+    "record_count": 1165,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-called Nanopore native RNA 3′ end. The mixed-evidence S1C table is excluded from this public asset.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/dickeya/processed/BATTER_S1_020/nanopore_native_rna_3prime_ends.tsv",
+    "source_processed_table_sha256": "e52fd5756654bc79cd3d741ed5df8e9022a17718419233d9f95621069a332134",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_020/endpoints.tsv",
+        "sha256": "6a0910676c7326a930da804fb5171dc525e55db3873f65e478baa373c27d73f6"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_020/endpoints.bed",
+        "sha256": "72eaeadf6859ac6ec0cab0de92ea9667693a118f1e2cda7ac41d62e77e344c58"
+      }
+    ]
+  }
+}

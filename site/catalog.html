@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>数据目录 —— BTED 演示站点</title>
+  <title>数据目录 —— BTED</title>
   <meta name="description" content="BTED 演示站点的书目级元数据目录：PMID、物种/菌株、期刊年份、数据库名称、登录号/DOI、数据类型。不含坐标、证据类别或参考基因组。">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <p class="site-title"><a href="index.html">BTED 演示站点</a> <span class="tag">骨架阶段 · 无科学结论</span></p>
+      <p class="site-title"><a href="index.html">BTED</a> <span class="tag">v0.1 local snapshot</span></p>
       <nav class="site-nav" aria-label="主导航">
         <a href="index.html">首页</a>
         <a href="sources.html">来源目录</a>
@@ -23,7 +23,7 @@
 
   <main class="wrap">
     <h1>数据目录（书目级元数据）</h1>
-    <p class="lede">本表仅展示 13 篇已核实来源文献的<strong>书目级元数据</strong>，派生自仓库根目录的 <code>accession_list_verified.csv</code>。</p>
+    <p class="lede">本表仅展示 13 篇已核实来源文献的<strong>书目级元数据</strong>，派生自历史审计快照 <code>data/audit/legacy/accession_list_verified.csv</code>。</p>
 
     <div class="notice" role="note">
       <p><strong>本表刻意不包含：</strong>基因组坐标、记录级证据类别、参考基因组、任何记录的验证状态。基因组序列登录号（参考基因组版本对齐尚未完成）暂不在本页展示。原始数据保存在各公开仓库中，点击登录号可跳转至对应外部页面。</p>
@@ -31,7 +31,7 @@
 
     <div class="table-scroll">
       <table class="catalog">
-        <caption>已核实登录号清单（45 条元数据行；来源：accession_list_verified.csv，2026-08-07 核查版本）</caption>
+        <caption>已核实登录号清单（45 条元数据行；来源：data/audit/legacy/accession_list_verified.csv，2026-08-07 核查版本）</caption>
         <thead>
           <tr>
             <th scope="col">PMID</th>
@@ -97,7 +97,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>BTED 静态演示骨架 v0.1 · 2026-08-07 · 本站点不包含科学结论 · 仅链接公开数据仓库，不复制原始数据</p>
+      <p>BTED v0.1 local snapshot · 2026-08-10 · 静态发布索引 · 原始数据通过公共数据库获取</p>
     </div>
   </footer>
 </body>

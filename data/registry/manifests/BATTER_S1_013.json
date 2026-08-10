@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_013",
+  "published_year": "2020",
+  "species": "Streptomyces lividans TK24",
+  "phylum": "Actinobacteria",
+  "reference_genome": "GCF_000739105.1",
+  "pmid": "33319794",
+  "paper_title": "Genome-scale determination of 5′ and 3′ boundaries in Streptomyces genomes",
+  "doi": "10.1038/s41597-020-00775-w",
+  "pmc": "PMC7738537",
+  "raw_data_accessions": "PRJEB31507",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Lee 2020 author-called Term-seq TTS imported on CP009124.1.",
+  "dataset_id": "sliv-termseq-lee-2020",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33319794/",
+  "doi_url": "https://doi.org/10.1038/s41597-020-00775-w",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7738537/",
+  "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31507",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_013/endpoints.tsv",
+    "record_count": 1208,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-published Term-seq endpoint; independent from BATTER_S1_007 despite shared organism/reference.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_013/published_termseq_endpoints.tsv",
+    "source_processed_table_sha256": "71daed0481dd92f21a41e020674ac4feae5bd05eaecb7c9cdc7e7df475cf8d87",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_013/endpoints.tsv",
+        "sha256": "8be55b0669e99f38282ca6f1bb0e36ec2bac4b53ee709f71f87ca484cf5f4b72"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_013/endpoints.bed",
+        "sha256": "c56e59e8571bf7efea8a7882e31a3de63e8b6cf476f1e09c15327946f18765ad"
+      }
+    ]
+  }
+}

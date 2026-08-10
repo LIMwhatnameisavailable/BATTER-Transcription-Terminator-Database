@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_012",
+  "published_year": "2020",
+  "species": "Streptomyces coelicolor A3(2)",
+  "phylum": "Actinobacteria",
+  "reference_genome": "GCF_000203835.1",
+  "pmid": "33319794",
+  "paper_title": "Genome-scale determination of 5′ and 3′ boundaries in Streptomyces genomes",
+  "doi": "10.1038/s41597-020-00775-w",
+  "pmc": "PMC7738537",
+  "raw_data_accessions": "PRJEB40918",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Lee 2020 author-called Term-seq TTS imported on NC_003888.3.",
+  "dataset_id": "scoe-termseq-lee-2020",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33319794/",
+  "doi_url": "https://doi.org/10.1038/s41597-020-00775-w",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7738537/",
+  "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB40918",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_012/endpoints.tsv",
+    "record_count": 1308,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-published Term-seq endpoint.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_012/published_termseq_endpoints.tsv",
+    "source_processed_table_sha256": "db4d71ed50d0affd2f22f930a5e7e887b89a5dc404ec8eb13289328974fddaeb",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_012/endpoints.tsv",
+        "sha256": "75d839dcb7a820b1d8bd5e7594c63214f07e4eb8a3e0e5216ec4260fdfb76185"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_012/endpoints.bed",
+        "sha256": "8fea521ea8316479d7e36c76d9ad5c1e63193c423b965b314e6449fe75be119a"
+      }
+    ]
+  }
+}

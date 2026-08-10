@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BTED 演示站点 —— 细菌转录终止子数据库（静态骨架）</title>
-  <meta name="description" content="BTED（细菌转录终止子数据库）项目的 GitHub Pages 静态演示骨架：项目目的、证据边界、范围说明、数据来源声明与局限性。">
+  <title>BTED —— 细菌转录 3′ End 数据库</title>
+  <meta name="description" content="BTED v0.1 local snapshot：可追溯、实验支持的细菌转录 3′ end 标准化数据发布索引。">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <p class="site-title"><a href="index.html">BTED 演示站点</a> <span class="tag">骨架阶段 · 无科学结论</span></p>
+      <p class="site-title"><a href="index.html">BTED</a> <span class="tag">v0.1 local snapshot</span></p>
       <nav class="site-nav" aria-label="主导航">
         <a href="index.html" aria-current="page">首页</a>
         <a href="sources.html">来源目录</a>
@@ -22,58 +22,43 @@
   </header>
 
   <main class="wrap">
-    <h1>细菌转录终止子数据库（BTED）—— 静态演示骨架</h1>
-    <p class="lede">本页面是 BTED 项目的 GitHub Pages 演示站点骨架。当前版本只提供项目说明与书目级元数据目录，<strong>不包含任何记录级数据、坐标信息或科学结论</strong>。</p>
+    <h1>细菌转录 3′ End 数据库</h1>
+    <p class="lede">BTED 将公开细菌转录 3′ 端实验整理为可追溯、可下载、可核验的标准化记录。本页是 GitHub Pages 发布索引；数据表和完整可复现性材料位于项目仓库。</p>
 
-    <section id="purpose">
-      <h2>项目目的</h2>
-      <p>BTED（Bacterial Transcription Terminator Database）项目旨在从已公开发表的文献中系统整理细菌转录终止相关的实验测序数据（Term-seq、Rend-seq、dRNA-seq 等），构建可检索、可追溯的细菌转录终止子数据库及配套网站。</p>
-      <p>数据溯源基于 BATTER 工具论文（Jin, Cui, Liu et al., <em>Microbiome</em>, 2026）Table S1 所列的 13 篇原始文献。这 13 篇文献的数据库登录号已经逐篇人工核查，汇总于仓库根目录的 <code>accession_list_verified.csv</code>。</p>
+    <section>
+      <h2>v0.1 local snapshot</h2>
+      <ul>
+        <li><strong>22 个来源记录</strong>均已建立来源 manifest 与处理说明；它们对应 <strong>13 篇原始研究文献</strong>，两个数字代表不同统计单位。</li>
+        <li><strong>21 个来源、28,399 条记录</strong>已按统一 24 列 schema 发布到仓库 <code>data/public/</code>。</li>
+        <li>17 个来源是作者发表的实验 3′ end 表，并附规范 BED；4 个来源是文献整理记录，仅发布 TSV。</li>
+        <li><code>BATTER_S1_002</code> 维持仅审计状态，直至多技术汇总结果能按每条记录的实验 provenance 拆分。</li>
+      </ul>
+      <p>逐来源发布状态见<a href="sources.html">来源目录</a>；本版完整边界、目录与下一步见仓库中的 <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/blob/refactor/project-structure-and-literature-notes-v0.1/docs/releases/v0.1-local-snapshot.md">发布说明</a>。</p>
     </section>
 
-    <section id="evidence-boundary">
+    <section>
       <h2>证据边界</h2>
       <ul>
-        <li>本站处于<strong>骨架阶段</strong>：不展示任何记录级条目、基因组坐标或证据类别标签。</li>
-        <li>记录级证据分层标准（SOP）尚未完成定义与评审。在该标准获批之前，本站不对任何记录作出证据层级声明，也不区分任何记录的效力等级。</li>
-        <li>部分来源文献的补充表中混有计算预测子表（如 TransTermHP、ARNold、RhoTermPredict 的输出）。这些内容由各原文献自行标注；本项目尚未完成逐条记录的证据审核。</li>
-        <li>BATTER 论文配套的 Zenodo 仓库（DOI: <a href="https://doi.org/10.5281/zenodo.16761763">10.5281/zenodo.16761763</a>）内容为模型代码、训练数据与全基因组<strong>预测</strong>结果，与本项目整理的文献来源数据不是同一类内容。本站任何位置提及该仓库时，均将其标注为预测产物。</li>
+        <li>公开端点层只接收实验信号、按公开规则调用的候选端点、作者发表端点和有明确范围的文献整理记录。</li>
+        <li>纯计算预测，以及作者把预测和实验合并后不能拆分的表，不进入公开端点层或浏览器轨道。</li>
+        <li>“实验支持的 3′ end”不等于每一个位置都完成独立的终止功能实验；本站不把端点一律称为终止子。</li>
       </ul>
+      <p>完整定义见 <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/blob/refactor/project-structure-and-literature-notes-v0.1/docs/standards/%E8%AF%81%E6%8D%AE%E5%88%86%E5%B1%82%E4%B8%8E%E5%8F%91%E5%B8%83%E8%BE%B9%E7%95%8C.md">证据分层与发布边界</a>。</p>
     </section>
 
-    <section id="scope">
-      <h2>范围说明</h2>
+    <section>
+      <h2>本版未包含的内容</h2>
       <ul>
-        <li>当前已核实范围：<strong>13 篇来源文献</strong>（PMID 清单见<a href="catalog.html">数据目录</a>），按 BATTER Table S1 口径覆盖约 20 个物种/菌株、22 条数据记录。</li>
-        <li>口径提醒：<strong>13 篇</strong>是论文数，<strong>22 条</strong>是 Table S1 中这些论文下的来源/物种数据记录数，两者单位不同、不混写。本地工作树的 22 条来源注册表已作为元数据迁移到本仓库，展示于<a href="sources.html">来源目录</a>。</li>
-        <li>站点版本：静态骨架 v0.1（2026-08-07）。在元数据 schema 与证据口径通过评审之前，站点内容将保持在骨架阶段。</li>
-      </ul>
-    </section>
-
-    <section id="provenance">
-      <h2>数据来源声明</h2>
-      <ul>
-        <li><a href="catalog.html">数据目录</a>仅由仓库内已核实的 <code>accession_list_verified.csv</code> 派生，展示书目级元数据（PMID、物种/菌株、期刊年份、数据库名称、登录号/DOI、数据类型）。</li>
-        <li>原始测序数据保存在 GEO、SRA、ENA、ArrayExpress、PRIDE、Figshare 等公开数据仓库中，本站<strong>只链接、不复制</strong>。</li>
-        <li>出版商补充材料工作簿按其来源以文献 DOI 引用，不复制进本站。</li>
-        <li>本地 BTED 工作树的来源注册表（22 条来源记录的元数据）已迁移至 <code>data/registry/</code> 并展示于<a href="sources.html">来源目录</a>；其标准化坐标输出与 JBrowse 资源<strong>尚未迁移</strong>，须按验收门槛逐来源审计后方可公开。详见<a href="methodology.html">方法与局限</a>。</li>
-      </ul>
-    </section>
-
-    <section id="limitations">
-      <h2>局限性</h2>
-      <ul>
-        <li>本站没有记录级数据：坐标体系（0-base/1-base、单点/区间）与逐来源参考基因组版本对齐均未定稿。</li>
-        <li>目录表中的"数据类型"列为文献或数据仓库的自述测定类型，不代表本项目的证据分层结论。</li>
-        <li>13 篇来源的核心补充表虽均确认包含坐标字段，但存在筛选口径差异、混合表内容与小幅行数差异，尚不能据此对表内每条记录作统一的证据判断。</li>
-        <li>站点为纯静态页面，无服务端数据库；当前版本不含客户端搜索/过滤功能（纯 HTML + CSS 骨架）。</li>
+        <li>原始 FASTQ/BAM、出版商工作簿、参考 FASTA/GFF 与大轨道文件。请通过 GEO、SRA、ENA、ArrayExpress、Figshare 等原始入口获取。</li>
+        <li>JBrowse 和 BigWig。本地浏览器已用于处理核查，但应在后续作为独立的、版本化浏览器包发布，而不是随 Git 页面复制。</li>
+        <li>服务端数据库、登录系统或私有数据访问。</li>
       </ul>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>BTED 静态演示骨架 v0.1 · 2026-08-07 · 本站点不包含科学结论 · 仅链接公开数据仓库，不复制原始数据</p>
+      <p>BTED v0.1 local snapshot · 2026-08-10 · 静态发布索引 · 原始数据通过公共数据库获取</p>
     </div>
   </footer>
 </body>

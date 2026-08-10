@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>方法与局限 —— BTED 演示站点</title>
-  <meta name="description" content="BTED 演示站点的方法说明：数据来源、当前标准化阶段、证据分层待定状态、外部 BTED 状态待核实、排除项与可复现性。">
+  <title>方法与局限 —— BTED</title>
+  <meta name="description" content="BTED v0.1 local snapshot 的数据来源、标准化规则、证据边界和局限性。">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <p class="site-title"><a href="index.html">BTED 演示站点</a> <span class="tag">骨架阶段 · 无科学结论</span></p>
+      <p class="site-title"><a href="index.html">BTED</a> <span class="tag">v0.1 local snapshot</span></p>
       <nav class="site-nav" aria-label="主导航">
         <a href="index.html">首页</a>
         <a href="sources.html">来源目录</a>
@@ -23,59 +23,34 @@
 
   <main class="wrap">
     <h1>方法与局限</h1>
-    <p class="lede">本页说明本站数据的来源方式、项目当前所处阶段，以及在本阶段刻意排除的内容。</p>
+    <p class="lede">v0.1 local snapshot 是一个可审计的 Git 数据发布，而不是以网页替代原始数据仓库或浏览器的生产系统。</p>
 
-    <section id="data-source">
-      <h2>数据来源</h2>
-      <p>本站展示的全部元数据来自<strong>已公开发表文献的补充材料及其公开数据仓库记录</strong>。13 篇来源文献的数据库登录号已逐篇对照 PubMed Data Availability 声明人工核查，汇总于仓库根目录的 <code>accession_list_verified.csv</code>；<a href="catalog.html">数据目录</a>页即由该文件派生。</p>
-      <p>原始测序数据保留在 GEO、SRA、ENA、ArrayExpress、PRIDE、Figshare 等公开仓库。本站仅提供指向这些仓库的链接，不复制、不再分发任何原始测序文件或出版商工作簿。</p>
+    <section>
+      <h2>数据来源与标准化</h2>
+      <p>来源来自 BATTER Table S1 覆盖的公开论文、补充材料和数据仓库。作者发表的端点表优先保留原始定义；原始信号派生的候选峰与文献整理记录被单独标识，不将它们重新表述为同一类证据。</p>
+      <p>BTED 以 1-based 生物学坐标保存单碱基端点，并同时提供规范 BED：<code>start = position - 1</code>，<code>end = position</code>。每个标准表使用相同 24 列 schema；每个 ID 保留来源、样本/记录层、contig、链与行序列身份。发布脚本检查坐标、链、BED、表头、行数和 SHA-256。</p>
     </section>
 
-    <section id="standards">
-      <h2>入库标准与证据边界</h2>
-      <p>项目的协作入库标准 v0.1 已发布在代码仓库中：数据入库标准流程、新文献收集与入库指南、数据字段字典、证据分层与发布边界、项目目录与协作规范，位于仓库 <code>docs/standards/</code> 目录，配套登记模板位于 <code>data/registry/templates/</code>。</p>
-      <p>核心边界：数据库只发布公开、可追溯、实验支持的 3′ end 数据；纯计算预测与作者整合的混合证据不进入公开层。来源数量按“13 篇原始研究文献 / 22 条 BATTER Table S1 来源记录”的口径表述，两者不混用。</p>
-      <p>文档入口：<a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database">GitHub 仓库</a> 的 <code>docs/standards/</code> 目录。</p>
+    <section>
+      <h2>证据与发布规则</h2>
+      <p>公开 release 仅使用 <code>observed_signal</code>、<code>called_endpoint</code>、<code>author_called_endpoint</code> 和 <code>curated_record</code>。作者整合的混合证据与纯预测不随公开端点下载发布；其可公开审计摘要仅记录文件指纹和排除理由。</p>
+      <p>源表、发布判定、处理记录和 checksum 由相同 <code>source_id</code> 关联。完整标准和字段定义在 <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/tree/refactor/project-structure-and-literature-notes-v0.1/docs/standards">docs/standards/</a>。</p>
     </section>
 
-    <section id="stage">
-      <h2>当前阶段：标准化进行中</h2>
-      <p>项目已完成信息核查，目前处于<strong>数据格式标准化与数据库构建阶段</strong>。以下事项尚未定稿，因此本站不展示相应内容：</p>
+    <section>
+      <h2>局限性</h2>
       <ul>
-        <li><strong>坐标体系约定：</strong>0-base 还是 1-base、单点还是区间，尚未确定。</li>
-        <li><strong>参考基因组版本对齐：</strong>逐来源的参考基因组版本尚未完成核对，因此目录页暂不展示基因组序列登录号。</li>
-        <li><strong>记录级证据分层：</strong>证据类别定义（SOP）尚未完成评审。在此之前，本站不展示任何证据类别标签，也不会把仅预测或混合来源的记录标注为实验终点。</li>
-        <li><strong>统一元数据 schema：</strong>记录级元数据字段规范待评审，获批后才会生成完整的记录级目录。</li>
+        <li>本版不复制原始测序、出版商 xlsx/PDF、参考序列、BigWig 或 JBrowse；原始数据链接和参考依据记录于逐来源 manifest。</li>
+        <li>4 个 Lalanne 2018 来源是带坐标的文献整理记录，不能与作者直接发表端点或本库从信号调用的候选端点混为同层。</li>
+        <li><code>BATTER_S1_002</code> 尚未公开端点表；其首要待办是对齐每个数据集级观察的样本、作者表行与坐标 provenance。</li>
+        <li>个别来源仍保留物种命名、元数据或计数冲突；这些问题写入来源 README 和 manifest，不会被静默抹平。</li>
       </ul>
-    </section>
-
-    <section id="external-bted">
-      <h2>外部 BTED 工作状态</h2>
-      <p>本仓库之外存在一个更大规模的 BTED 本地工作树（22 来源注册表、标准化坐标输出、JBrowse 资源、逐来源处理记录）。其<strong>数据与资产尚未迁移到本仓库</strong>，须按 <code>docs/current-bted-status.md</code> 的验收门槛逐来源审计后方可公开；在此之前本站不包含来自该工作树的任何数据内容。</p>
-      <p>以该工作树数据规范为科学基础整理而成的协作入库标准 v0.1 已进入本仓库（<code>docs/standards/</code> 与 <code>data/registry/templates/</code>），作为后续接入新文献与逐来源迁移的统一依据。</p>
-    </section>
-
-    <section id="exclusions">
-      <h2>本站刻意排除的内容</h2>
-      <ul>
-        <li>原始测序文件（FASTQ 等）及任何大型原始数据 —— 只链接，不复制。</li>
-        <li>出版商补充材料工作簿（xlsx 等）—— 按来源以文献引用，不复制进站点。</li>
-        <li>标准化坐标数据集与 JBrowse 配置/轨道 —— 在验收门槛通过并核实资产之前一律缓建。</li>
-        <li>任何服务端代码、服务端数据库、登录机制或私有数据访问。</li>
-        <li>凭据、令牌、本地绝对路径与未发表数据。</li>
-      </ul>
-    </section>
-
-    <section id="reproducibility">
-      <h2>可复现性与站点验证</h2>
-      <p>站点为纯 HTML + CSS 静态页面，无需构建工具链；全部内部链接使用相对路径，可在 GitHub Pages 项目子路径（<code>/&lt;仓库名&gt;/</code>）下正常解析。</p>
-      <p>仓库提供站点验证脚本 <code>scripts/validate-site.py</code>，对站点产物执行以下检查：无原始数据文件与大文件、无绝对路径、无凭据或口令占位、无未经批准的证据标签、内部相对链接可解析。</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>BTED 静态演示骨架 v0.1 · 2026-08-07 · 本站点不包含科学结论 · 仅链接公开数据仓库，不复制原始数据</p>
+      <p>BTED v0.1 local snapshot · 2026-08-10 · 静态发布索引 · 原始数据通过公共数据库获取</p>
     </div>
   </footer>
 </body>

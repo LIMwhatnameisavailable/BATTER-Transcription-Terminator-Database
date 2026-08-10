@@ -1,5 +1,82 @@
 # 工作日志
 
+## 2026-08-10 —— PR #3 仓库根目录与 legacy 向前清理
+
+**分支：** `refactor/project-structure-and-literature-notes-v0.1`（通过独立清理工作树更新） | **状态：** 结构清理完成，未改写历史
+
+### 完成内容
+
+1. 将根目录 `PROGRESS.md`、`data_verification_report.md`、`report_BATTER_supplementary.md`、`report_zenodo_and_documents.md` 归入 `docs/legacy/project-reports/`。
+2. 将根目录 `accession_list_verified.csv` 归入 `data/audit/legacy/`，明确其为 2026-08-07 的历史元数据快照，不替代正式 registry/manifest。
+3. 从当前 Git 树移除重复的 `docs/legacy/original-directories/`，包括 6 个约 168 MB 的 read-starts 文本和 `__MACOSX`；正式文献说明与早期笔记分别保留在 `docs/literature/` 和 `docs/legacy/literature-initial-review/`。其中独立的 `supplementary_data_1to5_findings.md` 没有丢弃，改存为 `docs/legacy/project-reports/PMID_38030608_supplementary_data_1to5_findings.md`。
+4. `.gitignore` 增加 `docs/legacy/original-directories/`，防止旧目录和原始计数重新进入当前版本。
+5. 更新 README、目录规范、历史索引、网站静态说明、迁移盘点和清理方案，记录“当前树已清理、历史未重写”的边界。
+
+### 恢复与剩余风险
+
+- 本次是普通可逆提交，旧文件仍存在于 Git 历史和原主工作树，可通过旧提交恢复；没有删除公共标准化数据。
+- 仓库历史体积不会因此缩小；若未来决定执行 `git filter-repo`，仍须镜像备份、冻结协作并单独评审。
+- PR #4 需合并更新后的 PR #3 基线，避免最终分支重新带回旧根目录状态。
+
+## 2026-08-10 —— v0.1 local snapshot：本地 BTED 结果首次进入 Git
+
+**分支：** `refactor/project-structure-and-literature-notes-v0.1`
+**状态：** 已完成构建、校验与文档更新；待提交并推送。
+
+### 完成内容
+
+1. 审计本地 BGIRNA 工作树的 22 个 `BATTER_S1` 来源、处理记录与证据边界；将 13 篇论文与 22 个来源的统计口径明确分开。
+2. 新增 `scripts/build_local_snapshot_release.py`：将本地已整理的小型结果迁入正式目录，统一为 24 列 TSV；实验端点另生成 BED6；不复制原始测序、出版商工作簿、FASTA/GFF、BigWig 或 JBrowse 包。
+3. 新增 `scripts/validate_bted_release.py`：检查 22 来源齐全、来源 README/manifest、公开 evidence class、1-based→BED、链、ID、文件行数及 SHA-256。
+4. 生成 `data/public/records/`：21 个 `published_standardized` 来源、28,399 条记录；17 个作者发表端点来源有 TSV+BED，4 个 Lalanne 2018 来源以 `curated_record` TSV 发布。
+5. `BATTER_S1_002` 标为 `audit_only`。其作者整合 TRS 表与数据集级观察表不复制到公开端点层；`BATTER_S1_020` 的混合表和 `BATTER_S1_022` 的纯预测表也只保留公开的 checksum 审计摘要。
+6. 新增 22 个 `data/registry/manifests/BATTER_S1_*.json`、22 个 `docs/sources/<source_id>/README.md`、可用的详细处理记录副本，以及发布状态表 `data/registry/batter_s1_publication_status.tsv`。
+7. 更新 `README.md`、贡献指南、`data/public`/`data/audit`/`data/registry` 说明、来源索引、GitHub Pages 来源目录和方法页面；新增发布说明 `docs/releases/v0.1-local-snapshot.md`。
+
+### 关键判断
+
+- 本地工作不是“没做”，而是此前没有被 Git 追踪、没有统一公共 schema，也没有跨来源自动校验。
+- 本版没有把 BATTER、RhoTermPredict、TransTermHP 等预测结果伪装为实验端点。
+- `curated_record` 与 `author_called_endpoint` 同样可追溯，但不可使用同一种“终止子功能”措辞；浏览器发布留待下一版本。
+
+### 验证
+
+- `python3 scripts/build_local_snapshot_release.py --input-root /path/to/BGIRNA`：PASS（21 来源 / 28,399 条记录；实际本地快照路径未写入 Git）。
+- `python3 scripts/validate_bted_release.py`：PASS（22 来源、24 列 schema、证据边界、坐标、BED、SHA-256）。
+- `python3 scripts/validate_bted_templates.py`：PASS。
+- `python3 scripts/build_sources_page.py`：PASS（22 来源、21 个已发布来源、28,399 条记录）。
+- `python3 scripts/validate-site.py`：PASS。
+- `git diff --check`：PASS。
+
+### 后续优先级
+
+1. 提交并推送本次 v0.1 local snapshot；开 Draft PR 前由项目成员复核许可/再分发条件。
+2. 为 `BATTER_S1_002` 建立逐观测 provenance 表，判断能否拆成纯实验端点。
+3. 补写 `BATTER_S1_005`、`BATTER_S1_022` 的独立详细处理记录。
+4. 将本地 JBrowse 以独立、版本化、可校验的浏览器发布物部署；不能把未审计的大轨道直接塞入 Git。
+
+## 2026-08-09 —— 外部来源正式整合入库要求 v0.1
+
+**分支：** `refactor/project-structure-and-literature-notes-v0.1` | **状态：** 已完成文档与目录入口建设，未接收任何外部端点数据
+
+### 完成内容
+
+1. 新增 `docs/standards/外部来源正式整合入库要求_v0.1.md`，明确“来源搜集 ≠ 已入库”、四类来源的处置边界、批次交接包、逐来源标准化门槛、选择性合并原则和 PR 检查清单。
+2. 新增 `docs/integration/README.md` 与 `data/registry/submissions/README.md`，分别作为批次整合决定与协作者来源登记快照的固定入口。
+3. 在根目录 `README.md` 和 `CONTRIBUTING.md` 加入正式入口；更新目录规范中已过时的历史目录说明和 `data/audit` 的公开审计摘要定位。
+4. 本轮只建立协作规范：未复制任何原始文件、未接收或发布 Fuchs / Cascino / TERMITe 的端点记录、未改动证据字段字典的正式枚举。
+
+### 验证
+
+- `python3 scripts/validate_bted_templates.py`：PASS。
+- `python3 scripts/validate-site.py`：PASS。
+- `git diff --check`：PASS。
+
+### 待后续团队确认
+
+- 是否正式采用 `algorithm_called_endpoint` 与 `excluded_duplicate` 两个枚举值；确认前，相关外部来源保持 `to_review` / `NA`，不得作为已标准化数据发布。
+- 选择性接收协作者外部来源登记快照和核验材料时，须另开整合分支和 Draft PR，不直接合并资料搜集分支。
+
 ## 2026-08-07 —— Task 01：对照远程仓库与当前 BTED 工作状态
 
 **分支：** `agent/reconcile-current-bted-state` | **Draft PR：** [#1](https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database/pull/1) | **状态：** 已完成第一轮并按 OpenAI 审核意见完成文档修订；修订尚未提交，待用户提交推送后最终评审
@@ -19,14 +96,14 @@
 
 ### 记录备查、本任务未处理的发现
 
-- `文献13-PMID38030608/` 下追踪了约 168 MB 的 read-starts 文本文件与 `__MACOSX/` AppleDouble 垃圾文件。
+- `docs/legacy/original-directories/文献13-PMID38030608/` 下追踪了约 168 MB 的 read-starts 文本文件与 `__MACOSX/` AppleDouble 垃圾文件。
 - `README.md` 引用的 `archive/` 目录在仓库中不存在。
 - 来源数量口径：13 篇 PMID（本仓库核实）vs BATTER Table S1 在这 13 篇 PMID 下列出的 22 条记录 vs 外部工作树据报的 22 来源注册表；外部注册表与 Table S1 的 22 条记录是否一一对应尚未核实。
 
 ### 收尾提交与范围修正
 
 - 新增 `docs/WORKLOG.md`（本文件）与 `docs/HANDOFF.md`（提交 `ee039bb`）。
-- `文献13-PMID38030608/README.md` 的 PMID 笔误修复（"PMID: 38030638" → "PMID: 38030608"）曾包含在提交 `ee039bb` 中，已经 revert 提交 `43fcc5f` **移出 Task 01 范围**，留待后续单独处理；Task 01 不再包含、也不再声称该修复。
+- `docs/legacy/original-directories/文献13-PMID38030608/README.md` 的 PMID 笔误修复（"PMID: 38030638" → "PMID: 38030608"）曾包含在提交 `ee039bb` 中，已经 revert 提交 `43fcc5f` **移出 Task 01 范围**，留待后续单独处理；Task 01 不再包含、也不再声称该修复。
 
 ## 2026-08-07 —— OpenAI 审核修订（10 项）
 
@@ -89,8 +166,8 @@
 ### 完成内容
 
 1. 只读事实核查（全部命令与结果记录在 `docs/cleanup-proposal.md` 附录 A）：
-   - `文献13-PMID38030608/` 下 6 个 `*_read_starts.txt` 已追踪，工作区合计 168.0 MB（33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB），自初始提交 `b59e72a` 起入库；当前 git pack 30.72 MiB。
-   - `文献13-PMID38030608/__MACOSX/` 下 6 个 `._*` AppleDouble 文件已追踪（每个约 178 B）。
+   - `docs/legacy/original-directories/文献13-PMID38030608/` 下 6 个 `*_read_starts.txt` 已追踪，工作区合计 168.0 MB（33.8 / 17.1 / 44.8 / 21.4 / 33.9 / 17.0 MB），自初始提交 `b59e72a` 起入库；当前 git pack 30.72 MiB。
+   - `docs/legacy/original-directories/文献13-PMID38030608/__MACOSX/` 下 6 个 `._*` AppleDouble 文件已追踪（每个约 178 B）。
    - `README.md:59` 引用的 `archive/` 目录在磁盘与全部可达历史中均不存在（`git log --all -- archive/` 无输出）。
 2. 新增 `docs/cleanup-proposal.md`，包含：当前问题清单；四个清理选项（`git rm --cached` 停止追踪 / `git filter-repo` 清除历史 / BFG Repo-Cleaner / Git LFS）的逐项利弊；风险分析（历史重写对协作者、draft PR #1、文档 SHA 引用的影响）；分阶段推荐方案；精确执行命令；回滚方案。
 3. 推荐结论（详见方案文档第 4 节）：**阶段 A** 立即以 `git rm --cached` + `.gitignore` + 删除 README 悬空行解决卫生问题（普通提交、零协作冲击、完全可逆）；**阶段 B** 的 filter-repo 历史重写设四道门槛暂缓（PR #1 合并、托管策略定案、镜像备份与协作冻结、SHA 引用加注）。

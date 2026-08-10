@@ -1,0 +1,15 @@
+{
+  "source_id": "BATTER_S1_020",
+  "migration_date": "2026-08-10",
+  "purpose": "Evidence-boundary audit manifest. The listed local files are intentionally not copied to data/public or the static website.",
+  "excluded_assets": [
+    {
+      "local_path": "data/dickeya/processed/BATTER_S1_020/author_integrated_tts.tsv",
+      "evidence_class": "author_integrated_mixed_evidence",
+      "reason": "Supplementary Table S1C integrates experimental and prediction evidence; excluded from public endpoint data by BTED policy.",
+      "row_count": 2021,
+      "sha256": "553cf5efc991b3305f59f09a5168ce2e818dbc0e9a855998778da714efb52dde",
+      "public_repository_copy": false
+    }
+  ]
+}

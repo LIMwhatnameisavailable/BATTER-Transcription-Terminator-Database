@@ -1,0 +1,408 @@
+{
+  "release_version": "v0.1-local-snapshot",
+  "migration_date": "2026-08-10",
+  "input_snapshot": "local BGIRNA working tree (not copied as a whole)",
+  "summary": {
+    "source_count": 22,
+    "published_standardized_sources": 21,
+    "audit_only_sources": 1,
+    "published_record_count": 28399,
+    "jbrowse_assets_in_repository": 0
+  },
+  "evidence_policy": "Prediction-only and author-integrated mixed-evidence tables are not copied to data/public or the site.",
+  "sources": {
+    "BATTER_S1_001": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_001/curated_records.tsv",
+      "record_count": 607,
+      "evidence_class": "curated_record",
+      "source_processed_table": "data/batter_ecoli_pilot/processed/literature_curated_terminator_records.ecoli.tsv",
+      "source_processed_table_sha256": "afa76bd0410ea8a606454143b94b254393a1e76461df53f5a2a91783ea8a3a0f",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_001/curated_records.tsv",
+          "sha256": "e24a34394e94ac5f1466d978e010c12a5e8d4bfc41983beb0231558c1de6b56c"
+        }
+      ],
+      "decision_note": "Literature-curated experimental/sequence-supported intrinsic-terminator record; not a new local terminator call."
+    },
+    "BATTER_S1_002": {
+      "release_status": "audit_only",
+      "public_asset": "",
+      "record_count": 0,
+      "evidence_class": "NA",
+      "source_processed_table": "",
+      "source_processed_table_sha256": "",
+      "files": [],
+      "decision_note": "No public endpoint table is emitted in this release. The local derived assets are described in an exclusion manifest until their evidence/provenance can be reconciled to the public schema."
+    },
+    "BATTER_S1_003": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_003/curated_records.tsv",
+      "record_count": 1414,
+      "evidence_class": "curated_record",
+      "source_processed_table": "data/batter_bsub_pilot/processed/literature_curated_terminator_records.bsub.tsv",
+      "source_processed_table_sha256": "c0037d17959894f3f49f76ffe0bb8a09c421284ba307684f9bb5007bc620ec91",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_003/curated_records.tsv",
+          "sha256": "28f1b7d90de461e8d0ca69b549ceb520814d72ec425aaf6741d7deb87a924fe9"
+        }
+      ],
+      "decision_note": "Literature-curated experimental/sequence-supported intrinsic-terminator record; local candidate peaks remain a separate signal layer."
+    },
+    "BATTER_S1_004": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_004/curated_records.tsv",
+      "record_count": 337,
+      "evidence_class": "curated_record",
+      "source_processed_table": "data/batter_ccre_pilot/processed/literature_curated_terminator_records.ccre.tsv",
+      "source_processed_table_sha256": "8b7716f121091768c8e4046ce52c9b756845e075d1bced8bfa0b7112711def5d",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_004/curated_records.tsv",
+          "sha256": "e8c512e414858ba56b0406819375fd3ecc1f8e738920e435ca4a83e962ee6c6a"
+        }
+      ],
+      "decision_note": "Literature-curated record; the retained GEO metadata conflict is documented in the source processing record."
+    },
+    "BATTER_S1_005": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_005/curated_records.tsv",
+      "record_count": 1154,
+      "evidence_class": "curated_record",
+      "source_processed_table": "data/batter_vnat_pilot/processed/literature_curated_terminator_records.vnat.tsv",
+      "source_processed_table_sha256": "b487a86a6dce61c5052b69cdaa02da0e17a648009494015581ccfcd08d56e918",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_005/curated_records.tsv",
+          "sha256": "1538f608f8ea9dee1c1e561b500da50a11804c81e1ccf76027851ed74812f2f4"
+        }
+      ],
+      "decision_note": "Literature-curated record on the two-contig reference; manual review status remains documented in the source manifest."
+    },
+    "BATTER_S1_006": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_006/endpoints.tsv",
+      "record_count": 1864,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/spneumoniae/processed/BATTER_S1_006/published_termseq_tts.tsv",
+      "source_processed_table_sha256": "ebbafa242570e36447a655d6d22cdf3e2d6d2a1ecbb22b49c8fdf5be59d940ba",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_006/endpoints.tsv",
+          "sha256": "de9b14176e8d0036ff1467e6d6a29a5ec94505124eb7a4f3e6dcaf42ed6f6e52"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_006/endpoints.bed",
+          "sha256": "93675483da561c27aa7b9699ff13bc2e6a4643f41d59754276d3512076c68159"
+        }
+      ],
+      "decision_note": "Author-called Term-seq TTS; author threshold and locus relationships are retained in the processing record."
+    },
+    "BATTER_S1_007": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_007/endpoints.tsv",
+      "record_count": 1640,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/sliv2019_lee/processed/BATTER_S1_007/published_termseq_teps.tsv",
+      "source_processed_table_sha256": "d5ab50da457fff932dd147a0996c6b0f1506e2dc41890e7cf11289813bd8756a",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_007/endpoints.tsv",
+          "sha256": "f221f4956a146e029f50a13619e041afb63e2951532430d1079d1e0f6c589a49"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_007/endpoints.bed",
+          "sha256": "42a63b14d3f482e473ca991e3256fe34ae1617107db040ecd83c87f079df7d72"
+        }
+      ],
+      "decision_note": "Author-called transcript 3′ end position (TEP); this is not a per-site terminator-function claim."
+    },
+    "BATTER_S1_008": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_008/endpoints.tsv",
+      "record_count": 1965,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/paeruginosa/processed/BATTER_S1_008/reproducible_termseq_3prime_sites.tsv",
+      "source_processed_table_sha256": "edbca9ac5921de53a7d422ea2ed1141dec6d5c2c656ee57b32614e78887a4fe2",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_008/endpoints.tsv",
+          "sha256": "fba79f3e3636a76a2c7817e8b16dcf49167ad16e1e935c03121cc933119ceac4"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_008/endpoints.bed",
+          "sha256": "df7e40cc709f511d9d41504520d099a71a744d2bd23118f251c0ec9fcb8f5f5a"
+        }
+      ],
+      "decision_note": "Author-reported reproducible Term-seq 3′ sites (Table S1B); the separate gene-associated table is documented but not duplicated here."
+    },
+    "BATTER_S1_009": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_009/endpoints.tsv",
+      "record_count": 2091,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/zmobilis/processed/BATTER_S1_009/processing_filtered_termseq_tts.tsv",
+      "source_processed_table_sha256": "770fba004a8f0fff8dc22afe0966d03a0ea2ca90bb31826f8df60152ce456148",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_009/endpoints.tsv",
+          "sha256": "4e7bac10bb9ae77c8961a9c7d0e8822d0a96ea4b6607388d62910243fd3ccfae"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_009/endpoints.bed",
+          "sha256": "744e353231be5e657212ec6f701a737a6d7d6254f2ba6ac20088f2d8ca2224db"
+        }
+      ],
+      "decision_note": "Author-published Term-seq TTS after processing-site filtering; pure TransTermHP predictions are excluded."
+    },
+    "BATTER_S1_010": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_010/endpoints.tsv",
+      "record_count": 1159,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_010/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "36a30df7dda669024dc9ca8c5e082ec666e715dd3b3738487b35080a299104be",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_010/endpoints.tsv",
+          "sha256": "be3b0b6f3742b656e07772aefc7ccd3cb0d2cd54163d17f1efbcdc5d18f81796"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_010/endpoints.bed",
+          "sha256": "932e94e33cd015705eaaf8d86c14eb73b970d40b7ba8285f8b343829505b6f0d"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint."
+    },
+    "BATTER_S1_011": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_011/endpoints.tsv",
+      "record_count": 2024,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_011/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "3d7def818f3a8afe952ed04a3b203355547e25ceaba86ab5233b19d47d361274",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_011/endpoints.tsv",
+          "sha256": "74e723df5943a3db32dfca34c54dd8dd80935c2af162810437e15980f65590c5"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_011/endpoints.bed",
+          "sha256": "03985bb90b017f0d9150ed336bdee39e518d394e6bbaddb648cc28c1a015607f"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint."
+    },
+    "BATTER_S1_012": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_012/endpoints.tsv",
+      "record_count": 1308,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_012/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "db4d71ed50d0affd2f22f930a5e7e887b89a5dc404ec8eb13289328974fddaeb",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_012/endpoints.tsv",
+          "sha256": "75d839dcb7a820b1d8bd5e7594c63214f07e4eb8a3e0e5216ec4260fdfb76185"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_012/endpoints.bed",
+          "sha256": "8fea521ea8316479d7e36c76d9ad5c1e63193c423b965b314e6449fe75be119a"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint."
+    },
+    "BATTER_S1_013": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_013/endpoints.tsv",
+      "record_count": 1208,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_013/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "71daed0481dd92f21a41e020674ac4feae5bd05eaecb7c9cdc7e7df475cf8d87",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_013/endpoints.tsv",
+          "sha256": "8be55b0669e99f38282ca6f1bb0e36ec2bac4b53ee709f71f87ca484cf5f4b72"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_013/endpoints.bed",
+          "sha256": "c56e59e8571bf7efea8a7882e31a3de63e8b6cf476f1e09c15327946f18765ad"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint; independent from BATTER_S1_007 despite shared organism/reference."
+    },
+    "BATTER_S1_014": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_014/endpoints.tsv",
+      "record_count": 1283,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_014/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "c52752c39e7ccce4d7490da8a58cc0ea09d33fb5dd31fffaeacccd4c2041d306",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_014/endpoints.tsv",
+          "sha256": "93ce9d910fac142c4164d8926ebdd8f324d3ef8c98ff65a2735a9936563f93bb"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_014/endpoints.bed",
+          "sha256": "0cc0e84747874a915b0aa28a28fcaf8f202b6723d518b8070e72bad0bba243e0"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint."
+    },
+    "BATTER_S1_015": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_015/endpoints.tsv",
+      "record_count": 1140,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_015/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "467d1b13ad4cf242e153dfa945c4304f527afcc568aa9756213dc063e3940b7e",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_015/endpoints.tsv",
+          "sha256": "ac27d248049582442b8697c8555cfff22b88ec7b322369e67ed896507a576e3a"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_015/endpoints.bed",
+          "sha256": "b64096e9b6cd788e08cddf27eca84097576ddaf9dfddb371707784e239d44fa8"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint; chromosome and plasmid are retained as separate contigs."
+    },
+    "BATTER_S1_016": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_016/endpoints.tsv",
+      "record_count": 870,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/streptomyces_lee2020/processed/BATTER_S1_016/published_termseq_endpoints.tsv",
+      "source_processed_table_sha256": "d8ecb59893dd1bef48dfdf879a1c2a9d8e5f71f91363645dec1f0ca32db88bb0",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_016/endpoints.tsv",
+          "sha256": "fe57efa0086739156a6ee8b0716c58ab288519174dd5b4049965fdb078d7f003"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_016/endpoints.bed",
+          "sha256": "67eb9f6952da97acb7ccd76c8bfa110d442331968fa8b26e3839276ee9d742cf"
+        }
+      ],
+      "decision_note": "Author-published Term-seq endpoint; taxonomy label conflict is retained in the source record."
+    },
+    "BATTER_S1_017": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_017/endpoints.tsv",
+      "record_count": 1427,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/scla2021_hwang/processed/BATTER_S1_017/published_termseq_teps.tsv",
+      "source_processed_table_sha256": "b155479784e94faa93796437f35ff2d0e14acea52bec19a4b97e2cc9c31d6025",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_017/endpoints.tsv",
+          "sha256": "2f0ee3d6032cbdb491111d66ceacacb1ef7b8440238a7a383f1451ca364c0d4f"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_017/endpoints.bed",
+          "sha256": "d166be0a49070dea0b51de5147d54af06bc4aa7d73222f34ddbe393775fa1282"
+        }
+      ],
+      "decision_note": "Author-called Term-seq TEP; independent from BATTER_S1_015 despite shared strain/reference."
+    },
+    "BATTER_S1_018": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_018/endpoints.tsv",
+      "record_count": 487,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/synechocystis/processed/BATTER_S1_018/published_termseq_teps.tsv",
+      "source_processed_table_sha256": "29561b1152ef0756684e62bda8da818718eda78f81f491c82c0a3ae31b3e233e",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_018/endpoints.tsv",
+          "sha256": "f58ccec9ed747b6b470fb560ce4a42c0466006c30f1fa0bc4459f22166da1b47"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_018/endpoints.bed",
+          "sha256": "867bd1cff21752c41114037f410243799fb241ad1dbdf7d9ac4d7cb661194663"
+        }
+      ],
+      "decision_note": "Author-called Term-seq TEP; all four published replicons are preserved."
+    },
+    "BATTER_S1_019": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_019/endpoints.tsv",
+      "record_count": 784,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/synechocystis/processed/BATTER_S1_019/published_termseq_teps.tsv",
+      "source_processed_table_sha256": "047c2b8cfaa3cadadc5f353bb9b8c1732695439f940f2e8af008ade47439f530",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_019/endpoints.tsv",
+          "sha256": "590c8d5c6b61f7a4842a010cbf41fd1d8a4865fd73c83a8904a7b1a04a4555e2"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_019/endpoints.bed",
+          "sha256": "de667c0026625e35cf7e3f3e80ca492deced14701b43559118459b7e34188345"
+        }
+      ],
+      "decision_note": "Author-called manually curated Term-seq TEP."
+    },
+    "BATTER_S1_020": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_020/endpoints.tsv",
+      "record_count": 1165,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/dickeya/processed/BATTER_S1_020/nanopore_native_rna_3prime_ends.tsv",
+      "source_processed_table_sha256": "e52fd5756654bc79cd3d741ed5df8e9022a17718419233d9f95621069a332134",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_020/endpoints.tsv",
+          "sha256": "6a0910676c7326a930da804fb5171dc525e55db3873f65e478baa373c27d73f6"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_020/endpoints.bed",
+          "sha256": "72eaeadf6859ac6ec0cab0de92ea9667693a118f1e2cda7ac41d62e77e344c58"
+        }
+      ],
+      "decision_note": "Author-called Nanopore native RNA 3′ end. The mixed-evidence S1C table is excluded from this public asset."
+    },
+    "BATTER_S1_021": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_021/endpoints.tsv",
+      "record_count": 1905,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/bburgdorferi/processed/BATTER_S1_021/unique_3prime_end_sites.tsv",
+      "source_processed_table_sha256": "d6a3660834354ab2f8c12287a9278af408cf4c724f9ea1ebd24ec420540580c2",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_021/endpoints.tsv",
+          "sha256": "fe44cb3998c168c4d2aab888415965d63970956370f3c69923e5a5c176faa46d"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_021/endpoints.bed",
+          "sha256": "80106c2ab4f89be4cae9b898f87318d4ba8a85498725356cd47f3ee2f1bbc028"
+        }
+      ],
+      "decision_note": "Unique author-reported 3′ RNA-seq sites. Condition-level observations are intentionally not duplicated in the public endpoint table."
+    },
+    "BATTER_S1_022": {
+      "release_status": "published_standardized",
+      "public_asset": "data/public/records/BATTER_S1_022/endpoints.tsv",
+      "record_count": 2567,
+      "evidence_class": "author_called_endpoint",
+      "source_processed_table": "data/mtuberculosis/processed/BATTER_S1_022/author_classified_termseq_tts.tsv",
+      "source_processed_table_sha256": "ae2e65761e3748ac81cb920d1e8a895f71a1178156ca62db2b2baa15241e79e9",
+      "files": [
+        {
+          "path": "data/public/records/BATTER_S1_022/endpoints.tsv",
+          "sha256": "bad322f849b3537978b084164bf477fed899abe969967b31e96c5d28e046b5bf"
+        },
+        {
+          "path": "data/public/records/BATTER_S1_022/endpoints.bed",
+          "sha256": "4a0b56fe0c848055146b8a77f36599351af3c0287da29a665d9bb30833de377a"
+        }
+      ],
+      "decision_note": "Author-called Term-seq TTS. Prediction-support columns are retained only as author annotations; prediction-only RUT records are excluded."
+    }
+  }
+}

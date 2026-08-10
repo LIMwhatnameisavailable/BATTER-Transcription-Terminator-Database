@@ -5,6 +5,8 @@
 **日期：** 2026-08-07
 **范围：** 仅做盘点与差距映射。本任务未迁移、删除、重命名或重排任何数据。
 
+> **路径更新（2026-08-10）：** 本文主体保留 2026-08-07 盘点时的原路径和状态。随后根目录项目报告移至 `docs/legacy/project-reports/`，登录号清单移至 `data/audit/legacy/`；重复的 `docs/legacy/original-directories/`、read-starts 和 `__MACOSX` 已从当前 Git 树移除，但未改写历史。
+
 ---
 
 ## 1. 当前远程仓库清单（已核实）
@@ -27,7 +29,7 @@
 ### 1.2 逐来源目录（`文献N-PMIDxxxxxxxx/`，N = 1–13）
 
 - 每个目录含一份 `README.md`，即该来源的核查报告：文献引用、A/B/C 分类（全部 A 类）、已确认登录号、坐标数据线索、第三方平台判断、待人工确认事项。
-- `文献13-PMID38030608/` 另含：
+- `docs/legacy/original-directories/文献13-PMID38030608/` 另含：
   - `supplementary_data_1to5_findings.md`（MOESM4–8 结构核查）；
   - 6 个 `*_read_starts.txt` 文件，**合计约 168 MB、约 631 万行，已被 git 追踪**（来自 MOESM10 Source Data 的原始 read starts 计数）；
   - `__MACOSX/` AppleDouble 文件（`._*`），**已被 git 追踪** —— 不应进入仓库的 macOS 归档垃圾文件（标记为后续清理决策，本任务不处理）。
@@ -89,7 +91,7 @@
 | 候选材料 | 权威来源 | 预期大小 | 公开适用性 | 迁移风险 |
 |----------|----------|----------|------------|----------|
 | 缓存、中间转换输出、日志 | 外部 BTED 工作树 / 本地（`to verify`） | 不定 | 不适用 | 可再生成；无归档价值 |
-| `__MACOSX/` AppleDouble 文件 | 本仓库（`文献13-PMID38030608/__MACOSX/`，已追踪） | KB | 不适用 | 已被提交；是否删除是独立决策，不在 Task 01 范围内 |
+| `__MACOSX/` AppleDouble 文件 | 本仓库（`docs/legacy/original-directories/文献13-PMID38030608/__MACOSX/`，已追踪） | KB | 不适用 | 已被提交；是否删除是独立决策，不在 Task 01 范围内 |
 
 ---
 
@@ -100,7 +102,7 @@
 - 原始测序文件（FASTQ/FASTQ.gz）及任何数 GB 级的原始压缩包。
 - 已有公开 DOI/登录号托管的重复原始数据（Zenodo、GEO、SRA、ENA、ArrayExpress、Figshare、PRIDE）—— 只链接，不复制。
 - 缓存、临时输出、编辑器/操作系统产物（`.DS_Store`、`__MACOSX/`、`._*`）。
-- `文献13` 的大型 read-starts 文本文件**已被追踪**（约 168 MB）；不得再添加同类文件。是否从 git 历史中清除是记录在 `docs/current-bted-status.md` 中的待决事项。
+- `文献13` 的大型 read-starts 文本文件在盘点时**已被追踪**（约 168 MB），现已从当前 Git 树移除；不得再添加同类文件。是否从 git 历史中清除仍是记录在 `docs/cleanup-proposal.md` 中的独立维护决策。
 
 ---
 

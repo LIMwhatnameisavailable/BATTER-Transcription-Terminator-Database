@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_id": "BATTER_S1_007",
+  "published_year": "2019",
+  "species": "Streptomyces lividans TK24",
+  "phylum": "Actinobacteria",
+  "reference_genome": "GCF_000739105.1",
+  "pmid": "31555254",
+  "paper_title": "The Transcription Unit Architecture of Streptomyces lividans TK24",
+  "doi": "10.3389/fmicb.2019.02074",
+  "pmc": "PMC6742748",
+  "raw_data_accessions": "PRJEB31507",
+  "assay_family": "Term-seq / dRNA-seq",
+  "used_for_batter_augmentation": "TRUE",
+  "accessibility_status": "accessible",
+  "coordinate_status": "verified",
+  "processing_status": "curated",
+  "blocker_or_note": "Lee 2019 Supplementary Dataset 3 imported independently: 1,640 author-called Term-seq TEPs on CP009124.1; termination and RNA processing are not distinguished.",
+  "dataset_id": "sliv-termseq-lee-2019",
+  "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31555254/",
+  "doi_url": "https://doi.org/10.3389/fmicb.2019.02074",
+  "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6742748/",
+  "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31507",
+  "has_jbrowse": true,
+  "status_label": "已整理",
+  "evidence_policy": "experimental_only",
+  "prediction_included": false,
+  "repository_release": {
+    "release_version": "v0.1-local-snapshot",
+    "migration_date": "2026-08-10",
+    "release_status": "published_standardized",
+    "public_asset": "data/public/records/BATTER_S1_007/endpoints.tsv",
+    "record_count": 1640,
+    "evidence_class": "author_called_endpoint",
+    "decision_note": "Author-called transcript 3′ end position (TEP); this is not a per-site terminator-function claim.",
+    "jbrowse_published_in_repository": false,
+    "source_processed_table": "data/sliv2019_lee/processed/BATTER_S1_007/published_termseq_teps.tsv",
+    "source_processed_table_sha256": "d5ab50da457fff932dd147a0996c6b0f1506e2dc41890e7cf11289813bd8756a",
+    "published_file_checksums": [
+      {
+        "path": "data/public/records/BATTER_S1_007/endpoints.tsv",
+        "sha256": "f221f4956a146e029f50a13619e041afb63e2951532430d1079d1e0f6c589a49"
+      },
+      {
+        "path": "data/public/records/BATTER_S1_007/endpoints.bed",
+        "sha256": "42a63b14d3f482e473ca991e3256fe34ae1617107db040ecd83c87f079df7d72"
+      }
+    ]
+  }
+}
