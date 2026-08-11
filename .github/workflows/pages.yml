@@ -3,7 +3,7 @@ name: Deploy BTED Pages
 on:
   push:
     branches:
-      - agent/assembly-track-download-demo
+      - main
   workflow_dispatch:
     inputs:
       release_tag:

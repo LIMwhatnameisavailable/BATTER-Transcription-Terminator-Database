@@ -15,6 +15,7 @@
 6. 首页、Genomes、Download、组装页、来源页和数据说明页均保持中英文切换，并更新为个人仓库链接。
 7. 新增 `docs/demo/BTED_组会展示教程_2026-08-12.md`，包含 5–7 分钟演示顺序、讲稿、问答、故障备份和不得夸大的证据边界。
 8. 为个人仓库 Pages 增加 140 KB 的配置覆盖层：部署时复用现有 Release 的 123 个大型资产，只替换 21 个单来源配置、增加 2 个多 track 配置并重算 checksum；无需重复发布 93 MB 压缩包。
+9. 在个人仓库 feature 分支试运行 Pages：build、资产下载、覆盖层、checksum、JBrowse/站点验证和 artifact 上传全部成功；deploy job 因 `github-pages` 环境只允许受保护分支而未启动。未绕过保护，正式 workflow 改为仅在合并 `main` 后自动部署。
 
 ### 遇到的问题与解决
 

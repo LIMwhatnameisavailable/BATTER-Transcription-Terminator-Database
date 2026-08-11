@@ -4,7 +4,7 @@
 
 **当前分支：** `agent/assembly-track-download-demo`
 
-**当前里程碑：** 导师意见对应的网站演示版已完成本地验收；待推送个人仓库并更新 GitHub Pages。
+**当前里程碑：** 导师意见对应的网站演示版已完成、已推送个人仓库；待审核合并 `main` 后自动更新 GitHub Pages。
 
 ## 2026-08-12 网站改版
 
@@ -13,6 +13,7 @@
 - 下载页可全选/多选，输出按 assembly 分目录的 ZIP；
 - 主要公开文件收敛为 BED + metadata，后台 24 列表、字段字典、manifest 与 checksum 不删除；
 - 组会教程：[`demo/BTED_组会展示教程_2026-08-12.md`](demo/BTED_组会展示教程_2026-08-12.md)。
+- feature 分支 Pages build 已成功，部署环境按策略拒绝非 `main` 分支；合并后 `push: main` 会触发正式部署。
 
 ## 已交付
 
