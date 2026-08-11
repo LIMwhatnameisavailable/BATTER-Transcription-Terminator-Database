@@ -1,0 +1,227 @@
+{
+  "assemblies": [
+    {
+      "name": "bsub_168_NC_000964_3",
+      "displayName": "B. subtilis 168 (NC_000964.3)",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "bsub_168_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "assets/BATTER_S1_003__NC_000964.3.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "assets/BATTER_S1_003__NC_000964.3.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "BTED BATTER_S1_003 · independent source tracks",
+    "views": [
+      {
+        "id": "bted_linear_genome_view",
+        "type": "LinearGenomeView",
+        "offsetPx": 0,
+        "bpPerPx": 6.756,
+        "displayedRegions": [
+          {
+            "refName": "NC_000964.3",
+            "start": 0,
+            "end": 6756,
+            "reversed": false,
+            "assemblyName": "bsub_168_NC_000964_3"
+          }
+        ],
+        "tracks": [
+          {
+            "id": "bted_track_1",
+            "type": "FeatureTrack",
+            "configuration": "bsub_genes",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_1",
+                "type": "LinearBasicDisplay",
+                "configuration": "bsub_genes-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_2",
+            "type": "QuantitativeTrack",
+            "configuration": "bsub_3prime_signal_forward",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_2",
+                "type": "LinearWiggleDisplay",
+                "configuration": "bsub_3prime_signal_forward-LinearWiggleDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_3",
+            "type": "QuantitativeTrack",
+            "configuration": "bsub_3prime_signal_reverse",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_3",
+                "type": "LinearWiggleDisplay",
+                "configuration": "bsub_3prime_signal_reverse-LinearWiggleDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_4",
+            "type": "FeatureTrack",
+            "configuration": "bsub_geneproximal_forward",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_4",
+                "type": "LinearBasicDisplay",
+                "configuration": "bsub_geneproximal_forward-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_5",
+            "type": "FeatureTrack",
+            "configuration": "bsub_geneproximal_reverse",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_5",
+                "type": "LinearBasicDisplay",
+                "configuration": "bsub_geneproximal_reverse-LinearBasicDisplay"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "bsub_genes",
+      "name": "Gene annotation",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "assets/BATTER_S1_003__NC_000964.3.genes.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "assets/BATTER_S1_003__NC_000964.3.genes.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "category": [
+        "Reference annotation"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "bsub_3prime_signal_forward",
+      "name": "Experimental 3-prime end signal (+ strand)",
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "assets/BATTER_S1_003__bsub_experimental_3prime_signal.forward.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "category": [
+        "Experimental Rend-seq"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "bsub_3prime_signal_reverse",
+      "name": "Experimental 3-prime end signal (- strand)",
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "assets/BATTER_S1_003__bsub_experimental_3prime_signal.reverse.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "category": [
+        "Experimental Rend-seq"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "bsub_geneproximal_forward",
+      "name": "Gene-proximal candidate 3-prime ends (+ strand)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "assets/BATTER_S1_003__bsub_experimental_3prime_geneproximal_candidates.forward.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "bsub_geneproximal_forward-LinearBasicDisplay",
+          "showLabels": false,
+          "height": 36
+        }
+      ],
+      "category": [
+        "Experimental Rend-seq - context filtered"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "bsub_geneproximal_reverse",
+      "name": "Gene-proximal candidate 3-prime ends (- strand)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "assets/BATTER_S1_003__bsub_experimental_3prime_geneproximal_candidates.reverse.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "bsub_geneproximal_reverse-LinearBasicDisplay",
+          "showLabels": false,
+          "height": 36
+        }
+      ],
+      "category": [
+        "Experimental Rend-seq - context filtered"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ]
+    }
+  ]
+}

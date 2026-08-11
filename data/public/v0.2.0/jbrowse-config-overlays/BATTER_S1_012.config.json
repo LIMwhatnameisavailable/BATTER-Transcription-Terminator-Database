@@ -1,0 +1,126 @@
+{
+  "assemblies": [
+    {
+      "name": "lee2020_scoe_GCF_000203835_1",
+      "displayName": "Streptomyces coelicolor A3(2) (GCF_000203835.1)",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "lee2020_scoe_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "assets/BATTER_S1_012__lee2020_scoe.reference.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "assets/BATTER_S1_012__lee2020_scoe.reference.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "BTED BATTER_S1_012 · independent source tracks",
+    "views": [
+      {
+        "id": "bted_linear_genome_view",
+        "type": "LinearGenomeView",
+        "offsetPx": 0,
+        "bpPerPx": 10.001,
+        "displayedRegions": [
+          {
+            "refName": "NC_003888.3",
+            "start": 23544,
+            "end": 33545,
+            "reversed": false,
+            "assemblyName": "lee2020_scoe_GCF_000203835_1"
+          }
+        ],
+        "tracks": [
+          {
+            "id": "bted_track_1",
+            "type": "FeatureTrack",
+            "configuration": "lee2020_scoe_genes",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_1",
+                "type": "LinearBasicDisplay",
+                "configuration": "lee2020_scoe_genes-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_2",
+            "type": "FeatureTrack",
+            "configuration": "lee2020_scoe_published_tts",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_2",
+                "type": "LinearBasicDisplay",
+                "configuration": "lee2020_scoe_published_tts-LinearBasicDisplay"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "lee2020_scoe_genes",
+      "name": "NCBI gene annotation",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "assets/BATTER_S1_012__lee2020_scoe.genes.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "assets/BATTER_S1_012__lee2020_scoe.genes.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "category": [
+        "Reference annotation"
+      ],
+      "assemblyNames": [
+        "lee2020_scoe_GCF_000203835_1"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "lee2020_scoe_published_tts",
+      "name": "Author-called Term-seq TTS (Lee 2020)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "assets/BATTER_S1_012__lee2020_scoe.published_termseq_endpoints.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "lee2020_scoe_published_tts_display",
+          "showLabels": false,
+          "height": 38
+        }
+      ],
+      "category": [
+        "Published experimental-signal-supported endpoints"
+      ],
+      "assemblyNames": [
+        "lee2020_scoe_GCF_000203835_1"
+      ]
+    }
+  ]
+}

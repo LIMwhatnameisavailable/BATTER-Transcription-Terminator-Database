@@ -1,0 +1,310 @@
+{
+  "release_version": "v0.2.0",
+  "jbrowse_version": "4.3.0",
+  "source_count": 21,
+  "excluded_sources": [
+    "BATTER_S1_002"
+  ],
+  "sources": {
+    "BATTER_S1_001": {
+      "config": "BATTER_S1_001.config.json",
+      "asset_count": 13,
+      "assets": [
+        "assets/BATTER_S1_001__NC_000913.2.fna",
+        "assets/BATTER_S1_001__NC_000913.2.fna.fai",
+        "assets/BATTER_S1_001__NC_000913.2.genes.gff3.gz",
+        "assets/BATTER_S1_001__NC_000913.2.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_001__ecoli_MG1655_NC_000913_2.ix",
+        "assets/BATTER_S1_001__ecoli_MG1655_NC_000913_2.ixx",
+        "assets/BATTER_S1_001__ecoli_MG1655_NC_000913_2_meta.json",
+        "assets/BATTER_S1_001__experimental_3prime_candidates.forward.browser.bed",
+        "assets/BATTER_S1_001__experimental_3prime_candidates.reverse.browser.bed",
+        "assets/BATTER_S1_001__experimental_3prime_geneproximal_candidates.forward.browser.bed",
+        "assets/BATTER_S1_001__experimental_3prime_geneproximal_candidates.reverse.browser.bed",
+        "assets/BATTER_S1_001__experimental_3prime_signal.forward.bw",
+        "assets/BATTER_S1_001__experimental_3prime_signal.reverse.bw"
+      ],
+      "track_count": 7
+    },
+    "BATTER_S1_003": {
+      "config": "BATTER_S1_003.config.json",
+      "asset_count": 8,
+      "assets": [
+        "assets/BATTER_S1_003__NC_000964.3.fna",
+        "assets/BATTER_S1_003__NC_000964.3.fna.fai",
+        "assets/BATTER_S1_003__NC_000964.3.genes.gff3.gz",
+        "assets/BATTER_S1_003__NC_000964.3.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_003__bsub_experimental_3prime_geneproximal_candidates.forward.browser.bed",
+        "assets/BATTER_S1_003__bsub_experimental_3prime_geneproximal_candidates.reverse.browser.bed",
+        "assets/BATTER_S1_003__bsub_experimental_3prime_signal.forward.bw",
+        "assets/BATTER_S1_003__bsub_experimental_3prime_signal.reverse.bw"
+      ],
+      "track_count": 5
+    },
+    "BATTER_S1_004": {
+      "config": "BATTER_S1_004.config.json",
+      "asset_count": 8,
+      "assets": [
+        "assets/BATTER_S1_004__CP001340.1.fna",
+        "assets/BATTER_S1_004__CP001340.1.fna.fai",
+        "assets/BATTER_S1_004__CP001340.1.genes.gff3.gz",
+        "assets/BATTER_S1_004__CP001340.1.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_004__ccre_experimental_3prime_geneproximal_candidates.forward.browser.bed",
+        "assets/BATTER_S1_004__ccre_experimental_3prime_geneproximal_candidates.reverse.browser.bed",
+        "assets/BATTER_S1_004__ccre_experimental_3prime_signal.forward.bw",
+        "assets/BATTER_S1_004__ccre_experimental_3prime_signal.reverse.bw"
+      ],
+      "track_count": 5
+    },
+    "BATTER_S1_005": {
+      "config": "BATTER_S1_005.config.json",
+      "asset_count": 8,
+      "assets": [
+        "assets/BATTER_S1_005__vnat_experimental_3prime_signal.forward.bw",
+        "assets/BATTER_S1_005__vnat_experimental_3prime_signal.reverse.bw",
+        "assets/BATTER_S1_005__vnat_geneproximal.forward.browser.bed",
+        "assets/BATTER_S1_005__vnat_geneproximal.reverse.browser.bed",
+        "assets/BATTER_S1_005__vnat_genes.gff3.gz",
+        "assets/BATTER_S1_005__vnat_genes.gff3.gz.tbi",
+        "assets/BATTER_S1_005__vnat_reference.fna",
+        "assets/BATTER_S1_005__vnat_reference.fna.fai"
+      ],
+      "track_count": 5
+    },
+    "BATTER_S1_006": {
+      "config": "BATTER_S1_006.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_006__warrier2018_spne.genes.gff3.gz",
+        "assets/BATTER_S1_006__warrier2018_spne.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_006__warrier2018_spne.published_termseq_tts.browser.bed",
+        "assets/BATTER_S1_006__warrier2018_spne.reference.fna",
+        "assets/BATTER_S1_006__warrier2018_spne.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_007": {
+      "config": "BATTER_S1_007.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_007__lee2019_sliv.genes.gff3.gz",
+        "assets/BATTER_S1_007__lee2019_sliv.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_007__lee2019_sliv.published_termseq_teps.browser.bed",
+        "assets/BATTER_S1_007__lee2019_sliv.reference.fna",
+        "assets/BATTER_S1_007__lee2019_sliv.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_008": {
+      "config": "BATTER_S1_008.config.json",
+      "asset_count": 6,
+      "assets": [
+        "assets/BATTER_S1_008__thomason2019_pao1.gene_tts.browser.bed",
+        "assets/BATTER_S1_008__thomason2019_pao1.genes.gff3.gz",
+        "assets/BATTER_S1_008__thomason2019_pao1.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_008__thomason2019_pao1.reference.fna",
+        "assets/BATTER_S1_008__thomason2019_pao1.reference.fna.fai",
+        "assets/BATTER_S1_008__thomason2019_pao1.reproducible_sites.browser.bed"
+      ],
+      "track_count": 3
+    },
+    "BATTER_S1_009": {
+      "config": "BATTER_S1_009.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_009__vera2020_zm4.genes.gff3.gz",
+        "assets/BATTER_S1_009__vera2020_zm4.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_009__vera2020_zm4.processing_filtered_tts.browser.bed",
+        "assets/BATTER_S1_009__vera2020_zm4.reference.fna",
+        "assets/BATTER_S1_009__vera2020_zm4.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_010": {
+      "config": "BATTER_S1_010.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_010__lee2020_save.genes.gff3.gz",
+        "assets/BATTER_S1_010__lee2020_save.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_010__lee2020_save.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_010__lee2020_save.reference.fna",
+        "assets/BATTER_S1_010__lee2020_save.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_011": {
+      "config": "BATTER_S1_011.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_011__lee2020_sgri.genes.gff3.gz",
+        "assets/BATTER_S1_011__lee2020_sgri.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_011__lee2020_sgri.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_011__lee2020_sgri.reference.fna",
+        "assets/BATTER_S1_011__lee2020_sgri.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_012": {
+      "config": "BATTER_S1_012.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_012__lee2020_scoe.genes.gff3.gz",
+        "assets/BATTER_S1_012__lee2020_scoe.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_012__lee2020_scoe.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_012__lee2020_scoe.reference.fna",
+        "assets/BATTER_S1_012__lee2020_scoe.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_013": {
+      "config": "BATTER_S1_013.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_013__lee2020_sliv.genes.gff3.gz",
+        "assets/BATTER_S1_013__lee2020_sliv.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_013__lee2020_sliv.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_013__lee2020_sliv.reference.fna",
+        "assets/BATTER_S1_013__lee2020_sliv.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_014": {
+      "config": "BATTER_S1_014.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_014__lee2020_stsu.genes.gff3.gz",
+        "assets/BATTER_S1_014__lee2020_stsu.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_014__lee2020_stsu.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_014__lee2020_stsu.reference.fna",
+        "assets/BATTER_S1_014__lee2020_stsu.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_015": {
+      "config": "BATTER_S1_015.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_015__lee2020_scla.genes.gff3.gz",
+        "assets/BATTER_S1_015__lee2020_scla.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_015__lee2020_scla.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_015__lee2020_scla.reference.fna",
+        "assets/BATTER_S1_015__lee2020_scla.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_016": {
+      "config": "BATTER_S1_016.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_016__lee2020_satcc15439.genes.gff3.gz",
+        "assets/BATTER_S1_016__lee2020_satcc15439.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_016__lee2020_satcc15439.published_termseq_endpoints.browser.bed",
+        "assets/BATTER_S1_016__lee2020_satcc15439.reference.fna",
+        "assets/BATTER_S1_016__lee2020_satcc15439.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_017": {
+      "config": "BATTER_S1_017.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_017__hwang2021_scla.genes.gff3.gz",
+        "assets/BATTER_S1_017__hwang2021_scla.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_017__hwang2021_scla.published_termseq_teps.browser.bed",
+        "assets/BATTER_S1_017__hwang2021_scla.reference.fna",
+        "assets/BATTER_S1_017__hwang2021_scla.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_018": {
+      "config": "BATTER_S1_018.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_018__synecho2021_pcc7338.genes.gff3.gz",
+        "assets/BATTER_S1_018__synecho2021_pcc7338.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_018__synecho2021_pcc7338.published_termseq_teps.browser.bed",
+        "assets/BATTER_S1_018__synecho2021_pcc7338.reference.fna",
+        "assets/BATTER_S1_018__synecho2021_pcc7338.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_019": {
+      "config": "BATTER_S1_019.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_019__synecho2021_pcc6803.genes.gff3.gz",
+        "assets/BATTER_S1_019__synecho2021_pcc6803.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_019__synecho2021_pcc6803.published_termseq_teps.browser.bed",
+        "assets/BATTER_S1_019__synecho2021_pcc6803.reference.fna",
+        "assets/BATTER_S1_019__synecho2021_pcc6803.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_020": {
+      "config": "BATTER_S1_020.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_020__forquet2022_ddad.genes.gff3.gz",
+        "assets/BATTER_S1_020__forquet2022_ddad.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_020__forquet2022_ddad.nanopore_3prime_ends.browser.bed",
+        "assets/BATTER_S1_020__forquet2022_ddad.reference.fna",
+        "assets/BATTER_S1_020__forquet2022_ddad.reference.fna.fai"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_021": {
+      "config": "BATTER_S1_021.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_021__adams2023_b31.genes.gff3.gz",
+        "assets/BATTER_S1_021__adams2023_b31.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_021__adams2023_b31.reference.fna",
+        "assets/BATTER_S1_021__adams2023_b31.reference.fna.fai",
+        "assets/BATTER_S1_021__adams2023_b31.unique_3prime_end_sites.browser.bed"
+      ],
+      "track_count": 2
+    },
+    "BATTER_S1_022": {
+      "config": "BATTER_S1_022.config.json",
+      "asset_count": 5,
+      "assets": [
+        "assets/BATTER_S1_022__mtb2023_termseq.author_classified_termseq_tts.browser.bed",
+        "assets/BATTER_S1_022__mtb2023_termseq.genes.gff3.gz",
+        "assets/BATTER_S1_022__mtb2023_termseq.genes.gff3.gz.tbi",
+        "assets/BATTER_S1_022__mtb2023_termseq.reference.fna",
+        "assets/BATTER_S1_022__mtb2023_termseq.reference.fna.fai"
+      ],
+      "track_count": 2
+    }
+  },
+  "assemblies": {
+    "GCF_000739105.1": {
+      "config": "assemblies/GCF_000739105.1.config.json",
+      "source_ids": [
+        "BATTER_S1_007",
+        "BATTER_S1_013"
+      ],
+      "reference_source_id": "BATTER_S1_007",
+      "endpoint_track_ids": [
+        "lee2019_sliv_published_teps",
+        "lee2020_sliv_published_tts"
+      ],
+      "reference_fasta_sha256": "14f117887bc4c29f9336aef4b8ace10fef9cec66a92d37076c396b4aff8017af",
+      "reference_fai_sha256": "755121207de0dc2542b2c2a642208e78152ae32901713869b8f54f0b4ed55987"
+    },
+    "GCF_005519465.1": {
+      "config": "assemblies/GCF_005519465.1.config.json",
+      "source_ids": [
+        "BATTER_S1_015",
+        "BATTER_S1_017"
+      ],
+      "reference_source_id": "BATTER_S1_015",
+      "endpoint_track_ids": [
+        "lee2020_scla_published_tts",
+        "hwang2021_scla_published_teps"
+      ],
+      "reference_fasta_sha256": "664caa032ca382cdbdc2c3a70dc7b196651ade70e428bf8448d7d953e985ee6b",
+      "reference_fai_sha256": "a87b21c0cf69bff29e4a7caefca619930fb9a8edfd8156c4347d8c4fe8b77c65"
+    }
+  }
+}

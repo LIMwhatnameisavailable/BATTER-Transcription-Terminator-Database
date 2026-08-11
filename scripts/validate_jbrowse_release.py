@@ -13,6 +13,10 @@ from typing import Any
 EXPECTED = [f"BATTER_S1_{number:03d}" for number in range(1, 23) if number != 2]
 LALANNE = {"BATTER_S1_001", "BATTER_S1_003", "BATTER_S1_004", "BATTER_S1_005"}
 FORBIDDEN_TEXT = ("prediction_only", "author_integrated_mixed_evidence", "bar2023_ecoli_trs")
+EXPECTED_ASSEMBLIES = {
+    "GCF_000739105.1": ["BATTER_S1_007", "BATTER_S1_013"],
+    "GCF_005519465.1": ["BATTER_S1_015", "BATTER_S1_017"],
+}
 
 
 def digest(path: Path) -> str:
@@ -73,6 +77,11 @@ def main() -> int:
         track_ids = [track.get("trackId") for track in config.get("tracks", [])]
         if not track_ids or len(track_ids) != len(set(track_ids)):
             problems.append(f"{source_id}: missing or duplicate track IDs")
+        views = config.get("defaultSession", {}).get("views", [])
+        if len(views) != 1 or views[0].get("type") != "LinearGenomeView":
+            problems.append(f"{source_id}: missing automatic default linear view")
+        elif [track.get("configuration") for track in views[0].get("tracks", [])] != track_ids:
+            problems.append(f"{source_id}: default view does not open every configured track")
         configured_uris = sorted(set(uris(config)))
         if configured_uris != entry.get("assets"):
             problems.append(f"{source_id}: config URI inventory differs from catalog")
@@ -85,6 +94,49 @@ def main() -> int:
                 problems.append(f"{source_id}: missing asset {uri}")
             if not path.name.startswith(f"{source_id}__"):
                 problems.append(f"{source_id}: asset lacks source prefix: {path.name}")
+
+    if set(catalog.get("assemblies", {})) != set(EXPECTED_ASSEMBLIES):
+        problems.append("catalog must contain the two exact-assembly multi-track views")
+    for accession, expected_sources in EXPECTED_ASSEMBLIES.items():
+        entry = catalog.get("assemblies", {}).get(accession, {})
+        if entry.get("source_ids") != expected_sources:
+            problems.append(f"{accession}: incorrect source-track group")
+        config_path = root / str(entry.get("config", ""))
+        if not config_path.is_file():
+            problems.append(f"{accession}: missing combined assembly config")
+            continue
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        assemblies = config.get("assemblies", [])
+        if len(assemblies) != 1:
+            problems.append(f"{accession}: combined config must contain one assembly")
+            continue
+        assembly_name = assemblies[0].get("name")
+        tracks = config.get("tracks", [])
+        if len(tracks) != len(expected_sources) + 1:
+            problems.append(f"{accession}: expected one reference plus one track per source")
+        if any(track.get("assemblyNames") != [assembly_name] for track in tracks):
+            problems.append(f"{accession}: not all tracks point to the shared assembly")
+        names = " ".join(str(track.get("name", "")) for track in tracks)
+        for source_id in expected_sources:
+            if source_id not in names:
+                problems.append(f"{accession}: combined view does not label {source_id}")
+        allowed_assets = {
+            uri for source_id in expected_sources
+            for uri in catalog.get("sources", {}).get(source_id, {}).get("assets", [])
+        }
+        combined_uris = set(uris(config))
+        normalized_uris = {uri[3:] if uri.startswith("../") else uri for uri in combined_uris}
+        if not normalized_uris.issubset(allowed_assets):
+            problems.append(f"{accession}: combined config references an asset outside its sources")
+        for uri in combined_uris:
+            if not uri.startswith("../assets/") or not (config_path.parent / uri).resolve().is_file():
+                problems.append(f"{accession}: invalid or missing combined-view URI {uri}")
+        fasta = [(config_path.parent / uri).resolve() for uri in uris(assemblies[0].get("sequence", {})) if uri.endswith(".fna")]
+        fai = [(config_path.parent / uri).resolve() for uri in uris(assemblies[0].get("sequence", {})) if uri.endswith(".fai")]
+        if len(fasta) != 1 or digest(fasta[0]) != entry.get("reference_fasta_sha256"):
+            problems.append(f"{accession}: reference FASTA hash mismatch")
+        if len(fai) != 1 or digest(fai[0]) != entry.get("reference_fai_sha256"):
+            problems.append(f"{accession}: reference FAI hash mismatch")
 
     vnat_config = json.loads((root / "BATTER_S1_005.config.json").read_text(encoding="utf-8"))
     fai_uris = [uri for uri in uris(vnat_config) if uri.endswith(".fai")]
@@ -112,7 +164,7 @@ def main() -> int:
 
     print("=" * 64)
     print("BTED v0.2.0 JBrowse release validation")
-    print("checks: 21 configs / evidence boundary / URI portability / assets / multi-contig / checksums")
+    print("checks: 21 source configs / 2 multi-track assembly views / evidence / assets / checksums")
     print("=" * 64)
     if problems:
         for problem in problems:

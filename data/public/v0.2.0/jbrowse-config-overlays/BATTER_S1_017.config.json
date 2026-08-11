@@ -1,0 +1,126 @@
+{
+  "assemblies": [
+    {
+      "name": "hwang2021_scla_GCF_005519465_1",
+      "displayName": "S. clavuligerus ATCC 27064 (GCF_005519465.1)",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "hwang2021_scla_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "assets/BATTER_S1_017__hwang2021_scla.reference.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "assets/BATTER_S1_017__hwang2021_scla.reference.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "BTED BATTER_S1_017 · independent source tracks",
+    "views": [
+      {
+        "id": "bted_linear_genome_view",
+        "type": "LinearGenomeView",
+        "offsetPx": 0,
+        "bpPerPx": 5.324,
+        "displayedRegions": [
+          {
+            "refName": "CP027858.1",
+            "start": 0,
+            "end": 5324,
+            "reversed": false,
+            "assemblyName": "hwang2021_scla_GCF_005519465_1"
+          }
+        ],
+        "tracks": [
+          {
+            "id": "bted_track_1",
+            "type": "FeatureTrack",
+            "configuration": "hwang2021_scla_genes",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_1",
+                "type": "LinearBasicDisplay",
+                "configuration": "hwang2021_scla_genes-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_2",
+            "type": "FeatureTrack",
+            "configuration": "hwang2021_scla_published_teps",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_2",
+                "type": "LinearBasicDisplay",
+                "configuration": "hwang2021_scla_published_teps-LinearBasicDisplay"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "hwang2021_scla_genes",
+      "name": "NCBI gene annotation",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "assets/BATTER_S1_017__hwang2021_scla.genes.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "assets/BATTER_S1_017__hwang2021_scla.genes.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "category": [
+        "Reference annotation"
+      ],
+      "assemblyNames": [
+        "hwang2021_scla_GCF_005519465_1"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "hwang2021_scla_published_teps",
+      "name": "Author-called Term-seq TEPs (Hwang 2021)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "assets/BATTER_S1_017__hwang2021_scla.published_termseq_teps.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "hwang2021_scla_published_teps_display",
+          "showLabels": false,
+          "height": 38
+        }
+      ],
+      "category": [
+        "Published experimental-signal-supported endpoints"
+      ],
+      "assemblyNames": [
+        "hwang2021_scla_GCF_005519465_1"
+      ]
+    }
+  ]
+}

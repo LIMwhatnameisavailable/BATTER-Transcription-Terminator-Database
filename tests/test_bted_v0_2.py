@@ -6,6 +6,7 @@ import csv
 import json
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -118,21 +119,81 @@ class TestBtedV020Release(unittest.TestCase):
         self.assertEqual({row["evidence_class"] for row in s1_020}, {"author_called_endpoint"})
         self.assertTrue(all("S2D" in row["source_table_or_file"] for row in s1_020))
 
-    def test_static_catalog_has_22_records_and_21_browser_links(self) -> None:
+    def test_static_catalog_groups_22_sources_into_20_assemblies(self) -> None:
         catalog = json.loads((REPO_ROOT / "site/data/catalog.json").read_text(encoding="utf-8"))
         self.assertEqual(len(catalog["sources"]), 22)
+        self.assertEqual(len(catalog["assemblies"]), 20)
         self.assertEqual(sum(bool(row["has_jbrowse"]) for row in catalog["sources"]), 21)
         self.assertEqual(len(list((REPO_ROOT / "site/records").glob("BATTER_S1_*.html"))), 22)
+        self.assertEqual(len(list((REPO_ROOT / "site/assemblies").glob("GCF_*.html"))), 20)
+        assemblies = {row["assembly"]: row for row in catalog["assemblies"]}
         self.assertEqual(
-            sum("Open JBrowse" in path.read_text(encoding="utf-8") for path in (REPO_ROOT / "site/records").glob("*.html")),
+            assemblies["GCF_000739105.1"]["source_ids"],
+            ["BATTER_S1_007", "BATTER_S1_013"],
+        )
+        self.assertEqual(assemblies["GCF_000739105.1"]["record_count"], 2_848)
+        self.assertEqual(
+            assemblies["GCF_005519465.1"]["source_ids"],
+            ["BATTER_S1_015", "BATTER_S1_017"],
+        )
+        self.assertEqual(assemblies["GCF_005519465.1"]["record_count"], 2_567)
+        self.assertEqual(
+            sum("Open source track" in path.read_text(encoding="utf-8") for path in (REPO_ROOT / "site/records").glob("*.html")),
             21,
         )
         s1_005_page = (REPO_ROOT / "site/records/BATTER_S1_005.html").read_text(encoding="utf-8")
-        self.assertIn("../downloads/records/BATTER_S1_005/endpoints.tsv", s1_005_page)
+        self.assertIn("../downloads/records/BATTER_S1_005/endpoints.bed", s1_005_page)
+        self.assertNotIn("Coordinate convention", s1_005_page)
+        self.assertNotIn("fields.json", s1_005_page)
         self.assertNotIn("raw.githubusercontent.com", s1_005_page)
         s1_002_page = (REPO_ROOT / "site/records/BATTER_S1_002.html").read_text(encoding="utf-8")
         self.assertIn("audit_only", s1_002_page)
-        self.assertIn("no endpoint set published", s1_002_page)
+        self.assertNotIn("BATTER_S1_002/endpoints.bed", s1_002_page)
+
+    def test_assembly_download_packages_preserve_source_provenance(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output = Path(temp_dir) / "assemblies"
+            result = subprocess.run(
+                [sys.executable, "scripts/build_assembly_downloads.py", "--output-dir", str(output)],
+                cwd=REPO_ROOT, text=True, capture_output=True, check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            catalog = json.loads((output / "catalog.json").read_text(encoding="utf-8"))
+            self.assertEqual(catalog["assembly_count"], 20)
+            self.assertEqual(len(list(output.glob("GCF_*/metadata.json"))), 20)
+            self.assertEqual(len(list(output.glob("GCF_*/endpoints.bed"))), 19)
+            self.assertEqual(
+                sum(entry["record_count"] for entry in catalog["assemblies"].values()),
+                28_399,
+            )
+            for assembly, expected_sources, expected_records in (
+                ("GCF_000739105.1", ["BATTER_S1_007", "BATTER_S1_013"], 2_848),
+                ("GCF_005519465.1", ["BATTER_S1_015", "BATTER_S1_017"], 2_567),
+            ):
+                metadata = json.loads((output / assembly / "metadata.json").read_text(encoding="utf-8"))
+                self.assertEqual([row["source_id"] for row in metadata["sources"]], expected_sources)
+                self.assertEqual(metadata["record_count"], expected_records)
+                bed_rows = (output / assembly / "endpoints.bed").read_text(encoding="utf-8").splitlines()
+                self.assertEqual(len(bed_rows), expected_records)
+                for source_id in expected_sources:
+                    self.assertTrue(any(source_id in row.split("\t")[3] for row in bed_rows))
+
+    def test_tracked_jbrowse_overlays_cover_sources_and_shared_assemblies(self) -> None:
+        root = RELEASE_ROOT / "jbrowse-config-overlays"
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(catalog["sources"]), 21)
+        self.assertEqual(
+            set(catalog["assemblies"]),
+            {"GCF_000739105.1", "GCF_005519465.1"},
+        )
+        for source_id, entry in catalog["sources"].items():
+            config = json.loads((root / entry["config"]).read_text(encoding="utf-8"))
+            views = config.get("defaultSession", {}).get("views", [])
+            self.assertEqual(len(views), 1, source_id)
+            self.assertEqual(views[0]["type"], "LinearGenomeView", source_id)
+        for assembly, entry in catalog["assemblies"].items():
+            config = json.loads((root / entry["config"]).read_text(encoding="utf-8"))
+            self.assertEqual(len(config["defaultSession"]["views"][0]["tracks"]), 3, assembly)
 
     def test_release_and_site_validators_pass(self) -> None:
         for command in (

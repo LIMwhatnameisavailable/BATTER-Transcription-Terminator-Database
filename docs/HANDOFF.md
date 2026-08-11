@@ -1,10 +1,19 @@
 # BTED 当前交接
 
-**更新：** 2026-08-10
+**更新：** 2026-08-12
 
-**当前分支：** `agent/bted-v0.2-public-demo`
+**当前分支：** `agent/assembly-track-download-demo`
 
-**当前里程碑：** v0.2.0 数据、网站、JBrowse 和完整验收已完成；开发分支、Draft PR #4 与 GitHub Release 草稿均已建立。
+**当前里程碑：** 导师意见对应的网站演示版已完成、已推送个人仓库；待审核合并 `main` 后自动更新 GitHub Pages。
+
+## 2026-08-12 网站改版
+
+- 20 个精确 assembly 作为主目录，22 个来源作为独立 track 和追溯记录；
+- `GCF_000739105.1` 与 `GCF_005519465.1` 各有一套自动打开的双来源 JBrowse 视图；
+- 下载页可全选/多选，输出按 assembly 分目录的 ZIP；
+- 主要公开文件收敛为 BED + metadata，后台 24 列表、字段字典、manifest 与 checksum 不删除；
+- 组会教程：[`demo/BTED_组会展示教程_2026-08-12.md`](demo/BTED_组会展示教程_2026-08-12.md)。
+- feature 分支 Pages build 已成功，部署环境按策略拒绝非 `main` 分支；合并后 `push: main` 会触发正式部署。
 
 ## 已交付
 

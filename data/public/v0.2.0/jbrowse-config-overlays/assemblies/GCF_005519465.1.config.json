@@ -1,0 +1,167 @@
+{
+  "assemblies": [
+    {
+      "name": "BTED_GCF_005519465_1",
+      "displayName": "BTED GCF_005519465.1 · 2 source tracks",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "BTED_GCF_005519465_1_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "../assets/BATTER_S1_015__lee2020_scla.reference.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "../assets/BATTER_S1_015__lee2020_scla.reference.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "BTED GCF_005519465.1 · independent source tracks",
+    "views": [
+      {
+        "id": "bted_linear_genome_view",
+        "type": "LinearGenomeView",
+        "offsetPx": 0,
+        "bpPerPx": 5.894,
+        "displayedRegions": [
+          {
+            "refName": "CP027858.1",
+            "start": 0,
+            "end": 5894,
+            "reversed": false,
+            "assemblyName": "BTED_GCF_005519465_1"
+          }
+        ],
+        "tracks": [
+          {
+            "id": "bted_track_1",
+            "type": "FeatureTrack",
+            "configuration": "lee2020_scla_genes",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_1",
+                "type": "LinearBasicDisplay",
+                "configuration": "lee2020_scla_genes-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_2",
+            "type": "FeatureTrack",
+            "configuration": "lee2020_scla_published_tts",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_2",
+                "type": "LinearBasicDisplay",
+                "configuration": "lee2020_scla_published_tts-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_3",
+            "type": "FeatureTrack",
+            "configuration": "hwang2021_scla_published_teps",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_3",
+                "type": "LinearBasicDisplay",
+                "configuration": "hwang2021_scla_published_teps-LinearBasicDisplay"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "lee2020_scla_genes",
+      "name": "NCBI gene annotation",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "../assets/BATTER_S1_015__lee2020_scla.genes.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "../assets/BATTER_S1_015__lee2020_scla.genes.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "category": [
+        "Reference annotation"
+      ],
+      "assemblyNames": [
+        "BTED_GCF_005519465_1"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "lee2020_scla_published_tts",
+      "name": "BATTER_S1_015 · Author-called Term-seq TTS (Lee 2020)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "../assets/BATTER_S1_015__lee2020_scla.published_termseq_endpoints.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "lee2020_scla_published_tts_display",
+          "showLabels": false,
+          "height": 38
+        }
+      ],
+      "category": [
+        "BTED source tracks",
+        "BATTER_S1_015"
+      ],
+      "assemblyNames": [
+        "BTED_GCF_005519465_1"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "hwang2021_scla_published_teps",
+      "name": "BATTER_S1_017 · Author-called Term-seq TEPs (Hwang 2021)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "../assets/BATTER_S1_017__hwang2021_scla.published_termseq_teps.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "hwang2021_scla_published_teps_display",
+          "showLabels": false,
+          "height": 38
+        }
+      ],
+      "category": [
+        "BTED source tracks",
+        "BATTER_S1_017"
+      ],
+      "assemblyNames": [
+        "BTED_GCF_005519465_1"
+      ]
+    }
+  ]
+}
