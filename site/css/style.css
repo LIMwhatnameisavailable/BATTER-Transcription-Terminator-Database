@@ -155,6 +155,7 @@ main.page-shell { padding-top: 34px; padding-bottom: 60px; min-height: calc(100v
   background: var(--soft);
   border: 1px solid var(--line);
 }
+.filters.genome-filters { grid-template-columns: 1.6fr repeat(3, 1fr); }
 .filters label { display: grid; gap: 4px; color: var(--muted); font-size: 12px; font-weight: 650; }
 .filters input,
 .filters select { width: 100%; min-width: 0; height: 38px; padding: 6px 8px; color: var(--ink); background: var(--white); border: 1px solid #aebbc6; border-radius: 3px; }
@@ -167,6 +168,7 @@ main.page-shell { padding-top: 34px; padding-bottom: 60px; min-height: calc(100v
 .source-table tbody tr:hover { background: #edf5fa; }
 .source-table small { display: block; margin-top: 3px; color: var(--muted); }
 .source-table .number { text-align: right; font-variant-numeric: tabular-nums; }
+.source-table td strong { color: var(--navy); }
 .source-id { font-weight: 750; text-decoration: none; }
 .actions { white-space: nowrap; }
 .actions a { display: block; }
@@ -204,7 +206,46 @@ main.page-shell { padding-top: 34px; padding-bottom: 60px; min-height: calc(100v
 .download-card code,
 .download-card span { color: var(--muted); font-size: 12px; }
 .download-disabled { opacity: 0.72; }
+.download-card.featured { border-left: 4px solid var(--blue); background: #eef6fb; }
+.compact-downloads { max-width: 680px; }
 .evidence-note { padding: 12px 14px; color: #4a5661; background: #eef5fa; border-left: 4px solid #77a9c9; }
+
+.assembly-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+.assembly-summary p { max-width: 760px; margin: 0; color: var(--muted); }
+
+.download-toolbar {
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  background: #edf5fa;
+  border: 1px solid #b8cddd;
+  box-shadow: var(--shadow);
+}
+.download-toolbar > div:first-child { display: flex; gap: 8px; }
+.download-toolbar button { cursor: pointer; }
+.download-toolbar button:disabled { opacity: 0.55; cursor: not-allowed; }
+.selection-summary { color: var(--muted); text-align: center; }
+.selection-summary strong { color: var(--navy); font-size: 18px; }
+.download-status { min-height: 24px; margin: 0 0 8px; color: var(--teal); font-weight: 650; }
+.select-cell { width: 44px; text-align: center !important; }
+.select-cell input { width: 17px; height: 17px; accent-color: var(--blue); cursor: pointer; }
+.download-help { margin-top: 20px; box-shadow: none; }
+.file-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.file-pair div { display: grid; gap: 4px; padding: 14px; background: var(--soft); border: 1px solid var(--line); }
+.file-pair code { color: var(--navy); font-weight: 750; }
+.file-pair span { color: var(--muted); font-size: 13px; }
 
 .link-list { margin: 0; padding-left: 18px; }
 .mini-list { margin: 0; }
@@ -225,7 +266,10 @@ main.page-shell { padding-top: 34px; padding-bottom: 60px; min-height: calc(100v
   .site-nav { grid-column: 1 / -1; order: 3; overflow-x: auto; }
   .site-nav a { min-height: 38px; }
   .filters { grid-template-columns: repeat(3, 1fr); }
+  .filters.genome-filters { grid-template-columns: repeat(2, 1fr); }
   .record-layout { grid-template-columns: 1fr; }
+  .download-toolbar { top: 108px; grid-template-columns: 1fr auto; }
+  .selection-summary { grid-column: 1 / -1; grid-row: 2; text-align: left; }
 }
 
 @media (max-width: 700px) {
@@ -238,7 +282,12 @@ main.page-shell { padding-top: 34px; padding-bottom: 60px; min-height: calc(100v
   .feature-grid { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr 1fr; }
   .page-heading, .record-heading { align-items: flex-start; flex-direction: column; }
+  .assembly-summary { align-items: flex-start; flex-direction: column; }
   .download-grid { grid-template-columns: 1fr; }
+  .download-toolbar { position: static; grid-template-columns: 1fr; }
+  .selection-summary { grid-column: auto; grid-row: auto; }
+  .download-toolbar .button.primary { width: 100%; }
+  .file-pair { grid-template-columns: 1fr; }
   .data-list { grid-template-columns: 1fr; }
   .data-list dt { border-bottom: 0; padding-bottom: 0; }
   .footer-inner { padding: 18px 0; align-items: flex-start; flex-direction: column; }

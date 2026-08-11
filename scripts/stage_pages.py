@@ -7,6 +7,8 @@ import argparse
 import shutil
 from pathlib import Path
 
+from build_assembly_downloads import build as build_assembly_downloads
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -24,6 +26,7 @@ def main() -> int:
         shutil.rmtree(output)
     shutil.copytree(REPO_ROOT / "site", output)
     shutil.copytree(REPO_ROOT / "data/public/v0.2.0", output / "downloads")
+    build_assembly_downloads(output / "downloads" / "assemblies")
     shutil.copytree(jbrowse, output / "jbrowse")
     print(f"PASS  Staged Pages preview at {output}")
     return 0
