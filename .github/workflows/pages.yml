@@ -1,12 +1,15 @@
 name: Deploy BTED Pages
 
 on:
+  push:
+    branches:
+      - agent/assembly-track-download-demo
   workflow_dispatch:
     inputs:
       release_tag:
         description: GitHub Release tag containing the JBrowse asset
         required: true
-        default: v0.2.0
+        default: preview-v0.2.0
 
 permissions:
   contents: read
@@ -21,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      RELEASE_TAG: ${{ github.event.inputs.release_tag || 'v0.2.0' }}
+      RELEASE_TAG: ${{ github.event.inputs.release_tag || 'preview-v0.2.0' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +44,11 @@ jobs:
           cp -R data/public/v0.2.0 _site/downloads
           python3 scripts/build_assembly_downloads.py --output-dir _site/downloads/assemblies
           tar -xzf "$RUNNER_TEMP/BTED-v0.2.0-jbrowse-assets.tar.gz" --strip-components=1 -C _site/jbrowse
+          cp data/public/v0.2.0/jbrowse-config-overlays/*.config.json _site/jbrowse/
+          mkdir -p _site/jbrowse/assemblies
+          cp data/public/v0.2.0/jbrowse-config-overlays/assemblies/*.config.json _site/jbrowse/assemblies/
+          cp data/public/v0.2.0/jbrowse-config-overlays/catalog.json _site/jbrowse/catalog.json
+          python3 scripts/refresh_jbrowse_checksums.py _site/jbrowse
           python3 scripts/validate_jbrowse_release.py _site/jbrowse
           python3 scripts/validate-site.py _site
       - uses: actions/configure-pages@v5

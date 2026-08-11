@@ -1,0 +1,118 @@
+{
+  "assemblies": [
+    {
+      "name": "adams2023_b31_GCF_000008685_2",
+      "displayName": "Borreliella burgdorferi B31 (chromosome + 21 plasmids)",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "adams2023_b31_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "assets/BATTER_S1_021__adams2023_b31.reference.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "assets/BATTER_S1_021__adams2023_b31.reference.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "BTED BATTER_S1_021 · independent source tracks",
+    "views": [
+      {
+        "id": "bted_linear_genome_view",
+        "type": "LinearGenomeView",
+        "offsetPx": 0,
+        "bpPerPx": 10.001,
+        "displayedRegions": [
+          {
+            "refName": "NC_000948.1",
+            "start": 11454,
+            "end": 21455,
+            "reversed": false,
+            "assemblyName": "adams2023_b31_GCF_000008685_2"
+          }
+        ],
+        "tracks": [
+          {
+            "id": "bted_track_1",
+            "type": "FeatureTrack",
+            "configuration": "adams2023_b31_genes",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_1",
+                "type": "LinearBasicDisplay",
+                "configuration": "adams2023_b31_genes-LinearBasicDisplay"
+              }
+            ]
+          },
+          {
+            "id": "bted_track_2",
+            "type": "FeatureTrack",
+            "configuration": "adams2023_b31_ends",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "bted_display_2",
+                "type": "LinearBasicDisplay",
+                "configuration": "adams2023_b31_ends-LinearBasicDisplay"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "adams2023_b31_genes",
+      "name": "NCBI gene annotation",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "assets/BATTER_S1_021__adams2023_b31.genes.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "assets/BATTER_S1_021__adams2023_b31.genes.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "category": [
+        "Reference annotation"
+      ],
+      "assemblyNames": [
+        "adams2023_b31_GCF_000008685_2"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "adams2023_b31_ends",
+      "name": "Unique 3′RNA-seq end sites (Adams 2023)",
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "assets/BATTER_S1_021__adams2023_b31.unique_3prime_end_sites.browser.bed",
+          "locationType": "UriLocation"
+        }
+      },
+      "category": [
+        "Published experimental endpoints"
+      ],
+      "assemblyNames": [
+        "adams2023_b31_GCF_000008685_2"
+      ]
+    }
+  ]
+}

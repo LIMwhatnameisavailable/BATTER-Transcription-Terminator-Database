@@ -99,7 +99,7 @@ git diff --check
 
 `site/` 是英文默认、可切换中文的静态目录。网站以 20 个精确参考组装为主入口，同时保留 22 个来源详情页。参考组装完全相同的来源在一个基因组页面和 JBrowse 视图中显示为独立 track，不做跨来源去重或共识推断。
 
-下载页支持按组装全选、多选并生成 ZIP。每个组装目录只突出 `endpoints.bed` 与一份汇总来源、文献、登录号、证据、限制和校验值的 `metadata.json`。GitHub Pages 工作流会从固定的 `v0.2.0` GitHub Release 下载 JBrowse 资产，再生成组装级下载包并部署。
+下载页支持按组装全选、多选并生成 ZIP。每个组装目录只突出 `endpoints.bed` 与一份汇总来源、文献、登录号、证据、限制和校验值的 `metadata.json`。GitHub Pages 工作流复用 `preview-v0.2.0` Release 中的固定 JBrowse 大型资产，再叠加仓库内 140 KB 的版本化配置覆盖层、生成组装级下载包并部署。
 
 - [组会展示教程（2026-08-12）](docs/demo/BTED_组会展示教程_2026-08-12.md)
 

@@ -178,6 +178,23 @@ class TestBtedV020Release(unittest.TestCase):
                 for source_id in expected_sources:
                     self.assertTrue(any(source_id in row.split("\t")[3] for row in bed_rows))
 
+    def test_tracked_jbrowse_overlays_cover_sources_and_shared_assemblies(self) -> None:
+        root = RELEASE_ROOT / "jbrowse-config-overlays"
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(catalog["sources"]), 21)
+        self.assertEqual(
+            set(catalog["assemblies"]),
+            {"GCF_000739105.1", "GCF_005519465.1"},
+        )
+        for source_id, entry in catalog["sources"].items():
+            config = json.loads((root / entry["config"]).read_text(encoding="utf-8"))
+            views = config.get("defaultSession", {}).get("views", [])
+            self.assertEqual(len(views), 1, source_id)
+            self.assertEqual(views[0]["type"], "LinearGenomeView", source_id)
+        for assembly, entry in catalog["assemblies"].items():
+            config = json.loads((root / entry["config"]).read_text(encoding="utf-8"))
+            self.assertEqual(len(config["defaultSession"]["views"][0]["tracks"]), 3, assembly)
+
     def test_release_and_site_validators_pass(self) -> None:
         for command in (
             [sys.executable, "scripts/validate_bted_v0_2.py"],
