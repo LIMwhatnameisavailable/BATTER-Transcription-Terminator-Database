@@ -29,12 +29,12 @@
         "id": "bted_linear_genome_view",
         "type": "LinearGenomeView",
         "offsetPx": 0,
-        "bpPerPx": 6.756,
+        "bpPerPx": 3.008,
         "displayedRegions": [
           {
             "refName": "NC_000964.3",
-            "start": 0,
-            "end": 6756,
+            "start": 20962,
+            "end": 23970,
             "reversed": false,
             "assemblyName": "bsub_168_NC_000964_3"
           }
@@ -55,53 +55,27 @@
           },
           {
             "id": "bted_track_2",
-            "type": "QuantitativeTrack",
-            "configuration": "bsub_3prime_signal_forward",
+            "type": "MultiQuantitativeTrack",
+            "configuration": "bsub_strand_aware_3prime_signal",
             "minimized": false,
             "displays": [
               {
                 "id": "bted_display_2",
-                "type": "LinearWiggleDisplay",
-                "configuration": "bsub_3prime_signal_forward-LinearWiggleDisplay"
+                "type": "MultiLinearWiggleDisplay",
+                "configuration": "bsub_strand_aware_3prime_signal-MultiLinearWiggleDisplay"
               }
             ]
           },
           {
             "id": "bted_track_3",
-            "type": "QuantitativeTrack",
-            "configuration": "bsub_3prime_signal_reverse",
+            "type": "FeatureTrack",
+            "configuration": "bsub_geneproximal_combined",
             "minimized": false,
             "displays": [
               {
                 "id": "bted_display_3",
-                "type": "LinearWiggleDisplay",
-                "configuration": "bsub_3prime_signal_reverse-LinearWiggleDisplay"
-              }
-            ]
-          },
-          {
-            "id": "bted_track_4",
-            "type": "FeatureTrack",
-            "configuration": "bsub_geneproximal_forward",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "bted_display_4",
                 "type": "LinearBasicDisplay",
-                "configuration": "bsub_geneproximal_forward-LinearBasicDisplay"
-              }
-            ]
-          },
-          {
-            "id": "bted_track_5",
-            "type": "FeatureTrack",
-            "configuration": "bsub_geneproximal_reverse",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "bted_display_5",
-                "type": "LinearBasicDisplay",
-                "configuration": "bsub_geneproximal_reverse-LinearBasicDisplay"
+                "configuration": "bsub_geneproximal_combined-LinearBasicDisplay"
               }
             ]
           }
@@ -136,6 +110,100 @@
       ]
     },
     {
+      "type": "MultiQuantitativeTrack",
+      "trackId": "bsub_strand_aware_3prime_signal",
+      "name": "Signal · blue + above zero · orange − below zero",
+      "description": "Paired strand-specific Rend-seq signal from one experiment. Blue values above zero denote the + strand; orange values below zero denote the − strand. Display values are sign × log10(1 + raw signal). Negative values encode strand only, not negative experimental abundance. Raw untransformed strand tracks remain available in Full evidence view.",
+      "adapter": {
+        "type": "MultiWiggleAdapter",
+        "subadapters": [
+          {
+            "type": "BigWigAdapter",
+            "bigWigLocation": {
+              "uri": "assets/BATTER_S1_003__bsub_experimental_3prime_signal.forward.signed-log10-ui-v4.bw",
+              "locationType": "UriLocation"
+            },
+            "name": "+ strand",
+            "source": "+",
+            "color": "#2563A6"
+          },
+          {
+            "type": "BigWigAdapter",
+            "bigWigLocation": {
+              "uri": "assets/BATTER_S1_003__bsub_experimental_3prime_signal.reverse.signed-log10-ui-v4.bw",
+              "locationType": "UriLocation"
+            },
+            "name": "− strand",
+            "source": "-",
+            "color": "#D2691E"
+          }
+        ]
+      },
+      "displays": [
+        {
+          "type": "MultiLinearWiggleDisplay",
+          "displayId": "bsub_strand_aware_3prime_signal-MultiLinearWiggleDisplay",
+          "defaultRendering": "xyplot",
+          "height": 170,
+          "showSidebar": true
+        }
+      ],
+      "category": [
+        "BTED compact view",
+        "Observed signal"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ],
+      "metadata": {
+        "evidence_class": "observed_signal",
+        "strand_encoding": "+ strand blue; - strand orange",
+        "display_transform": "sign(strand) * log10(1 + raw_signal)",
+        "scale_note": "Paired series share one zero-centred display; raw tracks are retained separately."
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "bsub_geneproximal_combined",
+      "name": "Candidates · blue → + strand · orange ← − strand",
+      "description": "Context-filtered candidate 3′-end peaks. The BED strand remains authoritative; right-pointing marks are + strand and left-pointing marks are − strand. Candidates are not terminator conclusions.",
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "assets/BATTER_S1_003__bsub_geneproximal.combined.browser.gff3",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "bsub_geneproximal_combined-LinearBasicDisplay",
+          "height": 56,
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "showLabels": false,
+            "showDescriptions": false,
+            "color1": "jexl:get(feature,'strand')==1?'#2563A6':get(feature,'strand')==-1?'#D2691E':'#6B7280'",
+            "height": 12
+          }
+        }
+      ],
+      "category": [
+        "BTED compact view",
+        "Called endpoints"
+      ],
+      "assemblyNames": [
+        "bsub_168_NC_000964_3"
+      ],
+      "metadata": {
+        "evidence_class": "called_endpoint",
+        "strand_encoding": "+ strand blue/right arrow; - strand orange/left arrow",
+        "score_interpretation": "GFF3 score is the raw 3-prime-end signal support at the called position; BED6 score remains capped at 1000.",
+        "click_for_details": "Stable end ID, 1-based coordinate, strand, raw support, context and evidence warning.",
+        "warning": "Signal-derived candidate peak; not an experimentally proven terminator."
+      }
+    },
+    {
       "type": "QuantitativeTrack",
       "trackId": "bsub_3prime_signal_forward",
       "name": "Experimental 3-prime end signal (+ strand)",
@@ -147,6 +215,7 @@
         }
       },
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq"
       ],
       "assemblyNames": [
@@ -165,6 +234,7 @@
         }
       },
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq"
       ],
       "assemblyNames": [
@@ -191,6 +261,7 @@
         }
       ],
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq - context filtered"
       ],
       "assemblyNames": [
@@ -217,6 +288,7 @@
         }
       ],
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq - context filtered"
       ],
       "assemblyNames": [

@@ -213,3 +213,7 @@ processed/literature_validation_summary.json
 3. 从匹配成功的位点中选择 10 个，进行人工 browser 核查；
 4. 将 0–128 nt 下游候选进一步与操纵子、茎环、Rho 机制证据整合，形成“主要 transcription end”层；
 5. BATTER 预测可以在后续作为可开关的比较轨道，但不纳入本资源第一版的实验主数据。
+
+## 2026-08-14 浏览器展示更新
+
+本次仅更新 JBrowse display layer：正负链 signed-log 信号合并显示，默认区域确定性包含两种 strand，候选以富属性 GFF3 展示并可点击追溯稳定 ID、1-based 坐标、raw support 与 `called_endpoint` 警告。标准 BED、原始 BigWig、参考 `NC_000913.2` 和证据解释均未改变。显示 BigWig 使用非压缩 v4 格式解决 JBrowse 2.17 的 range 索引兼容问题；原始信号轨道继续保留。

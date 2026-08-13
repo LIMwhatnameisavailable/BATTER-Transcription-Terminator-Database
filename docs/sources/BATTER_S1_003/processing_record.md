@@ -87,3 +87,7 @@ data/batter_bsub_pilot/
 - `python -m unittest -v tests/test_bted_ingestion.py`：16 项全部通过。
 - `node --check` × 6（portal-data、streptomyces-resources、source-catalog、portal、catalog-ui、record）：全部通过。
 - 状态变更经 `extract_batter_s1_registry.py` + `build_bted_catalog.py` 重新生成，diff 确认仅 S1_003 行变化。
+
+## 2026-08-14 浏览器展示更新
+
+本次仅更新 JBrowse display layer：正负链 signed-log 信号合并显示，默认区域为 `NC_000964.3:20,963..23,970`，可同时看到两种 strand；候选以富属性 GFF3 展示并可点击追溯稳定 ID、1-based 坐标、raw support 与 `called_endpoint` 警告。标准 BED、原始 BigWig、参考和证据解释均未改变。实际浏览器验证蓝色向右箭头和橙色向左箭头同时存在，当前配置 0 alert。

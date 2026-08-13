@@ -8,7 +8,7 @@
   "sources": {
     "BATTER_S1_001": {
       "config": "BATTER_S1_001.config.json",
-      "asset_count": 13,
+      "asset_count": 14,
       "assets": [
         "assets/BATTER_S1_001__NC_000913.2.fna",
         "assets/BATTER_S1_001__NC_000913.2.fna.fai",
@@ -17,8 +17,9 @@
         "assets/BATTER_S1_001__ecoli_MG1655_NC_000913_2.ix",
         "assets/BATTER_S1_001__ecoli_MG1655_NC_000913_2.ixx",
         "assets/BATTER_S1_001__ecoli_MG1655_NC_000913_2_meta.json",
-        "assets/BATTER_S1_001__experimental_3prime_candidates.forward.browser.bed",
-        "assets/BATTER_S1_001__experimental_3prime_candidates.reverse.browser.bed",
+        "assets/BATTER_S1_001__ecoli_experimental_3prime_signal.forward.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_001__ecoli_experimental_3prime_signal.reverse.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_001__ecoli_geneproximal.combined.browser.gff3",
         "assets/BATTER_S1_001__experimental_3prime_geneproximal_candidates.forward.browser.bed",
         "assets/BATTER_S1_001__experimental_3prime_geneproximal_candidates.reverse.browser.bed",
         "assets/BATTER_S1_001__experimental_3prime_signal.forward.bw",
@@ -28,7 +29,7 @@
     },
     "BATTER_S1_003": {
       "config": "BATTER_S1_003.config.json",
-      "asset_count": 8,
+      "asset_count": 11,
       "assets": [
         "assets/BATTER_S1_003__NC_000964.3.fna",
         "assets/BATTER_S1_003__NC_000964.3.fna.fai",
@@ -37,13 +38,16 @@
         "assets/BATTER_S1_003__bsub_experimental_3prime_geneproximal_candidates.forward.browser.bed",
         "assets/BATTER_S1_003__bsub_experimental_3prime_geneproximal_candidates.reverse.browser.bed",
         "assets/BATTER_S1_003__bsub_experimental_3prime_signal.forward.bw",
-        "assets/BATTER_S1_003__bsub_experimental_3prime_signal.reverse.bw"
+        "assets/BATTER_S1_003__bsub_experimental_3prime_signal.forward.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_003__bsub_experimental_3prime_signal.reverse.bw",
+        "assets/BATTER_S1_003__bsub_experimental_3prime_signal.reverse.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_003__bsub_geneproximal.combined.browser.gff3"
       ],
-      "track_count": 5
+      "track_count": 7
     },
     "BATTER_S1_004": {
       "config": "BATTER_S1_004.config.json",
-      "asset_count": 8,
+      "asset_count": 11,
       "assets": [
         "assets/BATTER_S1_004__CP001340.1.fna",
         "assets/BATTER_S1_004__CP001340.1.fna.fai",
@@ -52,16 +56,22 @@
         "assets/BATTER_S1_004__ccre_experimental_3prime_geneproximal_candidates.forward.browser.bed",
         "assets/BATTER_S1_004__ccre_experimental_3prime_geneproximal_candidates.reverse.browser.bed",
         "assets/BATTER_S1_004__ccre_experimental_3prime_signal.forward.bw",
-        "assets/BATTER_S1_004__ccre_experimental_3prime_signal.reverse.bw"
+        "assets/BATTER_S1_004__ccre_experimental_3prime_signal.forward.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_004__ccre_experimental_3prime_signal.reverse.bw",
+        "assets/BATTER_S1_004__ccre_experimental_3prime_signal.reverse.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_004__ccre_geneproximal.combined.browser.gff3"
       ],
-      "track_count": 5
+      "track_count": 7
     },
     "BATTER_S1_005": {
       "config": "BATTER_S1_005.config.json",
-      "asset_count": 8,
+      "asset_count": 11,
       "assets": [
         "assets/BATTER_S1_005__vnat_experimental_3prime_signal.forward.bw",
+        "assets/BATTER_S1_005__vnat_experimental_3prime_signal.forward.signed-log10-ui-v4.bw",
         "assets/BATTER_S1_005__vnat_experimental_3prime_signal.reverse.bw",
+        "assets/BATTER_S1_005__vnat_experimental_3prime_signal.reverse.signed-log10-ui-v4.bw",
+        "assets/BATTER_S1_005__vnat_geneproximal.combined.browser.gff3",
         "assets/BATTER_S1_005__vnat_geneproximal.forward.browser.bed",
         "assets/BATTER_S1_005__vnat_geneproximal.reverse.browser.bed",
         "assets/BATTER_S1_005__vnat_genes.gff3.gz",
@@ -69,7 +79,7 @@
         "assets/BATTER_S1_005__vnat_reference.fna",
         "assets/BATTER_S1_005__vnat_reference.fna.fai"
       ],
-      "track_count": 5
+      "track_count": 7
     },
     "BATTER_S1_006": {
       "config": "BATTER_S1_006.config.json",

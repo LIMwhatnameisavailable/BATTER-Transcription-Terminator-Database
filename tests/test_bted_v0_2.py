@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -121,12 +122,14 @@ class TestBtedV020Release(unittest.TestCase):
 
     def test_static_catalog_groups_22_sources_into_20_assemblies(self) -> None:
         catalog = json.loads((REPO_ROOT / "site/data/catalog.json").read_text(encoding="utf-8"))
+        self.assertEqual(catalog["language"], "en")
         self.assertEqual(len(catalog["sources"]), 22)
         self.assertEqual(len(catalog["assemblies"]), 20)
         self.assertEqual(sum(bool(row["has_jbrowse"]) for row in catalog["sources"]), 21)
         self.assertEqual(len(list((REPO_ROOT / "site/records").glob("BATTER_S1_*.html"))), 22)
         self.assertEqual(len(list((REPO_ROOT / "site/assemblies").glob("GCF_*.html"))), 20)
         assemblies = {row["assembly"]: row for row in catalog["assemblies"]}
+        self.assertTrue(all(row["evidence_classes"] for row in assemblies.values()))
         self.assertEqual(
             assemblies["GCF_000739105.1"]["source_ids"],
             ["BATTER_S1_007", "BATTER_S1_013"],
@@ -149,6 +152,31 @@ class TestBtedV020Release(unittest.TestCase):
         s1_002_page = (REPO_ROOT / "site/records/BATTER_S1_002.html").read_text(encoding="utf-8")
         self.assertIn("audit_only", s1_002_page)
         self.assertNotIn("BATTER_S1_002/endpoints.bed", s1_002_page)
+
+        genomes_page = (REPO_ROOT / "site/sources.html").read_text(encoding="utf-8")
+        for heading in ("Genome", "Experimental data", "Evidence", "3′ ends", "Access"):
+            self.assertIn(heading, genomes_page)
+        self.assertIn("data-select-visible", genomes_page)
+        self.assertEqual(genomes_page.count("data-download-choice"), 20)
+        self.assertNotIn("Assembly / sources", genomes_page)
+        self.assertNotIn("<th>Tracks</th>", genomes_page)
+
+    def test_site_is_english_only_and_links_raw_accessions(self) -> None:
+        cjk = re.compile(r"[\u3400-\u9fff]")
+        for path in list((REPO_ROOT / "site").glob("*.html")) + list((REPO_ROOT / "site/records").glob("*.html")) + list((REPO_ROOT / "site/assemblies").glob("*.html")):
+            self.assertIsNone(cjk.search(path.read_text(encoding="utf-8")), str(path))
+
+        manifests = {
+            path.stem: json.loads(path.read_text(encoding="utf-8"))
+            for path in (REPO_ROOT / "data/registry/manifests").glob("BATTER_S1_*.json")
+        }
+        for source_id, manifest in manifests.items():
+            page = (REPO_ROOT / f"site/records/{source_id}.html").read_text(encoding="utf-8")
+            accessions = [item for item in re.split(r"[;,\s]+", manifest["raw_data_accessions"]) if item]
+            for accession in accessions:
+                self.assertIn(f'data-accession="{accession}"', page, f"{source_id}: {accession}")
+                self.assertIn(f"<code>{accession}</code>", page, f"{source_id}: {accession}")
+            self.assertIn("Assembly accession", page)
 
     def test_assembly_download_packages_preserve_source_provenance(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -194,6 +222,47 @@ class TestBtedV020Release(unittest.TestCase):
         for assembly, entry in catalog["assemblies"].items():
             config = json.loads((root / entry["config"]).read_text(encoding="utf-8"))
             self.assertEqual(len(config["defaultSession"]["views"][0]["tracks"]), 3, assembly)
+
+    def test_rendseq_sources_use_compact_strand_aware_default_views(self) -> None:
+        root = REPO_ROOT / "data/public/v0.2.0/jbrowse-config-overlays"
+        for source_id in ("BATTER_S1_001", "BATTER_S1_003", "BATTER_S1_004", "BATTER_S1_005"):
+            config = json.loads((root / f"{source_id}.config.json").read_text(encoding="utf-8"))
+            tracks = config["tracks"]
+            self.assertEqual(
+                [track["type"] for track in tracks[:3]],
+                ["FeatureTrack", "MultiQuantitativeTrack", "FeatureTrack"],
+                source_id,
+            )
+            self.assertIn("blue + above zero", tracks[1]["name"])
+            self.assertIn("orange − below zero", tracks[1]["name"])
+            self.assertIn("blue → + strand", tracks[2]["name"])
+            self.assertIn("orange ← − strand", tracks[2]["name"])
+            self.assertEqual(
+                [adapter["source"] for adapter in tracks[1]["adapter"]["subadapters"]],
+                ["+", "-"],
+            )
+            self.assertTrue(all(
+                adapter["bigWigLocation"]["uri"].endswith("signed-log10-ui-v4.bw")
+                for adapter in tracks[1]["adapter"]["subadapters"]
+            ))
+            self.assertEqual(tracks[2]["adapter"]["type"], "Gff3Adapter")
+            self.assertTrue(tracks[2]["adapter"]["gffLocation"]["uri"].endswith(".gff3"))
+            self.assertIn("raw 3-prime-end signal support", tracks[2]["metadata"]["score_interpretation"])
+            self.assertEqual(
+                tracks[1]["metadata"]["display_transform"],
+                "sign(strand) * log10(1 + raw_signal)",
+            )
+            default_ids = [
+                track["configuration"]
+                for track in config["defaultSession"]["views"][0]["tracks"]
+            ]
+            self.assertEqual(default_ids, [track["trackId"] for track in tracks[:3]], source_id)
+            self.assertTrue(all("Full evidence view" in track["category"] for track in tracks[3:]))
+
+        s1_003_page = (REPO_ROOT / "site/records/BATTER_S1_003.html").read_text(encoding="utf-8")
+        self.assertIn("Read both strands in one compact view", s1_003_page)
+        self.assertIn("values below zero are a display convention", s1_003_page)
+        self.assertIn("Click a candidate for details", s1_003_page)
 
     def test_release_and_site_validators_pass(self) -> None:
         for command in (

@@ -66,3 +66,7 @@ python3 scripts/validate_jbrowse_release.py dist/BTED-v0.2.0-jbrowse
 - 原始 WIG、出版商工作簿和参考基因组不进入 Git；应从 GEO/论文和 NCBI 获取；
 - v0.2.0 的抽查是确定性的数据库工程核查，不替代人工逐位点解释；
 - 来源特异字段若未来确认可再发布，应在新的版本中恢复，不能覆盖当前许可记录。
+
+## 2026-08-14 浏览器展示更新
+
+本次仅更新 JBrowse display layer：正负链 signed-log 信号合并显示，默认区域位于 `CP009977.1` 且确定性包含两种 strand；候选以富属性 GFF3 展示并可点击追溯稳定 ID、1-based 坐标、raw support 与 `called_endpoint` 警告。`CP009977.1`/`CP009978.1` 双 contig、标准 BED、原始 BigWig和证据解释均未改变；发布校验仍禁止跨 contig 匹配。

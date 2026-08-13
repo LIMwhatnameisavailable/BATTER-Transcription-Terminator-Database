@@ -41,7 +41,7 @@ FORBIDDEN_EXTENSIONS = {
 # expected under ``jbrowse/`` after the versioned asset is unpacked.
 ALLOWED_JBROWSE_SUFFIXES = {
     ".html", ".css", ".js", ".json", ".txt", ".ico",
-    ".fna", ".fai", ".bed", ".bw", ".gff3.gz", ".tbi", ".ix", ".ixx",
+    ".fna", ".fai", ".bed", ".bw", ".gff3", ".gff3.gz", ".tbi", ".ix", ".ixx",
 }
 ALLOWED_DOWNLOAD_SUFFIXES = {".tsv", ".bed", ".json", ".txt"}
 

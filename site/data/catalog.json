@@ -1,5 +1,6 @@
 {
   "release_version": "v0.2.0",
+  "language": "en",
   "sources": [
     {
       "source_id": "BATTER_S1_001",
@@ -11,6 +12,10 @@
       "evidence_class": "curated_record",
       "release_status": "published_standardized",
       "record_count": 607,
+      "raw_data_accessions": [
+        "GSE95211"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE95211",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_001.html"
     },
@@ -24,6 +29,10 @@
       "evidence_class": "audit_only",
       "release_status": "audit_only",
       "record_count": 0,
+      "raw_data_accessions": [
+        "E-MTAB-12429"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-12429",
       "has_jbrowse": false,
       "record_url": "records/BATTER_S1_002.html"
     },
@@ -37,6 +46,10 @@
       "evidence_class": "curated_record",
       "release_status": "published_standardized",
       "record_count": 1414,
+      "raw_data_accessions": [
+        "GSE95211"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE95211",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_003.html"
     },
@@ -50,6 +63,10 @@
       "evidence_class": "curated_record",
       "release_status": "published_standardized",
       "record_count": 337,
+      "raw_data_accessions": [
+        "GSE95211"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE95211",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_004.html"
     },
@@ -63,6 +80,10 @@
       "evidence_class": "curated_record",
       "release_status": "published_standardized",
       "record_count": 1154,
+      "raw_data_accessions": [
+        "GSE95211"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE95211",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_005.html"
     },
@@ -76,6 +97,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1864,
+      "raw_data_accessions": [
+        "SRP136114"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP136114",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_006.html"
     },
@@ -89,6 +114,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1640,
+      "raw_data_accessions": [
+        "PRJEB31507"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31507",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_007.html"
     },
@@ -102,6 +131,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1965,
+      "raw_data_accessions": [
+        "PRJEB31965"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31965",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_008.html"
     },
@@ -115,6 +148,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 2091,
+      "raw_data_accessions": [
+        "GSE139939"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE139939",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_009.html"
     },
@@ -128,6 +165,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1159,
+      "raw_data_accessions": [
+        "SRP158023"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP158023",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_010.html"
     },
@@ -141,6 +182,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 2024,
+      "raw_data_accessions": [
+        "PRJEB40918"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB40918",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_011.html"
     },
@@ -154,6 +199,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1308,
+      "raw_data_accessions": [
+        "PRJEB40918"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB40918",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_012.html"
     },
@@ -167,6 +216,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1208,
+      "raw_data_accessions": [
+        "PRJEB31507"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31507",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_013.html"
     },
@@ -180,6 +233,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1283,
+      "raw_data_accessions": [
+        "PRJEB36379"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB36379",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_014.html"
     },
@@ -193,6 +250,11 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1140,
+      "raw_data_accessions": [
+        "SRX6937123",
+        "SRX6937124"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRX6937123%20OR%20SRX6937124",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_015.html"
     },
@@ -206,6 +268,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 870,
+      "raw_data_accessions": [
+        "PRJEB36379"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB36379",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_016.html"
     },
@@ -219,6 +285,11 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1427,
+      "raw_data_accessions": [
+        "GSE128216",
+        "GSE138325"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128216",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_017.html"
     },
@@ -232,6 +303,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 487,
+      "raw_data_accessions": [
+        "PRJNA629670"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA629670",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_018.html"
     },
@@ -245,6 +320,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 784,
+      "raw_data_accessions": [
+        "PRJNA666973"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA666973",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_019.html"
     },
@@ -258,6 +337,14 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1165,
+      "raw_data_accessions": [
+        "E-MTAB-10482",
+        "E-MTAB-541",
+        "E-MTAB-7650",
+        "E-MTAB-9075",
+        "GSE94713"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-10482",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_020.html"
     },
@@ -271,6 +358,14 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 1905,
+      "raw_data_accessions": [
+        "GSE222084",
+        "GSE222085",
+        "GSE222086",
+        "GSE222087",
+        "GSE222088"
+      ],
+      "raw_data_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE222084",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_021.html"
     },
@@ -284,6 +379,10 @@
       "evidence_class": "author_called_endpoint",
       "release_status": "published_standardized",
       "record_count": 2567,
+      "raw_data_accessions": [
+        "E-MTAB-11753"
+      ],
+      "raw_data_url": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-11753",
       "has_jbrowse": true,
       "record_url": "records/BATTER_S1_022.html"
     }
@@ -291,6 +390,7 @@
   "assemblies": [
     {
       "assembly": "GCF_000005845.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000005845.1/",
       "species": [
         "Escherichia coli str. K-12 substr. MG1655"
       ],
@@ -306,12 +406,16 @@
       "assays": [
         "Rend-seq"
       ],
+      "evidence_classes": [
+        "curated_record"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_001.config.json",
       "page_url": "assemblies/GCF_000005845.1.html"
     },
     {
       "assembly": "GCF_000005845.2",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000005845.2/",
       "species": [
         "Escherichia coli str. K-12 substr. MG1655"
       ],
@@ -327,12 +431,16 @@
       "assays": [
         "RNAtag-seq / TRS"
       ],
+      "evidence_classes": [
+        "audit_only"
+      ],
       "status": "audit_only",
       "browser_config": null,
       "page_url": "assemblies/GCF_000005845.2.html"
     },
     {
       "assembly": "GCF_000009045.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000009045.1/",
       "species": [
         "Bacillus subtilis subsp. subtilis str. 168"
       ],
@@ -348,12 +456,16 @@
       "assays": [
         "Rend-seq"
       ],
+      "evidence_classes": [
+        "curated_record"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_003.config.json",
       "page_url": "assemblies/GCF_000009045.1.html"
     },
     {
       "assembly": "GCF_000022005.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000022005.1/",
       "species": [
         "Caulobacter vibrioides NA1000"
       ],
@@ -369,12 +481,16 @@
       "assays": [
         "Rend-seq"
       ],
+      "evidence_classes": [
+        "curated_record"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_004.config.json",
       "page_url": "assemblies/GCF_000022005.1.html"
     },
     {
       "assembly": "GCF_001456255.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_001456255.1/",
       "species": [
         "Vibrio natriegens NBRC 15636"
       ],
@@ -390,12 +506,16 @@
       "assays": [
         "Rend-seq"
       ],
+      "evidence_classes": [
+        "curated_record"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_005.config.json",
       "page_url": "assemblies/GCF_001456255.1.html"
     },
     {
       "assembly": "GCF_000006885.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000006885.1/",
       "species": [
         "Streptococcus pneumoniae TIGR4"
       ],
@@ -411,12 +531,16 @@
       "assays": [
         "RNA-seq / 3′ end mapping"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_006.config.json",
       "page_url": "assemblies/GCF_000006885.1.html"
     },
     {
       "assembly": "GCF_000739105.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000739105.1/",
       "species": [
         "Streptomyces lividans TK24"
       ],
@@ -434,12 +558,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "assemblies/GCF_000739105.1.config.json",
       "page_url": "assemblies/GCF_000739105.1.html"
     },
     {
       "assembly": "GCF_000006765.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000006765.1/",
       "species": [
         "Pseudomonas aeruginosa PAO1"
       ],
@@ -455,12 +583,16 @@
       "assays": [
         "RNA-seq / Term-seq-related"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_008.config.json",
       "page_url": "assemblies/GCF_000006765.1.html"
     },
     {
       "assembly": "GCF_003054575.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_003054575.1/",
       "species": [
         "Zymomonas mobilis subsp. mobilis ZM4"
       ],
@@ -476,12 +608,16 @@
       "assays": [
         "Term-seq / SMRT-Cappable-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_009.config.json",
       "page_url": "assemblies/GCF_003054575.1.html"
     },
     {
       "assembly": "GCF_000009765.2",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000009765.2/",
       "species": [
         "Streptomyces avermitilis MA-4680"
       ],
@@ -497,12 +633,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_010.config.json",
       "page_url": "assemblies/GCF_000009765.2.html"
     },
     {
       "assembly": "GCF_000010605.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000010605.1/",
       "species": [
         "Streptomyces griseus subsp. griseus NBRC 13350"
       ],
@@ -518,12 +658,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_011.config.json",
       "page_url": "assemblies/GCF_000010605.1.html"
     },
     {
       "assembly": "GCF_000203835.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000203835.1/",
       "species": [
         "Streptomyces coelicolor A3(2)"
       ],
@@ -539,12 +683,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_012.config.json",
       "page_url": "assemblies/GCF_000203835.1.html"
     },
     {
       "assembly": "GCF_003932715.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_003932715.1/",
       "species": [
         "Streptomyces tsukubensis"
       ],
@@ -560,12 +708,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_014.config.json",
       "page_url": "assemblies/GCF_003932715.1.html"
     },
     {
       "assembly": "GCF_005519465.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_005519465.1/",
       "species": [
         "Streptomyces clavuligerus"
       ],
@@ -583,12 +735,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "assemblies/GCF_005519465.1.config.json",
       "page_url": "assemblies/GCF_005519465.1.html"
     },
     {
       "assembly": "GCF_015710995.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_015710995.1/",
       "species": [
         "Streptomyces venezuelae"
       ],
@@ -604,12 +760,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_016.config.json",
       "page_url": "assemblies/GCF_015710995.1.html"
     },
     {
       "assembly": "GCF_018282115.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_018282115.1/",
       "species": [
         "Synechocystis sp. PCC 7338"
       ],
@@ -625,12 +785,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_018.config.json",
       "page_url": "assemblies/GCF_018282115.1.html"
     },
     {
       "assembly": "GCF_000009725.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000009725.1/",
       "species": [
         "Synechocystis sp. PCC 6803"
       ],
@@ -646,12 +810,16 @@
       "assays": [
         "Term-seq / dRNA-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_019.config.json",
       "page_url": "assemblies/GCF_000009725.1.html"
     },
     {
       "assembly": "GCF_000147055.1",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000147055.1/",
       "species": [
         "Dickeya dadantii 3937"
       ],
@@ -667,12 +835,16 @@
       "assays": [
         "RNA-seq / transcript boundary mapping"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_020.config.json",
       "page_url": "assemblies/GCF_000147055.1.html"
     },
     {
       "assembly": "GCF_000008685.2",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000008685.2/",
       "species": [
         "Borreliella burgdorferi B31"
       ],
@@ -688,12 +860,16 @@
       "assays": [
         "RNAtag-seq / Term-seq"
       ],
+      "evidence_classes": [
+        "author_called_endpoint"
+      ],
       "status": "published",
       "browser_config": "BATTER_S1_021.config.json",
       "page_url": "assemblies/GCF_000008685.2.html"
     },
     {
       "assembly": "GCF_000195955.2",
+      "assembly_url": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000195955.2/",
       "species": [
         "Mycobacterium tuberculosis H37Rv"
       ],
@@ -708,6 +884,9 @@
       ],
       "assays": [
         "Term-seq"
+      ],
+      "evidence_classes": [
+        "author_called_endpoint"
       ],
       "status": "published",
       "browser_config": "BATTER_S1_022.config.json",
