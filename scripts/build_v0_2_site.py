@@ -19,6 +19,7 @@ REGISTRY_PATH = REPO_ROOT / "data/registry/batter_s1_source_registry.tsv"
 RECORD_ROOT = REPO_ROOT / "data/public/v0.2.0/records"
 REPOSITORY_URL = "https://github.com/seu-yolo/BATTER-Transcription-Terminator-Database"
 JBROWSE_CONFIG_VERSION = "20260814-strand-ui-v4"
+SITE_ASSET_VERSION = "20260816-user-search-v1"
 ACCESSION_RANGE_PILOT = "GCF_000739105.1"
 
 EVIDENCE_LABELS = {
@@ -35,6 +36,14 @@ def esc(value: object) -> str:
 def bi(en: str, _future_translation: str = "") -> str:
     """Emit English only while retaining a stable hook for future translations."""
     return f'<span class="i18n" data-i18n-key="{esc(en)}">{esc(en)}</span>'
+
+
+def local_text(en: str, zh: str) -> str:
+    """Emit text that can be switched client-side on the bilingual search page."""
+    return (
+        f'<span data-lang-en="{esc(en)}" data-lang-zh="{esc(zh)}">'
+        f"{esc(en)}</span>"
+    )
 
 
 def assembly_accession_url(assembly: str) -> str:
@@ -72,7 +81,7 @@ def accession_links(accessions: object, fallback_url: str = "", compact: bool = 
     return f'<ul class="{class_name}">{"".join(items)}</ul>' if items else "—"
 
 
-def nav(current: str, depth: int = 0) -> str:
+def nav(current: str, depth: int = 0, bilingual: bool = False) -> str:
     prefix = "../" * depth
     items = [
         ("index", "index.html", "Home", "首页"),
@@ -82,13 +91,29 @@ def nav(current: str, depth: int = 0) -> str:
         ("about", "about.html", "About", "关于"),
     ]
     links = "".join(
-        f'<a href="{prefix}{path}"' + (' aria-current="page"' if key == current else "") + f'>{bi(en, zh)}</a>'
+        f'<a href="{prefix}{path}"' + (' aria-current="page"' if key == current else "")
+        + f'>{local_text(en, zh) if bilingual else bi(en, zh)}</a>'
         for key, path, en, zh in items
     )
+    language_switch = ""
+    header_class = "header-inner"
+    brand_name = "Bacterial Transcript 3′ End Database"
+    if bilingual:
+        header_class += " bilingual-header"
+        brand_name = local_text(
+            "Bacterial Transcript 3′ End Database",
+            "细菌转录本 3′ 端数据库",
+        )
+        language_switch = """
+  <div class="language-switch" role="group" aria-label="Language / 语言">
+    <button type="button" data-language-choice="en" aria-pressed="true">EN</button>
+    <button type="button" data-language-choice="zh" aria-pressed="false">中文</button>
+  </div>"""
+    navigation_label = "Primary navigation / 主导航" if bilingual else "Primary navigation"
     return f"""
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="{prefix}index.html"><span class="brand-mark">BTED</span><span class="brand-name">Bacterial Transcript 3′ End Database</span></a>
-  <nav class="site-nav" aria-label="Primary navigation">{links}</nav>
+<header class="site-header"><div class="{header_class}">
+  <a class="brand" href="{prefix}index.html"><span class="brand-mark">BTED</span><span class="brand-name">{brand_name}</span></a>
+  <nav class="site-nav" aria-label="{navigation_label}">{links}</nav>{language_switch}
 </div></header>"""
 
 
@@ -99,14 +124,28 @@ def page(
     depth: int = 0,
     description: str = "BTED v0.2.0",
     extra_scripts: str = "",
+    bilingual: bool = False,
 ) -> str:
     prefix = "../" * depth
+    body_attribute = ' data-bilingual-page="true"' if bilingual else ""
+    style_version = f"?v={SITE_ASSET_VERSION}" if bilingual else ""
+    coverage = (
+        local_text(
+            "20 assemblies · 22 source tracks · 28,399 records",
+            "20 个参考组装 · 22 个来源轨道 · 28,399 条记录",
+        )
+        if bilingual
+        else bi(
+            "20 assemblies · 22 source tracks · 28,399 records",
+            "20 个参考组装 · 22 个来源 track · 28,399 条记录",
+        )
+    )
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{esc(description)}"><title>{esc(title)} · BTED</title>
-<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{prefix}css/style.css"></head>
-<body>{nav(current, depth)}{content}
-<footer class="site-footer"><div class="footer-inner"><span>BTED v0.2.0</span><span>{bi('20 assemblies · 22 source tracks · 28,399 records', '20 个参考组装 · 22 个来源 track · 28,399 条记录')}</span><a href="{REPOSITORY_URL}">GitHub</a></div></footer>
+<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{prefix}css/style.css{style_version}"></head>
+<body{body_attribute}>{nav(current, depth, bilingual)}{content}
+<footer class="site-footer"><div class="footer-inner"><span>BTED v0.2.0</span><span>{coverage}</span><a href="{REPOSITORY_URL}">GitHub</a></div></footer>
 <script src="{prefix}assets/site.js"></script>{extra_scripts}</body></html>"""
 
 
@@ -204,7 +243,7 @@ def assembly_page(assembly: str, records: list[dict[str, object]]) -> str:
         if browser_config else f'<span class="button disabled">{bi("Browser unavailable", "浏览器不可用")}</span>'
     )
     pilot_button = (
-        f'<a class="button edge-button" href="../accession-range-demo.html?accession={quote(assembly)}">Try accession-loading prototype</a>'
+        f'<a class="button edge-button" href="../accession-range-demo.html?accession={quote(assembly)}">Find this genome by accession</a>'
         if assembly == ACCESSION_RANGE_PILOT else ""
     )
     browser_actions = f'<div class="assembly-actions">{browser}{pilot_button}</div>'
@@ -224,7 +263,7 @@ def assembly_page(assembly: str, records: list[dict[str, object]]) -> str:
     )
     pilot_note = (
         """
-  <section class="panel edge-prototype-callout"><div><p class="eyebrow">Architecture pilot</p><h2>One assembly object, two independent experiment tracks</h2><p>This pilot resolves the accession through an API and serves checksum-verified FASTA, GFF3 and BED objects through a same-origin byte-Range endpoint. The endpoint records and evidence labels are unchanged.</p></div><a href="../accession-range-demo.html?accession=GCF_000739105.1">Inspect the request flow →</a></section>"""
+  <section class="panel edge-prototype-callout"><div><p class="eyebrow">Quick genome search</p><h2>Two experimental studies are available for this assembly</h2><p>Search the assembly accession to see both studies, open their independent tracks, and download analysis-ready coordinates.</p></div><a href="../accession-range-demo.html?accession=GCF_000739105.1">Search this genome →</a></section>"""
         if assembly == ACCESSION_RANGE_PILOT else ""
     )
     content = f"""
@@ -341,7 +380,7 @@ def main() -> int:
             if item["browser_config"] else ""
         )
         edge_demo = (
-            f'<a class="row-action edge" href="accession-range-demo.html?accession={quote(item["assembly"])}">API pilot</a>'
+            f'<a class="row-action edge" href="accession-range-demo.html?accession={quote(item["assembly"])}">Quick search</a>'
             if item["assembly"] == ACCESSION_RANGE_PILOT else ""
         )
         sources = " ".join(item["source_ids"])
@@ -385,26 +424,26 @@ def main() -> int:
     about_content = f"""<main class="page-shell prose"><div class="page-heading"><div><p class="eyebrow">BTED</p><h1>{bi('About the database', '关于数据库')}</h1></div></div><section><h2>{bi('Purpose', '目的')}</h2><p>{bi('BTED makes public bacterial transcript 3′-end datasets easier to find, compare, download, and inspect in a genome browser.', 'BTED 让公开的细菌转录 3′ 端数据更容易检索、比较、下载和在基因组浏览器中查看。')}</p></section><section><h2>{bi('Current scope', '当前范围')}</h2><p>{bi('The v0.2.0 demonstration covers 22 sources listed in BATTER Table S1: 21 endpoint datasets and one metadata-only audit record.', 'v0.2.0 演示版覆盖 BATTER Table S1 的 22 个来源：21 个端点数据集和 1 个仅元数据审计条目。')}</p></section><section><h2>{bi('Repository', '项目仓库')}</h2><p><a href="{REPOSITORY_URL}">{REPOSITORY_URL}</a></p></section></main>"""
     (SITE_ROOT / "about.html").write_text(page("About", "about", about_content), encoding="utf-8")
 
-    accession_range_content = """
+    accession_range_content = f"""
 <main class="page-shell edge-demo" data-accession-demo data-default-accession="GCF_000739105.1">
-  <nav class="breadcrumbs"><a href="sources.html">Genomes</a><span>/</span><span>Accession-loading prototype</span></nav>
-  <div class="record-heading"><div><p class="eyebrow">Architecture prototype · local object backend</p><h1>Load genome data by accession</h1><p class="record-title">This pilot demonstrates the proposed D1 lookup → same-origin Range proxy → object storage flow without changing BTED endpoint data.</p></div><span class="badge badge-pilot">Experimental</span></div>
-  <section class="edge-flow" aria-label="Remote data request flow"><div><strong>1</strong><span>Query accession</span><code>/api/assemblies/{accession}</code></div><i>→</i><div><strong>2</strong><span>Resolve metadata</span><code>D1-compatible registry</code></div><i>→</i><div><strong>3</strong><span>Request byte range</span><code>/api/remote-data/{asset}</code></div><i>→</i><div><strong>4</strong><span>Read object</span><code>local now · Hugging Face later</code></div></section>
-  <section class="panel edge-query-panel"><form data-accession-form><label for="edge-accession">Assembly accession</label><div><input id="edge-accession" name="accession" value="GCF_000739105.1" spellcheck="false"><button type="submit" class="button primary">Resolve accession</button></div></form><p class="edge-query-status" data-edge-status aria-live="polite">Ready to query the pilot registry.</p></section>
+  <nav class="breadcrumbs"><a href="sources.html">{local_text('Genomes', '基因组')}</a><span>/</span><span>{local_text('Search by accession', '按登录号检索')}</span></nav>
+  <div class="record-heading edge-search-heading"><div><p class="eyebrow">{local_text('Genome search', '基因组检索')}</p><h1>{local_text('Find transcript 3′-end data', '查找转录本 3′ 端数据')}</h1><p class="record-title">{local_text('Enter a reference assembly accession to view its available studies, endpoint records, downloads, and genome browser tracks.', '输入参考基因组组装登录号，查看可用研究、端点记录、下载文件和基因组浏览器轨道。')}</p></div><span class="badge badge-pilot">Beta</span></div>
+  <section class="panel edge-query-panel"><form data-accession-form><label for="edge-accession">{local_text('Reference assembly accession', '参考基因组组装登录号')}</label><div><input id="edge-accession" name="accession" value="GCF_000739105.1" spellcheck="false" autocomplete="off" data-placeholder-en="For example: GCF_000739105.1" data-placeholder-zh="例如：GCF_000739105.1" placeholder="For example: GCF_000739105.1"><button type="submit" class="button primary">{local_text('Search', '检索')}</button></div></form><p class="edge-query-status" data-edge-status aria-live="polite">{local_text('Enter an accession to begin.', '输入登录号开始检索。')}</p></section>
   <section data-edge-results hidden>
-    <div class="metric-grid edge-metrics"><div class="metric"><span>Assembly</span><strong data-edge-assembly>—</strong></div><div class="metric"><span>Reference</span><strong data-edge-reference>—</strong></div><div class="metric"><span>Experiment tracks</span><strong data-edge-tracks>—</strong></div><div class="metric"><span>3′-end records</span><strong data-edge-records>—</strong></div></div>
-    <section class="panel edge-summary"><div><p class="eyebrow">Resolved at request time</p><h2 data-edge-organism>—</h2><p><span data-edge-sources>—</span> remain independent tracks on one exact reference assembly. One duplicated reference/annotation copy is avoided in this pilot.</p></div><div class="assembly-actions"><a class="button primary" data-edge-jbrowse href="#">Open API-loaded JBrowse</a><button class="button" type="button" data-edge-range-test>Test 128-byte Range</button></div></section>
-    <p class="range-result" data-edge-range-result aria-live="polite"></p>
-    <section class="panel"><div class="panel-header"><div><p class="eyebrow">Resolved objects</p><h2>Files returned for this accession</h2></div><span class="browser-guide-hint" data-edge-delivery>—</span></div><div class="table-wrap"><table class="source-table edge-assets"><thead><tr><th>Role</th><th>Format</th><th>Size</th><th>Object path</th><th>Delivery</th></tr></thead><tbody data-edge-assets></tbody></table></div></section>
-    <section class="panel edge-boundary"><h2>What this prototype proves—and what it does not</h2><div><p><strong>Proves:</strong> accession lookup, one shared reference, independent source tracks, allowlisted object keys, byte-Range responses and dynamic JBrowse configuration.</p><p><strong>Not yet production:</strong> the objects are checksum-verified local files. Uploading them to Hugging Face and creating the real Cloudflare D1 database require a separate deployment decision.</p></div></section>
+    <div class="metric-grid edge-metrics"><div class="metric"><span>{local_text('Assembly', '参考组装')}</span><strong data-edge-assembly>—</strong></div><div class="metric"><span>{local_text('Chromosome / contig', '染色体 / contig')}</span><strong data-edge-reference>—</strong></div><div class="metric"><span>{local_text('Available studies', '可用研究')}</span><strong data-edge-tracks>—</strong></div><div class="metric"><span>{local_text('3′-end records', '3′ 端记录')}</span><strong data-edge-records>—</strong></div></div>
+    <section class="panel edge-summary"><div><p class="eyebrow">{local_text('Genome found', '已找到基因组')}</p><h2 data-edge-organism>—</h2><p data-edge-summary-note>—</p></div><div class="assembly-actions"><a class="button primary" data-edge-jbrowse href="#">{local_text('Open genome browser', '打开基因组浏览器')}</a><a class="button" data-edge-assembly-page href="#">{local_text('View genome details', '查看基因组详情')}</a></div></section>
+    <section class="panel edge-studies"><div class="panel-header"><div><p class="eyebrow">{local_text('Experimental datasets', '实验数据集')}</p><h2>{local_text('Studies available for this genome', '该基因组的可用研究')}</h2></div><span class="browser-guide-hint">{local_text('Studies remain separate tracks', '各研究保留为独立轨道')}</span></div><p class="section-note">{local_text('Rows from different papers are not merged into a consensus. Open the genome browser to compare them on the same reference coordinates.', '不同论文的记录不会合并为共识结果；可在同一参考坐标上打开基因组浏览器进行比较。')}</p><div class="table-wrap"><table class="source-table edge-study-table"><thead><tr><th>{local_text('Study', '研究')}</th><th>{local_text('Year', '年份')}</th><th>{local_text('Assay', '实验方法')}</th><th>{local_text('Evidence', '证据')}</th><th>{local_text('Records', '记录数')}</th><th>{local_text('Details', '详情')}</th></tr></thead><tbody data-edge-studies></tbody></table></div></section>
+    <section class="panel edge-downloads"><div><p class="eyebrow">{local_text('Download', '数据下载')}</p><h2>{local_text('Analysis-ready files', '可直接分析的文件')}</h2><p>{local_text('BED contains genomic coordinates for all endpoint tracks. Metadata records the papers, accessions, evidence classes, coordinate convention, and known limitations.', 'BED 包含所有端点轨道的基因组坐标；元数据记录论文、登录号、证据类别、坐标规则和已知限制。')}</p></div><div class="download-grid compact-downloads"><a class="download-card featured" data-edge-bed href="#"><strong>{local_text('Endpoint coordinates', '端点坐标')}</strong><code>endpoints.bed</code></a><a class="download-card" data-edge-metadata href="#"><strong>{local_text('Dataset metadata', '数据集元数据')}</strong><code>metadata.json</code></a></div></section>
+    <details class="service-note"><summary>{local_text('How does the genome browser load the data?', '基因组浏览器如何加载数据？')}</summary><p>{local_text('The browser requests only the genomic region you are viewing, so a genome can open quickly without downloading every file in advance. This delivery detail does not change the endpoint coordinates or evidence labels.', '浏览器只读取当前查看的基因组区间，因此不必预先下载全部文件即可快速打开；这种加载方式不会改变端点坐标或证据标签。')}</p></details>
   </section>
 </main>"""
     (SITE_ROOT / "accession-range-demo.html").write_text(
         page(
-            "Accession-loading prototype",
+            "Search genome data",
             "sources",
             accession_range_content,
-            extra_scripts='<script src="assets/accession-range-demo.js"></script>',
+            extra_scripts=f'<script src="assets/accession-range-demo.js?v={SITE_ASSET_VERSION}"></script>',
+            bilingual=True,
         ),
         encoding="utf-8",
     )

@@ -43,7 +43,7 @@ python3 scripts/stage_pages.py \
 python3 scripts/run_accession_range_demo.py --port 8016
 ```
 
-Open `http://127.0.0.1:8016/accession-range-demo.html`. The page performs a real accession lookup against the local registry, requests 128 bytes from the FASTA through the same-origin proxy, and constructs a JBrowse configuration at request time.
+Open `http://127.0.0.1:8016/accession-range-demo.html`. The bilingual user page searches the local registry by assembly accession, lists the available independent studies, and links to downloads and a dynamically constructed JBrowse view. D1, API routes, object paths, and Range diagnostics are intentionally kept out of the public-facing interface; the tests below verify those implementation details directly.
 
 The local object backend is intentional. It demonstrates and tests the browser/API contract without publishing data to an external service or requiring Cloudflare credentials.
 

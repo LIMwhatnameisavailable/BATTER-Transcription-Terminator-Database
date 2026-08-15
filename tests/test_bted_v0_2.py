@@ -161,9 +161,11 @@ class TestBtedV020Release(unittest.TestCase):
         self.assertNotIn("Assembly / sources", genomes_page)
         self.assertNotIn("<th>Tracks</th>", genomes_page)
 
-    def test_site_is_english_only_and_links_raw_accessions(self) -> None:
+    def test_core_site_is_english_first_and_links_raw_accessions(self) -> None:
         cjk = re.compile(r"[\u3400-\u9fff]")
         for path in list((REPO_ROOT / "site").glob("*.html")) + list((REPO_ROOT / "site/records").glob("*.html")) + list((REPO_ROOT / "site/assemblies").glob("*.html")):
+            if path.name == "accession-range-demo.html":
+                continue
             self.assertIsNone(cjk.search(path.read_text(encoding="utf-8")), str(path))
 
         manifests = {

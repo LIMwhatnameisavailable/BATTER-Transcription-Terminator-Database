@@ -1,10 +1,17 @@
 # BTED 当前交接
 
-**更新：** 2026-08-14
+**更新：** 2026-08-16
 
 **当前分支：** `feature/accession-range-prototype-v0.1`
 
-**当前里程碑：** 在 assembly-first 网站之上新增 `GCF_000739105.1` accession/Range 架构试点。页面、API、HTTP 206 和动态 JBrowse 已在本地完整跑通；真实 Cloudflare D1 与 Hugging Face 对象上传尚未授权或执行。
+**当前里程碑：** `GCF_000739105.1` accession/Range 架构试点已具备面向用户的双语检索页；页面、API、HTTP 206 和动态 JBrowse 均在本地跑通，真实 Cloudflare D1 与 Hugging Face 对象上传尚未授权或执行。
+
+## 2026-08-16 用户化双语检索页
+
+- 页面入口仍为 `http://127.0.0.1:8016/accession-range-demo.html`，但可见内容已从开发架构说明改为“检索—研究概览—浏览/下载”的科研用户流程。
+- 顶部 EN/中文按钮即时切换导航、表单、动态状态、统计、研究表、证据标签、下载区与页脚；选择写入 URL 和 localStorage。
+- 用户页不显示 D1、API route、对象存储路径或 Range 检查。技术实现仍保留在 `prototype/accession-range/`，自动测试仍直接验证 API 和 Range。
+- S1_007/013 分别展示 2019/2020、实验方法、证据类别、记录数和来源详情，继续保持独立 track。
 
 ## 2026-08-15 accession/Range 架构试点
 

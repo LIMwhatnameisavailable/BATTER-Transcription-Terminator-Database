@@ -34,7 +34,7 @@ async function findAssets(env, accession) {
 
 async function findTracks(env, accession) {
   const result = await env.BTED_DB.prepare(
-    "SELECT track_id, source_id, name, assay, evidence_class, record_count, asset_key, display_order FROM tracks WHERE assembly_accession = ? ORDER BY display_order",
+    "SELECT track_id, source_id, publication_year, pmid, record_url, name, assay, evidence_class, record_count, asset_key, display_order FROM tracks WHERE assembly_accession = ? ORDER BY display_order",
   ).bind(accession).all();
   return result.results || [];
 }

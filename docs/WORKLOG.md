@@ -1,5 +1,24 @@
 # 工作日志
 
+## 2026-08-16 —— accession 页面用户化与中英文切换
+
+**分支：** `feature/accession-range-prototype-v0.1`
+**范围：** accession 检索页面及其入口文案；没有修改端点坐标、BED、证据类别或记录数。
+
+### 完成内容
+
+1. 将原来的架构演示页改为科研用户任务流：输入 assembly accession → 查看基因组概况 → 查看独立研究 → 打开 JBrowse 或下载 BED/metadata。
+2. 从用户主界面移除编号架构图、D1、API route、对象路径和 128-byte Range 测试；底层 D1/Range 实现与测试仍保留在 `prototype/accession-range/`。
+3. 增加 EN/中文切换，覆盖页面导航、检索表单、状态消息、统计、研究表、证据标签、下载区和页脚，并通过 URL/localStorage 保留选择。
+4. S1_007/013 track 元数据补充发表年份、PMID 与站内来源详情链接；两项研究继续作为独立 `author_called_endpoint` 轨道展示。
+5. assembly 页和 Genomes 页入口改为 `Find this genome by accession / Quick search`，不再向普通用户显示 `API pilot / Architecture prototype`。
+
+### 验证
+
+- 浏览器实测英文与中文页面均返回 2 项研究、2,848 条记录，年份分别为 2019/2020；BED、metadata、来源详情和 JBrowse 链接均生成正确；
+- 页面可见文本中不再出现 D1、API route、对象路径或 Range 测试；
+- `python3 -m unittest -v tests/test_accession_range_prototype.py`：5/5 PASS；完整回归、站点验证见本次提交的最终测试记录。
+
 ## 2026-08-15 —— accession 查询与 Range 远程加载原型
 
 **分支：** `feature/accession-range-prototype-v0.1`

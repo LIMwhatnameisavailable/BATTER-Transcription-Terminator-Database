@@ -39,6 +39,11 @@ class TestAccessionRangePrototype(unittest.TestCase):
         self.assertEqual(assembly["record_count"], 2_848)
         self.assertEqual(len(assembly["reference_assets"]), 4)
         self.assertEqual(len(assembly["tracks"]), 2)
+        self.assertEqual(
+            [track["publication_year"] for track in assembly["tracks"]],
+            [2019, 2020],
+        )
+        self.assertTrue(all(track["record_url"].startswith("records/") for track in assembly["tracks"]))
         self.assertTrue(all(
             len(REGISTRY["assets"][asset_key].get("equivalent_source_assets", [])) == 2
             for asset_key in assembly["reference_assets"].values()
@@ -78,15 +83,22 @@ class TestAccessionRangePrototype(unittest.TestCase):
             with self.assertRaises(ValueError, msg=invalid):
                 parse_byte_range(invalid, 1_000)
 
-    def test_site_exposes_the_pilot_without_changing_evidence_language(self) -> None:
+    def test_site_exposes_a_user_facing_bilingual_search(self) -> None:
         page = (REPO_ROOT / "site/accession-range-demo.html").read_text(encoding="utf-8")
         assembly = (REPO_ROOT / "site/assemblies/GCF_000739105.1.html").read_text(encoding="utf-8")
         genomes = (REPO_ROOT / "site/sources.html").read_text(encoding="utf-8")
-        self.assertIn("D1 lookup", page)
-        self.assertIn("same-origin Range proxy", page)
+        self.assertIn("Find transcript 3′-end data", page)
+        self.assertIn("查找转录本 3′ 端数据", page)
+        self.assertIn('data-language-choice="en"', page)
+        self.assertIn('data-language-choice="zh"', page)
+        self.assertIn("Studies available for this genome", page)
+        self.assertNotIn("D1-compatible registry", page)
+        self.assertNotIn("Test 128-byte Range", page)
         self.assertIn("accession-range-demo.js", page)
-        self.assertIn("Try accession-loading prototype", assembly)
-        self.assertIn("API pilot", genomes)
+        self.assertIn("Find this genome by accession", assembly)
+        self.assertIn("Quick search", genomes)
+        self.assertNotIn("Architecture prototype", assembly)
+        self.assertNotIn("API pilot", genomes)
         self.assertNotIn("functionally validated terminator", page.lower())
 
 

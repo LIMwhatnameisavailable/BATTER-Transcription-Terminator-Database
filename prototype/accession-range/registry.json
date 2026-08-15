@@ -23,6 +23,9 @@
         {
           "track_id": "BATTER_S1_007_termseq_teps",
           "source_id": "BATTER_S1_007",
+          "publication_year": 2019,
+          "pmid": "31555254",
+          "record_url": "records/BATTER_S1_007.html",
           "name": "Author-called Term-seq TEPs (Lee 2019)",
           "assay": "Term-seq / dRNA-seq",
           "evidence_class": "author_called_endpoint",
@@ -32,6 +35,9 @@
         {
           "track_id": "BATTER_S1_013_termseq_tts",
           "source_id": "BATTER_S1_013",
+          "publication_year": 2020,
+          "pmid": "33319794",
+          "record_url": "records/BATTER_S1_013.html",
           "name": "Author-called Term-seq TTS (Lee 2020)",
           "assay": "Term-seq / dRNA-seq",
           "evidence_class": "author_called_endpoint",
