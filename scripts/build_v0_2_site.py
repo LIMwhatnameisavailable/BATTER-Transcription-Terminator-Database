@@ -19,6 +19,7 @@ REGISTRY_PATH = REPO_ROOT / "data/registry/batter_s1_source_registry.tsv"
 RECORD_ROOT = REPO_ROOT / "data/public/v0.2.0/records"
 REPOSITORY_URL = "https://github.com/seu-yolo/BATTER-Transcription-Terminator-Database"
 JBROWSE_CONFIG_VERSION = "20260814-strand-ui-v4"
+ACCESSION_RANGE_PILOT = "GCF_000739105.1"
 
 EVIDENCE_LABELS = {
     "author_called_endpoint": "Author-called experimental endpoint",
@@ -91,7 +92,14 @@ def nav(current: str, depth: int = 0) -> str:
 </div></header>"""
 
 
-def page(title: str, current: str, content: str, depth: int = 0, description: str = "BTED v0.2.0") -> str:
+def page(
+    title: str,
+    current: str,
+    content: str,
+    depth: int = 0,
+    description: str = "BTED v0.2.0",
+    extra_scripts: str = "",
+) -> str:
     prefix = "../" * depth
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -99,7 +107,7 @@ def page(title: str, current: str, content: str, depth: int = 0, description: st
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{prefix}css/style.css"></head>
 <body>{nav(current, depth)}{content}
 <footer class="site-footer"><div class="footer-inner"><span>BTED v0.2.0</span><span>{bi('20 assemblies · 22 source tracks · 28,399 records', '20 个参考组装 · 22 个来源 track · 28,399 条记录')}</span><a href="{REPOSITORY_URL}">GitHub</a></div></footer>
-<script src="{prefix}assets/site.js"></script></body></html>"""
+<script src="{prefix}assets/site.js"></script>{extra_scripts}</body></html>"""
 
 
 def external_link(url: str, label: str) -> str:
@@ -195,6 +203,11 @@ def assembly_page(assembly: str, records: list[dict[str, object]]) -> str:
         f'<a class="button primary" href="{jbrowse_href(browser_config, "../")}">{bi("Open genome browser", "打开基因组浏览器")}</a>'
         if browser_config else f'<span class="button disabled">{bi("Browser unavailable", "浏览器不可用")}</span>'
     )
+    pilot_button = (
+        f'<a class="button edge-button" href="../accession-range-demo.html?accession={quote(assembly)}">Try accession-loading prototype</a>'
+        if assembly == ACCESSION_RANGE_PILOT else ""
+    )
+    browser_actions = f'<div class="assembly-actions">{browser}{pilot_button}</div>'
     track_rows = []
     for record in records:
         source = record["source"]
@@ -209,12 +222,17 @@ def assembly_page(assembly: str, records: list[dict[str, object]]) -> str:
     browser_guide = browser_reading_guide(
         [str(record["source"]["assay_family"]) for record in records if record["has_jbrowse"]]
     )
+    pilot_note = (
+        """
+  <section class="panel edge-prototype-callout"><div><p class="eyebrow">Architecture pilot</p><h2>One assembly object, two independent experiment tracks</h2><p>This pilot resolves the accession through an API and serves checksum-verified FASTA, GFF3 and BED objects through a same-origin byte-Range endpoint. The endpoint records and evidence labels are unchanged.</p></div><a href="../accession-range-demo.html?accession=GCF_000739105.1">Inspect the request flow →</a></section>"""
+        if assembly == ACCESSION_RANGE_PILOT else ""
+    )
     content = f"""
 <main class="page-shell record-shell">
   <nav class="breadcrumbs"><a href="../sources.html">{bi('Genomes', '基因组')}</a><span>/</span><span>{esc(assembly)}</span></nav>
   <div class="record-heading"><div><p class="eyebrow">{bi('Reference assembly', '参考组装')}</p><h1>{esc(assembly)}</h1><p class="record-title"><em>{esc(' / '.join(organisms))}</em></p><p><a href="{assembly_accession_url(assembly)}" target="_blank" rel="noopener">View assembly in NCBI Datasets</a></p></div>{status_badge('published' if published else 'audit_only')}</div>
   <section class="metric-grid"><div class="metric"><span>{bi('Source tracks', '来源 track')}</span><strong>{len(records)}</strong></div><div class="metric"><span>{bi('Endpoint records', '端点记录')}</span><strong>{total:,}</strong></div><div class="metric"><span>{bi('Years', '年份')}</span><strong>{years[0] if len(years) == 1 else f'{years[0]}–{years[-1]}'}</strong></div><div class="metric"><span>{bi('Browser view', '浏览器视图')}</span><strong>{bi('Combined tracks' if len(records) > 1 else 'Single track', '多 track' if len(records) > 1 else '单 track')}</strong></div></section>
-  <section class="panel assembly-summary"><div><h2>{bi('Datasets on this genome', '该基因组上的数据集')}</h2><p>{bi('Sources with the exact same assembly accession are shown together. They remain independent tracks and are not collapsed into a consensus.', '参考组装 accession 完全相同的来源在此集中展示；各来源仍保留为独立 track，不合并成共识结果。')}</p></div>{browser}</section>{browser_guide}
+  <section class="panel assembly-summary"><div><h2>{bi('Datasets on this genome', '该基因组上的数据集')}</h2><p>{bi('Sources with the exact same assembly accession are shown together. They remain independent tracks and are not collapsed into a consensus.', '参考组装 accession 完全相同的来源在此集中展示；各来源仍保留为独立 track，不合并成共识结果。')}</p></div>{browser_actions}</section>{pilot_note}{browser_guide}
   <section class="panel"><div class="table-wrap"><table class="source-table"><thead><tr><th>Track / Source</th><th>{bi('Year / paper', '年份 / 文献')}</th><th>Raw data accessions</th><th>{bi('Assay', '方法')}</th><th>{bi('Evidence', '证据')}</th><th>{bi('Records', '记录数')}</th></tr></thead><tbody>{''.join(track_rows)}</tbody></table></div></section>
   <section class="panel"><h2>{bi('Download this genome', '下载该基因组数据')}</h2><div class="download-grid compact-downloads">{bed}<a class="download-card" href="{assembly_download_url(assembly, 'metadata.json', '../')}"><strong>{bi('Metadata', '元数据')}</strong><code>metadata.json</code></a></div></section>
 </main>"""
@@ -322,6 +340,10 @@ def main() -> int:
             f'<a class="row-action secondary" href="{jbrowse_href(item["browser_config"])}">JBrowse</a>'
             if item["browser_config"] else ""
         )
+        edge_demo = (
+            f'<a class="row-action edge" href="accession-range-demo.html?accession={quote(item["assembly"])}">API pilot</a>'
+            if item["assembly"] == ACCESSION_RANGE_PILOT else ""
+        )
         sources = " ".join(item["source_ids"])
         accession_search = " ".join(
             accession
@@ -334,7 +356,7 @@ def main() -> int:
           <td class="experiment-summary"><strong>{esc(assay_text)}</strong><small>{item['track_count']} {study_label} · {year_text}</small></td>
           <td class="evidence-summary">{esc(evidence_text)}{evidence_badge}</td>
           <td class="number endpoint-total"><strong>{int(item['record_count']):,}</strong></td>
-          <td class="row-actions"><a class="row-action primary" href="{item['page_url']}">Details</a>{browser}</td>
+          <td class="row-actions"><a class="row-action primary" href="{item['page_url']}">Details</a>{browser}{edge_demo}</td>
         </tr>""")
     sources_content = f"""
 <main class="page-shell genome-directory"><div class="page-heading directory-heading"><div><p class="eyebrow">BTED v0.2.0</p><h1>{bi('Genome assemblies', '基因组目录')}</h1><p>{bi('Find an exact reference genome, inspect its independent experimental studies, or open all available tracks in one coordinate view.', '查找精确参考基因组，查看独立实验研究，或在统一坐标下打开所有可用轨道。')}</p></div></div>
@@ -362,6 +384,30 @@ def main() -> int:
 
     about_content = f"""<main class="page-shell prose"><div class="page-heading"><div><p class="eyebrow">BTED</p><h1>{bi('About the database', '关于数据库')}</h1></div></div><section><h2>{bi('Purpose', '目的')}</h2><p>{bi('BTED makes public bacterial transcript 3′-end datasets easier to find, compare, download, and inspect in a genome browser.', 'BTED 让公开的细菌转录 3′ 端数据更容易检索、比较、下载和在基因组浏览器中查看。')}</p></section><section><h2>{bi('Current scope', '当前范围')}</h2><p>{bi('The v0.2.0 demonstration covers 22 sources listed in BATTER Table S1: 21 endpoint datasets and one metadata-only audit record.', 'v0.2.0 演示版覆盖 BATTER Table S1 的 22 个来源：21 个端点数据集和 1 个仅元数据审计条目。')}</p></section><section><h2>{bi('Repository', '项目仓库')}</h2><p><a href="{REPOSITORY_URL}">{REPOSITORY_URL}</a></p></section></main>"""
     (SITE_ROOT / "about.html").write_text(page("About", "about", about_content), encoding="utf-8")
+
+    accession_range_content = """
+<main class="page-shell edge-demo" data-accession-demo data-default-accession="GCF_000739105.1">
+  <nav class="breadcrumbs"><a href="sources.html">Genomes</a><span>/</span><span>Accession-loading prototype</span></nav>
+  <div class="record-heading"><div><p class="eyebrow">Architecture prototype · local object backend</p><h1>Load genome data by accession</h1><p class="record-title">This pilot demonstrates the proposed D1 lookup → same-origin Range proxy → object storage flow without changing BTED endpoint data.</p></div><span class="badge badge-pilot">Experimental</span></div>
+  <section class="edge-flow" aria-label="Remote data request flow"><div><strong>1</strong><span>Query accession</span><code>/api/assemblies/{accession}</code></div><i>→</i><div><strong>2</strong><span>Resolve metadata</span><code>D1-compatible registry</code></div><i>→</i><div><strong>3</strong><span>Request byte range</span><code>/api/remote-data/{asset}</code></div><i>→</i><div><strong>4</strong><span>Read object</span><code>local now · Hugging Face later</code></div></section>
+  <section class="panel edge-query-panel"><form data-accession-form><label for="edge-accession">Assembly accession</label><div><input id="edge-accession" name="accession" value="GCF_000739105.1" spellcheck="false"><button type="submit" class="button primary">Resolve accession</button></div></form><p class="edge-query-status" data-edge-status aria-live="polite">Ready to query the pilot registry.</p></section>
+  <section data-edge-results hidden>
+    <div class="metric-grid edge-metrics"><div class="metric"><span>Assembly</span><strong data-edge-assembly>—</strong></div><div class="metric"><span>Reference</span><strong data-edge-reference>—</strong></div><div class="metric"><span>Experiment tracks</span><strong data-edge-tracks>—</strong></div><div class="metric"><span>3′-end records</span><strong data-edge-records>—</strong></div></div>
+    <section class="panel edge-summary"><div><p class="eyebrow">Resolved at request time</p><h2 data-edge-organism>—</h2><p><span data-edge-sources>—</span> remain independent tracks on one exact reference assembly. One duplicated reference/annotation copy is avoided in this pilot.</p></div><div class="assembly-actions"><a class="button primary" data-edge-jbrowse href="#">Open API-loaded JBrowse</a><button class="button" type="button" data-edge-range-test>Test 128-byte Range</button></div></section>
+    <p class="range-result" data-edge-range-result aria-live="polite"></p>
+    <section class="panel"><div class="panel-header"><div><p class="eyebrow">Resolved objects</p><h2>Files returned for this accession</h2></div><span class="browser-guide-hint" data-edge-delivery>—</span></div><div class="table-wrap"><table class="source-table edge-assets"><thead><tr><th>Role</th><th>Format</th><th>Size</th><th>Object path</th><th>Delivery</th></tr></thead><tbody data-edge-assets></tbody></table></div></section>
+    <section class="panel edge-boundary"><h2>What this prototype proves—and what it does not</h2><div><p><strong>Proves:</strong> accession lookup, one shared reference, independent source tracks, allowlisted object keys, byte-Range responses and dynamic JBrowse configuration.</p><p><strong>Not yet production:</strong> the objects are checksum-verified local files. Uploading them to Hugging Face and creating the real Cloudflare D1 database require a separate deployment decision.</p></div></section>
+  </section>
+</main>"""
+    (SITE_ROOT / "accession-range-demo.html").write_text(
+        page(
+            "Accession-loading prototype",
+            "sources",
+            accession_range_content,
+            extra_scripts='<script src="assets/accession-range-demo.js"></script>',
+        ),
+        encoding="utf-8",
+    )
 
     print(f"PASS  Generated assembly-centred site: {len(grouped)} genome pages, 22 source records")
     return 0

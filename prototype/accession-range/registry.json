@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "prototype_status": "local_object_backend",
+  "production_origin": "Hugging Face dataset repository after object upload and checksum verification",
+  "assemblies": {
+    "GCF_000739105.1": {
+      "display_name": "Streptomyces lividans TK24",
+      "reference_name": "CP009124.1",
+      "reference_length": 8345283,
+      "record_count": 2848,
+      "duplicate_reference_bytes_avoided": 8628614,
+      "source_ids": [
+        "BATTER_S1_007",
+        "BATTER_S1_013"
+      ],
+      "reference_assets": {
+        "fasta": "GCF_000739105.1/reference/reference.fna",
+        "fai": "GCF_000739105.1/reference/reference.fna.fai",
+        "gff3": "GCF_000739105.1/reference/genes.gff3.gz",
+        "gff3_index": "GCF_000739105.1/reference/genes.gff3.gz.tbi"
+      },
+      "tracks": [
+        {
+          "track_id": "BATTER_S1_007_termseq_teps",
+          "source_id": "BATTER_S1_007",
+          "name": "Author-called Term-seq TEPs (Lee 2019)",
+          "assay": "Term-seq / dRNA-seq",
+          "evidence_class": "author_called_endpoint",
+          "record_count": 1640,
+          "asset_key": "GCF_000739105.1/tracks/BATTER_S1_007.endpoints.bed"
+        },
+        {
+          "track_id": "BATTER_S1_013_termseq_tts",
+          "source_id": "BATTER_S1_013",
+          "name": "Author-called Term-seq TTS (Lee 2020)",
+          "assay": "Term-seq / dRNA-seq",
+          "evidence_class": "author_called_endpoint",
+          "record_count": 1208,
+          "asset_key": "GCF_000739105.1/tracks/BATTER_S1_013.endpoints.bed"
+        }
+      ]
+    }
+  },
+  "assets": {
+    "GCF_000739105.1/reference/reference.fna": {
+      "role": "reference_sequence",
+      "format": "FASTA",
+      "content_type": "text/plain",
+      "source_asset": "BATTER_S1_007__lee2019_sliv.reference.fna",
+      "equivalent_source_assets": [
+        "BATTER_S1_007__lee2019_sliv.reference.fna",
+        "BATTER_S1_013__lee2020_sliv.reference.fna"
+      ],
+      "object_path": "assemblies/GCF_000739105.1/reference/reference.fna",
+      "byte_size": 8484410,
+      "sha256": "14f117887bc4c29f9336aef4b8ace10fef9cec66a92d37076c396b4aff8017af"
+    },
+    "GCF_000739105.1/reference/reference.fna.fai": {
+      "role": "reference_index",
+      "format": "FAI",
+      "content_type": "text/plain",
+      "source_asset": "BATTER_S1_007__lee2019_sliv.reference.fna.fai",
+      "equivalent_source_assets": [
+        "BATTER_S1_007__lee2019_sliv.reference.fna.fai",
+        "BATTER_S1_013__lee2020_sliv.reference.fna.fai"
+      ],
+      "object_path": "assemblies/GCF_000739105.1/reference/reference.fna.fai",
+      "byte_size": 28,
+      "sha256": "755121207de0dc2542b2c2a642208e78152ae32901713869b8f54f0b4ed55987"
+    },
+    "GCF_000739105.1/reference/genes.gff3.gz": {
+      "role": "gene_annotation",
+      "format": "GFF3_BGZF",
+      "content_type": "application/gzip",
+      "source_asset": "BATTER_S1_007__lee2019_sliv.genes.gff3.gz",
+      "equivalent_source_assets": [
+        "BATTER_S1_007__lee2019_sliv.genes.gff3.gz",
+        "BATTER_S1_013__lee2020_sliv.genes.gff3.gz"
+      ],
+      "object_path": "assemblies/GCF_000739105.1/reference/genes.gff3.gz",
+      "byte_size": 142587,
+      "sha256": "dcc5b339e6b8f31289c9db6cbb0eda99a51faf4d7be8d5076ff7a86b8f247893"
+    },
+    "GCF_000739105.1/reference/genes.gff3.gz.tbi": {
+      "role": "gene_annotation_index",
+      "format": "TBI",
+      "content_type": "application/octet-stream",
+      "source_asset": "BATTER_S1_007__lee2019_sliv.genes.gff3.gz.tbi",
+      "equivalent_source_assets": [
+        "BATTER_S1_007__lee2019_sliv.genes.gff3.gz.tbi",
+        "BATTER_S1_013__lee2020_sliv.genes.gff3.gz.tbi"
+      ],
+      "object_path": "assemblies/GCF_000739105.1/reference/genes.gff3.gz.tbi",
+      "byte_size": 1589,
+      "sha256": "042eb4a3095719cb60ec73fa8feb6ce808b908f7b1661af75dcbc6265b7f01b2"
+    },
+    "GCF_000739105.1/tracks/BATTER_S1_007.endpoints.bed": {
+      "role": "endpoint_track",
+      "format": "BED6",
+      "content_type": "text/plain",
+      "source_id": "BATTER_S1_007",
+      "source_asset": "BATTER_S1_007__lee2019_sliv.published_termseq_teps.browser.bed",
+      "object_path": "assemblies/GCF_000739105.1/tracks/BATTER_S1_007.endpoints.bed",
+      "byte_size": 74306,
+      "sha256": "8926da72886e01d8fd7c87ecb3b8a5851abca6fdf161be25b11c4f36a130f083"
+    },
+    "GCF_000739105.1/tracks/BATTER_S1_013.endpoints.bed": {
+      "role": "endpoint_track",
+      "format": "BED6",
+      "content_type": "text/plain",
+      "source_id": "BATTER_S1_013",
+      "source_asset": "BATTER_S1_013__lee2020_sliv.published_termseq_endpoints.browser.bed",
+      "object_path": "assemblies/GCF_000739105.1/tracks/BATTER_S1_013.endpoints.bed",
+      "byte_size": 41063,
+      "sha256": "a2037893175f9498f1e11c47a903bf5f9845ec178486349e600abb2e4995247d"
+    }
+  }
+}

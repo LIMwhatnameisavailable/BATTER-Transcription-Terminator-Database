@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bted-accession-range-prototype",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-15",
+  "d1_databases": [
+    {
+      "binding": "BTED_DB",
+      "database_name": "bted-catalog-prototype",
+      "database_id": "replace-after-d1-create"
+    }
+  ],
+  "vars": {
+    "HF_RESOLVE_BASE": "https://huggingface.co/datasets/replace-with-bted-data-repo/resolve/v0.2.0",
+    "ALLOWED_ORIGIN_HOST": "huggingface.co"
+  }
+}

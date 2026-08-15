@@ -2,9 +2,18 @@
 
 **更新：** 2026-08-14
 
-**当前分支：** `feature/genomes-catalog-ux-v0.2`
+**当前分支：** `feature/accession-range-prototype-v0.1`
 
-**当前里程碑：** Genomes 已重构为 assembly-first 科研目录：20 个精确参考基因组、22 个独立实验来源和 28,399 条端点记录可以筛选、选择并按 assembly 下载；4 个 Rend-seq 来源已有正负链紧凑默认视图、显式图例、混合链默认窗口和可点击端点详情。当前改动位于本地开发分支，待用户评审后决定是否推送。
+**当前里程碑：** 在 assembly-first 网站之上新增 `GCF_000739105.1` accession/Range 架构试点。页面、API、HTTP 206 和动态 JBrowse 已在本地完整跑通；真实 Cloudflare D1 与 Hugging Face 对象上传尚未授权或执行。
+
+## 2026-08-15 accession/Range 架构试点
+
+- 入口：`http://127.0.0.1:8016/accession-range-demo.html`；必须用 `scripts/run_accession_range_demo.py`，普通静态服务器不提供 `/api`。
+- 试点 assembly：`GCF_000739105.1 / CP009124.1`；S1_007（1,640）和 S1_013（1,208）仍是两条独立 `author_called_endpoint` track。
+- 参考 FASTA/FAI/GFF3/TBI 在两个旧来源资产中 SHA-256 完全一致；原型只解析一组共享对象，避免重复 8,628,614 bytes。
+- D1 schema、seed、Worker 和说明位于 `prototype/accession-range/`；本地等价API位于 `scripts/run_accession_range_demo.py`。
+- 生产 Worker 不接受任意远程 URL，只允许 D1 中登记的 asset key，并校验 origin host。
+- 本分支只验证部署架构，没有上传外部服务、创建Cloudflare资源或改变公开科学数据。
 
 ## 2026-08-14 Genomes 科研目录改版
 

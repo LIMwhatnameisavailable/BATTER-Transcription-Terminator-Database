@@ -1,5 +1,40 @@
 # 工作日志
 
+## 2026-08-15 —— accession 查询与 Range 远程加载原型
+
+**分支：** `feature/accession-range-prototype-v0.1`
+**范围：** 共享组装 `GCF_000739105.1` 的部署架构试点；未修改 BATTER_S1_007/013 的核心端点表、BED 坐标、证据类别或记录数。
+
+### 做这个原型的原因
+
+- 当前完整 Pages 预览约 447 MB，其中 JBrowse 约 408 MB；继续把每个来源的参考 FASTA/GFF3 和轨道全部复制进静态站点，不适合大量 assembly 扩展。
+- S1_007 与 S1_013 使用完全相同的 assembly/contig。核对确认两份 FASTA、FAI、gene GFF3 和 TBI 的 SHA-256 分别完全相等，因此可以按 assembly 只保留一组参考对象，同时保留两条独立实验 track。
+
+### 完成内容
+
+1. 建立 D1 兼容的 `assemblies / assets / tracks` schema 和单 assembly seed；accession 是参考资源主键，source ID 仍是实验 track 身份。
+2. 建立 checksum 冻结的 6 对象注册表：1 FASTA、1 FAI、1 GFF3、1 TBI 和 2 个来源 BED；共享参考/注释避免重复 8,628,614 bytes。
+3. 实现生产形态 Cloudflare Worker：
+   - `GET /api/assemblies/{accession}`；
+   - `GET /api/assemblies/{accession}/jbrowse-config`；
+   - `GET|HEAD /api/remote-data/{asset_key}`。
+4. `/api/remote-data` 只接受 D1 中注册的 asset key，生产代码限制为允许的 Hugging Face host，不接受任意 `?url=`，避免成为开放代理。
+5. 实现本地 API-aware server，在不上传外部对象和不需要 Cloudflare 凭据的情况下复现同一浏览器/API contract；启动时逐对象复算 byte size 与 SHA-256。
+6. 网站新增 accession-loading prototype 页面、Range 检查和动态 JBrowse 入口；`GCF_000739105.1` 详情页和 Genomes 行提供明确的 experimental pilot 入口。
+
+### 验证
+
+- API：`GCF_000739105.1` 返回 2,848 records、6 objects、2 independent tracks；
+- Range：FASTA 请求 `bytes=0-127` 返回 `206 Partial Content`、`Content-Range: bytes 0-127/8484410` 和 128 bytes；
+- JBrowse：动态 config 返回 1 assembly、1 shared gene track、2 source tracks；实际浏览器可见基因及 S1_007/S1_013，0 warning/error；
+- `python3 -m unittest -v tests/test_accession_range_prototype.py tests/test_bted_v0_2.py tests/test_bted_ingestion.py`：20/20 PASS；
+- `validate-site.py site` 与完整 `.pages-preview`：PASS。
+
+### 尚未执行的外部部署
+
+- 尚未创建真实 Cloudflare D1，也未把对象上传到 Hugging Face；`wrangler.jsonc` 中保持显式占位符。
+- 生产迁移前还需确定对象仓库、许可、缓存策略、自定义域名和费用，并对真实 origin 重跑 HEAD/206/checksum 验收。
+
 ## 2026-08-14 —— Genomes 目录页科研用户体验改版
 
 **分支：** `feature/genomes-catalog-ux-v0.2`

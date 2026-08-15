@@ -27,6 +27,10 @@ jobs:
       - name: Validate generated site source
         run: python3 scripts/validate-site.py site
       - name: Run regression tests
-        run: python3 -m unittest -v tests/test_bted_ingestion.py tests/test_bted_v0_2.py
+        run: python3 -m unittest -v tests/test_bted_ingestion.py tests/test_bted_v0_2.py tests/test_accession_range_prototype.py
       - name: Check generated Python
-        run: python3 -m py_compile scripts/build_v0_2_release.py scripts/build_v0_2_site.py scripts/build_jbrowse_release.py scripts/build_release_archives.py scripts/stage_pages.py scripts/audit_v0_2_priority_sources.py scripts/validate_bted_v0_2.py scripts/validate_jbrowse_release.py
+        run: python3 -m py_compile scripts/build_v0_2_release.py scripts/build_v0_2_site.py scripts/build_jbrowse_release.py scripts/build_release_archives.py scripts/stage_pages.py scripts/run_accession_range_demo.py scripts/audit_v0_2_priority_sources.py scripts/validate_bted_v0_2.py scripts/validate_jbrowse_release.py
+      - name: Check accession/Range prototype JavaScript
+        run: |
+          node --check prototype/accession-range/src/worker.js
+          node --check site/assets/accession-range-demo.js
