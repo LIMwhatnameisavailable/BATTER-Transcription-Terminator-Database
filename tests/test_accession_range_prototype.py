@@ -44,6 +44,12 @@ class TestAccessionRangePrototype(unittest.TestCase):
             [2019, 2020],
         )
         self.assertTrue(all(track["record_url"].startswith("records/") for track in assembly["tracks"]))
+        self.assertEqual(
+            [track["raw_data_accession"] for track in assembly["tracks"]],
+            ["PRJEB31507", "PRJEB31507"],
+        )
+        self.assertTrue(all(track["publication_url"].startswith("https://pubmed.ncbi.nlm.nih.gov/") for track in assembly["tracks"]))
+        self.assertTrue(all(track["interpretation_note"] and track["interpretation_note_zh"] for track in assembly["tracks"]))
         self.assertTrue(all(
             len(REGISTRY["assets"][asset_key].get("equivalent_source_assets", [])) == 2
             for asset_key in assembly["reference_assets"].values()
@@ -91,7 +97,10 @@ class TestAccessionRangePrototype(unittest.TestCase):
         self.assertIn("查找转录本 3′ 端数据", page)
         self.assertIn('data-language-choice="en"', page)
         self.assertIn('data-language-choice="zh"', page)
+        self.assertIn("What does one record mean?", page)
+        self.assertIn("一条记录代表什么？", page)
         self.assertIn("Studies available for this genome", page)
+        self.assertIn("What do these records represent?", page)
         self.assertNotIn("D1-compatible registry", page)
         self.assertNotIn("Test 128-byte Range", page)
         self.assertIn("accession-range-demo.js", page)

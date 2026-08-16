@@ -21,6 +21,8 @@
       error: "No data were found for this accession. Check the accession and try again.",
       sourceNote: "{sources} are shown as independent experimental tracks on this exact reference assembly.",
       details: "View source",
+      publication: "Publication",
+      rawData: "Raw data",
       authorEndpoint: "Author-called endpoint",
       curatedRecord: "Literature-curated record",
       auditOnly: "Metadata only",
@@ -34,6 +36,8 @@
       error: "未找到该登录号对应的数据，请检查后重试。",
       sourceNote: "{sources} 在这一精确参考组装上作为相互独立的实验轨道展示。",
       details: "查看来源",
+      publication: "文献",
+      rawData: "原始数据",
       authorEndpoint: "作者定义的实验端点",
       curatedRecord: "文献整理记录",
       auditOnly: "仅元数据",
@@ -77,14 +81,11 @@
       const row = document.createElement("tr");
 
       const study = document.createElement("td");
-      const source = document.createElement("strong");
-      source.textContent = track.source_id;
-      const name = document.createElement("small");
-      name.textContent = track.name;
-      study.append(source, name);
-
-      const year = document.createElement("td");
-      year.textContent = track.publication_year || message("unknownYear");
+      const title = document.createElement("strong");
+      title.textContent = track.paper_title || track.name;
+      const source = document.createElement("small");
+      source.textContent = `${track.source_id} · ${track.publication_year || message("unknownYear")}`;
+      study.append(title, source);
 
       const assay = document.createElement("td");
       assay.textContent = track.assay;
@@ -96,14 +97,47 @@
       count.className = "number";
       count.textContent = formatNumber(track.record_count);
 
-      const details = document.createElement("td");
-      const link = document.createElement("a");
-      link.href = track.record_url || `records/${encodeURIComponent(track.source_id)}.html`;
-      link.textContent = message("details");
-      details.appendChild(link);
+      const links = document.createElement("td");
+      links.className = "source-link-stack";
+      if (track.publication_url) {
+        const publication = document.createElement("a");
+        publication.href = track.publication_url;
+        publication.target = "_blank";
+        publication.rel = "noopener";
+        publication.textContent = `${message("publication")} · PMID ${track.pmid}`;
+        links.appendChild(publication);
+      }
+      if (track.raw_data_url) {
+        const rawData = document.createElement("a");
+        rawData.href = track.raw_data_url;
+        rawData.target = "_blank";
+        rawData.rel = "noopener";
+        rawData.textContent = `${message("rawData")} · ${track.raw_data_accession}`;
+        links.appendChild(rawData);
+      }
+      const details = document.createElement("a");
+      details.href = track.record_url || `records/${encodeURIComponent(track.source_id)}.html`;
+      details.textContent = message("details");
+      links.appendChild(details);
 
-      row.append(study, year, assay, evidence, count, details);
+      row.append(study, assay, evidence, count, links);
       body.appendChild(row);
+    });
+  }
+
+  function renderInterpretations(tracks) {
+    const list = root.querySelector("[data-edge-interpretations]");
+    list.replaceChildren();
+    tracks.forEach((track) => {
+      const item = document.createElement("li");
+      const source = document.createElement("strong");
+      source.textContent = `${track.source_id}: `;
+      const note = document.createElement("span");
+      note.textContent = currentLanguage === "zh"
+        ? (track.interpretation_note_zh || track.interpretation_note)
+        : track.interpretation_note;
+      item.append(source, note);
+      list.appendChild(item);
     });
   }
 
@@ -118,6 +152,7 @@
       sources: payload.source_ids.join(currentLanguage === "zh" ? "、" : " and "),
     }));
     renderStudies(payload.tracks);
+    renderInterpretations(payload.tracks);
 
     root.querySelector("[data-edge-jbrowse]").href =
       `jbrowse/index.html?config=${encodeURIComponent(payload.jbrowse_config_url)}`;

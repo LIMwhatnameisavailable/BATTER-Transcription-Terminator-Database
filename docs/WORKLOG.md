@@ -12,10 +12,12 @@
 3. 增加 EN/中文切换，覆盖页面导航、检索表单、状态消息、统计、研究表、证据标签、下载区和页脚，并通过 URL/localStorage 保留选择。
 4. S1_007/013 track 元数据补充发表年份、PMID 与站内来源详情链接；两项研究继续作为独立 `author_called_endpoint` 轨道展示。
 5. assembly 页和 Genomes 页入口改为 `Find this genome by accession / Quick search`，不再向普通用户显示 `API pilot / Architecture prototype`。
+6. 页面增加三项用户数据导读：收录范围、单条记录定义和“3′ 端不自动等同于功能性终止子”的证据边界。
+7. 动态研究表补充论文标题、PubMed、原始测序 accession/ENA 入口；增加来源特异的 TEP/TTS 解读、适用分析和不可直接推断的结论。
 
 ### 验证
 
-- 浏览器实测英文与中文页面均返回 2 项研究、2,848 条记录，年份分别为 2019/2020；BED、metadata、来源详情和 JBrowse 链接均生成正确；
+- 浏览器实测英文与中文页面均返回 2 项研究、2,848 条记录，年份分别为 2019/2020；PubMed、PRJEB31507、BED、metadata、来源详情和 JBrowse 链接均生成正确；
 - 页面可见文本中不再出现 D1、API route、对象路径或 Range 测试；
 - `python3 -m unittest -v tests/test_accession_range_prototype.py`：5/5 PASS；完整回归、站点验证见本次提交的最终测试记录。
 
