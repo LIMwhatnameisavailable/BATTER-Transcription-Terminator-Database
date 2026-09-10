@@ -1,25 +1,8 @@
 (function () {
   "use strict";
 
-  const body = document.body;
-  const languageButtons = document.querySelectorAll("[data-lang-choice]");
-
-  function setLanguage(language) {
-    const selected = language === "zh" ? "zh" : "en";
-    body.dataset.lang = selected;
-    document.documentElement.lang = selected === "zh" ? "zh-CN" : "en";
-    languageButtons.forEach((button) => {
-      button.setAttribute("aria-pressed", String(button.dataset.langChoice === selected));
-    });
-    try { localStorage.setItem("bted-language", selected); } catch (_error) { /* optional */ }
-  }
-
-  let initialLanguage = "en";
-  try { initialLanguage = localStorage.getItem("bted-language") || "en"; } catch (_error) { /* optional */ }
-  setLanguage(initialLanguage);
-  languageButtons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.langChoice)));
-
   const rows = Array.from(document.querySelectorAll("[data-catalog-row]"));
+  let visibleRows = rows;
   if (rows.length) {
     const search = document.querySelector("[data-filter-search]");
     const selects = Array.from(document.querySelectorAll("[data-filter]"));
@@ -39,11 +22,13 @@
         row.hidden = !show;
         if (show) visible += 1;
       });
+      visibleRows = rows.filter((row) => !row.hidden);
       if (count) count.textContent = String(visible);
       if (empty) empty.hidden = visible !== 0;
     };
     if (search) search.addEventListener("input", applyFilters);
     selects.forEach((select) => select.addEventListener("change", applyFilters));
+    applyFilters();
   }
 
   const choices = Array.from(document.querySelectorAll("[data-download-choice]"));
@@ -61,11 +46,22 @@
     downloadButton.disabled = checked.length === 0;
   }
 
-  document.querySelector("[data-select-all]").addEventListener("click", () => {
+  const selectAll = document.querySelector("[data-select-all]");
+  if (selectAll) selectAll.addEventListener("click", () => {
     choices.forEach((choice) => { choice.checked = true; });
     updateSelection();
   });
-  document.querySelector("[data-clear-all]").addEventListener("click", () => {
+  const selectVisible = document.querySelector("[data-select-visible]");
+  if (selectVisible) selectVisible.addEventListener("click", () => {
+    choices.forEach((choice) => { choice.checked = false; });
+    visibleRows.forEach((row) => {
+      const choice = row.querySelector("[data-download-choice]");
+      if (choice) choice.checked = true;
+    });
+    updateSelection();
+  });
+  const clearAll = document.querySelector("[data-clear-all]");
+  if (clearAll) clearAll.addEventListener("click", () => {
     choices.forEach((choice) => { choice.checked = false; });
     updateSelection();
   });
@@ -137,7 +133,7 @@
     const selected = choices.filter((choice) => choice.checked).map((choice) => choice.value);
     if (!selected.length) return;
     downloadButton.disabled = true;
-    status.textContent = body.dataset.lang === "zh" ? "正在准备下载…" : "Preparing download…";
+    status.textContent = "Preparing download…";
     try {
       const files = [];
       for (const assembly of selected) {
@@ -153,9 +149,9 @@
       link.download = `BTED-v0.2.0-${selected.length}-assemblies.zip`;
       document.body.appendChild(link); link.click(); link.remove();
       URL.revokeObjectURL(link.href);
-      status.textContent = body.dataset.lang === "zh" ? `已打包 ${selected.length} 个基因组。` : `Packaged ${selected.length} genome assemblies.`;
+      status.textContent = `Packaged ${selected.length} genome assemblies.`;
     } catch (error) {
-      status.textContent = body.dataset.lang === "zh" ? "下载准备失败，请刷新页面后重试。" : "Download preparation failed. Refresh and try again.";
+      status.textContent = "Download preparation failed. Refresh and try again.";
       console.error(error);
     } finally {
       downloadButton.disabled = false;

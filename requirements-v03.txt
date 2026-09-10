@@ -1,0 +1,8 @@
+# Optional dependency for real PostgreSQL loading.  Offline validation and
+# fake-connection tests intentionally do not install or import this package.
+psycopg[binary]>=3.2,<4
+# Optional read-only API runtime.  Offline repository/service tests do not
+# import these packages; install this file before starting FastAPI.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+httpx>=0.27,<1

@@ -26,7 +26,36 @@ jobs:
           python3 scripts/audit_v0_2_priority_sources.py
       - name: Validate generated site source
         run: python3 scripts/validate-site.py site
+      - name: Install Python runtime dependencies
+        run: python -m pip install -r requirements-v03.txt
+      - name: Run v0.3 importer and asset focused tests
+        run: |
+          python -m unittest -v \
+            tests/test_bted_v03_genes.py \
+            tests/test_prepare_v03_public_asset_objects.py \
+            tests/test_audit_v03_remote_assets.py \
+            tests/test_apply_v03_remote_asset_audit.py
       - name: Run regression tests
-        run: python3 -m unittest -v tests/test_bted_ingestion.py tests/test_bted_v0_2.py
+        run: python -m unittest discover -s tests -p 'test*.py' -v
       - name: Check generated Python
-        run: python3 -m py_compile scripts/build_v0_2_release.py scripts/build_v0_2_site.py scripts/build_jbrowse_release.py scripts/build_release_archives.py scripts/stage_pages.py scripts/audit_v0_2_priority_sources.py scripts/validate_bted_v0_2.py scripts/validate_jbrowse_release.py
+        run: python3 -m py_compile scripts/build_v0_2_release.py scripts/build_v0_2_site.py scripts/build_jbrowse_release.py scripts/build_release_archives.py scripts/stage_pages.py scripts/run_accession_range_demo.py scripts/audit_v0_2_priority_sources.py scripts/validate_bted_v0_2.py scripts/validate_jbrowse_release.py scripts/import_bted_v03.py scripts/build_v03_jbrowse_asset_inventory.py scripts/prepare_v03_public_asset_objects.py scripts/audit_v03_remote_assets.py scripts/apply_v03_remote_asset_audit.py backend/importer/canonical.py backend/importer/materialize.py backend/importer/postgres.py
+      - name: Check accession/Range prototype JavaScript
+        run: |
+          node --check prototype/accession-range/src/worker.js
+          node --check site/assets/accession-range-demo.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.4
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: pnpm install --frozen-lockfile
+      - name: Build frontend
+        working-directory: frontend
+        env:
+          BTED_API_ORIGIN: http://127.0.0.1:8000
+        run: pnpm build

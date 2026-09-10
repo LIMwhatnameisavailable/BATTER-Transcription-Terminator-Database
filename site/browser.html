@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BTED genome browser — select tracks and signal view">
+  <title>Genome browser · BTED</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .browser-toolbar {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .browser-toolbar h2 { margin: 0 0 16px; font-size: 18px; }
+    .track-option {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 12px; border-bottom: 1px solid var(--line);
+    }
+    .track-option:last-child { border-bottom: none; }
+    .track-option label { cursor: pointer; flex: 1; }
+    .track-option input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+    .track-meta { font-size: 13px; color: var(--muted); }
+    .launch-bar {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);
+    }
+    .assembly-info {
+      display: grid; grid-template-columns: auto 1fr; gap: 4px 16px;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .assembly-info dt { color: var(--muted); font-weight: 600; }
+    .info-badge {
+      display: inline-block; padding: 2px 10px; border-radius: 12px;
+      font-size: 12px; font-weight: 600; white-space: nowrap;
+    }
+    .badge-signal { background: var(--green-bg); color: var(--green); }
+    .badge-nosignal { background: var(--amber-bg); color: var(--amber); }
+    .badge-audit { background: #f0f0f0; color: var(--muted); }
+    .empty-state { padding: 40px; text-align: center; color: var(--muted); }
+    .empty-state code { font-size: 1.1em; }
+    .disabled { opacity: 0.5; pointer-events: none; }
+  </style>
+</head>
+<body data-lang="en">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">BTED</span><span class="brand-name">Bacterial Transcript 3′ End Database</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="sources.html">Sources</a>
+      <a href="catalog.html">Downloads</a>
+      <a href="methodology.html">Methods</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-shell">
+  <nav class="breadcrumbs">
+    <a href="sources.html">Sources</a>
+    <span id="breadcrumb-assembly"></span>
+  </nav>
+
+  <div id="browser-app">
+    <section class="browser-toolbar" id="assembly-section">
+      <h2 id="assembly-heading">Loading...</h2>
+      <dl class="assembly-info" id="assembly-details"></dl>
+    </section>
+
+    <section class="browser-toolbar" id="track-section">
+      <h2>Source tracks</h2>
+      <p style="font-size:14px; color:var(--muted); margin: 0 0 12px;">
+        Select the sources you want to view. Sources sharing the same assembly appear as independent tracks in JBrowse.
+      </p>
+      <div id="track-list"></div>
+    </section>
+
+    <section class="browser-toolbar" id="launch-section">
+      <div class="launch-bar">
+        <a class="button primary" id="launch-btn" href="#" target="_blank">Open in genome browser</a>
+        <span style="color:var(--muted); font-size:14px;" id="launch-info"></span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>BTED v0.2.0</span>
+    <span>22 source records · 21 browser-ready datasets</span>
+    <a href="https://github.com/LIMwhatnameisavailable/BATTER-Transcription-Terminator-Database">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ── Metadata ───────────────────────────────────────────────────────────────────────
+  const SOURCES_BY_ASSEMBLY = {
+    "GCF_000005845.1": [
+      { id: "BATTER_S1_001", species: "Escherichia coli str. K-12 substr. MG1655", year: 2018, assay: "Rend-seq", records: 607, has_signal: true, evidence: "curated_record" }
+    ],
+    "GCF_000009045.1": [
+      { id: "BATTER_S1_003", species: "Bacillus subtilis subsp. subtilis str. 168", year: 2018, assay: "Rend-seq", records: 1414, has_signal: true, evidence: "curated_record" }
+    ],
+    "GCF_000022005.1": [
+      { id: "BATTER_S1_004", species: "Caulobacter vibrioides NA1000", year: 2018, assay: "Rend-seq", records: 337, has_signal: true, evidence: "curated_record" }
+    ],
+    "GCF_001456255.1": [
+      { id: "BATTER_S1_005", species: "Vibrio natriegens NBRC 15636", year: 2018, assay: "Rend-seq", records: 1154, has_signal: true, evidence: "curated_record" }
+    ],
+    "GCF_000006885.1": [
+      { id: "BATTER_S1_006", species: "Streptococcus pneumoniae TIGR4", year: 2018, assay: "RNA-seq / 3' end mapping", records: 1864, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000739105.1": [
+      { id: "BATTER_S1_007", species: "Streptomyces lividans TK24", year: 2019, assay: "Term-seq / dRNA-seq", records: 1640, has_signal: false, evidence: "author_called_endpoint" },
+      { id: "BATTER_S1_013", species: "Streptomyces lividans TK24", year: 2020, assay: "Term-seq / dRNA-seq", records: 870, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000006765.1": [
+      { id: "BATTER_S1_008", species: "Pseudomonas aeruginosa PAO1", year: 2019, assay: "RNA-seq / Term-seq-related", records: 1965, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_003054575.1": [
+      { id: "BATTER_S1_009", species: "Zymomonas mobilis subsp. mobilis ZM4", year: 2020, assay: "Term-seq / SMRT-Cappable-seq", records: 2091, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000009765.2": [
+      { id: "BATTER_S1_010", species: "Streptomyces avermitilis MA-4680", year: 2020, assay: "Term-seq / dRNA-seq", records: 1159, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000010605.1": [
+      { id: "BATTER_S1_011", species: "Streptomyces griseus subsp. griseus NBRC 13350", year: 2020, assay: "Term-seq / dRNA-seq", records: 2024, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000203835.1": [
+      { id: "BATTER_S1_012", species: "Streptomyces coelicolor A3(2)", year: 2020, assay: "Term-seq / dRNA-seq", records: 1308, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_003932715.1": [
+      { id: "BATTER_S1_014", species: "Streptomyces tsukubensis", year: 2020, assay: "Term-seq / dRNA-seq", records: 1283, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_005519465.1": [
+      { id: "BATTER_S1_015", species: "Streptomyces clavuligerus", year: 2020, assay: "Term-seq / dRNA-seq", records: 2567, has_signal: false, evidence: "author_called_endpoint" },
+      { id: "BATTER_S1_017", species: "Streptomyces clavuligerus", year: 2021, assay: "Term-seq / dRNA-seq", records: 1427, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_015710995.1": [
+      { id: "BATTER_S1_016", species: "Streptomyces venezuelae", year: 2020, assay: "Term-seq / dRNA-seq", records: 870, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_018282115.1": [
+      { id: "BATTER_S1_018", species: "Synechocystis sp. PCC 7338", year: 2021, assay: "Term-seq / dRNA-seq", records: 487, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000009725.1": [
+      { id: "BATTER_S1_019", species: "Synechocystis sp. PCC 6803", year: 2022, assay: "Term-seq / dRNA-seq", records: 784, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000147055.1": [
+      { id: "BATTER_S1_020", species: "Dickeya dadantii 3937", year: 2022, assay: "RNA-seq / transcript boundary mapping", records: 1165, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000008685.2": [
+      { id: "BATTER_S1_021", species: "Borreliella burgdorferi B31", year: 2023, assay: "RNAtag-seq / Term-seq", records: 1905, has_signal: false, evidence: "author_called_endpoint" }
+    ],
+    "GCF_000195955.2": [
+      { id: "BATTER_S1_022", species: "Mycobacterium tuberculosis H37Rv", year: 2023, assay: "Term-seq", records: 2567, has_signal: false, evidence: "author_called_endpoint" }
+    ]
+  };
+
+  // Assemblies that have pre-combined multi-source JBrowse configs
+  const COMBINED_CONFIGS = {
+    "GCF_000739105.1": { config: "assemblies/GCF_000739105.1.config.json", sources: ["BATTER_S1_007", "BATTER_S1_013"] },
+    "GCF_005519465.1": { config: "assemblies/GCF_005519465.1.config.json", sources: ["BATTER_S1_015", "BATTER_S1_017"] }
+  };
+
+  // ── Utilities ──────────────────────────────────────────────────────────
+  function getParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  function qs(sel) { return document.querySelector(sel); }
+  function qsa(sel) { return document.querySelectorAll(sel); }
+
+  // ── Main ──────────────────────────────────────────────────────────────
+  var configParam = getParam('config');
+  var assemblyAccession = getParam('assembly');
+
+  // Backward compat: if ?config= is passed (v0.3 preview style), extract
+  // the assembly accession from the config URL path.
+  if (!assemblyAccession && configParam) {
+    var match = configParam.match(/\/assemblies\/([^\/?]+)\//);
+    if (match) { assemblyAccession = match[1]; }
+  }
+
+  // ── Empty states ──────────────────────────────────────────────────────
+  var appEl = qs('#browser-app');
+  var assemblySection = qs('#assembly-section');
+
+  if (!assemblyAccession) {
+    assemblySection.innerHTML = '<div class="empty-state"><h2>Select an assembly</h2><p>Use <code>?assembly=GCF_xxxxxxxx.x</code> to open a genome browser view.</p><p style="margin-top:16px">Example: <a href="?assembly=GCF_000739105.1"><code>?assembly=GCF_000739105.1</code></a> (Streptomyces lividans, 2 source tracks)</p><p><a href="?assembly=GCF_000009045.1"><code>?assembly=GCF_000009045.1</code></a> (Bacillus subtilis, signal tracks available)</p></div>';
+    qs('#track-section').style.display = 'none';
+    qs('#launch-section').style.display = 'none';
+    return;
+  }
+
+  var sources = SOURCES_BY_ASSEMBLY[assemblyAccession];
+  if (!sources || sources.length === 0) {
+    assemblySection.innerHTML = '<div class="empty-state"><h2>Unknown assembly</h2><p>Assembly <code>' + assemblyAccession + '</code> is not in the current release.</p></div>';
+    qs('#track-section').style.display = 'none';
+    qs('#launch-section').style.display = 'none';
+    return;
+  }
+
+  var species = sources[0].species;
+  var hasCombined = COMBINED_CONFIGS[assemblyAccession] !== undefined;
+
+  // ── Breadcrumb ──────────────────────────────────────────────────────────
+  qs('#breadcrumb-assembly').textContent = ' / ' + species + ' (' + assemblyAccession + ')';
+
+  // ── Assembly info ──────────────────────────────────────────────────────
+  var totalRecords = 0;
+  sources.forEach(function (s) { totalRecords += s.records; });
+  qs('#assembly-heading').textContent = species;
+  qs('#assembly-details').innerHTML =
+    '<dt>Assembly</dt><dd><code>' + assemblyAccession + '</code></dd>' +
+    '<dt>Source tracks</dt><dd>' + sources.length + ' ' + (sources.length > 1 ? 'studies' : 'study') + '</dd>' +
+    '<dt>Total records</dt><dd>' + totalRecords.toLocaleString() + ' endpoint' + (totalRecords !== 1 ? 's' : '') + '</dd>';
+
+  // ── Track list ──────────────────────────────────────────────────────
+  var trackListEl = qs('#track-list');
+  sources.forEach(function (source, index) {
+    var div = document.createElement('div');
+    div.className = 'track-option';
+    var signalBadge = source.has_signal
+      ? '<span class="info-badge badge-signal">Has signal track</span>'
+      : '<span class="info-badge badge-nosignal">Endpoint only</span>';
+    div.innerHTML =
+      '<input type="checkbox" id="track-' + index + '" data-source="' + source.id + '" checked>' +
+      '<label for="track-' + index + '"><strong>' + source.id + '</strong> · ' +
+      source.year + ' · ' + source.assay + ' <span class="track-meta">' +
+      source.records + ' records, ' + source.evidence + '</span></label>' +
+      signalBadge;
+    trackListEl.appendChild(div);
+  });
+
+  // ── Launch button ────────────────────────────────────────────────────
+  function updateLaunch() {
+    var checkedSources = [];
+    qsa('#track-list input[type="checkbox"]:checked').forEach(function (cb) {
+      checkedSources.push(cb.dataset.source);
+    });
+
+    var launchBtn = qs('#launch-btn');
+    var launchInfo = qs('#launch-info');
+
+    if (checkedSources.length === 0) {
+      launchBtn.classList.add('disabled');
+      launchBtn.removeAttribute('href');
+      launchInfo.textContent = 'Select at least one source track.';
+      return;
+    }
+
+    launchBtn.classList.remove('disabled');
+
+    if (hasCombined && checkedSources.length > 1) {
+      var combined = COMBINED_CONFIGS[assemblyAccession];
+      launchBtn.href = 'jbrowse/index.html?config=' + encodeURIComponent(combined.config);
+      launchInfo.textContent = combined.sources.length + ' source tracks combined in one view';
+    } else {
+      var primarySource = checkedSources[0];
+      launchBtn.href = 'jbrowse/index.html?config=' + encodeURIComponent(primarySource + '.config.json');
+      launchInfo.textContent = '1 source track';
+    }
+  }
+
+  qsa('#track-list input[type="checkbox"]').forEach(function (cb) {
+    cb.addEventListener('change', updateLaunch);
+  });
+
+  updateLaunch();
+
+})();
+</script>
+
+</body>
+</html>

@@ -87,3 +87,11 @@ data/batter_bsub_pilot/
 - `python -m unittest -v tests/test_bted_ingestion.py`：16 项全部通过。
 - `node --check` × 6（portal-data、streptomyces-resources、source-catalog、portal、catalog-ui、record）：全部通过。
 - 状态变更经 `extract_batter_s1_registry.py` + `build_bted_catalog.py` 重新生成，diff 确认仅 S1_003 行变化。
+
+## 2026-08-14 浏览器展示更新
+
+本次仅更新 JBrowse display layer：正负链 signed-log 信号合并显示，默认区域为 `NC_000964.3:20,963..23,970`，可同时看到两种 strand；候选以富属性 GFF3 展示并可点击追溯稳定 ID、1-based 坐标、raw support 与 `called_endpoint` 警告。标准 BED、原始 BigWig、参考和证据解释均未改变。实际浏览器验证蓝色向右箭头和橙色向左箭头同时存在，当前配置 0 alert。
+
+## 2026-08-23 v0.3 资产许可与在线浏览修正
+
+文章是否开放获取不再被用作全部数据文件的统一许可。参考 FASTA/GFF3 按 NCBI 数据使用政策、实验信号按 GEO 数据政策、BTED 标准 TSV/BED/metadata 按来源数据集 CC BY 4.0 与 BTED 整理来源公开；作者补充表的特异字段仍不复制。动态 JBrowse 展示原始正、负链 BigWig（不归一化）与独立端点 BED，并在 source track metadata 中提供 PubMed、DOI、GEO 和 BTED record 链接。

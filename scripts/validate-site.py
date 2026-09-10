@@ -41,7 +41,7 @@ FORBIDDEN_EXTENSIONS = {
 # expected under ``jbrowse/`` after the versioned asset is unpacked.
 ALLOWED_JBROWSE_SUFFIXES = {
     ".html", ".css", ".js", ".json", ".txt", ".ico",
-    ".fna", ".fai", ".bed", ".bw", ".gff3.gz", ".tbi", ".ix", ".ixx",
+    ".fna", ".fai", ".bed", ".bw", ".gff3", ".gff3.gz", ".tbi", ".ix", ".ixx",
 }
 ALLOWED_DOWNLOAD_SUFFIXES = {".tsv", ".bed", ".json", ".txt"}
 
@@ -59,6 +59,12 @@ ABSOLUTE_PATH_PATTERNS = [
     (re.compile(r"(?:/Users/|/home/|/opt/|/var/|/tmp/|/private/)[^\s\"'<)]*"),
      "本地文件系统绝对路径"),
     (re.compile(r"[A-Za-z]:\\\\[^\s\"'<)]+"), "Windows 本地路径"),
+]
+
+# localhost / 127.0.0.1 / old local API endpoint 不应出现在正式 site/；当前
+# Cloudflare preview site intentionally uses its same-origin catalogue API for JBrowse config.
+LOCALHOST_API_PATTERNS = [
+    (re.compile(r"127\.0\.0\.1|localhost", re.IGNORECASE), "localhost / 127.0.0.1 引用"),
 ]
 
 # 凭据 / 密钥 / 口令占位
@@ -126,6 +132,14 @@ def scan_text(path: Path, rel: str, problems: list[str]) -> None:
     for regex, desc in FORBIDDEN_LABEL_PATTERNS:
         for m in regex.finditer(text):
             problems.append(f"{rel}:{line_of(text, m.start())} {desc}: {m.group(0)}")
+
+
+def scan_localhost_api(path: Path, rel: str, problems: list[str]) -> None:
+    """Scan project-authored text for localhost or internal API dependencies."""
+    text = path.read_text(encoding="utf-8")
+    for regex, desc in LOCALHOST_API_PATTERNS:
+        for m in regex.finditer(text):
+            problems.append(f"{rel}:{line_of(text, m.start())} {desc}: {m.group(0)[:80]}")
 
 
 def is_pinned_jbrowse_vendor_asset(rel: str) -> bool:
@@ -207,13 +221,15 @@ def main() -> int:
             suffixes = [s.lower() for s in fpath.suffixes]
             in_jbrowse = rel == "jbrowse" or rel.startswith("jbrowse/")
             in_downloads = rel == "downloads" or rel.startswith("downloads/")
+            in_pilots = rel == "data/pilots" or rel.startswith("data/pilots/")
             compound_suffix = "".join(suffixes[-2:]) if len(suffixes) >= 2 else (suffixes[-1] if suffixes else "")
             jbrowse_allowed = in_jbrowse and (
                 fpath.suffix.lower() in ALLOWED_JBROWSE_SUFFIXES
                 or compound_suffix in ALLOWED_JBROWSE_SUFFIXES
             )
             download_allowed = in_downloads and fpath.suffix.lower() in ALLOWED_DOWNLOAD_SUFFIXES
-            if any(s in FORBIDDEN_EXTENSIONS for s in suffixes) and not (jbrowse_allowed or download_allowed):
+            pilot_allowed = in_pilots and fpath.suffix.lower() == ".bed"
+            if any(s in FORBIDDEN_EXTENSIONS for s in suffixes) and not (jbrowse_allowed or download_allowed or pilot_allowed):
                 problems.append(f"{rel} 禁止的文件类型（原始数据/工作簿/压缩包/坐标文件）")
             size_limit = MAX_JBROWSE_FILE_BYTES if in_jbrowse else (MAX_DOWNLOAD_FILE_BYTES if in_downloads else MAX_FILE_BYTES)
             if size > size_limit:
@@ -222,6 +238,10 @@ def main() -> int:
             # 2-4. 文本内容扫描
             if fpath.suffix.lower() in TEXT_EXTENSIONS and not is_pinned_jbrowse_vendor_asset(rel):
                 scan_text(fpath, rel, problems)
+
+            # 2-4b. localhost / API 依赖扫描（仅项目自产文本）
+            if fpath.suffix.lower() in TEXT_EXTENSIONS and not is_pinned_jbrowse_vendor_asset(rel):
+                scan_localhost_api(fpath, rel, problems)
 
             # 5. HTML 内部链接完整性
             if fpath.suffix.lower() in (".html", ".htm"):

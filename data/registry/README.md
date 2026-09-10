@@ -7,6 +7,7 @@
 - `batter_s1_source_registry.tsv` —— BATTER Table S1 的 22 个来源登记；
 - `batter_s1_publication_status.tsv` —— v0.1 release 对每个来源的公开发布判定、主资产、记录数与证据层；
 - `manifests/BATTER_S1_*.json` —— 22 个来源的机器可读 manifest，包含可复现性链接与仓库发布信息；
+- `remote_asset_audit.v0.2.0-hf.json` —— Hugging Face public asset 的不可变 revision 审计证据；它对应 canonical `release_version=v0.2.0`，不是一个新的 `v0.3.0` 数据 release；
 - `templates/external_literature_source_intake.tsv` —— 外部文献来源登记模板（26 列）。一行代表一个可独立处理的来源；同一论文中的不同物种、菌株、实验体系或参考版本应拆成多行。
 - `templates/external_literature_endpoint_schema.tsv` —— 端点标准表头（24 列）。一行代表一个端点或作者表中一个可追溯的观测；只有通过坐标核验的来源才建立端点表。
 
@@ -31,5 +32,6 @@
 ## 边界
 
 - 本目录只放登记表、schema 与小型元数据；端点级数据文件在逐来源审计通过前不进入本目录；
+- `remote_asset_audit.v0.2.0-hf.json` 只记录已登记 public object 的 URL、身份、HTTP 状态和 Range 证据；不包含上传 token、私有对象、staging bundle 或本机临时路径；
 - 作者原始补充表必须原样冻结保存在提交者本地，登记其文件名与 SHA-256，不复制进 git；
 - 本地 `raw/`、下载缓存与临时文件不进 GitHub（见根目录 `.gitignore`）。

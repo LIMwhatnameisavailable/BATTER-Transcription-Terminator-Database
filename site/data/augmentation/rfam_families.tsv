@@ -1,0 +1,121 @@
+rfam_id	name	description	category
+RF00013	6S	6S / SsrS RNA	sRNA
+RF00018	CsrB	CsrB/RsmB RNA family	sRNA
+RF00021	Spot_42	Spot 42 RNA	sRNA
+RF00022	GcvB	GcvB RNA	sRNA
+RF00033	MicF	MicF RNA	sRNA
+RF00034	RprA	RprA RNA	sRNA
+RF00035	OxyS	OxyS RNA	sRNA
+RF00050	FMN	FMN riboswitch (RFN element)	riboswitch
+RF00057	RyhB	RyhB RNA	sRNA
+RF00059	TPP	TPP riboswitch (THI element)	riboswitch
+RF00078	MicA	MicA sRNA	sRNA
+RF00079	OmrA-B	OmrA-B family	sRNA
+RF00081	ArcZ	ArcZ RNA	sRNA
+RF00082	SraG	SraG RNA	sRNA
+RF00083	GlmZ_SraJ	GlmZ RNA activator of glmS mRNA	sRNA
+RF00084	CsrC	CsrC RNA family	sRNA
+RF00101	SraC_RyeA	SraC/RyeA RNA	sRNA
+RF00106	RNAI	RNAI	sRNA
+RF00107	FinP	FinP	sRNA
+RF00110	RybB	RybB RNA	sRNA
+RF00111	SdsR_RyeB	SdsR_RyeB RNA	sRNA
+RF00112	CyaR_RyeE	CyaR/Rye RNA	sRNA
+RF00116	C0465	C0465 RNA	sRNA
+RF00117	C0719	C0719 RNA	sRNA
+RF00118	rydB	rydB RNA	sRNA
+RF00121	MicC	MicC RNA	sRNA
+RF00122	GadY	GadY	sRNA
+RF00124	IS102	IS102 RNA	sRNA
+RF00125	IS128	IS128 RNA	sRNA
+RF00126	ryfA	ryfA RNA	sRNA
+RF00128	GlmY_tke1	Glm Y RNA activator of glmS mRNA	sRNA
+RF00162	SAM	SAM riboswitch (S box leader)	riboswitch
+RF00166	PrrB_RsmZ	PrrB/RsmZ RNA family	sRNA
+RF00167	Purine	Purine riboswitch	riboswitch
+RF00174	Cobalamin	Cobalamin riboswitch	riboswitch
+RF00195	RsmY	RsmY RNA family	sRNA
+RF00230	T-box	T-box leader	leader
+RF00234	glmS	glmS glucosamine-6-phosphate activated ribozyme	riboswitch
+RF00238	ctRNA_pND324	ctRNA	sRNA
+RF00240	RNA-OUT	RNA-OUT	sRNA
+RF00242	ctRNA_pT181	ctRNA	sRNA
+RF00262	sar	sar RNA	sRNA
+RF00379	ydaO-yuaA	ydaO/yuaA leader	riboswitch
+RF00380	M-box	M-box riboswitch (ykoK leader)	riboswitch
+RF00388	Anti-Q_RNA	Anti-Q RNA	sRNA
+RF00442	ykkC-yxkD	Guanidine-I riboswitch	riboswitch
+RF00489	ctRNA_p42d	ctRNA	sRNA
+RF00504	Glycine	Glycine riboswitch	riboswitch
+RF00505	RydC	RydC RNA	sRNA
+RF00506	Thr_leader	Threonine operon leader	leader
+RF00512	Leu_leader	Leucine operon leader	leader
+RF00513	Trp_leader	Tryptophan operon leader	leader
+RF00514	His_leader	Histidine operon leader	leader
+RF00517	serC	serC leader	leader
+RF00518	speF	speF leader	leader
+RF00520	ybhL	ybhL leader	leader
+RF00521	SAM_alpha	SAM riboswitch (alpha-proteobacteria)	riboswitch
+RF00522	PreQ1	PreQ1 riboswitch	riboswitch
+RF00557	L10_leader	Ribosomal protein L10 leader	leader
+RF00558	L20_leader	Ribosomal protein L20 leader	leader
+RF00615	LhrA	Listeria Hfq binding LhrA	sRNA
+RF00624	P9	Pseudomonas sRNA P9	sRNA
+RF00625	P11	Pseudomonas sRNA P11	sRNA
+RF00628	RgsA	RgsA sRNA	sRNA
+RF00630	P26	Pseudomonas sRNA P26	sRNA
+RF00634	SAM-IV	S-adenosyl methionine (SAM) riboswitch	riboswitch
+RF01051	c-di-GMP-I	Cyclic di-GMP-I riboswitch	riboswitch
+RF01400	istR	istR Hfq binding RNA	sRNA
+RF01411	BsrF	BsrF	sRNA
+RF01412	BsrG	BsrG	sRNA
+RF01482	AdoCbl_riboswitch	AdoCbl riboswitch	riboswitch
+RF01690	Bacillaceae-1	Bacillaceae-1 RNA	sRNA
+RF01705	Flavo-1	Flavo-1 RNA	sRNA
+RF01706	Gut-1	Gut-1 RNA	sRNA
+RF01719	Pseudomon-1	Pseudomon-1/ErsA RNA	sRNA
+RF01725	SAM-I-IV-variant	SAM-I/IV variant riboswitch	riboswitch
+RF01770	rimP	Gammaprotebacteria rimP leader	leader
+RF01771	rnk_leader	Enterobacteria rnk leader	leader
+RF01772	rnk_pseudo	Pseudomonas rnk leader	leader
+RF01808	MicX	MicX Vibrio cholerae sRNA	sRNA
+RF01859	Phe_leader	Phenylalanine leader peptide	leader
+RF02029	sraA	sraA	sRNA
+RF02064	STnc370	Enterobacterial sRNA STnc370	sRNA
+RF02065	STnc340	Enterobacterial sRNA STnc340	sRNA
+RF02067	STnc310	Salmonella enterica sRNA STnc310	sRNA
+RF02074	STnc240	Enterobacterial sRNA STnc240	sRNA
+RF02075	STnc230	Enterobacterial sRNA STnc230	sRNA
+RF02083	OrzO-P	OrzO-P RNA antitoxin family	sRNA
+RF02084	STnc130	Enterobacteria sRNA STnc130	sRNA
+RF02223	sX4	Proteobacterial sRNA sX4	sRNA
+RF02242	Xoo5	Xanthomonadaceae sRNA Xoo5	sRNA
+RF02278	Betaproteobacteria_toxic_sRNA	Betaproteobacteria toxic small RNA	sRNA
+RF02371	PyrG_leader	PyrG leader	leader
+RF02399	NsiR1	Nitrogen stress-induced RNA 1	sRNA
+RF02432	SpF25_sRNA	Streptococcus sRNA SpF25	sRNA
+RF02433	SpF36_sRNA	Streptococcus sRNA SpF36	sRNA
+RF02447	SpR19_sRNA	Streptococcus sRNA SpR19	sRNA
+RF02495	ohsC_RNA	Oppression of Hydrophobic ORF by sRNA	sRNA
+RF02564	naRNA4	Nucleoid-associated noncoding RNA 4 (CssrE)	sRNA
+RF02579	tsr26	S. aureus tsr26 small RNA	sRNA
+RF02600	BASRCI27	Brucella sRNA CI27	sRNA
+RF02607	AbsR25	Acinetobacter sRNA 25	sRNA
+RF02621	BSnc120	Brucella sRNA 120	sRNA
+RF02630	Hrs12	Hfq-regulated sRNA 12	sRNA
+RF02728	HrrF	Haemophilus regulatory RNA responsive to iron	sRNA
+RF02732	JA04	Aggregatibacter sRNA JA04	sRNA
+RF02751	ES036	ES036 (CssrF) sRNA	sRNA
+RF02767	Ysr186_sR026_CsrC	Yersinia sRNA 186/sR026/CsrC	sRNA
+RF02834	VqmR	Vibrio RNA VqmR	sRNA
+RF02837	anti-hemB	Burkholderia RNA 7 (anti-hemB)	sRNA
+RF02841	Ref70	Enterococcus sRNA 70	sRNA
+RF02860	Arrc14	Actinobacillus sRNA 14	sRNA
+RF02867	ncS011	Burkholderia sRNA 11	sRNA
+RF02891	AgrB	ArsR-gov region gene B	sRNA
+RF02898	AaHKsRNA20	Aggregatibacter sRNA 20	sRNA
+RF02924	skipping-rope	skipping-rope RNA	sRNA
+RF03165	2dG-II	2dG-II purine riboswitch	riboswitch
+RF03166	glycine-GGAnGA	glycine-GGAnGA riboswitch	riboswitch
+RF03167	c-di-GMP-I-GGC	c-di-GMP-I-GGC riboswitch	riboswitch
+RF04180	BTnc231	Bacteroides sRNA BTnc231	sRNA

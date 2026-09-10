@@ -1,5 +1,9 @@
 # 当前 BTED 状态
 
+> **历史快照（2026-08-10）：** 本文件保留 v0.2 public demo 候选阶段的状态，不再作为当前
+> 部署或维护依据。最新有效状态请从 [`docs/HANDOFF.md`](HANDOFF.md) 开始；后文关于
+> Pages、PR 和待发布事项仅反映当时情况。
+
 **更新时间：** 2026-08-10
 **当前候选发布：** v0.2.0 public demo
 **详细发布说明：** [`docs/releases/v0.2.0.md`](releases/v0.2.0.md)

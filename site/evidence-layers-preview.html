@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore measured 3′-end signal, curated endpoint records, model context and regional predictions for Bacillus subtilis 168.">
+  <title>Genome evidence dashboard · BTED</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="index.html"><span class="brand-mark">BTED</span><span class="brand-name">Bacterial Transcript 3′ End Database</span></a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html">Home</a><a href="sources.html" aria-current="page">Genomes</a><a href="catalog.html">Download</a><a href="methodology.html">Data notes</a><a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<main class="page-shell evidence-preview">
+  <nav class="breadcrumbs"><a href="sources.html">Genomes</a><span>/</span><a href="assemblies/GCF_000009045.1.html">GCF_000009045.1</a><span>/</span><span>Evidence dashboard</span></nav>
+
+  <section class="evidence-hero" aria-labelledby="evidence-title">
+    <div class="evidence-hero-copy">
+      <p class="eyebrow">Genome evidence dashboard</p>
+      <h1 id="evidence-title">Explore the evidence behind this genome</h1>
+      <p class="evidence-hero-lede">Measured 3′-end signal, curated endpoint records and model output share one browser view—while each keeps its own evidence meaning.</p>
+    </div>
+    <a class="button primary" href="browser.html?config=%2Fapi%2Fassemblies%2FGCF_000009045.1%2Fjbrowse-config%3Fsource_id%3DBATTER_S1_003%26pilot%3Dthree-layer">Explore in genome browser</a>
+  </section>
+
+  <section class="evidence-context" aria-label="Genome context">
+    <div class="context-chip"><span class="eyebrow">Organism</span><strong><em>Bacillus subtilis</em> 168</strong><code>subsp. subtilis · str. 168</code></div>
+    <div class="context-chip"><span class="eyebrow">Assembly</span><strong>GCF_000009045.1</strong><code>NC_000964.3 · 4,215,606 nt</code></div>
+    <div class="context-chip"><span class="eyebrow">Study</span><strong>Rend-seq</strong><code>BATTER_S1_003 · GSE95211</code></div>
+    <div class="context-chip"><span class="eyebrow">Focus region</span><strong>18,000–28,000</strong><code>NC_000964.3 · 10 kb view</code></div>
+  </section>
+
+  <section class="evidence-dashboard" aria-labelledby="dashboard-title">
+    <div class="dashboard-heading">
+      <div><p class="eyebrow">One view, four kinds of evidence</p><h2 id="dashboard-title">What is available for this source</h2></div>
+      <p>Start with the experimental view, then use the model context and regional output as separate reading aids.</p>
+    </div>
+
+    <div class="evidence-group evidence-group-experimental">
+      <div class="evidence-group-heading"><span class="group-marker marker-experimental" aria-hidden="true"></span><div><h3>Experimental evidence</h3><p>What was measured or curated from experimental work.</p></div></div>
+      <div class="evidence-card-grid">
+        <article class="evidence-card evidence-card-signal">
+          <div class="evidence-card-header"><div><p class="card-kicker">Measured 3′-end signal</p><h4>Continuous strand-specific coverage</h4></div><span class="layer-status available">Available</span></div>
+          <div class="evidence-visual signal-visual" aria-hidden="true">
+            <svg viewBox="0 0 320 74" role="presentation"><line class="visual-axis" x1="10" y1="57" x2="310" y2="57"></line><path class="signal-plus" d="M10 51 C28 49 28 29 43 37 S65 52 78 31 S94 12 110 39 S132 48 145 26 S162 22 179 42 S197 53 211 28 S228 33 244 19 S263 37 278 30 S294 34 310 20"></path><path class="signal-minus" d="M10 64 C27 61 34 68 49 58 S71 63 84 53 S99 62 115 50 S136 66 153 56 S174 62 191 49 S208 60 225 55 S243 63 259 47 S282 61 298 51 S306 54 310 48"></path></svg>
+            <span class="visual-caption"><span class="strand-dot strand-dot-plus"></span>plus strand <span class="strand-dot strand-dot-minus"></span>minus strand</span>
+          </div>
+          <div class="evidence-metric"><strong>+ / −</strong><span>strand-specific signal tracks</span></div>
+          <p class="evidence-card-copy">Rend-seq signal from the source experiment, preserved as separate plus and minus tracks without normalization.</p>
+          <details class="technical-details"><summary>Technical details</summary><dl class="technical-list"><div><dt>Format</dt><dd>BigWig</dd></div><div><dt>Evidence class</dt><dd><code>observed_signal</code></dd></div><div><dt>Coordinate scope</dt><dd><code>NC_000964.3</code>, source-wide</dd></div><div><dt>Reading limit</dt><dd>Track height is independently scaled; compare raw y-axis values.</dd></div></dl></details>
+        </article>
+
+        <article class="evidence-card evidence-card-records">
+          <div class="evidence-card-header"><div><p class="card-kicker">Curated endpoint records</p><h4>Single-base records from the literature</h4></div><span class="layer-status available">Available</span></div>
+          <div class="evidence-visual points-visual" aria-hidden="true">
+            <svg viewBox="0 0 320 74" role="presentation"><line class="visual-axis" x1="10" y1="57" x2="310" y2="57"></line><line class="point-stem" x1="45" y1="57" x2="45" y2="30"></line><line class="point-stem" x1="94" y1="57" x2="94" y2="42"></line><line class="point-stem" x1="146" y1="57" x2="146" y2="20"></line><line class="point-stem" x1="209" y1="57" x2="209" y2="36"></line><line class="point-stem" x1="271" y1="57" x2="271" y2="26"></line><circle class="point-dot" cx="45" cy="30" r="4"></circle><circle class="point-dot" cx="94" cy="42" r="4"></circle><circle class="point-dot" cx="146" cy="20" r="4"></circle><circle class="point-dot" cx="209" cy="36" r="4"></circle><circle class="point-dot" cx="271" cy="26" r="4"></circle></svg>
+            <span class="visual-caption"><span class="point-caption-mark"></span>single-base endpoint positions</span>
+          </div>
+          <div class="evidence-metric"><strong>1,414</strong><span>curated records</span></div>
+          <p class="evidence-card-copy">Records curated from Lalanne Table S3 remain distinct from the continuous signal and are the canonical endpoint layer for this source.</p>
+          <details class="technical-details"><summary>Technical details</summary><dl class="technical-list"><div><dt>Format</dt><dd>TSV and BED6</dd></div><div><dt>Evidence class</dt><dd><code>curated_record</code></dd></div><div><dt>Coordinates</dt><dd>Biological positions are 1-based; BED uses 0-based half-open intervals.</dd></div><div><dt>Reading limit</dt><dd>Curated records are not each an independent functional validation, and no new re-call is added here.</dd></div></dl></details>
+        </article>
+      </div>
+    </div>
+
+    <div class="evidence-secondary-grid">
+    <div class="evidence-group evidence-group-context">
+      <div class="evidence-group-heading"><span class="group-marker marker-context" aria-hidden="true"></span><div><h3>Model context</h3><p>Useful provenance around model-based workflows, without inventing coordinates.</p></div></div>
+      <div class="evidence-card-grid evidence-card-grid-single">
+        <article class="evidence-card evidence-card-unavailable">
+          <div class="evidence-card-header"><div><p class="card-kicker">Training augmentation examples</p><h4>Coordinate-level examples are unavailable</h4></div><span class="layer-status unavailable">Unavailable</span></div>
+          <div class="evidence-visual unavailable-visual" aria-hidden="true"><div class="unavailable-dashes"><span></span><span></span><span></span><span></span><span></span></div><span class="visual-caption">No traceable track to display</span></div>
+          <div class="evidence-metric"><strong>Unavailable</strong><span>no coordinate-level instances</span></div>
+          <p class="evidence-card-copy">The source is associated with the augmentation workflow, but this assembly has no traceable instance coordinates or generation record that can be shown safely.</p>
+          <details class="technical-details"><summary>Technical details</summary><dl class="technical-list"><div><dt>Data status</dt><dd>Unavailable</dd></div><div><dt>Evidence class</dt><dd>Not assigned; no track emitted</dd></div><div><dt>Coordinates</dt><dd>No assembly, contig, start, end or strand instance is published here.</dd></div><div><dt>Reading limit</dt><dd>Coordinates are not inferred from nearby signal, endpoints or model output.</dd></div></dl></details>
+        </article>
+      </div>
+    </div>
+
+    <div class="evidence-group evidence-group-computational">
+      <div class="evidence-group-heading"><span class="group-marker marker-computational" aria-hidden="true"></span><div><h3>Computational output</h3><p>A regional model result, kept outside the experimental endpoint count.</p></div></div>
+      <div class="evidence-card-grid evidence-card-grid-single">
+        <article class="evidence-card evidence-card-predictions">
+          <div class="evidence-card-header"><div><p class="card-kicker">Model-predicted regions</p><h4>Regional BATTER-TPE output</h4></div><span class="layer-status pilot">Compatibility pilot</span></div>
+          <div class="evidence-visual prediction-visual" aria-hidden="true">
+            <svg viewBox="0 0 320 74" role="presentation"><line class="visual-axis" x1="10" y1="56" x2="310" y2="56"></line><rect class="prediction-interval prediction-interval-one" x="28" y="32" width="58" height="12" rx="3"></rect><rect class="prediction-interval prediction-interval-two" x="101" y="22" width="75" height="12" rx="3"></rect><rect class="prediction-interval prediction-interval-three" x="188" y="39" width="49" height="12" rx="3"></rect><rect class="prediction-interval prediction-interval-four" x="250" y="18" width="42" height="12" rx="3"></rect></svg>
+            <span class="visual-caption"><span class="interval-caption-mark"></span>candidate intervals, not single-base calls</span>
+          </div>
+          <div class="evidence-metric"><strong>11</strong><span>predicted regions <b>· 7 + / 4 −</b></span></div>
+          <p class="evidence-card-copy">A documented run of the official pretrained BATTER-TPE model over <code>NC_000964.3:18,000–28,000</code>. These non-experimental intervals are a regional compatibility pilot, not measured endpoints.</p>
+          <div class="evidence-card-links"><a href="data/pilots/BATTER_S1_003_batter_tpe_regional_pilot.bed">Download pilot BED</a><a href="data/pilots/BATTER_S1_003_batter_tpe_regional_pilot.provenance.json">View provenance</a></div>
+          <details class="technical-details"><summary>Technical details</summary><dl class="technical-list"><div><dt>Format</dt><dd>BED6 with model score and estimated false positives per kb</dd></div><div><dt>Evidence class</dt><dd><code>model_prediction</code>; <code>experimental=false</code></dd></div><div><dt>Coordinates</dt><dd><code>NC_000964.3:18,000–28,000</code>; intervals use BED 0-based half-open coordinates.</dd></div><div><dt>Reading limit</dt><dd>Scores are internal model confidence summaries, not validation probabilities; predictions stay outside the 1,414 experimental records.</dd></div></dl></details>
+        </article>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="panel compare-note" aria-labelledby="compare-title">
+    <div class="compare-note-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div><p class="eyebrow">Interpretation cue</p><h2 id="compare-title">Compare, don’t conflate</h2><p>Spatially nearby signal, curated records and model intervals can be inspected together in the browser. Proximity is useful for exploration, but it does not turn a prediction into a confirmed endpoint or change the endpoint count.</p></div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>BTED v0.3 preview</span><span>BATTER_S1_003 · Genome evidence dashboard</span><a href="https://github.com/seu-yolo/BATTER-Transcription-Terminator-Database">GitHub</a></div></footer>
+</body>
+</html>

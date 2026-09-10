@@ -29,12 +29,12 @@
         "id": "bted_linear_genome_view",
         "type": "LinearGenomeView",
         "offsetPx": 0,
-        "bpPerPx": 5.171,
+        "bpPerPx": 3.028,
         "displayedRegions": [
           {
             "refName": "NC_000913.2",
-            "start": 0,
-            "end": 5171,
+            "start": 8392,
+            "end": 11420,
             "reversed": false,
             "assemblyName": "ecoli_MG1655_NC_000913_2"
           }
@@ -55,79 +55,27 @@
           },
           {
             "id": "bted_track_2",
-            "type": "QuantitativeTrack",
-            "configuration": "experimental_3prime_signal.forward",
+            "type": "MultiQuantitativeTrack",
+            "configuration": "ecoli_strand_aware_3prime_signal",
             "minimized": false,
             "displays": [
               {
                 "id": "bted_display_2",
-                "type": "LinearWiggleDisplay",
-                "configuration": "experimental_3prime_signal.forward-LinearWiggleDisplay"
+                "type": "MultiLinearWiggleDisplay",
+                "configuration": "ecoli_strand_aware_3prime_signal-MultiLinearWiggleDisplay"
               }
             ]
           },
           {
             "id": "bted_track_3",
-            "type": "QuantitativeTrack",
-            "configuration": "experimental_3prime_signal.reverse",
+            "type": "FeatureTrack",
+            "configuration": "ecoli_geneproximal_combined",
             "minimized": false,
             "displays": [
               {
                 "id": "bted_display_3",
-                "type": "LinearWiggleDisplay",
-                "configuration": "experimental_3prime_signal.reverse-LinearWiggleDisplay"
-              }
-            ]
-          },
-          {
-            "id": "bted_track_4",
-            "type": "FeatureTrack",
-            "configuration": "experimental_3prime_candidates.forward.clean",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "bted_display_4",
                 "type": "LinearBasicDisplay",
-                "configuration": "experimental_3prime_candidates.forward.clean-LinearBasicDisplay"
-              }
-            ]
-          },
-          {
-            "id": "bted_track_5",
-            "type": "FeatureTrack",
-            "configuration": "experimental_3prime_candidates.reverse.clean",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "bted_display_5",
-                "type": "LinearBasicDisplay",
-                "configuration": "experimental_3prime_candidates.reverse.clean-LinearBasicDisplay"
-              }
-            ]
-          },
-          {
-            "id": "bted_track_6",
-            "type": "FeatureTrack",
-            "configuration": "experimental_3prime_geneproximal_candidates.forward",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "bted_display_6",
-                "type": "LinearBasicDisplay",
-                "configuration": "experimental_3prime_geneproximal_candidates.forward-LinearBasicDisplay"
-              }
-            ]
-          },
-          {
-            "id": "bted_track_7",
-            "type": "FeatureTrack",
-            "configuration": "experimental_3prime_geneproximal_candidates.reverse",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "bted_display_7",
-                "type": "LinearBasicDisplay",
-                "configuration": "experimental_3prime_geneproximal_candidates.reverse-LinearBasicDisplay"
+                "configuration": "ecoli_geneproximal_combined-LinearBasicDisplay"
               }
             ]
           }
@@ -162,6 +110,100 @@
       ]
     },
     {
+      "type": "MultiQuantitativeTrack",
+      "trackId": "ecoli_strand_aware_3prime_signal",
+      "name": "Signal · blue + above zero · orange − below zero",
+      "description": "Paired strand-specific Rend-seq signal from one experiment. Blue values above zero denote the + strand; orange values below zero denote the − strand. Display values are sign × log10(1 + raw signal). Negative values encode strand only, not negative experimental abundance. Raw untransformed strand tracks remain available in Full evidence view.",
+      "adapter": {
+        "type": "MultiWiggleAdapter",
+        "subadapters": [
+          {
+            "type": "BigWigAdapter",
+            "bigWigLocation": {
+              "uri": "assets/BATTER_S1_001__ecoli_experimental_3prime_signal.forward.signed-log10-ui-v4.bw",
+              "locationType": "UriLocation"
+            },
+            "name": "+ strand",
+            "source": "+",
+            "color": "#2563A6"
+          },
+          {
+            "type": "BigWigAdapter",
+            "bigWigLocation": {
+              "uri": "assets/BATTER_S1_001__ecoli_experimental_3prime_signal.reverse.signed-log10-ui-v4.bw",
+              "locationType": "UriLocation"
+            },
+            "name": "− strand",
+            "source": "-",
+            "color": "#D2691E"
+          }
+        ]
+      },
+      "displays": [
+        {
+          "type": "MultiLinearWiggleDisplay",
+          "displayId": "ecoli_strand_aware_3prime_signal-MultiLinearWiggleDisplay",
+          "defaultRendering": "xyplot",
+          "height": 170,
+          "showSidebar": true
+        }
+      ],
+      "category": [
+        "BTED compact view",
+        "Observed signal"
+      ],
+      "assemblyNames": [
+        "ecoli_MG1655_NC_000913_2"
+      ],
+      "metadata": {
+        "evidence_class": "observed_signal",
+        "strand_encoding": "+ strand blue; - strand orange",
+        "display_transform": "sign(strand) * log10(1 + raw_signal)",
+        "scale_note": "Paired series share one zero-centred display; raw tracks are retained separately."
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "ecoli_geneproximal_combined",
+      "name": "Candidates · blue → + strand · orange ← − strand",
+      "description": "Context-filtered candidate 3′-end peaks. The BED strand remains authoritative; right-pointing marks are + strand and left-pointing marks are − strand. Candidates are not terminator conclusions.",
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "assets/BATTER_S1_001__ecoli_geneproximal.combined.browser.gff3",
+          "locationType": "UriLocation"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "ecoli_geneproximal_combined-LinearBasicDisplay",
+          "height": 56,
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "showLabels": false,
+            "showDescriptions": false,
+            "color1": "jexl:get(feature,'strand')==1?'#2563A6':get(feature,'strand')==-1?'#D2691E':'#6B7280'",
+            "height": 12
+          }
+        }
+      ],
+      "category": [
+        "BTED compact view",
+        "Called endpoints"
+      ],
+      "assemblyNames": [
+        "ecoli_MG1655_NC_000913_2"
+      ],
+      "metadata": {
+        "evidence_class": "called_endpoint",
+        "strand_encoding": "+ strand blue/right arrow; - strand orange/left arrow",
+        "score_interpretation": "GFF3 score is the raw 3-prime-end signal support at the called position; BED6 score remains capped at 1000.",
+        "click_for_details": "Stable end ID, 1-based coordinate, strand, raw support, context and evidence warning.",
+        "warning": "Signal-derived candidate peak; not an experimentally proven terminator."
+      }
+    },
+    {
       "type": "QuantitativeTrack",
       "trackId": "experimental_3prime_signal.forward",
       "name": "Experimental 3-prime end signal (+ strand)",
@@ -173,6 +215,7 @@
         }
       },
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq"
       ],
       "assemblyNames": [
@@ -191,58 +234,7 @@
         }
       },
       "category": [
-        "Experimental Rend-seq"
-      ],
-      "assemblyNames": [
-        "ecoli_MG1655_NC_000913_2"
-      ]
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "experimental_3prime_candidates.forward.clean",
-      "name": "Candidate experimental 3-prime ends (+ strand)",
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "assets/BATTER_S1_001__experimental_3prime_candidates.forward.browser.bed",
-          "locationType": "UriLocation"
-        }
-      },
-      "displays": [
-        {
-          "type": "LinearBasicDisplay",
-          "displayId": "experimental_3prime_candidates.forward.clean-LinearBasicDisplay",
-          "showLabels": false,
-          "height": 36
-        }
-      ],
-      "category": [
-        "Experimental Rend-seq"
-      ],
-      "assemblyNames": [
-        "ecoli_MG1655_NC_000913_2"
-      ]
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "experimental_3prime_candidates.reverse.clean",
-      "name": "Candidate experimental 3-prime ends (- strand)",
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "assets/BATTER_S1_001__experimental_3prime_candidates.reverse.browser.bed",
-          "locationType": "UriLocation"
-        }
-      },
-      "displays": [
-        {
-          "type": "LinearBasicDisplay",
-          "displayId": "experimental_3prime_candidates.reverse.clean-LinearBasicDisplay",
-          "showLabels": false,
-          "height": 36
-        }
-      ],
-      "category": [
+        "Full evidence view",
         "Experimental Rend-seq"
       ],
       "assemblyNames": [
@@ -270,6 +262,7 @@
         }
       ],
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq - context filtered"
       ],
       "assemblyNames": [
@@ -297,6 +290,7 @@
         }
       ],
       "category": [
+        "Full evidence view",
         "Experimental Rend-seq - context filtered"
       ],
       "assemblyNames": [

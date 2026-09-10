@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1",
+  "dataset_id": "BATTER_S1_003",
+  "layer": "D",
+  "evidence_class": "model_prediction",
+  "label": "BATTER-TPE compatibility pilot",
+  "experimental": false,
+  "description": "Regional output from the official BATTER-TPE pretrained model under a documented compatibility environment. Intervals are model-predicted transcript 3-prime-end candidates, not experimentally measured endpoints.",
+  "assembly_accession": "GCF_000009045.1",
+  "contig": "NC_000964.3",
+  "reference_fasta_asset": "BATTER_S1_003__NC_000964.3.fna",
+  "reference_fasta_sha256": "a334e891ffc0e307f23f48842775d3383177a9d9cb5d5075b552a2cccddfe139",
+  "contig_length_bp": 4215606,
+  "input_region_1based_inclusive": "18000-28000",
+  "input_region_0based_half_open": [17999, 28000],
+  "coordinate_conversion": "BATTER output coordinates were BED 0-based relative to the extracted region; 17999 was added to start and end to restore NC_000964.3 genome coordinates.",
+  "edge_exclusion": "All 11 retained intervals are at least 861 nt from either edge of the 10001-nt pilot input.",
+  "output_file": "BATTER_S1_003_batter_tpe_regional_pilot.bed",
+  "output_format": "BED-like 7-column output: chrom, start, end, id, model_score, strand, estimated_false_positives_per_kb",
+  "prediction_count": 11,
+  "strand_counts": {"+": 7, "-": 4},
+  "score_range": [0.496, 0.89],
+  "official_repository": "https://github.com/xu-research-lab/BATTER",
+  "official_commit": "9133d2d36b60c238a1e36760a296eff9f001fb72",
+  "model_file": "model/batter.mdl.pt",
+  "model_sha256": "6d632a6d601f14925e91be2c54eed01ff72a94569e1cb92d5acb176d3039286e",
+  "model_program": "scripts/batter-tpe",
+  "command": "PYTHONPATH=<isolated-deps> python3 scripts/batter-tpe --fasta <tmp>/bsub_s1_003_region_18000_28000.fna --output <tmp>/bsub_s1_003_region_tpe.bed --device cpu --batch-size 32 --window-size 500 --stride 100 --top-k 2 --tmp-file <tmp>/bsub_s1_003_region_tpe.tmp --keep-tmp --verbose",
+  "runtime": {
+    "python": "3.13.5",
+    "torch": "2.11.0",
+    "transformers": "4.57.6",
+    "pyfaidx": "0.9.0.4",
+    "device": "cpu",
+    "model_compatibility_adjustment": "The isolated execution copy loaded the official state dict with strict=False because newer transformers registers encoder.embeddings.position_ids as an extra buffer; the only reported mismatch was this unexpected buffer. The CRF view operations were changed to reshape for torch 2.11 tensor contiguity compatibility. Official repository files were not modified."
+  },
+  "compatibility_sanity_check": {
+    "input": "Official examples/e.coli/genome.fna truncated to NC_000913.3:1-6000",
+    "official_reference_output": "examples/e.coli/TPE.bed",
+    "matching_intervals": "6 of 7 reference intervals in the 1-6000 region matched exactly (coordinates, strand and score).",
+    "known_difference": "The reference interval NC_000913.3:5032-5075 (+, score 0.902) was emitted as NC_000913.3:5036-5078 (+, score 0.912) under the compatibility environment; the other six intervals matched exactly.",
+    "interpretation": "This supports that the official model and output format are wired correctly, but the run is labelled a compatibility pilot rather than an exact reproduction of the authors' legacy environment."
+  },
+  "limitations": [
+    "This is a regional pilot, not a genome-wide BATTER run.",
+    "BATTER-TPE intervals and scores are computational predictions; they must not be merged into the experimental endpoint table.",
+    "The model output does not establish an exact single-base transcription end.",
+    "No C-layer augmentation track is included in this pilot."
+  ]
+}

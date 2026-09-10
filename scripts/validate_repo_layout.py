@@ -18,6 +18,7 @@ ALLOWED_TOP_LEVEL = {
     "scripts",
     "site",
     "tests",
+    "prototype",
 }
 REQUIRED_PATHS = {
     "data/audit/legacy/README.md",
@@ -91,3 +92,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+    "prototype",

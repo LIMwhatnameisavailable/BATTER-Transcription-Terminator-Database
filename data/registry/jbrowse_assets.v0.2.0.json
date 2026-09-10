@@ -1,0 +1,104 @@
+{
+  "assembly_accessions": [
+    "GCF_000005845.1",
+    "GCF_000006765.1",
+    "GCF_000006885.1",
+    "GCF_000008685.2",
+    "GCF_000009045.1",
+    "GCF_000009725.1",
+    "GCF_000009765.2",
+    "GCF_000010605.1",
+    "GCF_000022005.1",
+    "GCF_000147055.1",
+    "GCF_000195955.2",
+    "GCF_000203835.1",
+    "GCF_000739105.1",
+    "GCF_001456255.1",
+    "GCF_003054575.1",
+    "GCF_003932715.1",
+    "GCF_005519465.1",
+    "GCF_015710995.1",
+    "GCF_018282115.1"
+  ],
+  "asset_redistribution_policy": {
+    "path": "data/registry/batter_s1_asset_redistribution.v0.3.tsv",
+    "sha256": "af395b81cab15b4af1e082db3ef2a20f1c500000eefcd1adfa0f229456934178"
+  },
+  "bundle_basename": "BTED-v0.2.0-jbrowse",
+  "canonical_release_root": "data/public/v0.2.0",
+  "counts": {
+    "assembly_assets": 76,
+    "canonical_endpoint_assets": 21,
+    "raw_bigwig_assets": 8,
+    "total_assets": 105
+  },
+  "deduplicated_shared_references": [
+    {
+      "assembly_accession": "GCF_000739105.1",
+      "reason": "byte-identical FASTA/FAI/GFF3/TBI shared reference bundle",
+      "representative_source_id": "BATTER_S1_007",
+      "source_ids": [
+        "BATTER_S1_007",
+        "BATTER_S1_013"
+      ]
+    },
+    {
+      "assembly_accession": "GCF_005519465.1",
+      "reason": "byte-identical FASTA/FAI/GFF3/TBI shared reference bundle",
+      "representative_source_id": "BATTER_S1_015",
+      "source_ids": [
+        "BATTER_S1_015",
+        "BATTER_S1_017"
+      ]
+    }
+  ],
+  "deterministic": true,
+  "excluded": {
+    "asset_patterns": [
+      "candidate BED/GFF",
+      "signed-log/normalized display BigWig",
+      "JBrowse UI files/config"
+    ],
+    "source_ids": [
+      "BATTER_S1_002"
+    ]
+  },
+  "generator": "scripts/build_v03_jbrowse_asset_inventory.py",
+  "generator_version": "bted-jbrowse-asset-inventory-0.2.0",
+  "raw_bigwig_source_ids": [
+    "BATTER_S1_001",
+    "BATTER_S1_003",
+    "BATTER_S1_004",
+    "BATTER_S1_005"
+  ],
+  "release_version": "v0.2.0",
+  "row_count": 105,
+  "schema_version": "1.0",
+  "source_ids": [
+    "BATTER_S1_001",
+    "BATTER_S1_003",
+    "BATTER_S1_004",
+    "BATTER_S1_005",
+    "BATTER_S1_006",
+    "BATTER_S1_007",
+    "BATTER_S1_008",
+    "BATTER_S1_009",
+    "BATTER_S1_010",
+    "BATTER_S1_011",
+    "BATTER_S1_012",
+    "BATTER_S1_013",
+    "BATTER_S1_014",
+    "BATTER_S1_015",
+    "BATTER_S1_016",
+    "BATTER_S1_017",
+    "BATTER_S1_018",
+    "BATTER_S1_019",
+    "BATTER_S1_020",
+    "BATTER_S1_021",
+    "BATTER_S1_022"
+  ],
+  "supports_range": false,
+  "tsv_byte_size": 33813,
+  "tsv_path": "data/registry/jbrowse_assets.v0.2.0.tsv",
+  "tsv_sha256": "97100833876f309eb3c2cc638beb09f6d85f93afe3193b34c3a69ef32a85b3db"
+}
